@@ -80,7 +80,7 @@ Object Model
   pk     integer      The primary key of the export file.
   name   string       The name of the export file.
 
-### Generate Pointcloud object
+### Generate Export object
 
   Key        Value Type   Value Description
   ---------- ------------ ---------------------------------------------------------
@@ -122,3 +122,5 @@ Object Model
   --------- --------------------------------------------------- ---------------------------
   aoi       array of [aoi upload objects](#aoi-upload-object)   The uploaded AOI.
   success   boolean                                             The status of the upload.
+
+

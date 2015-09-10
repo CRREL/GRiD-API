@@ -354,13 +354,57 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/pointcl
 #### Response Format
 
 On success, the HTTP status code in the header response is `200` OK and
-the response body contains a [Generate pointcloud
-object](#generate-pointcloud-object) in JSON format.
+the response body contains a [Generate export
+object](#generate-export-object) in JSON format.
 
 #### Example
 
 ~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generate/pointcloud/?collects=100+102&send_email=True&file_export_options=collect
+~~~~
+
+~~~~ {.json}
+{
+  "started" : true,
+  "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
+}
+~~~~
+
+### Generate Raster Export
+
+Generate raster export for the given AOI primary key and collect primary
+keys.
+
+#### Endpoint
+
+~~~~ {.bash}
+GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/raster
+~~~~
+
+#### Request Parameters
+
+  Path parameter   Value
+  ---------------- -----------------------------
+  pk               The primary key of the AOI.
+
+  Query parameter         Value
+  ----------------------- ---------------------------------------------------------------------------------------------------------
+  collects                *Required*. A list of collection primary keys to include in the export, separated by `+` or `,`.
+  hsrs                    *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
+  file\_export\_options   *Optional*. Determine file merging strategy. Accepts `individual` and `collect`. Default: `individual`.
+  compressed              *Optional*. Whether or not to export compressed data. Default: True.
+  send\_email             *Optional*. Whether or not to notify user via email upon completion. Default: False.
+
+#### Response Format
+
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains a [Generate export
+object](#generate-export-object) in JSON format.
+
+#### Example
+
+~~~~ {.bash}
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generate/raster/?collects=100+102&send_email=True&file_export_options=collect
 ~~~~
 
 ~~~~ {.json}
