@@ -14,14 +14,15 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export
 
 #### Request Parameters
 
-| Query parameter | Value                                                  |
-|-----------------|--------------------------------------------------------|
-| geom            | _Optional_. A WKT geometry used to filter AOI results. |
+--------------------------------------------------------------------------------
+Query parameter     Value
+------------------- ------------------------------------------------------------
+geom                _Optional_. A WKT geometry used to filter AOI results.
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains an array of [AOI object](#aoi-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains an array of [AOI object](#aoi-object) in JSON format.
 
 #### Example
 
@@ -67,15 +68,15 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/{pk}
 
 #### Request Parameters
 
-| Path parameter | Value                        |
-|----------------|------------------------------|
-| pk             | The primary key for the AOI. |
+--------------------------------------------------------------------------------
+Path parameter     Value
+------------------ -------------------------------------------------------------
+pk                 The primary key for the AOI.
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains an [AOI Detail object](#aoi-detail-object) in JSON
-format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains an [AOI Detail object](#aoi-detail-object) in JSON format.
 
 #### Example
 
@@ -149,17 +150,19 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add
 
 #### Request Parameters
 
-| Query parameter | Value                                               |
-|-----------------|-----------------------------------------------------|
-| name            | _Required_. The name for the AOI.                   |
-| geom            | _Required_. A WKT geometry describing the AOI.      |
-| subscribe       | _Optional_. True, False, T, F, 1, 0. Default: false |
+--------------------------------------------------------------------------------
+Query parameter     Value
+------------------- ------------------------------------------------------------
+name                _Required_. The name for the AOI.
+
+geom                _Required_. A WKT geometry describing the AOI.
+
+subscribe           _Optional_. True, False, T, F, 1, 0. Default: false
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains an [Upload object](#aoi-detail-object) in JSON
-format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains an [Upload object](#aoi-detail-object) in JSON format.
 
 #### Example
 
@@ -193,15 +196,15 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/{pk}
 
 #### Request Parameters
 
-| Path parameter | Value                           |
-|----------------|---------------------------------|
-| pk             | The primary key for the export. |
+--------------------------------------------------------------------------------
+Path parameter    Value
+----------------- --------------------------------------------------------------
+pk                The primary key for the export.
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains an [Export Detail object](#export-detail-object) in JSON
-format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains an [Export Detail object](#export-detail-object) in JSON format.
 
 #### Example
 
@@ -252,14 +255,15 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname
 
 #### Request Parameters
 
-| Query parameter | Value                                          |
-|-----------------|------------------------------------------------|
-| geom            | _Required_. A WKT geometry describing the AOI. |
+--------------------------------------------------------------------------------
+Query parameter     Value
+------------------- ------------------------------------------------------------
+geom                _Required_. A WKT geometry describing the AOI.
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains a [Geoname object](#geoname-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains a [Geoname object](#geoname-object) in JSON format.
 
 #### Example
 
@@ -286,15 +290,15 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/{task_id}
 
 #### Request Parameters
 
-| Path parameter | Value               |
-|----------------|---------------------|
-| task_id        | The ID of the task. |
+--------------------------------------------------------------------------------
+Path parameter     Value
+------------------ -------------------------------------------------------------
+task_id            The ID of the task.
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains an [Task object](#export-detail-object) in JSON
-format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains an [Task object](#export-detail-object) in JSON format.
 
 #### Example
 
@@ -324,19 +328,22 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/pointcl
 
 #### Request Parameters
 
-| Path parameter | Value                       |
-|----------------|-----------------------------|
-| pk             | The primary key of the AOI. |
+--------------------------------------------------------------------------------
+Path parameter     Value
+------------------ -------------------------------------------------------------
+pk                 The primary key of the AOI.
+--------------------------------------------------------------------------------
 
-| Query parameter | Value                                                          |
-|-----------------|----------------------------------------------------------------|
-| collects        | _Required_. A list of collection IDs to include in the export. |
+--------------------------------------------------------------------------------
+Query parameter     Value
+------------------- ------------------------------------------------------------
+collects            _Required_. A list of collection IDs to include in the
+                    export.
+--------------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the
-response body contains a [Generate pointcloud object](#generate-pointcloud-object)
-in JSON format.
+On success, the HTTP status code in the header response is `200` OK and the response body contains a [Generate pointcloud object](#generate-pointcloud-object) in JSON format.
 
 #### Example
 
@@ -355,16 +362,16 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generat
 
 ### AOI object
 
-| Key         | Value Type | Value Description                                           |
-|-------------|------------|-------------------------------------------------------------|
-| name        | string     | The name of the AOI.                                        |
-| geometry    | string     | The WKT geometry of the AOI.                                |
-| notes       | string     | User notes.                                                 |
-| is_active   | boolean    | Whether or not the AOI is active.                           |
-| source      | string     | Source of the AOI (e.g., map, api).                         |
-| num_exports | string     | The number of exports that have been generated for the AOI. |
-| pk          | integer    | The primary key of the AOI.                                 |
-| created_at  | timestamp  | Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`   |
+Key          Value Type Value Description
+------------ ---------- ------------------------------------------------
+name         string     The name of the AOI.
+geometry     string     The WKT geometry of the AOI.
+notes        string     User notes.
+is\_active   boolean    Whether or not the AOI is active.
+source       string     Source of the AOI (e.g., map, api).
+num\_exports string     The number of exports that have been generated for the AOI.
+pk           integer    The primary key of the AOI.
+created\_at  timestamp  Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
 
 ### AOI object2
 
