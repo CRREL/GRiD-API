@@ -1,10 +1,20 @@
+I've written these up in Pandoc markdown, which is easily converted to GitHub Flavored Markdown, strict markdown, reStructuredText, HTML, PDF, Microsoft Word, etc.
+
+For example,
+
+```
+pandoc api.md objects.md -o api.html --highlight-style tango -s
+```
+
+I'll work on making sure the stuff below is ported into api.md or objects.md as appropriate.
+
 1. AOI List  
   * Description: Returns a JSON list of all AOIs for the requesting user, AOI list can be filtered based on the passing of a geom parameter as a selection area.  
   * Example: /api/export/?geom=POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))
 2. AOI Details  
   * Description: Returns JSON formatted details for a given AOI based on a provided pk.
   * Example: /api/export/100/
-  * Options: 
+  * Options:
     - datatype: Used to filter the collects returned on the given type. Accepts 'pointcloud' or 'raster'. String.  If not given collects with all types will be returned.
    * Example: /api/export/100/?datatype=pointcloud
 3. AOI Add
@@ -44,4 +54,3 @@
     - compressed: Boolean.  Defaults to True.
     - send_email: Boolean.  Defaults to False.
   * Example: /api/export/aoi/101/generate/raster/?collects=100+102&send_email=True&file_export_options=collect
-  

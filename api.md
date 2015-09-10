@@ -29,15 +29,15 @@ format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/?geom=POLYGON ((62.1873999999999967 34.3468000000000018, 62.1873999999999967 34.3451999999999984, 62.1901000000000010 34.3451999999999984, 62.1901000000000010 34.3468000000000018, 62.1873999999999967 34.3468000000000018))
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
 ~~~~
 
 ~~~~ {.json}
 {
   "self_aoi_list": [
     {
-      "name": "Citadel",
-      "geometry": "POLYGON ((62.1873999999999967 34.3468000000000018, 62.1873999999999967 34.3451999999999984, 62.1901000000000010 34.3451999999999984, 62.1901000000000010 34.3468000000000018, 62.1873999999999967 34.3468000000000018))",
+      "name": "myFirstAOI",
+      "geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
       "notes": "",
       "is_active": true,
       "source": "api",
@@ -45,8 +45,8 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/?geom=POLY
       "pk": 1959,
       "created_at": "2015-07-07 23:30:29.088539"
     }, {
-      "name": "GQ",
-      "geometry": "POLYGON ((62.1864787493088969 34.3478412788699998, 62.1864787493088969 34.3420833670284011, 62.2000399980870995 34.3420833670284011, 62.1999970827424988 34.3478412788699998, 62.1981517229404020 34.3478589949110997, 62.1954265985821024 34.3478589949113982, 62.1905771646832974 34.3478589949115971, 62.1864787493088969 34.3478412788699998))",
+      "name": "mySecondAOI",
+      "geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
       "notes": "",
       "is_active": true,
       "source": "map",
@@ -92,7 +92,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
     {
       "status": "SUCCESS",
       "stated_at": "2015-07-07 23:33:24.247148",
-      "name": "Citadel_WGS84-UTMzone41N_2015-Jul-07.zip",
+      "name": "ExportNumberOne.zip",
       "datatype": "LAS 1.2",
       "hsrs": 32641,
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/3561/",
@@ -100,7 +100,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
     }, {
       "status": "SUCCESS",
       "stated_at": "2015-07-07 23:31:32.584232",
-      "name": "Citadel_WGS84-UTMzone41N_2015-Jul-07.zip",
+      "name": "ExportNumberTwo.zip",
       "datatype": "DSM",
       "hsrs": 32641,
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/3560/",
@@ -110,12 +110,12 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
   "aoi": [
     {
       "fields": {
-        "name": "Citadel",
+        "name": "myFirstAOI",
         "created_at": "2015-07-07T23:30:29.088",
         "is_active": true,
         "source": "api",
         "user": 90,
-        "clip_geometry": "POLYGON ((62.1873999999999967 34.3468000000000018, 62.1873999999999967 34.3451999999999984, 62.1901000000000010 34.3451999999999984, 62.1901000000000010 34.3468000000000018, 62.1873999999999967 34.3468000000000018))",
+        "clip_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
         "notes": ""
       },
       "model": "export.aoi",
@@ -125,13 +125,13 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
   "collects": [
     {
       "fields": {
-        "name": "20110914_00_0_UFO"
+        "name": "CollectA"
       },
       "model": "loaddata.collect",
       "pk": 2298
     }, {
       "fields": {
-        "name": "20111123_00_0_UFO"
+        "name": "CollectB"
       },
       "model": "loaddata.collect",
       "pk": 3109
@@ -167,16 +167,16 @@ JSON format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add/?name=test&geom=POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))&subscribe=True
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add/?name=test&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&subscribe=True
 ~~~~
 
 ~~~~ {.json}
 {
   "aoi": [
     {
-      "geometry": "POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))",
+      "geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
       "pk": 2086,
-      "name": "test",
+      "name": "uploadedAOI",
       "subscribed": true
     }
   ],
@@ -218,14 +218,14 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/312
     {
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
       "pk": 30359,
-      "name": "LAS_Kabul-24-Sep.BuckEye.09317_Kabul_Site09.GRiD.20150511.1839.laz"
+      "name": "ExportedFile.laz"
     }
   ],
   "tda_set": [
     {
       "status": "SUCCESS",
       "tda_type": "Los",
-      "name": "RAD M91",
+      "name": "LineOfSightResult",
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/tda/download/1069/",
       "created_at": "2015-05-12 18:25:05.082077",
       "pk": 1069,
@@ -233,7 +233,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/312
     }, {
       "status": "SUCCESS",
       "tda_type": "Hlz",
-      "name": "Chinook",
+      "name": "HelicopterLandingZoneResult",
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/tda/download/1068/",
       "created_at": "2015-05-12 18:24:20.701910",
       "pk": 1068,
@@ -268,13 +268,13 @@ format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname/?geom=POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
 ~~~~
 
 ~~~~ {.json}
 {
-  "name": "Marghah Ghar",
-  "provided_geometry": "POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))"
+  "name": "Some Place",
+  "provided_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
 }
 ~~~~
 
@@ -333,12 +333,9 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/pointcl
   ----------------- ------------------------------------------------------
   pk                The primary key of the AOI.
 
-  -------------------------------------------------------------------------
   Query parameter    Value
-  ------------------ ------------------------------------------------------
-  collects           *Required*. A list of collection IDs to include in the
-                     export.
-  -------------------------------------------------------------------------
+  ------------------ --------------------------------------------------------------
+  collects           *Required*. A list of collection IDs to include in the export.
 
 #### Response Format
 
@@ -358,128 +355,3 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generat
   "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
 }
 ~~~~
-
-Object Model
-------------
-
-### AOI object
-
-  Key            Value Type   Value Description
-  -------------- ------------ -------------------------------------------------------------
-  name           string       The name of the AOI.
-  geometry       string       The WKT geometry of the AOI.
-  notes          string       User notes.
-  is\_active     boolean      Whether or not the AOI is active.
-  source         string       Source of the AOI (e.g., map, api).
-  num\_exports   string       The number of exports that have been generated for the AOI.
-  pk             integer      The primary key of the AOI.
-  created\_at    timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
-
-### AOI object2
-
-  Key                     Value Type   Value Description
-  ----------------------- ------------ -------------------------------------
-  fields.name             string       The name of the AOI.
-  fields.created\_at      timestamp    ISO 8601 format as UTC.
-  fields.is\_active       boolean      Whether or not the AOI is active.
-  fields.source           string       Source of the AOI (e.g., map, api).
-  fields.user             integer      The id of the creating user.
-  fields.clip\_geometry   string       The WKT geometry of the AOI.
-  fields.notes            string       User notes.
-  model                   string       The model (e.g., export.aoi).
-  pk                      integer      The primary key of the AOI.
-
-### AOI Detail object
-
-  Key           Value Type                                    Value Description
-  ------------- --------------------------------------------- ----------------------------
-  export\_set   array of [exports objects](#export-object)    The exports of the AOI.
-  aoi           array of [aoi objects](#aoi-object2)          The AOI detail (repeated).
-  collects      array of [collect objects](#collect-object)   The collects for the AOI.
-
-### AOI Upload object
-
-  Key          Value Type   Value Description
-  ------------ ------------ ---------------------------------------------------
-  geometry     string       WKT of the uploaded AOI.
-  pk           integer      The primary key of the uploaded AOI.
-  name         string       The name of the uploaded AOI.
-  subscribed   boolean      Whether or not the user is subscribed to the AOI.
-
-### Collect object
-
-  Key           Value Type   Value Description
-  ------------- ------------ -------------------------------------
-  fields.name   string       The name of the collect.
-  model         string       The model (e.g., loaddata.collect).
-  pk            integer      The primary key of the collect.
-
-### Export object
-
-  Key          Value Type   Value Description
-  ------------ ------------ -----------------------------------------------------------
-  status       string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
-  stated\_at   timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
-  name         string       The name of the export.
-  datatype     string       The datatype (e.g., LAS 1.2, DTM).
-  hsrs         integer      The Horizontal Spatial Reference System EPSG code.
-  url          string       The download URL of the export.
-  pk           integer      The primary key of the export.
-
-### Export Detail object
-
-  Key           Value Type                                            Value Description
-  ------------- ----------------------------------------------------- -------------------------------------
-  exportfiles   array of [Exportfiles objects](#exportfiles-object)   The export files of the export set.
-  tda\_set      array of [TDA Set objects](#tda-set-object)           The TDAs of the export set.
-
-### Exportfiles object
-
-  Key    Value Type   Value Description
-  ------ ------------ --------------------------------------
-  url    string       The download URL of the export file.
-  pk     integer      The primary key of the export file.
-  name   string       The name of the export file.
-
-### Generate Pointcloud object
-
-  Key        Value Type   Value Description
-  ---------- ------------ ---------------------------------------------------------
-  started    boolean      Whether or not the point cloud export task has started.
-  task\_id   string       The id of the task.
-
-### Geoname object
-
-  Key                  Value Type   Value Description
-  -------------------- ------------ -------------------------------------------
-  name                 string       The suggested name.
-  provided\_geometry   string       WKT used to determine the suggested name.
-
-### Task object
-
-  Key               Value Type   Value Description
-  ----------------- ------------ -------------------------------------------------------------
-  task\_traceback   string       TBD
-  task\_state       string       The state of the task (e.g., SUCCESS, FAILED, QUEUED).
-  task\_tstamp      timestamp    ISO 8601 format as UTC.
-  task\_name        string       The name of the task (e.g., export.tasks.generate\_export).
-  task\_id          string       The id of the task.
-
-### TDA Set object
-
-  Key           Value Type   Value Description
-  ------------- ------------ -----------------------------------------------------------
-  status        string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
-  tda\_type     string       The TDA type (e.g., Hlz, Los).
-  name          string       The name of the TDA.
-  url           string       The download URL of the TDA.
-  created\_at   timestamp    Time of creation for the TDA: `YYYY-MM-DD HH24:MI:SS.FF6`
-  pk            integer      The primary key of the TDA.
-  notes         string       User notes.
-
-### Upload object
-
-  Key       Value Type                                          Value Description
-  --------- --------------------------------------------------- ---------------------------
-  aoi       array of [aoi upload objects](#aoi-upload-object)   The uploaded AOI.
-  success   boolean                                             The status of the upload.
