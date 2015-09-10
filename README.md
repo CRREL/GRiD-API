@@ -8,12 +8,6 @@ pandoc endpoints.md objects.md -o api.html --highlight-style tango -s
 
 I'll work on making sure the stuff below is ported into api.md or objects.md as appropriate.
 
-2. AOI Details  
-  * Description: Returns JSON formatted details for a given AOI based on a provided pk.
-  * Example: /api/export/100/
-  * Options:
-    - datatype: Used to filter the collects returned on the given type. Accepts 'pointcloud' or 'raster'. String.  If not given collects with all types will be returned.
-   * Example: /api/export/100/?datatype=pointcloud
 7. Pointcloud Export
   * Description: Allows for initiation of pointcloud exports via an url call with a provided AOI pk and the pks of the collects to be included. Multiple collect pks can be used, if separated by a '+' or ','.  Additional options may also be included.  Options not passed will use default values for exporting.
   * Example: /api/export/aoi/101/generate/pointcloud/?collects=100+102

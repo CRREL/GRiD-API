@@ -16,9 +16,9 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export
 
 #### Request Parameters
 
-  Query parameter    Value
-  ------------------ ------------------------------------------------------
-  geom               *Optional*. A WKT geometry used to filter AOI results.
+  Query parameter   Value
+  ----------------- --------------------------------------------------------
+  geom              *Optional*. A WKT geometry used to filter AOI results.
 
 #### Response Format
 
@@ -70,9 +70,13 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/{pk}
 
 #### Request Parameters
 
-  Path parameter    Value
-  ----------------- ------------------------------------------------------
-  pk                The primary key for the AOI.
+  Path parameter   Value
+  ---------------- ------------------------------
+  pk               The primary key for the AOI.
+
+  Query parameter   Value
+  ----------------- ------------------------------------------------------------------------------------------------------------------------
+  datatype          Filter collects by datatype. Accepts `pointcloud` or `raster`. If not given, collects with all types will be returned.
 
 #### Response Format
 
@@ -152,11 +156,11 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add
 
 #### Request Parameters
 
-  Query parameter    Value
-  ------------------ ------------------------------------------------------
-  name               *Required*. The name for the AOI.
-  geom               *Required*. A WKT geometry describing the AOI.
-  subscribe          *Optional*. True, False, T, F, 1, 0. Default: false
+  Query parameter   Value
+  ----------------- -----------------------------------------------------
+  name              *Required*. The name for the AOI.
+  geom              *Required*. A WKT geometry describing the AOI.
+  subscribe         *Optional*. True, False, T, F, 1, 0. Default: false
 
 #### Response Format
 
@@ -197,7 +201,7 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/{pk}
 #### Request Parameters
 
   Path parameter   Value
-  ---------------- -------------------------------------------------------
+  ---------------- ---------------------------------
   pk               The primary key for the export.
 
 #### Response Format
@@ -255,9 +259,9 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname
 
 #### Request Parameters
 
-  Query parameter    Value
-  ------------------ ------------------------------------------------------
-  geom               *Required*. A WKT geometry describing the AOI.
+  Query parameter   Value
+  ----------------- ------------------------------------------------
+  geom              *Required*. A WKT geometry describing the AOI.
 
 #### Response Format
 
@@ -290,9 +294,9 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/{task_id}
 
 #### Request Parameters
 
-  Path parameter    Value
-  ----------------- ------------------------------------------------------
-  task\_id          The ID of the task.
+  Path parameter   Value
+  ---------------- ---------------------
+  task\_id         The ID of the task.
 
 #### Response Format
 
@@ -329,13 +333,13 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/pointcl
 
 #### Request Parameters
 
-  Path parameter    Value
-  ----------------- ------------------------------------------------------
-  pk                The primary key of the AOI.
+  Path parameter   Value
+  ---------------- -----------------------------
+  pk               The primary key of the AOI.
 
-  Query parameter    Value
-  ------------------ --------------------------------------------------------------
-  collects           *Required*. A list of collection IDs to include in the export.
+  Query parameter   Value
+  ----------------- ----------------------------------------------------------------
+  collects          *Required*. A list of collection IDs to include in the export.
 
 #### Response Format
 
