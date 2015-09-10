@@ -1,6 +1,8 @@
-# GRiD API
+GRiD API
+========
 
-## API Endpoint Reference
+API Endpoint Reference
+----------------------
 
 ### Get a User's AOI List
 
@@ -8,29 +10,29 @@ Get a list of the AOIs created by or shared with the current GRiD user.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Query parameter     Value
-------------------- ------------------------------------------------------------
-geom                _Optional_. A WKT geometry used to filter AOI results.
---------------------------------------------------------------------------------
+  Query parameter    Value
+  ------------------ ------------------------------------------------------
+  geom               *Optional*. A WKT geometry used to filter AOI results.
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains an array of [AOI object](#aoi-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains an array of [AOI object](#aoi-object) in JSON
+format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/?geom=POLYGON ((62.1873999999999967 34.3468000000000018, 62.1873999999999967 34.3451999999999984, 62.1901000000000010 34.3451999999999984, 62.1901000000000010 34.3468000000000018, 62.1873999999999967 34.3468000000000018))
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "self_aoi_list": [
     {
@@ -54,7 +56,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/?geom=POLY
     }
   ]
 }
-```
+~~~~
 
 ### Get AOI Details
 
@@ -62,29 +64,29 @@ Get information for a single AOI.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/{pk}
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Path parameter     Value
------------------- -------------------------------------------------------------
-pk                 The primary key for the AOI.
---------------------------------------------------------------------------------
+  Path parameter    Value
+  ----------------- ------------------------------------------------------
+  pk                The primary key for the AOI.
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains an [AOI Detail object](#aoi-detail-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains an [AOI Detail object](#aoi-detail-object) in
+JSON format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "export_set": [
     {
@@ -136,7 +138,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
     }
   ]
 }
-```
+~~~~
 
 ### Add AOI
 
@@ -144,33 +146,31 @@ Create a new AOI for the given geometry.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Query parameter     Value
-------------------- ------------------------------------------------------------
-name                _Required_. The name for the AOI.
-
-geom                _Required_. A WKT geometry describing the AOI.
-
-subscribe           _Optional_. True, False, T, F, 1, 0. Default: false
---------------------------------------------------------------------------------
+  Query parameter    Value
+  ------------------ ------------------------------------------------------
+  name               *Required*. The name for the AOI.
+  geom               *Required*. A WKT geometry describing the AOI.
+  subscribe          *Optional*. True, False, T, F, 1, 0. Default: false
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains an [Upload object](#aoi-detail-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains an [Upload object](#aoi-detail-object) in
+JSON format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add/?name=test&geom=POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))&subscribe=True
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "aoi": [
     {
@@ -182,7 +182,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add/?name=
   ],
   "success": true
 }
-```
+~~~~
 
 ### Get Export Details
 
@@ -190,29 +190,29 @@ Get information for a single export.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/{pk}
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Path parameter    Value
------------------ --------------------------------------------------------------
-pk                The primary key for the export.
---------------------------------------------------------------------------------
+  Path parameter   Value
+  ---------------- -------------------------------------------------------
+  pk               The primary key for the export.
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains an [Export Detail object](#export-detail-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains an [Export Detail
+object](#export-detail-object) in JSON format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/3124
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "exportfiles": [
     {
@@ -241,7 +241,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/312
     }
   ]
 }
-```
+~~~~
 
 ### Lookup Geoname
 
@@ -249,64 +249,64 @@ Get suggested AOI name based on geographic coordinates of the geometry.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Query parameter     Value
-------------------- ------------------------------------------------------------
-geom                _Required_. A WKT geometry describing the AOI.
---------------------------------------------------------------------------------
+  Query parameter    Value
+  ------------------ ------------------------------------------------------
+  geom               *Required*. A WKT geometry describing the AOI.
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains a [Geoname object](#geoname-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains a [Geoname object](#geoname-object) in JSON
+format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname/?geom=POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "name": "Marghah Ghar",
   "provided_geometry": "POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))"
 }
-```
+~~~~
 
 ### Get Task Details
 
-Get task status/details for the provided task_id.
+Get task status/details for the provided task\_id.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/{task_id}
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Path parameter     Value
------------------- -------------------------------------------------------------
-task_id            The ID of the task.
---------------------------------------------------------------------------------
+  Path parameter    Value
+  ----------------- ------------------------------------------------------
+  task\_id          The ID of the task.
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains an [Task object](#export-detail-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains an [Task object](#export-detail-object) in
+JSON format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/bacb736e-e900-457c-9b24-fd409bc3019d/
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "task_traceback": "",
   "task_state": "SUCCESS",
@@ -314,170 +314,172 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/bacb7
   "task_name": "export.tasks.generate_export",
   "task_id": "774b4666-5706-4237-8661-df0f96cd7b9c"
 }
-```
+~~~~
 
 ### Generate Point Cloud Export
 
-Generate point cloud export for the given AOI primary key and collect IDs.
+Generate point cloud export for the given AOI primary key and collect
+IDs.
 
 #### Endpoint
 
-```{.bash}
+~~~~ {.bash}
 GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/pointcloud
-```
+~~~~
 
 #### Request Parameters
 
---------------------------------------------------------------------------------
-Path parameter     Value
------------------- -------------------------------------------------------------
-pk                 The primary key of the AOI.
---------------------------------------------------------------------------------
+  Path parameter    Value
+  ----------------- ------------------------------------------------------
+  pk                The primary key of the AOI.
 
---------------------------------------------------------------------------------
-Query parameter     Value
-------------------- ------------------------------------------------------------
-collects            _Required_. A list of collection IDs to include in the
-                    export.
---------------------------------------------------------------------------------
+  -------------------------------------------------------------------------
+  Query parameter    Value
+  ------------------ ------------------------------------------------------
+  collects           *Required*. A list of collection IDs to include in the
+                     export.
+  -------------------------------------------------------------------------
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and the response body contains a [Generate pointcloud object](#generate-pointcloud-object) in JSON format.
+On success, the HTTP status code in the header response is `200` OK and
+the response body contains a [Generate pointcloud
+object](#generate-pointcloud-object) in JSON format.
 
 #### Example
 
-```{.bash}
+~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generate/pointcloud/?collects=5439
-```
+~~~~
 
-```{.json}
+~~~~ {.json}
 {
   "started" : true,
   "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
 }
-```
+~~~~
 
-## Object Model
+Object Model
+------------
 
 ### AOI object
 
-Key          Value Type Value Description
------------- ---------- ------------------------------------------------
-name         string     The name of the AOI.
-geometry     string     The WKT geometry of the AOI.
-notes        string     User notes.
-is\_active   boolean    Whether or not the AOI is active.
-source       string     Source of the AOI (e.g., map, api).
-num\_exports string     The number of exports that have been generated for the AOI.
-pk           integer    The primary key of the AOI.
-created\_at  timestamp  Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  Key            Value Type   Value Description
+  -------------- ------------ -------------------------------------------------------------
+  name           string       The name of the AOI.
+  geometry       string       The WKT geometry of the AOI.
+  notes          string       User notes.
+  is\_active     boolean      Whether or not the AOI is active.
+  source         string       Source of the AOI (e.g., map, api).
+  num\_exports   string       The number of exports that have been generated for the AOI.
+  pk             integer      The primary key of the AOI.
+  created\_at    timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
 
 ### AOI object2
 
-| Key                  | Value Type | Value Description                   |
-|----------------------|------------|-------------------------------------|
-| fields.name          | string     | The name of the AOI.                |
-| fields.created_at    | timestamp  | ISO 8601 format as UTC.             |
-| fields.is_active     | boolean    | Whether or not the AOI is active.   |
-| fields.source        | string     | Source of the AOI (e.g., map, api). |
-| fields.user          | integer    | The id of the creating user.        |
-| fields.clip_geometry | string     | The WKT geometry of the AOI.        |
-| fields.notes         | string     | User notes.                         |
-| model                | string     | The model (e.g., export.aoi).       |
-| pk                   | integer    | The primary key of the AOI.         |
+  Key                     Value Type   Value Description
+  ----------------------- ------------ -------------------------------------
+  fields.name             string       The name of the AOI.
+  fields.created\_at      timestamp    ISO 8601 format as UTC.
+  fields.is\_active       boolean      Whether or not the AOI is active.
+  fields.source           string       Source of the AOI (e.g., map, api).
+  fields.user             integer      The id of the creating user.
+  fields.clip\_geometry   string       The WKT geometry of the AOI.
+  fields.notes            string       User notes.
+  model                   string       The model (e.g., export.aoi).
+  pk                      integer      The primary key of the AOI.
 
 ### AOI Detail object
 
-| Key         | Value Type | Value Description                                           |
-|-------------|------------|-------------------------------------------------------------|
-| export_set  | array of [exports objects](#export-object)  | The exports of the AOI.    |
-| aoi         | array of [aoi objects](#aoi-object2)        | The AOI detail (repeated). |
-| collects    | array of [collect objects](#collect-object) | The collects for the AOI.  |
+  Key           Value Type                                    Value Description
+  ------------- --------------------------------------------- ----------------------------
+  export\_set   array of [exports objects](#export-object)    The exports of the AOI.
+  aoi           array of [aoi objects](#aoi-object2)          The AOI detail (repeated).
+  collects      array of [collect objects](#collect-object)   The collects for the AOI.
 
 ### AOI Upload object
 
-| Key         | Value Type | Value Description                                           |
-|-------------|------------|-------------------------------------------------------------|
-| geometry    | string     | WKT of the uploaded AOI.                                    |
-| pk          | integer    | The primary key of the uploaded AOI.                        |
-| name        | string     | The name of the uploaded AOI.                               |
-| subscribed  | boolean    | Whether or not the user is subscribed to the AOI.           |
+  Key          Value Type   Value Description
+  ------------ ------------ ---------------------------------------------------
+  geometry     string       WKT of the uploaded AOI.
+  pk           integer      The primary key of the uploaded AOI.
+  name         string       The name of the uploaded AOI.
+  subscribed   boolean      Whether or not the user is subscribed to the AOI.
 
 ### Collect object
 
-| Key         | Value Type | Value Description                   |
-|-------------|------------|-------------------------------------|
-| fields.name | string     | The name of the collect.            |
-| model       | string     | The model (e.g., loaddata.collect). |
-| pk          | integer    | The primary key of the collect.     |
+  Key           Value Type   Value Description
+  ------------- ------------ -------------------------------------
+  fields.name   string       The name of the collect.
+  model         string       The model (e.g., loaddata.collect).
+  pk            integer      The primary key of the collect.
 
 ### Export object
 
-| Key       | Value Type | Value Description                                         |
-|-----------|------------|-----------------------------------------------------------|
-| status    | string     | The status of the export (e.g., SUCCESS, FAILED, QUEUED). |
-| stated_at | timestamp  | Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6` |
-| name      | string     | The name of the export.                                   |
-| datatype  | string     | The datatype (e.g., LAS 1.2, DTM).                        |
-| hsrs      | integer    | The Horizontal Spatial Reference System EPSG code.        |
-| url       | string     | The download URL of the export.                           |
-| pk        | integer    | The primary key of the export.                            |
+  Key          Value Type   Value Description
+  ------------ ------------ -----------------------------------------------------------
+  status       string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+  stated\_at   timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  name         string       The name of the export.
+  datatype     string       The datatype (e.g., LAS 1.2, DTM).
+  hsrs         integer      The Horizontal Spatial Reference System EPSG code.
+  url          string       The download URL of the export.
+  pk           integer      The primary key of the export.
 
 ### Export Detail object
 
-| Key         | Value Type                                          | Value Description                   |
-|-------------|-----------------------------------------------------|-------------------------------------|
-| exportfiles | array of [Exportfiles objects](#exportfiles-object) | The export files of the export set. |
-| tda_set     | array of [TDA Set objects](#tda-set-object)         | The TDAs of the export set.         |
+  Key           Value Type                                            Value Description
+  ------------- ----------------------------------------------------- -------------------------------------
+  exportfiles   array of [Exportfiles objects](#exportfiles-object)   The export files of the export set.
+  tda\_set      array of [TDA Set objects](#tda-set-object)           The TDAs of the export set.
 
 ### Exportfiles object
 
-| Key       | Value Type | Value Description                                         |
-|-----------|------------|-----------------------------------------------------------|
-| url       | string     | The download URL of the export file.                      |
-| pk        | integer    | The primary key of the export file.                       |
-| name      | string     | The name of the export file.                              |
+  Key    Value Type   Value Description
+  ------ ------------ --------------------------------------
+  url    string       The download URL of the export file.
+  pk     integer      The primary key of the export file.
+  name   string       The name of the export file.
 
 ### Generate Pointcloud object
 
-| Key     | Value Type | Value Description                                       |
-|---------|------------|---------------------------------------------------------|
-| started | boolean    | Whether or not the point cloud export task has started. |
-| task_id | string     | The id of the task.                                     |
+  Key        Value Type   Value Description
+  ---------- ------------ ---------------------------------------------------------
+  started    boolean      Whether or not the point cloud export task has started.
+  task\_id   string       The id of the task.
 
 ### Geoname object
 
-| Key               | Value Type | Value Description                         |
-|-------------------|------------|-------------------------------------------|
-| name              | string     | The suggested name.                       |
-| provided_geometry | string     | WKT used to determine the suggested name. |
+  Key                  Value Type   Value Description
+  -------------------- ------------ -------------------------------------------
+  name                 string       The suggested name.
+  provided\_geometry   string       WKT used to determine the suggested name.
 
 ### Task object
 
-| Key            | Value Type | Value Description                                          |
-|----------------|------------|------------------------------------------------------------|
-| task_traceback | string     | TBD                                                        |
-| task_state     | string     | The state of the task (e.g., SUCCESS, FAILED, QUEUED).     |
-| task_tstamp    | timestamp  | ISO 8601 format as UTC.                                    |
-| task_name      | string     | The name of the task (e.g., export.tasks.generate_export). |
-| task_id        | string     | The id of the task.                                        |
+  Key               Value Type   Value Description
+  ----------------- ------------ -------------------------------------------------------------
+  task\_traceback   string       TBD
+  task\_state       string       The state of the task (e.g., SUCCESS, FAILED, QUEUED).
+  task\_tstamp      timestamp    ISO 8601 format as UTC.
+  task\_name        string       The name of the task (e.g., export.tasks.generate\_export).
+  task\_id          string       The id of the task.
 
 ### TDA Set object
 
-| Key        | Value Type | Value Description                                         |
-|------------|------------|-----------------------------------------------------------|
-| status     | string     | The status of the export (e.g., SUCCESS, FAILED, QUEUED). |
-| tda_type   | string     | The TDA type (e.g., Hlz, Los).                            |
-| name       | string     | The name of the TDA.                                      |
-| url        | string     | The download URL of the TDA.                              |
-| created_at | timestamp  | Time of creation for the TDA: `YYYY-MM-DD HH24:MI:SS.FF6` |
-| pk         | integer    | The primary key of the TDA.                               |
-| notes      | string     | User notes.                                               |
+  Key           Value Type   Value Description
+  ------------- ------------ -----------------------------------------------------------
+  status        string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+  tda\_type     string       The TDA type (e.g., Hlz, Los).
+  name          string       The name of the TDA.
+  url           string       The download URL of the TDA.
+  created\_at   timestamp    Time of creation for the TDA: `YYYY-MM-DD HH24:MI:SS.FF6`
+  pk            integer      The primary key of the TDA.
+  notes         string       User notes.
 
 ### Upload object
 
-| Key         | Value Type                                         | Value Description         |
-|-------------|----------------------------------------------------|---------------------------|
-| aoi         | array of [aoi upload objects](#aoi-upload-object)  | The uploaded AOI.         |
-| success     | boolean                                            | The status of the upload. |
+  Key       Value Type                                          Value Description
+  --------- --------------------------------------------------- ---------------------------
+  aoi       array of [aoi upload objects](#aoi-upload-object)   The uploaded AOI.
+  success   boolean                                             The status of the upload.
