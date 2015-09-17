@@ -159,10 +159,6 @@ GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/{pk}
   ---------------- ------------------------------
   pk               The primary key for the AOI.
 
-  Query parameter   Value
-  ----------------- ------------------------------------------------------------------------------------------------------------------------
-  datatype          Filter collects by datatype. Accepts `pointcloud` or `raster`. If not given, collects with all types will be returned.
-
 #### Response Format
 
 On success, the HTTP status code in the header response is `200` OK and
