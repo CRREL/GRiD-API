@@ -110,7 +110,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/aoi
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/export/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
 
 .. code:: json
 
@@ -171,7 +171,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/{pk}
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/aoi/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/1959
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/aoi/1959
 
 .. code:: json
 
@@ -260,7 +260,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/aoi/add
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -287,7 +287,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/add/?name=test&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&subscribe=True
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/aoi/add/?name=test&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&subscribe=True
 
 .. code:: json
 
@@ -313,7 +313,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/{pk}
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/export/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -336,7 +336,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/export/3124
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/export/3124
 
 .. code:: json
 
@@ -379,7 +379,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/geoname
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -402,7 +402,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/geoname/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/geoname/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
 
 .. code:: json
 
@@ -421,7 +421,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/{task_id}
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/task/{task_id}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -444,7 +444,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/task/bacb736e-e900-457c-9b24-fd409bc3019d/
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/task/bacb736e-e900-457c-9b24-fd409bc3019d/
 
 .. code:: json
 
@@ -467,7 +467,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/pointcloud
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/aoi/{pk}/generate/pointcloud
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -516,7 +516,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generate/pointcloud/?collects=100+102&send_email=True&file_export_options=collect
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v0/aoi/2389/generate/pointcloud/?collects=100+102&send_email=True&file_export_options=collect
 
 .. code:: json
 
@@ -536,7 +536,7 @@ Endpoint
 
 .. code:: bash
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/export/aoi/{pk}/generate/raster
+    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/raster
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -573,7 +573,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/export/aoi/2389/generate/raster/?collects=100+102&send_email=True&file_export_options=collect
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/raster/?collects=100+102&send_email=True&file_export_options=collect
 
 .. code:: json
 
