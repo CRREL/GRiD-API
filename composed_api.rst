@@ -478,31 +478,7 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| Query parameter         | Value                                                                                                                                     |
-+=========================+===========================================================================================================================================+
-| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS.                                                                                    |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| intensity               | *Optional*. Whether or not to export intensity. Default: True.                                                                            |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| dim\_classification     | *Optional*. Whether or not to export classification. Default: True.                                                                       |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| file\_export\_options   | *Optional*. Determine file merging strategy. Accepts ``individual``, ``collect``, and ``super``. Default: ``individual``.                 |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| generate\_dem           | *Optional*. Whether or not to generate a DEM from the export. Default: False.                                                             |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| cell\_spacing           | *Optional*. Used together with ``generate_dem``. Default: 1.0.                                                                            |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| pcl\_terrain            | *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``urban``, ``suburban``, ``mountainous``, and ``foliated``. Default: None.   |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| sri\_hres               | *Optional* Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal resolutions. Default: None.                                |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -516,7 +492,7 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v0/aoi/2389/generate/pointcloud/?collects=100+102&send_email=True&file_export_options=collect
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v0/aoi/2389/generate/pointcloud/?collects=100+102
 
 .. code:: json
 
@@ -525,62 +501,6 @@ Example
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
 
-Generate Raster Export
-~~~~~~~~~~~~~~~~~~~~~~
-
-Generate raster export for the given AOI primary key and collect primary
-keys.
-
-Endpoint
-^^^^^^^^
-
-.. code:: bash
-
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/raster
-
-Request Parameters
-^^^^^^^^^^^^^^^^^^
-
-+------------------+-------------------------------+
-| Path parameter   | Value                         |
-+==================+===============================+
-| pk               | The primary key of the AOI.   |
-+------------------+-------------------------------+
-
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| Query parameter         | Value                                                                                                           |
-+=========================+=================================================================================================================+
-| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.            |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS.                                                          |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| file\_export\_options   | *Optional*. Determine file merging strategy. Accepts ``individual`` and ``collect``. Default: ``individual``.   |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                            |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                            |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-
-Response Format
-^^^^^^^^^^^^^^^
-
-On success, the HTTP status code in the header response is ``200`` OK
-and the response body contains a `Generate export
-object <#generate-export-object>`__ in JSON format.
-
-Example
-^^^^^^^
-
-.. code:: bash
-
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/raster/?collects=100+102&send_email=True&file_export_options=collect
-
-.. code:: json
-
-    {
-      "started" : true,
-      "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
-    }
 
 Object Model
 ------------
