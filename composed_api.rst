@@ -224,21 +224,6 @@ Example
                     "name": "11111_Ring_Road60", 
                     "pk": 55
                 }, 
-                {
-                    "datatype": "LAS 1.2", 
-                    "name": "20110616_00_0_UFO", 
-                    "pk": 183
-                }, 
-                {
-                    "datatype": "LAS 1.2", 
-                    "name": "20110619_00_0_UFO", 
-                    "pk": 196
-                }, 
-                {
-                    "datatype": "LAS 1.2", 
-                    "name": "20101206_00_0_UFO", 
-                    "pk": 162
-                }, 
             ], 
             "raster_collects": [
                 {
