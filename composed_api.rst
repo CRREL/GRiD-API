@@ -135,33 +135,115 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/?source=grid&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?source=grid&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
 
 .. code:: json
 
     {
-      "self_aoi_list": [
-        {
-          "name": "myFirstAOI",
-          "geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
-          "notes": "",
-          "is_active": true,
-          "source": "api",
-          "num_exports": "3 exports",
-          "pk": 1959,
-          "created_at": "2015-07-07 23:30:29.088539"
-        }, {
-          "name": "mySecondAOI",
-          "geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
-          "notes": "",
-          "is_active": true,
-          "source": "map",
-          "num_exports": "6 exports",
-          "pk": 1855,
-          "created_at": "2015-06-23 13:21:50.034012"
-        }
-      ]
-    }
+      "1959":{
+            "aoi": [
+                {
+                "fields": {
+                "clip_geometry": "SRID=4326;POLYGON ((64.2014212041944035 32.3151292049054035, 64.2041677862252982 32.3014911675455991, 64.2134375005794027 32.3009107799956965, 64.2518896490118010 32.2303660435206965, 64.2522329717652951 32.2210721166142022, 64.2625326543809052 32.2193293995269983, 64.2628759771344988 32.2326893767557010, 64.2518896490118010 32.2326893767557010, 64.2154974371023997 32.3017813599263022, 64.2151541143488060 32.3157095013820026, 64.2014212041944035 32.3151292049054035))", 
+                "created_at": "2013-04-04T10:10:47.885", 
+                "is_active": true, 
+                "name": "First AOI", 
+                "notes": "", 
+                "source": "", 
+                "user": 102
+                }, 
+                "model": "export.aoi", 
+                "pk": 101
+                }
+            ], 
+          "export_set":[
+            {
+            "status": "SUCCESS",
+            "started_at": "2015-11-13 08:33:46.050369", 
+            "name": "Dahan-e Zanu_WGS84-UTMzone40N_2015-Nov-13.zip", 
+            "datatype": "DTM", 
+            "hsrs": 32640, 
+            "url": "http://127.0.0.1:8000/export/download/1369/", 
+            "pk": 1369
+            },
+           ],
+           "raster_collects": [
+             {
+             "datatype": "DTM", 
+             "pk": 267, 
+             "name": "20110618_00_0_UFO"
+             }, {
+             "datatype": "DTM", 
+             "pk": 256, 
+             "name": "20110323_00_1_UFO"
+             },
+            ]
+            "pointcloud_collects": [
+            {
+                "datatype": "LAS 1.2", 
+                "name": "20120402_00_0_UFO", 
+                "pk": 207
+            }, 
+            {
+                "datatype": "LAS 1.2", 
+                "name": "20120401_00_0_UFO", 
+                "pk": 218
+            }
+            ],
+    },
+          "1959":{
+            "aoi": [
+                {
+                "fields": {
+                "clip_geometry": "SRID=4326;POLYGON ((64.2014212041944035 32.3151292049054035, 64.2041677862252982 32.3014911675455991, 64.2134375005794027 32.3009107799956965, 64.2518896490118010 32.2303660435206965, 64.2522329717652951 32.2210721166142022, 64.2625326543809052 32.2193293995269983, 64.2628759771344988 32.2326893767557010, 64.2518896490118010 32.2326893767557010, 64.2154974371023997 32.3017813599263022, 64.2151541143488060 32.3157095013820026, 64.2014212041944035 32.3151292049054035))", 
+                "created_at": "2013-04-04T10:10:47.885", 
+                "is_active": true, 
+                "name": "SecondAoi", 
+                "notes": "", 
+                "source": "", 
+                "user": 102
+                }, 
+                "model": "export.aoi", 
+                "pk": 102
+                }
+            ], 
+          "export_set":[
+            {
+            "status": "SUCCESS",
+            "started_at": "2015-11-13 08:33:46.050369", 
+            "name": "Dahan-e Zanu_WGS84-UTMzone40N_2015-Nov-13.zip", 
+            "datatype": "DTM", 
+            "hsrs": 32640, 
+            "url": "http://127.0.0.1:8000/export/download/1369/", 
+            "pk": 1369
+            },
+           ],
+           "raster_collects": [
+             {
+             "datatype": "DTM", 
+             "pk": 267, 
+             "name": "20110618_00_0_UFO"
+             }, {
+             "datatype": "DTM", 
+             "pk": 256, 
+             "name": "20110323_00_1_UFO"
+             },
+            ]
+            "pointcloud_collects": [
+            {
+                "datatype": "LAS 1.2", 
+                "name": "20120402_00_0_UFO", 
+                "pk": 207
+            }, 
+            {
+                "datatype": "LAS 1.2", 
+                "name": "20120401_00_0_UFO", 
+                "pk": 218
+            }
+            ],
+    },
+}
+
 
 Get AOI Details
 ~~~~~~~~~~~~~~~
