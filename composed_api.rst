@@ -140,109 +140,123 @@ Example
 .. code:: json
 
     {
-      "1959":{
+        "123": {
             "aoi": [
                 {
-                "fields": {
-                "clip_geometry": "SRID=4326;POLYGON ((64.2014212041944035 32.3151292049054035, 64.2041677862252982 32.3014911675455991, 64.2134375005794027 32.3009107799956965, 64.2518896490118010 32.2303660435206965, 64.2522329717652951 32.2210721166142022, 64.2625326543809052 32.2193293995269983, 64.2628759771344988 32.2326893767557010, 64.2518896490118010 32.2326893767557010, 64.2154974371023997 32.3017813599263022, 64.2151541143488060 32.3157095013820026, 64.2014212041944035 32.3151292049054035))", 
-                "created_at": "2013-04-04T10:10:47.885", 
-                "is_active": true, 
-                "name": "First AOI", 
-                "notes": "", 
-                "source": "", 
-                "user": 102
-                }, 
-                "model": "export.aoi", 
-                "pk": 101
+                    "fields": {
+                        "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
+                        "created_at": "2013-04-16T13:10:33.974", 
+                        "is_active": true, 
+                        "name": "First_Aoi", 
+                        "notes": "", 
+                        "source": "", 
+                        "user": 102
+                    }, 
+                    "model": "export.aoi", 
+                    "pk": 123
                 }
             ], 
-          "export_set":[
-            {
-            "status": "SUCCESS",
-            "started_at": "2015-11-13 08:33:46.050369", 
-            "name": "Dahan-e Zanu_WGS84-UTMzone40N_2015-Nov-13.zip", 
-            "datatype": "DTM", 
-            "hsrs": 32640, 
-            "url": "http://127.0.0.1:8000/export/download/1369/", 
-            "pk": 1369
-            },
-           ],
-           "raster_collects": [
-             {
-             "datatype": "DTM", 
-             "pk": 267, 
-             "name": "20110618_00_0_UFO"
-             }, {
-             "datatype": "DTM", 
-             "pk": 256, 
-             "name": "20110323_00_1_UFO"
-             },
-            ]
+            "export_set": [
+                {
+                    "datatype": "LAS 1.2", 
+                    "hsrs": 32642, 
+                    "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
+                    "pk": 1335, 
+                    "stated_at": "2015-10-15 18:06:13.272161", 
+                    "status": "SUCCESS", 
+                    "url": "http://127.0.0.1:8000/export/download/1335/"
+                }, 
+                {
+                    "datatype": "DSM", 
+                    "hsrs": 32642, 
+                    "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
+                    "pk": 1328, 
+                    "stated_at": "2015-10-15 17:59:05.937854", 
+                    "status": "SUCCESS", 
+                    "url": "http://127.0.0.1:8000/export/download/1328/"
+                }, 
+            ], 
             "pointcloud_collects": [
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20120402_00_0_UFO", 
-                "pk": 207
-            }, 
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20120401_00_0_UFO", 
-                "pk": 218
-            }
-            ],
-    },
-          "1959":{
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "20110323_00_0_UFO", 
+                    "pk": 168
+                }
+            ], 
+            "raster_collects": [
+                {
+                    "datatype": "DSM", 
+                    "name": "20080407_00_0_UFO", 
+                    "pk": 228
+                }
+            ]
+        }, 
+        "1304": {
             "aoi": [
                 {
-                "fields": {
-                "clip_geometry": "SRID=4326;POLYGON ((64.2014212041944035 32.3151292049054035, 64.2041677862252982 32.3014911675455991, 64.2134375005794027 32.3009107799956965, 64.2518896490118010 32.2303660435206965, 64.2522329717652951 32.2210721166142022, 64.2625326543809052 32.2193293995269983, 64.2628759771344988 32.2326893767557010, 64.2518896490118010 32.2326893767557010, 64.2154974371023997 32.3017813599263022, 64.2151541143488060 32.3157095013820026, 64.2014212041944035 32.3151292049054035))", 
-                "created_at": "2013-04-04T10:10:47.885", 
-                "is_active": true, 
-                "name": "SecondAoi", 
-                "notes": "", 
-                "source": "", 
-                "user": 102
-                }, 
-                "model": "export.aoi", 
-                "pk": 102
+                    "fields": {
+                        "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994, 68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
+                        "created_at": "2015-09-23T09:50:19.856", 
+                        "is_active": true, 
+                        "name": "Second_Aoi", 
+                        "notes": "", 
+                        "source": "", 
+                        "user": 102
+                    }, 
+                    "model": "export.aoi", 
+                    "pk": 1304
                 }
             ], 
-          "export_set":[
-            {
-            "status": "SUCCESS",
-            "started_at": "2015-11-13 08:33:46.050369", 
-            "name": "Dahan-e Zanu_WGS84-UTMzone40N_2015-Nov-13.zip", 
-            "datatype": "DTM", 
-            "hsrs": 32640, 
-            "url": "http://127.0.0.1:8000/export/download/1369/", 
-            "pk": 1369
-            },
-           ],
-           "raster_collects": [
-             {
-             "datatype": "DTM", 
-             "pk": 267, 
-             "name": "20110618_00_0_UFO"
-             }, {
-             "datatype": "DTM", 
-             "pk": 256, 
-             "name": "20110323_00_1_UFO"
-             },
-            ]
+            "export_set": [], 
             "pointcloud_collects": [
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20120402_00_0_UFO", 
-                "pk": 207
-            }, 
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20120401_00_0_UFO", 
-                "pk": 218
-            }
-            ],
-    },
-}
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "20110401_00_1_UFO", 
+                    "pk": 169
+                }, 
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "20110404_00_0_UFO", 
+                    "pk": 186
+                }, 
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "11111_Ring_Road60", 
+                    "pk": 55
+                }, 
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "20110616_00_0_UFO", 
+                    "pk": 183
+                }, 
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "20110619_00_0_UFO", 
+                    "pk": 196
+                }, 
+                {
+                    "datatype": "LAS 1.2", 
+                    "name": "20101206_00_0_UFO", 
+                    "pk": 162
+                }, 
+            ], 
+            "raster_collects": [
+                {
+                    "datatype": "DTM", 
+                    "name": "20111001_00_0_UFO", 
+                    "pk": 254
+                }, 
+                {
+                    "datatype": "DTM", 
+                    "name": "20110619_00_1_UFO", 
+                    "pk": 268
+                }, 
+            ]
+        }, 
+        "GRiD API": {
+            "API Version": "v1"
+        }
+    }
 
 
 Get AOI Details
@@ -284,60 +298,63 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/1959?source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source=grid
 
 .. code:: json
 
     {
-      "export_set": [
-        {
-          "status": "SUCCESS",
-          "stated_at": "2015-07-07 23:33:24.247148",
-          "name": "ExportNumberOne.zip",
-          "datatype": "LAS 1.2",
-          "hsrs": 32641,
-          "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/3561/",
-          "pk": 3561
-        }, {
-          "status": "SUCCESS",
-          "stated_at": "2015-07-07 23:31:32.584232",
-          "name": "ExportNumberTwo.zip",
-          "datatype": "DSM",
-          "hsrs": 32641,
-          "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/3560/",
-          "pk": 3560
-        }
-      ],
-      "aoi": [
-        {
-          "fields": {
-            "name": "myFirstAOI",
-            "created_at": "2015-07-07T23:30:29.088",
-            "is_active": true,
-            "source": "api",
-            "user": 90,
-            "clip_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
-            "notes": ""
-          },
-          "model": "export.aoi",
-          "pk": 1959
-        }
-      ],
-      "collects": [
-        {
-          "fields": {
-            "name": "CollectA"
-          },
-          "model": "loaddata.collect",
-          "pk": 2298
-        }, {
-          "fields": {
-            "name": "CollectB"
-          },
-          "model": "loaddata.collect",
-          "pk": 3109
-        }
-      ]
+        "GRiD API": {
+            "API Version": "v1"
+        }, 
+        "aoi": [
+            {
+                "fields": {
+                    "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
+                    "created_at": "2013-04-16T13:10:33.974", 
+                    "is_active": true, 
+                    "name": "First_Aoi", 
+                    "notes": "", 
+                    "source": "", 
+                    "user": 102
+                }, 
+                "model": "export.aoi", 
+                "pk": 123
+            }
+        ], 
+        "export_set": [
+            {
+                "datatype": "LAS 1.2", 
+                "hsrs": 32642, 
+                "name": "First_Aoi-UTMzone42N_2015-Oct-15.zip", 
+                "pk": 1335, 
+                "stated_at": "2015-10-15 18:06:13.272161", 
+                "status": "SUCCESS", 
+                "url": "http://127.0.0.1:8000/export/download/1335/"
+            }, 
+            {
+                "datatype": "DSM", 
+                "hsrs": 32642, 
+                "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
+                "pk": 1328, 
+                "stated_at": "2015-10-15 17:59:05.937854", 
+                "status": "SUCCESS", 
+                "url": "http://127.0.0.1:8000/export/download/1328/"
+            }, 
+        ], 
+        "pointcloud_collects": [
+            {
+                "datatype": "LAS 1.2", 
+                "name": "20110323_00_0_UFO", 
+                "pk": 168
+            }
+        ], 
+        "raster_collects": [
+            {
+                "datatype": "DSM", 
+                "name": "20080407_00_0_UFO", 
+                "pk": 228
+            }
+        ]
     }
 
 Add AOI
@@ -384,15 +401,30 @@ Example
 .. code:: json
 
     {
-      "aoi": [
-        {
-          "geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))",
-          "pk": 2086,
-          "name": "uploadedAOI",
-          "subscribed": true
-        }
-      ],
-      "success": true
+        "1592": {
+            "aoi": [
+                {
+                    "fields": {
+                        "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000, 20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
+                        "created_at": "2015-11-13T12:58:28.040", 
+                        "is_active": true, 
+                        "name": "test", 
+                        "notes": "", 
+                        "source": "api", 
+                        "user": 102
+                    }, 
+                    "model": "export.aoi", 
+                    "pk": 1592
+                }
+            ], 
+            "export_set": [], 
+            "pointcloud_collects": [], 
+            "raster_collects": []
+        }, 
+        "GRiD API": {
+            "API Version": "v1"
+        }, 
+        "success": true
     }
 
 Get Export Details
@@ -434,11 +466,14 @@ Example
 
 .. code:: bash
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/3124?source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/1335?source=grid
 
 .. code:: json
 
     {
+      "GRiD API": {
+        "API Version": "v1"
+        }
       "exportfiles": [
         {
           "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
@@ -507,8 +542,11 @@ Example
 .. code:: json
 
     {
-      "name": "Some Place",
-      "provided_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+        "GRiD API": {
+            "API Version": "v1"
+        }, 
+        "name": "Great Sand Sea", 
+        "provided_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
     }
 
 Get Task Details
@@ -555,6 +593,9 @@ Example
 .. code:: json
 
     {
+      "GRiD API": {
+        "API Version": "v1"
+      }, 
       "task_traceback": "",
       "task_state": "SUCCESS",
       "task_tstamp": "2015-09-09T14:19:36.080",
@@ -629,6 +670,9 @@ Example
 .. code:: json
 
     {
+      "GRiD API": {
+        "API Version": "v1"
+      }, 
       "started" : true,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
@@ -688,6 +732,9 @@ Example
 .. code:: json
 
     {
+       "GRiD API": {
+        "API Version": "v1"
+      }, 
       "started" : true,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
