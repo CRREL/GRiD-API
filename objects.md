@@ -61,7 +61,7 @@ Object Model
   started\_at   timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
   name         string       The name of the export.
   datatype     string       The datatype (e.g., LAS 1.2, DTM).
-  hsrs         string      The Horizontal Spatial Reference System EPSG code.
+  hsrs         string       The Horizontal Spatial Reference System EPSG code.
   url          string       The download URL of the export.
   pk           integer      The primary key of the export.
 
