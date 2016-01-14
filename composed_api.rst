@@ -1,5 +1,5 @@
 GRiD API v1
-========
+===========
 
 API Endpoint Reference
 ----------------------
@@ -13,7 +13,7 @@ Service (WFS).
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/cgi-bin/gridws
 
@@ -48,11 +48,11 @@ and the response body contains the WFS response in XML format.
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
     curl -u <username> "http://gridte.rsgis.erdc.dren.mil/te_ba/cgi-bin/gridws?service=wfs&version=1.1.0&request=getfeature&typename=ms:gridws_pointcloud&bbox=62,33,62.1,33.1"
 
-.. code:: xml
+::
 
     <?xml version='1.0' encoding="UTF-8" ?>
     <wfs:FeatureCollection
@@ -108,7 +108,7 @@ Get a list of the AOIs created by or shared with the current GRiD user.
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi
 
@@ -118,26 +118,26 @@ Request Parameters
 +-------------------+----------------------------------------------------------+
 | Query parameter   | Value                                                    |
 +===================+==========================================================+
-| geom              | *Optional*. A WKT geometry used to filter AOI results.   |
+| source            | *Required*. Your GRiD generated API key.                 |
 +-------------------+----------------------------------------------------------+
-| source            | *Required*. Your API key.                                |
+| geom              | *Optional*. A WKT geometry used to filter AOI results.   |
 +-------------------+----------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
-and the response body contains an array of `AOI object <#aoi-object>`__
+and the response body contains an array of `AOI object <#aoi-object>`_
 in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?source=grid&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&?source=grid
 
-.. code:: json
+::
 
     {
         "123": {
@@ -162,7 +162,7 @@ Example
                     "hsrs": 32642, 
                     "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                     "pk": 1335, 
-                    "stated_at": "2015-10-15 18:06:13.272161", 
+                    "started_at": "2015-10-15T18:06:13.272161", 
                     "status": "SUCCESS", 
                     "url": "http://127.0.0.1:8000/export/download/1335/"
                 }, 
@@ -170,8 +170,8 @@ Example
                     "datatype": "DSM", 
                     "hsrs": 32642, 
                     "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
-                    "pk": 1328, 
-                    "stated_at": "2015-10-15 17:59:05.937854", 
+                    "pk": 1328,
+                    "started_at": "2015-10-15T17:59:05.937854", 
                     "status": "SUCCESS", 
                     "url": "http://127.0.0.1:8000/export/download/1328/"
                 }, 
@@ -243,7 +243,6 @@ Example
         }
     }
 
-
 Get AOI Details
 ~~~~~~~~~~~~~~~
 
@@ -252,40 +251,40 @@ Get information for a single AOI.
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
 
-+------------------+--------------------------------+
-| Path parameter   | Value                          |
-+==================+================================+
-| pk               | The primary key for the AOI.   |
-+------------------+--------------------------------+
++------------------+--------------------------------------------+
+| Path parameter   | Value                                      |
++==================+============================================+
+| pk               | *Required*. The primary key for the AOI.   |
++------------------+--------------------------------------------+
 
-+-------------------+-------------------------------------------------------+
-| Query parameter   | Value                                                 |
-+===================+=======================================================+
-| source            | *Required*. Your API key.                             |
-+-------------------+-------------------------------------------------------+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `AOI Detail
-object <#aoi-detail-object>`__ in JSON format.
+object <#aoi-detail-object>`_ in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
     curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source=grid
 
-.. code:: json
+::
 
     {
         "GRiD API": {
@@ -312,7 +311,7 @@ Example
                 "hsrs": 32642, 
                 "name": "First_Aoi-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1335, 
-                "stated_at": "2015-10-15 18:06:13.272161", 
+                "started_at": "2015-10-15T18:06:13.272161", 
                 "status": "SUCCESS", 
                 "url": "http://127.0.0.1:8000/export/download/1335/"
             }, 
@@ -321,7 +320,7 @@ Example
                 "hsrs": 32642, 
                 "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1328, 
-                "stated_at": "2015-10-15 17:59:05.937854", 
+                "started_at": "2015-10-15T17:59:05.937854", 
                 "status": "SUCCESS", 
                 "url": "http://127.0.0.1:8000/export/download/1328/"
             }, 
@@ -350,7 +349,7 @@ Create a new AOI for the given geometry.
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/add
 
@@ -364,7 +363,7 @@ Request Parameters
 +-------------------+-------------------------------------------------------+
 | geom              | *Required*. A WKT geometry describing the AOI.        |
 +-------------------+-------------------------------------------------------+
-| source            | *Required*. Your API key.                             |
+| source            | *Required*. Your GRiD generated API key.              |
 +-------------------+-------------------------------------------------------+
 | subscribe         | *Optional*. True, False, T, F, 1, 0. Default: false   |
 +-------------------+-------------------------------------------------------+
@@ -373,17 +372,17 @@ Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
-and the response body contains an `Upload object <#aoi-detail-object>`__
+and the response body contains an `Upload object <#aoi-detail-object>`_
 in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
     curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/add/?source=grid&name=test&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&subscribe=True
 
-.. code:: json
+::
 
     {
         "1592": {
@@ -420,40 +419,40 @@ Get information for a single export.
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
 
-+------------------+-----------------------------------+
-| Path parameter   | Value                             |
-+==================+===================================+
-| pk               | The primary key for the export.   |
-+------------------+-----------------------------------+
++------------------+----------------------------------------------+
+| Path parameter   | Value                                        |
++==================+==============================================+
+| pk               | *Required*.The primary key for the export.   |
++------------------+----------------------------------------------+
 
-+-------------------+-----------------------------------+
-| Query parameter   | Value                             |
-+===================+===================================+
-| source            | *Required*. Your API key.         |
-+-------------------+-----------------------------------+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| source \*         | Required\*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `Export Detail
-object <#export-detail-object>`__ in JSON format.
+object <#export-detail-object>`_ in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
     curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/1335?source=grid
 
-.. code:: json
+::
 
     {
       "GRiD API": {
@@ -472,7 +471,7 @@ Example
           "tda_type": "Los",
           "name": "LineOfSightResult",
           "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/tda/download/1069/",
-          "created_at": "2015-05-12 18:25:05.082077",
+          "created_at": "2015-05-12T18:25:05.082077",
           "pk": 1069,
           "notes": ""
         }, {
@@ -480,7 +479,7 @@ Example
           "tda_type": "Hlz",
           "name": "HelicopterLandingZoneResult",
           "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/tda/download/1068/",
-          "created_at": "2015-05-12 18:24:20.701910",
+          "created_at": "2015-05-12T18:24:20.701910",
           "pk": 1068,
           "notes": ""
         }
@@ -495,7 +494,7 @@ Get suggested AOI name based on geographic coordinates of the geometry.
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/geoname
 
@@ -507,24 +506,24 @@ Request Parameters
 +===================+==================================================+
 | geom              | *Required*. A WKT geometry describing the AOI.   |
 +-------------------+--------------------------------------------------+
-| source            | *Required*. Your API key.                        |
+| source            | *Required*. Your GRiD generated API key.         |
 +-------------------+--------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
-and the response body contains a `Geoname object <#geoname-object>`__ in
+and the response body contains a `Geoname object <#geoname-object>`_ in
 JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v0/geoname/?source=grid&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/geoname/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&source=grid
 
-.. code:: json
+::
 
     {
         "GRiD API": {
@@ -537,45 +536,45 @@ Example
 Get Task Details
 ~~~~~~~~~~~~~~~~
 
-Get task status/details for the provided task_id.
+Get task status/details for the provided task\_id.
 
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/task/{task_id}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
 
-+------------------+-----------------------+
-| Path parameter   | Value                 |
-+==================+=======================+
-| task_id          | The ID of the task.   |
-+------------------+-----------------------+
++------------------+-----------------------------------+
+| Path parameter   | Value                             |
++==================+===================================+
+| task\_id         | *Required*. The ID of the task.   |
++------------------+-----------------------------------+
 
-+-------------------+-----------------------------------+
-| Query parameter   | Value                             |
-+===================+===================================+
-| source            | *Required*. Your API key.         |
-+-------------------+-----------------------------------+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
-and the response body contains an `Task
-object <#export-detail-object>`__ in JSON format.
+and the response body contains an `Task object <#export-detail-object>`_
+in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
     curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/task/bacb736e-e900-457c-9b24-fd409bc3019d/?source=grid
 
-.. code:: json
+::
 
     {
       "GRiD API": {
@@ -597,7 +596,7 @@ primary keys.
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/pointcloud
 
@@ -610,49 +609,49 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| Query parameter         | Value                                                                                                                                     |
-+=========================+===========================================================================================================================================+
-| source                  | *Required*. Your API key.                                                                                                                 |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS.                                                                                    |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| intensity               | *Optional*. Whether or not to export intensity. Default: True.                                                                            |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| dim\_classification     | *Optional*. Whether or not to export classification. Default: True.                                                                       |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| file\_export\_options   | *Optional*. Determine file merging strategy. Accepts ``individual``, ``collect``, and ``super``. Default: ``individual``.                 |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                                                      |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| generate\_dem           | *Optional*. Whether or not to generate a DEM from the export. Default: False.                                                             |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| cell\_spacing           | *Optional*. Used together with ``generate_dem``. Default: 1.0.                                                                            |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| pcl\_terrain            | *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``urban``, ``suburban``, ``mountainous``, and ``foliated``. Default: None.   |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
-| sri\_hres               | *Optional* Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal resolutions. Default: None.                                |
-+-------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| Query parameter         | Value                                                                                                                                    |
++=========================+==========================================================================================================================================+
+| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.                                     |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| source                  | *Required*. Your GRiD generated API key.                                                                                                 |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| intensity               | *Optional*. Whther or not to export intensity. Default: True.                                                                            |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| dim\_classification     | *Optional*. Wthere or not to export classification. Default: True                                                                        |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS                                                                                    |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| file\_export\_options   | *Optional*. Determmine file merging strategy. Accepts ``individual`` and ``collect``. Default ``individual``                             |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                                                     |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                                                     |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| generate\_dem           | *Optional*. Whether or not to generate a DEM from the export. Default: False.                                                            |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| cell\_spacing           | *Optional*. Used together with ``generate\_dem``. Default: 1.0                                                                           |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| pcl\_terrain            | *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``ubran``, ``suburban``, ``mountainous``, and ``foliated``. Default: None   |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
+| sri\_hres               | *Optional*. Used to trigger a Sarnoff Bare Earth export. Accespts the horizontal resolution. Default: None                               |
++-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains a `Generate export
-object <#generate-export-object>`__ in JSON format.
+object <#generate-export-object>`_ in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/pointcloud/?source=grid&collects=100+102
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/pointcloud/?collects=100+102&source=grid
 
-.. code:: json
+::
 
     {
       "GRiD API": {
@@ -665,13 +664,13 @@ Example
 Generate Raster Export
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Generate raster export for the given AOI primary key and collect primary
-keys.
+Generate point cloud export for the given AOI primary key and collect
+primary keys.
 
 Endpoint
 ^^^^^^^^
 
-.. code:: bash
+::
 
     GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/raster
 
@@ -684,46 +683,45 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| Query parameter         | Value                                                                                                           |
-+=========================+=================================================================================================================+
-| source                  | *Required*. Your API key.                                                                                       |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.            |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS.                                                          |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| file\_export\_options   | *Optional*. Determine file merging strategy. Accepts ``individual`` and ``collect``. Default: ``individual``.   |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                            |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
-| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                            |
-+-------------------------+-----------------------------------------------------------------------------------------------------------------+
++-------------------------+----------------------------------------------------------------------------------------------------------------+
+| Query parameter         | Value                                                                                                          |
++=========================+================================================================================================================+
+| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.           |
++-------------------------+----------------------------------------------------------------------------------------------------------------+
+| source                  | *Required*. Your GRiD generated API key.                                                                       |
++-------------------------+----------------------------------------------------------------------------------------------------------------+
+| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS                                                          |
++-------------------------+----------------------------------------------------------------------------------------------------------------+
+| file\_export\_options   | *Optional*. Determmine file merging strategy. Accepts ``individual`` and ``collect``. Default ``individual``   |
++-------------------------+----------------------------------------------------------------------------------------------------------------+
+| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                           |
++-------------------------+----------------------------------------------------------------------------------------------------------------+
+| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                           |
++-------------------------+----------------------------------------------------------------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains a `Generate export
-object <#generate-export-object>`__ in JSON format.
+object <#generate-export-object>`_ in JSON format.
 
 Example
 ^^^^^^^
 
-.. code:: bash
+::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/raster/?source=grid&collects=100+102&send_email=True&file_export_options=collect
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/raster/?collects=100+102&source=grid
 
-.. code:: json
+::
 
     {
-       "GRiD API": {
+      "GRiD API": {
         "API Version": "v1"
       }, 
       "started" : true,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
-
 
 Object Model
 ------------
@@ -779,15 +777,15 @@ AOI object2
 AOI Detail object
 ~~~~~~~~~~~~~~~~~
 
-+---------------+--------------------------------------------------+------------------------------+
-| Key           | Value Type                                       | Value Description            |
-+===============+==================================================+==============================+
-| export\_set   | array of `exports objects <#export-object>`__    | The exports of the AOI.      |
-+---------------+--------------------------------------------------+------------------------------+
-| aoi           | array of `aoi objects <#aoi-object2>`__          | The AOI detail (repeated).   |
-+---------------+--------------------------------------------------+------------------------------+
-| collects      | array of `collect objects <#collect-object>`__   | The collects for the AOI.    |
-+---------------+--------------------------------------------------+------------------------------+
++---------------+-------------------------------------------------+------------------------------+
+| Key           | Value Type                                      | Value Description            |
++===============+=================================================+==============================+
+| export\_set   | array of `exports objects <#export-object>`_    | The exports of the AOI.      |
++---------------+-------------------------------------------------+------------------------------+
+| aoi           | array of `aoi objects <#aoi-object2>`_          | The AOI detail (repeated).   |
++---------------+-------------------------------------------------+------------------------------+
+| collects      | array of `collect objects <#collect-object>`_   | The collects for the AOI.    |
++---------------+-------------------------------------------------+------------------------------+
 
 AOI Upload object
 ~~~~~~~~~~~~~~~~~
@@ -820,34 +818,34 @@ Collect object
 Export object
 ~~~~~~~~~~~~~
 
-+--------------+--------------+---------------------------------------------------------------+
-| Key          | Value Type   | Value Description                                             |
-+==============+==============+===============================================================+
-| status       | string       | The status of the export (e.g., SUCCESS, FAILED, QUEUED).     |
-+--------------+--------------+---------------------------------------------------------------+
-| stated\_at   | timestamp    | Time of creation for the AOI: ``YYYY-MM-DD HH24:MI:SS.FF6``   |
-+--------------+--------------+---------------------------------------------------------------+
-| name         | string       | The name of the export.                                       |
-+--------------+--------------+---------------------------------------------------------------+
-| datatype     | string       | The datatype (e.g., LAS 1.2, DTM).                            |
-+--------------+--------------+---------------------------------------------------------------+
-| hsrs         | integer      | The Horizontal Spatial Reference System EPSG code.            |
-+--------------+--------------+---------------------------------------------------------------+
-| url          | string       | The download URL of the export.                               |
-+--------------+--------------+---------------------------------------------------------------+
-| pk           | integer      | The primary key of the export.                                |
-+--------------+--------------+---------------------------------------------------------------+
++---------------+--------------+---------------------------------------------------------------+
+| Key           | Value Type   | Value Description                                             |
++===============+==============+===============================================================+
+| status        | string       | The status of the export (e.g., SUCCESS, FAILED, QUEUED).     |
++---------------+--------------+---------------------------------------------------------------+
+| started\_at   | timestamp    | Time of creation for the AOI: ``YYYY-MM-DD HH24:MI:SS.FF6``   |
++---------------+--------------+---------------------------------------------------------------+
+| name          | string       | The name of the export.                                       |
++---------------+--------------+---------------------------------------------------------------+
+| datatype      | string       | The datatype (e.g., LAS 1.2, DTM).                            |
++---------------+--------------+---------------------------------------------------------------+
+| hsrs          | string T     | he Horizontal Spatial Reference System EPSG code.             |
++---------------+--------------+---------------------------------------------------------------+
+| url           | string       | The download URL of the export.                               |
++---------------+--------------+---------------------------------------------------------------+
+| pk            | integer      | The primary key of the export.                                |
++---------------+--------------+---------------------------------------------------------------+
 
 Export Detail object
 ~~~~~~~~~~~~~~~~~~~~
 
-+---------------+----------------------------------------------------------+---------------------------------------+
-| Key           | Value Type                                               | Value Description                     |
-+===============+==========================================================+=======================================+
-| exportfiles   | array of `Exportfiles objects <#exportfiles-object>`__   | The export files of the export set.   |
-+---------------+----------------------------------------------------------+---------------------------------------+
-| tda\_set      | array of `TDA Set objects <#tda-set-object>`__           | The TDAs of the export set.           |
-+---------------+----------------------------------------------------------+---------------------------------------+
++---------------+---------------------------------------------------------+---------------------------------------+
+| Key           | Value Type                                              | Value Description                     |
++===============+=========================================================+=======================================+
+| exportfiles   | array of `Exportfiles objects <#exportfiles-object>`_   | The export files of the export set.   |
++---------------+---------------------------------------------------------+---------------------------------------+
+| tda\_set      | array of `TDA Set objects <#tda-set-object>`_           | The TDAs of the export set.           |
++---------------+---------------------------------------------------------+---------------------------------------+
 
 Exportfiles object
 ~~~~~~~~~~~~~~~~~~
@@ -925,11 +923,10 @@ TDA Set object
 Upload object
 ~~~~~~~~~~~~~
 
-+-----------+--------------------------------------------------------+-----------------------------+
-| Key       | Value Type                                             | Value Description           |
-+===========+========================================================+=============================+
-| aoi       | array of `aoi upload objects <#aoi-upload-object>`__   | The uploaded AOI.           |
-+-----------+--------------------------------------------------------+-----------------------------+
-| success   | boolean                                                | The status of the upload.   |
-+-----------+--------------------------------------------------------+-----------------------------+
-
++-----------+-------------------------------------------------------+-----------------------------+
+| Key       | Value Type                                            | Value Description           |
++===========+=======================================================+=============================+
+| aoi       | array of `aoi upload objects <#aoi-upload-object>`_   | The uploaded AOI.           |
++-----------+-------------------------------------------------------+-----------------------------+
+| success   | boolean                                               | The status of the upload.   |
++-----------+-------------------------------------------------------+-----------------------------+
