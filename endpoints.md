@@ -142,7 +142,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLY
                 "hsrs": 32642, 
                 "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1335, 
-                "stated_at": "2015-10-15T18:06:13.272161", 
+                "started_at": "2015-10-15T18:06:13.272161", 
                 "status": "SUCCESS", 
                 "url": "http://127.0.0.1:8000/export/download/1335/"
             }, 
@@ -151,7 +151,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLY
                 "hsrs": 32642, 
                 "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1328,
-                "stated_at": "2015-10-15T17:59:05.937854", 
+                "started_at": "2015-10-15T17:59:05.937854", 
                 "status": "SUCCESS", 
                 "url": "http://127.0.0.1:8000/export/download/1328/"
             }, 
@@ -282,7 +282,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source
             "hsrs": 32642, 
             "name": "First_Aoi-UTMzone42N_2015-Oct-15.zip", 
             "pk": 1335, 
-            "stated_at": "2015-10-15T18:06:13.272161", 
+            "started_at": "2015-10-15T18:06:13.272161", 
             "status": "SUCCESS", 
             "url": "http://127.0.0.1:8000/export/download/1335/"
         }, 
@@ -291,7 +291,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source
             "hsrs": 32642, 
             "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
             "pk": 1328, 
-            "stated_at": "2015-10-15T17:59:05.937854", 
+            "started_at": "2015-10-15T17:59:05.937854", 
             "status": "SUCCESS", 
             "url": "http://127.0.0.1:8000/export/download/1328/"
         }, 
