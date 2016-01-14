@@ -159,7 +159,7 @@ Example
             "export_set": [
                 {
                     "datatype": "LAS 1.2", 
-                    "hsrs": 32642, 
+                    "hsrs": "32642", 
                     "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                     "pk": 1335, 
                     "started_at": "2015-10-15T18:06:13.272161", 
@@ -168,7 +168,7 @@ Example
                 }, 
                 {
                     "datatype": "DSM", 
-                    "hsrs": 32642, 
+                    "hsrs": "32642", 
                     "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                     "pk": 1328,
                     "started_at": "2015-10-15T17:59:05.937854", 
@@ -308,7 +308,7 @@ Example
         "export_set": [
             {
                 "datatype": "LAS 1.2", 
-                "hsrs": 32642, 
+                "hsrs": "32642", 
                 "name": "First_Aoi-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1335, 
                 "started_at": "2015-10-15T18:06:13.272161", 
@@ -317,7 +317,7 @@ Example
             }, 
             {
                 "datatype": "DSM", 
-                "hsrs": 32642, 
+                "hsrs": "32642", 
                 "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1328, 
                 "started_at": "2015-10-15T17:59:05.937854", 
@@ -829,7 +829,7 @@ Export object
 +---------------+--------------+---------------------------------------------------------------+
 | datatype      | string       | The datatype (e.g., LAS 1.2, DTM).                            |
 +---------------+--------------+---------------------------------------------------------------+
-| hsrs          | string T     | he Horizontal Spatial Reference System EPSG code.             |
+| hsrs          | string       | The Horizontal Spatial Reference System EPSG code.            |
 +---------------+--------------+---------------------------------------------------------------+
 | url           | string       | The download URL of the export.                               |
 +---------------+--------------+---------------------------------------------------------------+
