@@ -139,7 +139,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLY
         "export_set": [
             {
                 "datatype": "LAS 1.2", 
-                "hsrs": 32642, 
+                "hsrs": "32642", 
                 "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1335, 
                 "started_at": "2015-10-15T18:06:13.272161", 
@@ -148,7 +148,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLY
             }, 
             {
                 "datatype": "DSM", 
-                "hsrs": 32642, 
+                "hsrs": "32642", 
                 "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
                 "pk": 1328,
                 "started_at": "2015-10-15T17:59:05.937854", 
@@ -279,7 +279,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source
     "export_set": [
         {
             "datatype": "LAS 1.2", 
-            "hsrs": 32642, 
+            "hsrs": "32642", 
             "name": "First_Aoi-UTMzone42N_2015-Oct-15.zip", 
             "pk": 1335, 
             "started_at": "2015-10-15T18:06:13.272161", 
@@ -288,7 +288,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source
         }, 
         {
             "datatype": "DSM", 
-            "hsrs": 32642, 
+            "hsrs": "32642", 
             "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
             "pk": 1328, 
             "started_at": "2015-10-15T17:59:05.937854", 
