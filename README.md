@@ -4,4 +4,5 @@ For example,
 
 ```
 pandoc endpoints.md objects.md -o api.html --highlight-style tango -s
+pandoc endpoints.md objects.md -s -t rst -o composed_api.rst
 ```
