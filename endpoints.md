@@ -12,7 +12,7 @@ Service (WFS).
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/cgi-bin/gridws
+GET <instance_url>/<instance_root>_ba/cgi-bin/gridws
 ~~~~
 
 #### Request Parameters
@@ -96,7 +96,7 @@ Get a list of the AOIs created by or shared with the current GRiD user.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi
+GET <instance_url>/<instance_root>_ba/api/v1/aoi
 ~~~~
 
 #### Request Parameters
@@ -231,7 +231,7 @@ Get information for a single AOI.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}
+GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}
 ~~~~
 
 #### Request Parameters
@@ -320,7 +320,7 @@ Create a new AOI for the given geometry.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/add
+GET <instance_url>/<instance_root>_ba/api/v1/aoi/add
 ~~~~
 
 #### Request Parameters
@@ -380,7 +380,7 @@ Get information for a single export.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/{pk}
+GET <instance_url>/<instance_root>_ba/api/v1/export/{pk}
 ~~~~
 
 #### Request Parameters
@@ -446,7 +446,7 @@ Get suggested AOI name based on geographic coordinates of the geometry.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/geoname
+GET <instance_url>/<instance_root>_ba/api/v1/geoname
 ~~~~
 
 #### Request Parameters
@@ -485,7 +485,7 @@ Get task status/details for the provided task\_id.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/task/{task_id}
+GET <instance_url>/<instance_root>_ba/api/v1/task/{task_id}
 ~~~~
 
 #### Request Parameters
@@ -531,7 +531,7 @@ primary keys.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/pointcloud
+GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}/generate/pointcloud
 ~~~~
 
 #### Request Parameters
@@ -586,7 +586,7 @@ primary keys.
 #### Endpoint
 
 ~~~~ {.bash}
-GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/raster
+GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}/generate/raster
 ~~~~
 
 #### Request Parameters
