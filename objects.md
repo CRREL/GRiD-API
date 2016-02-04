@@ -30,11 +30,12 @@ Object Model
 
 ### AOI Detail object
 
-  Key           Value Type                                    Value Description
-  ------------- --------------------------------------------- ----------------------------
-  export\_set   array of [exports objects](#export-object)    The exports of the AOI.
-  aoi           array of [aoi objects](#aoi-object2)          The AOI detail (repeated).
-  collects      array of [collect objects](#collect-object)   The collects for the AOI.
+  Key               Value Type                                      Value Description
+  ----------------- ----------------------------------------------- ----------------------------------------------
+  export\_set        array of [exports objects](#export-object)      The exports of the AOI.
+  aoi               array of [aoi objects](#aoi-object2)            The AOI detail (repeated).
+  pc\_intersects     array of [collect objects](#collect-object)     The intersecting PC collects for the AOI.
+  raster\_intersects array of [collect objects](#collect-object)     The intersecting raster collects for the AOI.
 
 ### AOI Upload object
 
@@ -47,11 +48,24 @@ Object Model
 
 ### Collect object
 
-  Key           Value Type   Value Description
-  ------------- ------------ -------------------------------------
-  fields.name   string       The name of the collect.
-  model         string       The model (e.g., loaddata.collect).
-  pk            integer      The primary key of the collect.
+  Key                 Value Type       Value Description
+  ------------------- ---------------- -------------------------------------------------------
+  fields.name         string           The name of the collect.
+  model               string           The model (e.g., loaddata.collect).
+  pk                  integer          The primary key of the collect.
+  collected\_at        timestamp        The time of the collection:  `YYYY-MM-DD HH24:MI:SS.FF6`
+  classification      string           Classification (e.g., `UNCLASS`).
+  sensor.name         string           The name of the sensor.
+  dimensions          array of strings The dimensions in the data (e.g., ["X","Y","Z","I").
+  resolution          real             The resolution of the collected data.
+  point\_density       real             The number of points per square mile in the collect.
+  geometry            string           WKT of the collect.
+  area                real             Area of the collect (square miles).
+  intersect\_geometry  string           WKT of the intersection of the collect and this AOI.
+  intersect\_area      real             Area of the intersection (square miles).
+  coverage\_ratio     real             Ratio of intersection area to AOI area (0 to 1).
+  filesize            real             Estimated size (bytes).
+  num\_points          real             Number of points.
 
 ### Export object
 
@@ -122,5 +136,3 @@ Object Model
   --------- --------------------------------------------------- ---------------------------
   aoi       array of [aoi upload objects](#aoi-upload-object)   The uploaded AOI.
   success   boolean                                             The status of the upload.
-
-
