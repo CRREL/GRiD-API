@@ -15,7 +15,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/cgi-bin/gridws
+    GET <instance_url>/<instance_root>_ba/cgi-bin/gridws
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi
+    GET <instance_url>/<instance_root>_ba/api/v1/aoi
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -253,7 +253,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}
+    GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -351,7 +351,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/add
+    GET <instance_url>/<instance_root>_ba/api/v1/aoi/add
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -421,7 +421,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/{pk}
+    GET <instance_url>/<instance_root>_ba/api/v1/export/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -496,7 +496,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/geoname
+    GET <instance_url>/<instance_root>_ba/api/v1/geoname
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -543,7 +543,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/task/{task_id}
+    GET <instance_url>/<instance_root>_ba/api/v1/task/{task_id}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -598,7 +598,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/pointcloud
+    GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}/generate/pointcloud
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -672,7 +672,7 @@ Endpoint
 
 ::
 
-    GET http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/{pk}/generate/raster
+    GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}/generate/raster
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
