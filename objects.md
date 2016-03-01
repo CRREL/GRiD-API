@@ -86,6 +86,7 @@ Object Model
   ---------- ------------ ---------------------------------------------------------
   started    boolean      Whether or not the point cloud export task has started.
   task\_id   string       The id of the task.
+  export\_id integer      The id of the export.
 
 ### Geoname object
 
@@ -123,4 +124,10 @@ Object Model
   aoi       array of [aoi upload objects](#aoi-upload-object)   The uploaded AOI.
   success   boolean                                             The status of the upload.
 
+### Error object
+This object is returned instead of another object in certain error conditions.
 
+  Key       Value Type   Value Description
+  --------- ------------ ------------------------------
+  status    string       Error status (e.g., FAILURE).
+  error     string       The error message.
