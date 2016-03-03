@@ -136,40 +136,6 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLY
                 "pk": 123
             }
         ], 
-        "export_set": [
-            {
-                "datatype": "LAS 1.2", 
-                "hsrs": "32642", 
-                "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
-                "pk": 1335, 
-                "started_at": "2015-10-15T18:06:13.272161", 
-                "status": "SUCCESS", 
-                "url": "http://127.0.0.1:8000/export/download/1335/"
-            }, 
-            {
-                "datatype": "DSM", 
-                "hsrs": "32642", 
-                "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip", 
-                "pk": 1328,
-                "started_at": "2015-10-15T17:59:05.937854", 
-                "status": "SUCCESS", 
-                "url": "http://127.0.0.1:8000/export/download/1328/"
-            }, 
-        ], 
-        "pointcloud_collects": [
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20110323_00_0_UFO", 
-                "pk": 168
-            }
-        ], 
-        "raster_collects": [
-            {
-                "datatype": "DSM", 
-                "name": "20080407_00_0_UFO", 
-                "pk": 228
-            }
-        ]
     }, 
     "1304": {
         "aoi": [
@@ -187,36 +153,6 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLY
                 "pk": 1304
             }
         ], 
-        "export_set": [], 
-        "pointcloud_collects": [
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20110401_00_1_UFO", 
-                "pk": 169
-            }, 
-            {
-                "datatype": "LAS 1.2", 
-                "name": "20110404_00_0_UFO", 
-                "pk": 186
-            }, 
-            {
-                "datatype": "LAS 1.2", 
-                "name": "11111_Ring_Road60", 
-                "pk": 55
-            }, 
-        ], 
-        "raster_collects": [
-            {
-                "datatype": "DTM", 
-                "name": "20111001_00_0_UFO", 
-                "pk": 254
-            }, 
-            {
-                "datatype": "DTM", 
-                "name": "20110619_00_1_UFO", 
-                "pk": 268
-            }, 
-        ]
     }, 
     "GRiD API": {
         "API Version": "v1"
@@ -335,7 +271,7 @@ GET <instance_url>/<instance_root>_ba/api/v1/aoi/add
 #### Response Format
 
 On success, the HTTP status code in the header response is `200` OK and
-the response body contains an [Upload object](#aoi-detail-object) in
+the response body contains an [AOI Detail object](#aoi-detail-object) in
 JSON format.
 
 #### Example
