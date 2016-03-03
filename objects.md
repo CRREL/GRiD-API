@@ -1,40 +1,36 @@
 Object Model
 ------------
 
-### AOI object
-
-  Key            Value Type   Value Description
-  -------------- ------------ -------------------------------------------------------------
-  name           string       The name of the AOI.
-  geometry       string       The WKT geometry of the AOI.
-  notes          string       User notes.
-  is\_active     boolean      Whether or not the AOI is active.
-  source         string       Source of the AOI (e.g., map, api).
-  num\_exports   string       The number of exports that have been generated for the AOI.
-  pk             integer      The primary key of the AOI.
-  created\_at    timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
-
-### AOI object2
+### AOI List object
 
   Key                     Value Type   Value Description
   ----------------------- ------------ -------------------------------------
-  fields.name             string       The name of the AOI.
-  fields.created\_at      timestamp    ISO 8601 format as UTC.
-  fields.is\_active       boolean      Whether or not the AOI is active.
-  fields.source           string       Source of the AOI (e.g., map, api).
-  fields.user             integer      The id of the creating user.
-  fields.clip\_geometry   string       The WKT geometry of the AOI.
-  fields.notes            string       User notes.
-  model                   string       The model (e.g., export.aoi).
-  pk                      integer      The primary key of the AOI.
+  aoi.fields.name             string       The name of the AOI.
+  aoi.fields.created\_at      timestamp    ISO 8601 format as UTC.
+  aoi.fields.is\_active       boolean      Whether or not the AOI is active.
+  aoi.fields.source           string       Source of the AOI (e.g., map, api).
+  aoi.fields.user             integer      The id of the creating user.
+  aoi.fields.clip\_geometry   string       The WKT geometry of the AOI.
+  aoi.fields.notes            string       User notes.
+  aoi.model                   string       The model (e.g., export.aoi).
+  aoi.pk                      integer      The primary key of the AOI.
 
 ### AOI Detail object
 
-  Key           Value Type                                    Value Description
-  ------------- --------------------------------------------- ----------------------------
-  export\_set   array of [exports objects](#export-object)    The exports of the AOI.
-  aoi           array of [aoi objects](#aoi-object2)          The AOI detail (repeated).
-  collects      array of [collect objects](#collect-object)   The collects for the AOI.
+Key                     Value Type   Value Description
+----------------------- ------------ -------------------------------------
+aoi.fields.clip\_geometry   string       The WKT geometry of the AOI.
+aoi.fields.created\_at      timestamp    ISO 8601 format as UTC.
+aoi.fields.is\_active       boolean      Whether or not the AOI is active.
+aoi.fields.name             string       The name of the AOI.
+aoi.fields.notes            string       User notes.
+aoi.fields.source           string       Source of the AOI (e.g., map, api).
+aoi.fields.user             integer      The id of the creating user.
+aoi.model                   string       The model (e.g., export.aoi).
+aoi.pk                      integer      The primary key of the AOI.
+export\_set   array of [exports objects](#export-object)    The exports of the AOI.
+pointcloud_collects      array of [collect objects](#collect-object)   The pointcloud collects for the AOI
+raster_collects          array of [collect objects](#collect-object)   The raster collects for the AOI
 
 ### AOI Upload object
 
@@ -49,36 +45,37 @@ Object Model
 
   Key           Value Type   Value Description
   ------------- ------------ -------------------------------------
-  fields.name   string       The name of the collect.
-  model         string       The model (e.g., loaddata.collect).
-  pk            integer      The primary key of the collect.
+  datatype     string       The datatype (e.g., LAS 1.2, DTM).
+  name         string       The name of the collect.
+  pk           integer      The primary key of the collect.
 
 ### Export object
 
   Key          Value Type   Value Description
   ------------ ------------ -----------------------------------------------------------
-  status       string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
-  started\_at   timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
-  name         string       The name of the export.
   datatype     string       The datatype (e.g., LAS 1.2, DTM).
   hsrs         string       The Horizontal Spatial Reference System EPSG code.
-  url          string       The download URL of the export.
+  name         string       The name of the export.
   pk           integer      The primary key of the export.
+  started\_at   timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  status       string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+  url          string       The download URL of the export.
+  
 
 ### Export Detail object
 
   Key           Value Type                                            Value Description
   ------------- ----------------------------------------------------- -------------------------------------
-  exportfiles   array of [Exportfiles objects](#exportfiles-object)   The export files of the export set.
-  tda\_set      array of [TDA Set objects](#tda-set-object)           The TDAs of the export set.
+  exportfiles   array of [Exportfiles objects](#exportfiles-object)   The export files of the export.
+  tda\_set      array of [TDA Set objects](#tda-set-object)           The TDA set of the export.
 
 ### Exportfiles object
 
   Key    Value Type   Value Description
   ------ ------------ --------------------------------------
-  url    string       The download URL of the export file.
-  pk     integer      The primary key of the export file.
   name   string       The name of the export file.
+  pk     integer      The primary key of the export file.
+  url    string       The download URL of the export file.
 
 ### Generate Export object
 
@@ -108,13 +105,13 @@ Object Model
 
   Key           Value Type   Value Description
   ------------- ------------ -----------------------------------------------------------
+  created\_at   timestamp    Time of creation for the TDA: `YYYY-MM-DD HH24:MI:SS.FF6`
+  name          string       The name of the TDA.
+  notes         string       User notes.
+  pk            integer      The primary key of the TDA.
   status        string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
   tda\_type     string       The TDA type (e.g., Hlz, Los).
-  name          string       The name of the TDA.
   url           string       The download URL of the TDA.
-  created\_at   timestamp    Time of creation for the TDA: `YYYY-MM-DD HH24:MI:SS.FF6`
-  pk            integer      The primary key of the TDA.
-  notes         string       User notes.
 
 ### Upload object
 
