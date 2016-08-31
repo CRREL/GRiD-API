@@ -5,31 +5,30 @@ Object Model
 
   Key                     Value Type   Value Description
   ----------------------- ------------ -------------------------------------
-  aoi.name                string       The name of the AOI.
-  aoi.created\_at         timestamp    The date of AOI creation. ISO 8601 format as UTC.
-  aoi.is\_active          boolean      Whether or not the AOI is active.
-  aoi.source              string       Source of the AOI (e.g., map, api).
-  aoi.user                integer      The id of the creating user.
-  aoi.clip\_geometry      string       The WKT geometry of the AOI.
-  aoi.notes               string       User notes.
-  aoi.model               string       The model (e.g., export.aoi).
-  aoi.pk                  integer      The primary key of the AOI.
+  name                string       The name of the AOI.
+  created\_at         timestamp    The date of AOI creation. ISO 8601 format as UTC.
+  is\_active          boolean      Whether or not the AOI is active.
+  source              string       Source of the AOI (e.g., map, api).
+  user                integer      The name of the creating user.
+  clip\_geometry      string       The WKT geometry of the AOI.
+  notes               string       User notes.
+  pk                  integer      The primary key of the AOI.
 
 ### AOI Detail object
 
-  Key                     Value Type   Value Description
-  ----------------------- ------------ -------------------------------------
-  aoi.clip\_geometry      string       The WKT geometry of the AOI.
-  aoi.created\_at         timestamp    The date of AOI creation. ISO 8601 format as UTC.
-  aoi.is\_active          boolean      Whether or not the AOI is active.
-  aoi.name                string       The name of the AOI.
-  aoi.notes               string       User notes.
-  aoi.source              string       Source of the AOI (e.g., map, api).
-  aoi.user                integer      The id of the creating user.
-  aoi.pk                  integer      The primary key of the AOI.
-  export\_set             array of [exports objects](#export-object)    The exports of the AOI.
-  pointcloud_intersects   array of [product objects](#product-object)   The pointcloud products for the AOI
-  raster_intersects       array of [product objects](#product-object)   The raster products for the AOI
+  Key                      Value Type   Value Description
+  ------------------------ ------------ -------------------------------------
+  clip\_geometry           string       The WKT geometry of the AOI.
+  created\_at              timestamp    The date of AOI creation. ISO 8601 format as UTC.
+  is\_active               boolean      Whether or not the AOI is active.
+  name                     string       The name of the AOI.
+  notes                    string       User notes.
+  source                   string       Source of the AOI (e.g., map, api).
+  user                     integer      The id of the creating user.
+  pk                       integer      The primary key of the AOI.
+  export\_set              array of [exports objects](#export-object)    The exports of the AOI.
+  pointcloud\_intersects   array of [pointcloud product objects](#pointcloud-product-object)   The pointcloud products for the AOI
+  raster\_intersects       array of [raster product objects](#raster-product-object)   The raster products for the AOI
 
 ### Pointcloud Product object
 
@@ -43,9 +42,9 @@ Object Model
   classification string       The security classification.
   geometry       string       The WKT geometry of the product.
   area           float        The area of the geometry in sq_km.
-  coverage_ratio string       The percent of the product area covered by the AOI.
+  coverage\_ratio string      The percent of the product area covered by the AOI.
   filesize       integer      The size of the product on the filesystem in bytes.
-  point_count    integer      The total number of points in the product.
+  point\_count    integer     The total number of points in the product.
   density        float        The average point density of the product.
 
 ### Raster Product object
@@ -60,7 +59,7 @@ Object Model
   classification string       The security classification.
   geometry       string       The WKT geometry of the product.
   area           float        The area of the geometry in sq_km.
-  coverage_ratio string       The percent of the product area covered by the AOI.
+  coverage\_ratio string      The percent of the product area covered by the AOI.
   filesize       integer      The size of the product on the filesystem in bytes.
 
 ### Export object
@@ -77,28 +76,29 @@ Object Model
 
 ### Export Detail object
 
-  Key                 Value Type                                            Value Description
-  ------------------- ----------------------------------------------------- -------------------------------------
-  datatype            string       The datatype (e.g., LAS 1.2, DTM).
-  hsrs                string       The Horizontal Spatial Reference System EPSG code.
-  name                string       The name of the export.
-  pk                  integer      The primary key of the export.
-  started\_at         timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
-  status              string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
-  url                 string       The download URL of the export.
-  rgb                 boolean      Whether or not RGB dimension is included in exported data.
-  intensity           boolean      Whether or not Intensity dimension is included in exported data.
-  dim_classification  boolean      Whether or not Classification dimension is included in exported data.
-  file_export_options string       The file export option used (e.g., individual, collect, super).
-  generate_dem        boolean      Whether or not this was a generated DEM from pointcloud.
-  notes               string       The notes associated with the export.
-  classification      string       The classifications selected for the export.
-  pcl_terrain         string       The PCL terrain option of the export.
-  sri_hres            decimal      The sri_hres value of the export.
-  exportfiles         array of [Exportfiles objects](#exportfiles-object)   The export files of the export.
-  tda\_set            array of [TDA Set objects](#tda-set-object)           The TDA set of the export.
+  Key                   Value Type                                            Value Description
+  --------------------- ----------------------------------------------------- -------------------------------------
+  datatype              string       The datatype (e.g., LAS 1.2, DTM).
+  hsrs                  string       The Horizontal Spatial Reference System EPSG code.
+  name                  string       The name of the export.
+  pk                    integer      The primary key of the export.
+  started\_at           timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  status                string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+  url                   string       The download URL of the export.
+  rgb                   boolean      Whether or not RGB dimension is included in exported data.
+  intensity             boolean      Whether or not Intensity dimension is included in exported data.
+  dim\_classification   boolean      Whether or not Classification dimension is included in exported data.
+  file\_export\_options string       The file export option used (e.g., individual, collect, super).
+  generate\_dem         boolean      Whether or not this was a generated DEM from pointcloud.
+  notes                 string       User notes.
+  classification        string       The classifications selected for the export.
+  pcl\_terrain          string       The PCL terrain option of the export.
+  sri\_hres             decimal      The sri_hres value of the export.
+  exportfiles           array of [Exportfile objects](#exportfile-object)   The export files of the export.
+  tda\_set              array of [TDA objects](#tda-object)         The TDA set of the export.
+  task\_id              string       The ID of the associated task used for generation.
 
-### Exportfiles object
+### Exportfile object
 
   Key    Value Type   Value Description
   ------ ------------ --------------------------------------
@@ -106,25 +106,11 @@ Object Model
   pk     integer      The primary key of the export file.
   url    string       The download URL of the export file.
 
-### Generate Export object
-
-  Key        Value Type   Value Description
-  ---------- ------------ ---------------------------------------------------------
-  started    boolean      Whether or not the point cloud export task has started.
-  task\_id   string       The id of the task.
-
-### Geoname object
-
-  Key                  Value Type   Value Description
-  -------------------- ------------ -------------------------------------------
-  name                 string       The suggested name.
-  provided\_geometry   string       WKT used to determine the suggested name.
-
 ### Task object
 
   Key               Value Type   Value Description
   ----------------- ------------ -------------------------------------------------------------
-  task\_traceback   string       TBD
+  task\_traceback   string       The description of any failures if they occurred.
   task\_state       string       The state of the task (e.g., SUCCESS, FAILED, QUEUED).
   task\_tstamp      timestamp    ISO 8601 format as UTC.
   task\_name        string       The name of the task (e.g., export.tasks.generate\_export).
@@ -141,16 +127,4 @@ Object Model
   status        string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
   tda\_type     string       The TDA type (e.g., Hlz, Los).
   url           string       The download URL of the TDA.
-
-### Upload object
-
-  Key       Value Type                                          Value Description
-  --------- --------------------------------------------------- ---------------------------
-  aoi       array of [aoi upload objects](#aoi-upload-object)   The uploaded AOI.
-  success   boolean                                             The status of the upload.
-
-### Error object
-  Key       Value Type  Value Description
-  --------- ----------- ---------------------------
-  error     string      Description of the error from the given API request
 
