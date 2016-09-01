@@ -707,7 +707,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
   name                    *Optional*. An optional name for the export.
   hsrs                    *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
   file\_export\_options   *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default ``individual``
-  file\_format\_options   *Optional*. Determine the The format of the output file.  Accepts  ``GTiff`` and ``NTIF``. Default: ``GTiff``
+  file\_format\_options   *Optional*. Determine the The format of the output file.  Accepts  ``GTiff`` and ``NITF``. Default: ``GTiff``
   compressed              *Optional*. Whether or not to export compressed data. Default: True.
   send\_email             *Optional*. Whether or not to notify user via email upon completion. Default: False.
 
