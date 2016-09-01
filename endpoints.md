@@ -175,7 +175,7 @@ JSON format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123?source=grid
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?source=grid
 ~~~~
 
 ~~~~ {.json}
@@ -396,7 +396,7 @@ object](#export-detail-object) in JSON format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335?source=grid
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335/?source=grid
 ~~~~
 
 ~~~~ {.json}
