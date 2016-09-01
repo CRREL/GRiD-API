@@ -4,7 +4,7 @@ Object Model
 ### AOI List object
 
   Key                     Value Type   Value Description
-  ----------------------- ------------ -------------------------------------
+  ------------------- ------------ -------------------------------------
   name                string       The name of the AOI.
   created\_at         timestamp    The date of AOI creation. ISO 8601 format as UTC.
   is\_active          boolean      Whether or not the AOI is active.
@@ -16,19 +16,19 @@ Object Model
 
 ### AOI Detail object
 
-  Key                      Value Type   Value Description
-  ------------------------ ------------ -------------------------------------
-  clip\_geometry           string       The WKT geometry of the AOI.
-  created\_at              timestamp    The date of AOI creation. ISO 8601 format as UTC.
-  is\_active               boolean      Whether or not the AOI is active.
-  name                     string       The name of the AOI.
-  notes                    string       User notes.
-  source                   string       Source of the AOI (e.g., map, api).
-  user                     integer      The id of the creating user.
-  pk                       integer      The primary key of the AOI.
-  export\_set              array of [exports objects](#export-object)    The exports of the AOI.
-  pointcloud\_intersects   array of [pointcloud product objects](#pointcloud-product-object)   The pointcloud products for the AOI
-  raster\_intersects       array of [raster product objects](#raster-product-object)   The raster products for the AOI
+  Key                      Value Type                                             Value Description
+  ---------------------- -------------------------------------------------------- -------------------------------------
+  clip\_geometry         string                                                   The WKT geometry of the AOI.
+  created\_at            timestamp                                                The date of AOI creation. ISO 8601 format as UTC.
+  is\_active             boolean                                                  Whether or not the AOI is active.
+  name                   string                                                   The name of the AOI.
+  notes                  string                                                   User notes.
+  source                 string                                                   Source of the AOI (e.g., map, api).
+  user                   integer                                                  The id of the creating user.
+  pk                     integer                                                  The primary key of the AOI.
+  export\_set            array of [exports objects](#export-object)               The exports of the AOI.
+  pointcloud\_intersects array of [pointcloud product objects](#pointcloud-product-object) The pointcloud products for the AOI.
+  raster\_intersects     array of [raster product objects](#raster-product-object) The raster products for the AOI.
 
 ### Pointcloud Product object
 
@@ -138,7 +138,7 @@ Object Model
   task\_name        string       The name of the task (e.g., export.tasks.generate\_export).
   task\_id          string       The id of the task.
 
-### TDA Set object
+### TDA object
 
   Key           Value Type   Value Description
   ------------- ------------ -----------------------------------------------------------
