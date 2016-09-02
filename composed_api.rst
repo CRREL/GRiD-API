@@ -1,4 +1,4 @@
-GRiD API v1
+GRiD API v2
 ===========
 
 API Endpoint Reference
@@ -61,7 +61,9 @@ Example
        xmlns:wfs="http://www.opengis.net/wfs"
        xmlns:ogc="http://www.opengis.net/ogc"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver http://gridte-proc.erdc.dren.mil/te_ba/cgi-bin/gridws?SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=DescribeFeatureType&amp;TYPENAME=ms:gridws_pointcloud&amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.1.1  http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
+       xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver 
+       http://gridte-proc.erdc.dren.mil/te_ba/cgi-bin/gridws?SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=DescribeFeatureType&amp;TYPENAME=ms:gridws_pointcloud&amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.1.1  
+       http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
           <gml:boundedBy>
             <gml:Envelope srsName="EPSG:4326">
                     <gml:lowerCorner>33.001454 62.094691</gml:lowerCorner>
@@ -110,7 +112,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/aoi
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -135,48 +137,37 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&?source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&source=grid
 
 ::
 
     {
-        "123": {
-            "aoi": [
-                {
-                    "fields": {
-                        "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
-                        "created_at": "2013-04-16T13:10:33.974", 
-                        "is_active": true, 
-                        "name": "First_Aoi", 
-                        "notes": "", 
-                        "source": "", 
-                        "user": 102
-                    }, 
-                    "model": "export.aoi", 
-                    "pk": 123
-                }
-            ], 
-        }, 
-        "1304": {
-            "aoi": [
-                {
-                    "fields": {
-                        "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994, 68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
-                        "created_at": "2015-09-23T09:50:19.856", 
-                        "is_active": true, 
-                        "name": "Second_Aoi", 
-                        "notes": "", 
-                        "source": "", 
-                        "user": 102
-                    }, 
-                    "model": "export.aoi", 
-                    "pk": 1304
-                }
-            ], 
-        }, 
-        "GRiD API": {
-            "API Version": "v1"
-        }
+        "aoi_list": [
+          {
+            "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+            68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
+            68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
+            "created_at": "2013-04-16T13:10:33.974", 
+            "is_active": true, 
+            "name": "First_Aoi", 
+            "notes": "", 
+            "source": "", 
+            "user": 102,
+            "pk": 123
+          },
+          {
+            "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,
+            68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
+            "created_at": "2015-09-23T09:50:19.856", 
+            "is_active": true, 
+            "name": "Second_Aoi", 
+            "notes": "", 
+            "source": "", 
+            "user": 102,
+            "pk": 1304
+          }
+        ], 
+        "API Version": "v2"
     }
 
 Get AOI Details
@@ -189,7 +180,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -218,29 +209,25 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/123?source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?source=grid
 
 ::
 
     {
-        "GRiD API": {
-            "API Version": "v1"
+        "API Version": "v2", 
+        "aoi": 
+        {
+          "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+          68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
+          68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
+          "created_at": "2013-04-16T13:10:33.974", 
+          "is_active": true, 
+          "name": "First_Aoi", 
+          "notes": "", 
+          "source": "api", 
+          "user": 102,
+          "pk": 123
         }, 
-        "aoi": [
-            {
-                "fields": {
-                    "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
-                    "created_at": "2013-04-16T13:10:33.974", 
-                    "is_active": true, 
-                    "name": "First_Aoi", 
-                    "notes": "", 
-                    "source": "", 
-                    "user": 102
-                }, 
-                "model": "export.aoi", 
-                "pk": 123
-            }
-        ], 
         "export_set": [
             {
                 "datatype": "LAS 1.2", 
@@ -261,14 +248,14 @@ Example
                 "url": "http://127.0.0.1:8000/export/download/1328/"
             }, 
         ], 
-        "pointcloud_collects": [
+        "pointcloud_intersects": [
             {
                 "datatype": "LAS 1.2", 
                 "name": "20110323_00_0_UFO", 
                 "pk": 168
             }
         ], 
-        "raster_collects": [
+        "raster_intersects": [
             {
                 "datatype": "DSM", 
                 "name": "20080407_00_0_UFO", 
@@ -287,7 +274,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/aoi/add
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi/add
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -316,34 +303,144 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/aoi/add/?source=grid&name=test&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&subscribe=True
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/add/?source=grid&name=test&geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&subscribe=True
 
 ::
 
     {
-        "1592": {
-            "aoi": [
-                {
-                    "fields": {
-                        "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000, 20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
-                        "created_at": "2015-11-13T12:58:28.040", 
-                        "is_active": true, 
-                        "name": "test", 
-                        "notes": "", 
-                        "source": "api", 
-                        "user": 102
-                    }, 
-                    "model": "export.aoi", 
-                    "pk": 1592
-                }
-            ], 
-            "export_set": [], 
-            "pointcloud_collects": [], 
-            "raster_collects": []
-        }, 
-        "GRiD API": {
-            "API Version": "v1"
-        }, 
+        "aoi": 
+        {
+          "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+          20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
+          "created_at": "2015-11-13T12:58:28.040", 
+          "is_active": true, 
+          "name": "test", 
+          "notes": "", 
+          "source": "api", 
+          "user": 102,
+          "pk": 1592
+        },
+        "export_set": [], 
+        "pointcloud_intersects": [], 
+        "raster_intersects": [],
+        "API Version": "v2",
+        "success": true
+    }
+
+Edit AOI
+~~~~~~~~
+
+Update an AOIs name, notes, or geometry. In order to change an AOI's
+geometry, it must contain 0 generated exports.
+
+Endpoint
+^^^^^^^^
+
+::
+
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/<pk>
+
+Request Parameters
+^^^^^^^^^^^^^^^^^^
+
++------------------+-------------------------------+
+| Path parameter   | Value                         |
++==================+===============================+
+| pk               | The primary key of the AOI.   |
++------------------+-------------------------------+
+
++-------------------+--------------------------------------------------+
+| Query parameter   | Value                                            |
++===================+==================================================+
+| name              | *Optional*. The name for the AOI.                |
++-------------------+--------------------------------------------------+
+| geom              | *Optional*. A WKT geometry describing the AOI.   |
++-------------------+--------------------------------------------------+
+| source            | *Required*. Your GRiD generated API key.         |
++-------------------+--------------------------------------------------+
+| notes             | *Optional*. The notes for the AOI.               |
++-------------------+--------------------------------------------------+
+
+Response Format
+^^^^^^^^^^^^^^^
+
+On success, the HTTP status code in the header response is ``200`` OK
+and the response body contains an `AOI Detail
+object <#aoi-detail-object>`_ in JSON format.
+
+Example
+^^^^^^^
+
+::
+
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/edit/123/?source=grid&name=new name&notes=updated notes
+
+::
+
+    {
+        "aoi": 
+        {
+          "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+          20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
+          "created_at": "2015-11-13T12:58:28.040", 
+          "is_active": true, 
+          "name": "new name", 
+          "notes": "updated notes", 
+          "source": "api", 
+          "user": 102,
+          "pk": 123
+        },
+        "export_set": [], 
+        "pointcloud_intersects": [], 
+        "raster_intersects": [],
+        "API Version": "v2",
+        "success": true
+    }
+
+Delete AOI
+~~~~~~~~~~
+
+Delete an existing AOI.
+
+Endpoint
+^^^^^^^^
+
+::
+
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
+
+Request Parameters
+^^^^^^^^^^^^^^^^^^
+
++------------------+-------------------------------+
+| Path parameter   | Value                         |
++==================+===============================+
+| pk               | The primary key of the AOI.   |
++------------------+-------------------------------+
+
++-------------------+---------+
+| Query parameter   | Value   |
++===================+=========+
+| N/A               | N/A     |
++-------------------+---------+
+
+Response Format
+^^^^^^^^^^^^^^^
+
+On success, the HTTP status code in the header response is ``200`` OK
+and the response body contains a the status in JSON format.
+
+Example
+^^^^^^^
+
+::
+
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/delete/123/?source=grid
+
+::
+
+    {
+        "API Version": "v2",
         "success": true
     }
 
@@ -357,7 +454,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/export/{pk}
+    GET <instance_url>/<instance_root>_ba/api/v2/export/{pk}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -386,14 +483,31 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/export/1335?source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335/?source=grid
 
 ::
 
     {
-      "GRiD API": {
-        "API Version": "v1"
-        }
+      "export": 
+      {
+        "status": "SUCCESS",
+        "pcl_terrain": "",
+        "dim_classification": true,
+        "file_export_options": "individual",
+        "name": "",
+        "classification": "",
+        "datatype": "LAS 1.2",
+        "notes": "",
+        "rgb": false,
+        "hsrs": "32641",
+        "url": "http://localhost:8000/export/download/2880/",
+        "intensity": true,
+        "pk": 2880,
+        "generate_dem": false,
+        "started_at": "2016-05-16T16:18:12.752305",
+        "sri_hres": null
+      },
+      "API Version": "v2",
       "exportfiles": [
         {
           "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
@@ -422,6 +536,132 @@ Example
       ]
     }
 
+Edit Export
+~~~~~~~~~~~
+
+Update an Exports name or notes.
+
+Endpoint
+^^^^^^^^
+
+::
+
+    GET <instance_url>/<instance_root>_ba/api/v2/export/edit/<pk>
+
+Request Parameters
+^^^^^^^^^^^^^^^^^^
+
++------------------+----------------------------------+
+| Path parameter   | Value                            |
++==================+==================================+
+| pk               | The primary key of the export.   |
++------------------+----------------------------------+
+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| name              | *Optional*. The name for the export.       |
++-------------------+--------------------------------------------+
+| source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
+| notes             | *Optional*. User notes.                    |
++-------------------+--------------------------------------------+
+
+Response Format
+^^^^^^^^^^^^^^^
+
+On success, the HTTP status code in the header response is ``200`` OK
+and the response body contains an `Export Detail
+object <#export-detail-object>`_ in JSON format.
+
+Example
+^^^^^^^
+
+::
+
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/1335/?source=grid&name=new name&notes=notes
+
+::
+
+    {
+        "export": 
+        {
+          "status": "SUCCESS",
+          "pcl_terrain": "",
+          "dim_classification": true,
+          "file_export_options": "individual",
+          "name": "new name",
+          "classification": "",
+          "datatype": "LAS 1.2",
+          "notes": "notes",
+          "rgb": false,
+          "hsrs": "32641",
+          "url": "http://localhost:8000/export/download/1335/",
+          "intensity": true,
+          "pk": 1335,
+          "generate_dem": false,
+          "started_at": "2016-05-16T16:18:12.752305",
+          "sri_hres": null
+        },
+        "exportfiles": [
+        {
+          "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
+          "pk": 30359,
+          "name": "ExportedFile.laz"
+        }
+        ],
+        "tda_set": [],
+        "API Version": "v2",
+        "success": true
+    }
+
+Delete Export
+~~~~~~~~~~~~~
+
+Delete an existing Export.
+
+Endpoint
+^^^^^^^^
+
+::
+
+    GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
+
+Request Parameters
+^^^^^^^^^^^^^^^^^^
+
++------------------+----------------------------------+
+| Path parameter   | Value                            |
++==================+==================================+
+| pk               | The primary key of the export.   |
++------------------+----------------------------------+
+
++-------------------+---------+
+| Query parameter   | Value   |
++===================+=========+
+| N/A               | N/A     |
++-------------------+---------+
+
+Response Format
+^^^^^^^^^^^^^^^
+
+On success, the HTTP status code in the header response is ``200`` OK
+and the response body contains a the status in JSON format.
+
+Example
+^^^^^^^
+
+::
+
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/delete/1335/?source=grid
+
+::
+
+    {
+        "API Version": "v2",
+        "success": true
+    }
+
 Lookup Geoname
 ~~~~~~~~~~~~~~
 
@@ -432,7 +672,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/geoname
+    GET <instance_url>/<instance_root>_ba/api/v2/geoname
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -457,14 +697,12 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/geoname/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/geoname/?geom=POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&source=grid
 
 ::
 
     {
-        "GRiD API": {
-            "API Version": "v1"
-        }, 
+        "API Version": "v2", 
         "name": "Great Sand Sea", 
         "provided_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
     }
@@ -479,7 +717,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/task/{task_id}
+    GET <instance_url>/<instance_root>_ba/api/v2/task/{task_id}
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -508,14 +746,12 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v1/task/bacb736e-e900-457c-9b24-fd409bc3019d/?source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/task/bacb736e-e900-457c-9b24-fd409bc3019d/?source=grid
 
 ::
 
     {
-      "GRiD API": {
-        "API Version": "v1"
-      }, 
+      "API Version": "v2", 
       "task_traceback": "",
       "task_state": "SUCCESS",
       "task_tstamp": "2015-09-09T14:19:36.080",
@@ -534,7 +770,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}/generate/pointcloud
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -545,33 +781,53 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| Query parameter         | Value                                                                                                                                    |
-+=========================+==========================================================================================================================================+
-| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.                                     |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| source                  | *Required*. Your GRiD generated API key.                                                                                                 |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| intensity               | *Optional*. Whther or not to export intensity. Default: True.                                                                            |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| dim\_classification     | *Optional*. Wthere or not to export classification. Default: True                                                                        |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS                                                                                    |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| file\_export\_options   | *Optional*. Determmine file merging strategy. Accepts ``individual`` and ``collect``. Default ``individual``                             |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                                                     |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                                                     |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| generate\_dem           | *Optional*. Whether or not to generate a DEM from the export. Default: False.                                                            |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| cell\_spacing           | *Optional*. Used together with ``generate\_dem``. Default: 1.0                                                                           |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| pcl\_terrain            | *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``ubran``, ``suburban``, ``mountainous``, and ``foliated``. Default: None   |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
-| sri\_hres               | *Optional*. Used to trigger a Sarnoff Bare Earth export. Accespts the horizontal resolution. Default: None                               |
-+-------------------------+------------------------------------------------------------------------------------------------------------------------------------------+
++------------------+--------------------------------------------------------+
+| Query parameter  | Value                                                  |
++==================+========================================================+
+| products         | *Required*. A list of product primary keys to include  |
+|                  | in the export, separated by ``+`` or ``,``.            |
++------------------+--------------------------------------------------------+
+| source           | *Required*. Your GRiD generated API key.               |
++------------------+--------------------------------------------------------+
+| name             | *Optional*. An optional name for the export.           |
++------------------+--------------------------------------------------------+
+| intensity        | *Optional*. Whether or not to export intensity.        |
+|                  | Default: True.                                         |
++------------------+--------------------------------------------------------+
+| dim\_classificat | *Optional*. Whether or not to export classification.   |
+| ion              | Default: True.                                         |
++------------------+--------------------------------------------------------+
+| hsrs             | *Optional*. Accepts an EPSG code. Defaults to AOI SRS. |
++------------------+--------------------------------------------------------+
+| file\_export\_op | *Optional*. Determine file merging strategy. Accepts   |
+| tions            | ``individual`` and ``collect``. Default:               |
+|                  | ``individual``.                                        |
++------------------+--------------------------------------------------------+
+| export\_file\_ty | *Optional*. Determine the The format of the output     |
+| pe               | file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, |
+|                  | and ``bpf3``. Default: ``las12``.                      |
++------------------+--------------------------------------------------------+
+| compressed       | *Optional*. Whether or not to export compressed data.  |
+|                  | Default: True.                                         |
++------------------+--------------------------------------------------------+
+| send\_email      | *Optional*. Whether or not to notify user via email    |
+|                  | upon completion. Default: False.                       |
++------------------+--------------------------------------------------------+
+| generate\_dem    | *Optional*. Whether or not to generate a DEM from the  |
+|                  | export. Default: False.                                |
++------------------+--------------------------------------------------------+
+| cell\_spacing    | *Optional*. Used together with ``generate_dem``.       |
+|                  | Default: 1.0.                                          |
++------------------+--------------------------------------------------------+
+| pcl\_terrain     | *Optional*. Used to trigger a PMF Bare Earth export.   |
+|                  | Accepts ``ubran``, ``suburban``, ``mountainous``, and  |
+|                  | ``foliated``. Default: None. Cannot be used with       |
+|                  | sri\_hres option.                                      |
++------------------+--------------------------------------------------------+
+| sri\_hres        | *Optional*. Used to trigger a Sarnoff Bare Earth       |
+|                  | export. Accepts the horizontal resolution. Default:    |
+|                  | None. Cannot be used with pcl\_terrain option.         |
++------------------+--------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -585,14 +841,12 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/pointcloud/?collects=100+102&source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/pointcloud/?products=100+102&source=grid
 
 ::
 
     {
-      "GRiD API": {
-        "API Version": "v1"
-      }, 
+      "API Version": "v2", 
       "started" : true,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
@@ -608,7 +862,7 @@ Endpoint
 
 ::
 
-    GET <instance_url>/<instance_root>_ba/api/v1/aoi/{pk}/generate/raster
+    GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
 
 Request Parameters
 ^^^^^^^^^^^^^^^^^^
@@ -619,21 +873,33 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
-| Query parameter         | Value                                                                                                          |
-+=========================+================================================================================================================+
-| collects                | *Required*. A list of collection primary keys to include in the export, separated by ``+`` or ``,``.           |
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
-| source                  | *Required*. Your GRiD generated API key.                                                                       |
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
-| hsrs                    | *Optional*. Accepts an EPSG code. Defaults to AOI SRS                                                          |
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
-| file\_export\_options   | *Optional*. Determmine file merging strategy. Accepts ``individual`` and ``collect``. Default ``individual``   |
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
-| compressed              | *Optional*. Whether or not to export compressed data. Default: True.                                           |
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
-| send\_email             | *Optional*. Whether or not to notify user via email upon completion. Default: False.                           |
-+-------------------------+----------------------------------------------------------------------------------------------------------------+
++-------------------+-------------------------------------------------------+
+| Query parameter   | Value                                                 |
++===================+=======================================================+
+| products          | *Required*. A list of product primary keys to include |
+|                   | in the export, separated by ``+`` or ``,``.           |
++-------------------+-------------------------------------------------------+
+| source            | *Required*. Your GRiD generated API key.              |
++-------------------+-------------------------------------------------------+
+| name              | *Optional*. An optional name for the export.          |
++-------------------+-------------------------------------------------------+
+| hsrs              | *Optional*. Accepts an EPSG code. Defaults to AOI     |
+|                   | SRS.                                                  |
++-------------------+-------------------------------------------------------+
+| file\_export\_opt | *Optional*. Determine file merging strategy. Accepts  |
+| ions              | ``individual`` and ``collect``. Default               |
+|                   | ``individual``                                        |
++-------------------+-------------------------------------------------------+
+| file\_format\_opt | *Optional*. Determine the The format of the output    |
+| ions              | file. Accepts ``GTiff`` and ``NITF``. Default:        |
+|                   | ``GTiff``                                             |
++-------------------+-------------------------------------------------------+
+| compressed        | *Optional*. Whether or not to export compressed data. |
+|                   | Default: True.                                        |
++-------------------+-------------------------------------------------------+
+| send\_email       | *Optional*. Whether or not to notify user via email   |
+|                   | upon completion. Default: False.                      |
++-------------------+-------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -647,14 +913,12 @@ Example
 
 ::
 
-    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v1/aoi/2389/generate/raster/?collects=100+102&source=grid
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/raster/?collects=100+102&source=grid
 
 ::
 
     {
-      "GRiD API": {
-        "API Version": "v1"
-      }, 
+      "API Version": "v2", 
       "started" : true,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
@@ -665,86 +929,121 @@ Object Model
 AOI List object
 ~~~~~~~~~~~~~~~
 
-+----------------------------+--------------+---------------------------------------+
-| Key                        | Value Type   | Value Description                     |
-+============================+==============+=======================================+
-| aoi.fields.name            | string       | The name of the AOI.                  |
-+----------------------------+--------------+---------------------------------------+
-| aoi.fields.created\_at     | timestamp    | ISO 8601 format as UTC.               |
-+----------------------------+--------------+---------------------------------------+
-| aoi.fields.is\_active      | boolean      | Whether or not the AOI is active.     |
-+----------------------------+--------------+---------------------------------------+
-| aoi.fields.source          | string       | Source of the AOI (e.g., map, api).   |
-+----------------------------+--------------+---------------------------------------+
-| aoi.fields.user            | integer      | The id of the creating user.          |
-+----------------------------+--------------+---------------------------------------+
-| aoi.fields.clip\_geometr   | y string     | The WKT geometry of the AOI.          |
-+----------------------------+--------------+---------------------------------------+
-| aoi.fields.notes           | string       | User notes.                           |
-+----------------------------+--------------+---------------------------------------+
-| aoi.model                  | string       | The model (e.g., export.aoi).         |
-+----------------------------+--------------+---------------------------------------+
-| aoi.pk                     | integer      | The primary key of the AOI.           |
-+----------------------------+--------------+---------------------------------------+
++------------------+-------------+-----------------------------------------------------+
+| Key              | Value Typ   | e Value Description                                 |
++==================+=============+=====================================================+
+| name             | string      | The name of the AOI.                                |
++------------------+-------------+-----------------------------------------------------+
+| created\_at      | timestamp   | The date of AOI creation. ISO 8601 format as UTC.   |
++------------------+-------------+-----------------------------------------------------+
+| is\_active       | boolean     | Whether or not the AOI is active.                   |
++------------------+-------------+-----------------------------------------------------+
+| source           | string      | Source of the AOI (e.g., map, api).                 |
++------------------+-------------+-----------------------------------------------------+
+| user             | integer     | The name of the creating user.                      |
++------------------+-------------+-----------------------------------------------------+
+| clip\_geometry   | string      | The WKT geometry of the AOI.                        |
++------------------+-------------+-----------------------------------------------------+
+| notes            | string      | User notes.                                         |
++------------------+-------------+-----------------------------------------------------+
+| pk               | integer     | The primary key of the AOI.                         |
++------------------+-------------+-----------------------------------------------------+
 
 AOI Detail object
 ~~~~~~~~~~~~~~~~~
 
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| Key                        | Value Type      | Value Description                                                     |
-+============================+=================+=======================================================================+
-| aoi.fields.clip\_geometr   | y string        | The WKT geometry of the AOI.                                          |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.fields.created\_at     | timestamp       | ISO 8601 format as UTC.                                               |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.fields.is\_active      | boolean         | Whether or not the AOI is active.                                     |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.fields.name            | string          | The name of the AOI.                                                  |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.fields.notes           | string          | User notes.                                                           |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.fields.source          | string          | Source of the AOI (e.g., map, api).                                   |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.fields.user            | integer         | The id of the creating user.                                          |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.model                  | string          | The model (e.g., export.aoi).                                         |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| aoi.pk                     | integer         | The primary key of the AOI.                                           |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| export\_set array of [     | exports objec   | ts](#export-object) The exports of the AOI.                           |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| pointcloud\_collects       | array of [co    | llect objects](#collect-object) The pointcloud collects for the AOI   |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
-| raster\_collects           | array of [co    | llect objects](#collect-object) The raster collects for the AOI       |
-+----------------------------+-----------------+-----------------------------------------------------------------------+
++--------------+-------------------------------+-------------------------------+
+| Key          | Value Type                    | Value Description             |
++==============+===============================+===============================+
+| clip\_geomet | string                        | The WKT geometry of the AOI.  |
+| ry           |                               |                               |
++--------------+-------------------------------+-------------------------------+
+| created\_at  | timestamp                     | The date of AOI creation. ISO |
+|              |                               | 8601 format as UTC.           |
++--------------+-------------------------------+-------------------------------+
+| is\_active   | boolean                       | Whether or not the AOI is     |
+|              |                               | active.                       |
++--------------+-------------------------------+-------------------------------+
+| name         | string                        | The name of the AOI.          |
++--------------+-------------------------------+-------------------------------+
+| notes        | string                        | User notes.                   |
++--------------+-------------------------------+-------------------------------+
+| source       | string                        | Source of the AOI (e.g., map, |
+|              |                               | api).                         |
++--------------+-------------------------------+-------------------------------+
+| user         | integer                       | The id of the creating user.  |
++--------------+-------------------------------+-------------------------------+
+| pk           | integer                       | The primary key of the AOI.   |
++--------------+-------------------------------+-------------------------------+
+| export\_set  | array of `exports             | The exports of the AOI.       |
+|              | objects <#export-object>`_    |                               |
++--------------+-------------------------------+-------------------------------+
+| pointcloud\_ | array of `pointcloud product  | The pointcloud products for   |
+| intersects   | objects <#pointcloud-product- | the AOI.                      |
+|              | object>`_                     |                               |
++--------------+-------------------------------+-------------------------------+
+| raster\_inte | array of `raster product      | The raster products for the   |
+| rsects       | objects <#raster-product-obje | AOI.                          |
+|              | ct>`_                         |                               |
++--------------+-------------------------------+-------------------------------+
 
-AOI Upload object
-~~~~~~~~~~~~~~~~~
+Pointcloud Product object
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------+--------------+-----------------------------------------------------+
-| Key          | Value Type   | Value Description                                   |
-+==============+==============+=====================================================+
-| geometry     | string       | WKT of the uploaded AOI.                            |
-+--------------+--------------+-----------------------------------------------------+
-| pk           | integer      | The primary key of the uploaded AOI.                |
-+--------------+--------------+-----------------------------------------------------+
-| name         | string       | The name of the uploaded AOI.                       |
-+--------------+--------------+-----------------------------------------------------+
-| subscribed   | boolean      | Whether or not the user is subscribed to the AOI.   |
-+--------------+--------------+-----------------------------------------------------+
++-------------------+--------------+-------------------------------------------------------+
+| Key               | Value Type   | Value Description                                     |
++===================+==============+=======================================================+
+| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                    |
++-------------------+--------------+-------------------------------------------------------+
+| name              | string       | The name of the product.                              |
++-------------------+--------------+-------------------------------------------------------+
+| pk                | integer      | The primary key of the product.                       |
++-------------------+--------------+-------------------------------------------------------+
+| sensor            | string       | The sensor used to make the collection.               |
++-------------------+--------------+-------------------------------------------------------+
+| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.       |
++-------------------+--------------+-------------------------------------------------------+
+| classification    | string       | The security classification.                          |
++-------------------+--------------+-------------------------------------------------------+
+| geometry          | string       | The WKT geometry of the product.                      |
++-------------------+--------------+-------------------------------------------------------+
+| area              | float        | The area of the geometry in sq\_km.                   |
++-------------------+--------------+-------------------------------------------------------+
+| coverage\_ratio   | string       | The percent of the product area covered by the AOI.   |
++-------------------+--------------+-------------------------------------------------------+
+| filesize          | integer      | The size of the product on the filesystem in bytes.   |
++-------------------+--------------+-------------------------------------------------------+
+| point\_count      | integer      | The total number of points in the product.            |
++-------------------+--------------+-------------------------------------------------------+
+| density           | float        | The average point density of the product.             |
++-------------------+--------------+-------------------------------------------------------+
 
-Collect object
-~~~~~~~~~~~~~~
+Raster Product object
+~~~~~~~~~~~~~~~~~~~~~
 
-+--------------+--------------+-------------------------------------+
-| Key          | Value Type   | Value Description                   |
-+==============+==============+=====================================+
-| datatype s   | tring T      | he datatype (e.g., LAS 1.2, DTM).   |
-+--------------+--------------+-------------------------------------+
-| name s       | tring T      | he name of the collect.             |
-+--------------+--------------+-------------------------------------+
-| pk i         | nteger T     | he primary key of the collect.      |
-+--------------+--------------+-------------------------------------+
++-------------------+--------------+-------------------------------------------------------+
+| Key               | Value Type   | Value Description                                     |
++===================+==============+=======================================================+
+| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                    |
++-------------------+--------------+-------------------------------------------------------+
+| name              | string       | The name of the product.                              |
++-------------------+--------------+-------------------------------------------------------+
+| pk                | integer      | The primary key of the product.                       |
++-------------------+--------------+-------------------------------------------------------+
+| sensor            | string       | The sensor used to make the collection.               |
++-------------------+--------------+-------------------------------------------------------+
+| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.       |
++-------------------+--------------+-------------------------------------------------------+
+| classification    | string       | The security classification.                          |
++-------------------+--------------+-------------------------------------------------------+
+| geometry          | string       | The WKT geometry of the product.                      |
++-------------------+--------------+-------------------------------------------------------+
+| area              | float        | The area of the geometry in sq\_km.                   |
++-------------------+--------------+-------------------------------------------------------+
+| coverage\_ratio   | string       | The percent of the product area covered by the AOI.   |
++-------------------+--------------+-------------------------------------------------------+
+| filesize          | integer      | The size of the product on the filesystem in bytes.   |
++-------------------+--------------+-------------------------------------------------------+
 
 Export object
 ~~~~~~~~~~~~~
@@ -753,6 +1052,8 @@ Export object
 | Key           | Value Type   | Value Description                                             |
 +===============+==============+===============================================================+
 | datatype      | string       | The datatype (e.g., LAS 1.2, DTM).                            |
++---------------+--------------+---------------------------------------------------------------+
+| user          | integer      | The id of the creating user.                                  |
 +---------------+--------------+---------------------------------------------------------------+
 | hsrs          | string       | The Horizontal Spatial Reference System EPSG code.            |
 +---------------+--------------+---------------------------------------------------------------+
@@ -767,19 +1068,130 @@ Export object
 | url           | string       | The download URL of the export.                               |
 +---------------+--------------+---------------------------------------------------------------+
 
-Export Detail object
-~~~~~~~~~~~~~~~~~~~~
+Export Detail object (pointcloud)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+---------------+---------------------------------------------------------+-----------------------------------+
-| Key           | Value Type                                              | Value Description                 |
-+===============+=========================================================+===================================+
-| exportfiles   | array of `Exportfiles objects <#exportfiles-object>`_   | The export files of the export.   |
-+---------------+---------------------------------------------------------+-----------------------------------+
-| tda\_set      | array of `TDA Set objects <#tda-set-object>`_           | The TDA set of the export.        |
-+---------------+---------------------------------------------------------+-----------------------------------+
++--------------+-------------------------------+-------------------------------+
+| Key          | Value Type                    | Value Description             |
++==============+===============================+===============================+
+| datatype     | string                        | The datatype (e.g., LAS 1.2,  |
+|              |                               | DTM).                         |
++--------------+-------------------------------+-------------------------------+
+| user         | integer                       | The id of the creating user.  |
++--------------+-------------------------------+-------------------------------+
+| hsrs         | string                        | The Horizontal Spatial        |
+|              |                               | Reference System EPSG code.   |
++--------------+-------------------------------+-------------------------------+
+| name         | string                        | The name of the export.       |
++--------------+-------------------------------+-------------------------------+
+| pk           | integer                       | The primary key of the        |
+|              |                               | export.                       |
++--------------+-------------------------------+-------------------------------+
+| started\_at  | timestamp                     | Time of creation for the AOI: |
+|              |                               | ``YYYY-MM-DD HH24:MI:SS.FF6`` |
++--------------+-------------------------------+-------------------------------+
+| status       | string                        | The status of the export      |
+|              |                               | (e.g., SUCCESS, FAILED,       |
+|              |                               | QUEUED).                      |
++--------------+-------------------------------+-------------------------------+
+| url          | string                        | The download URL of the       |
+|              |                               | export.                       |
++--------------+-------------------------------+-------------------------------+
+| rgb          | boolean                       | Whether or not RGB dimension  |
+|              |                               | is included in exported data. |
++--------------+-------------------------------+-------------------------------+
+| intensity    | boolean                       | Whether or not Intensity      |
+|              |                               | dimension is included in      |
+|              |                               | exported data.                |
++--------------+-------------------------------+-------------------------------+
+| dim\_classif | boolean                       | Whether or not Classification |
+| ication      |                               | dimension is included in      |
+|              |                               | exported data.                |
++--------------+-------------------------------+-------------------------------+
+| file\_export | string                        | The file export option used   |
+| \_options    |                               | (e.g., individual, collect,   |
+|              |                               | super).                       |
++--------------+-------------------------------+-------------------------------+
+| generate\_de | boolean                       | Whether or not this was a     |
+| m            |                               | generated DEM from            |
+|              |                               | pointcloud.                   |
++--------------+-------------------------------+-------------------------------+
+| cell\_spacin | float                         | The cell spacing used in DEM  |
+| g            |                               | generation, if applicable.    |
++--------------+-------------------------------+-------------------------------+
+| notes        | string                        | User notes.                   |
++--------------+-------------------------------+-------------------------------+
+| classificati | string                        | The classifications selected  |
+| on           |                               | for the export.               |
++--------------+-------------------------------+-------------------------------+
+| pcl\_terrain | string                        | The PCL terrain option of the |
+|              |                               | export.                       |
++--------------+-------------------------------+-------------------------------+
+| sri\_hres    | decimal                       | The sri\_hres value of the    |
+|              |                               | export.                       |
++--------------+-------------------------------+-------------------------------+
+| exportfiles  | array of `Exportfile          | The export files of the       |
+|              | objects <#exportfile-object>` | export.                       |
+|              | _                             |                               |
++--------------+-------------------------------+-------------------------------+
+| tda\_set     | array of `TDA                 | The TDA set of the export.    |
+|              | objects <#tda-object>`_       |                               |
++--------------+-------------------------------+-------------------------------+
+| task\_id     | string                        | The ID of the associated task |
+|              |                               | used for generation.          |
++--------------+-------------------------------+-------------------------------+
 
-Exportfiles object
-~~~~~~~~~~~~~~~~~~
+Export Detail object (raster)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++--------------+------------------------------+-------------------------------+
+| Key          | Value Type                   | Value Description             |
++==============+==============================+===============================+
+| datatype     | string                       | The datatype (e.g., LAS 1.2,  |
+|              |                              | DTM).                         |
++--------------+------------------------------+-------------------------------+
+| user         | integer                      | The id of the creating user.  |
++--------------+------------------------------+-------------------------------+
+| hsrs         | string                       | The Horizontal Spatial        |
+|              |                              | Reference System EPSG code.   |
++--------------+------------------------------+-------------------------------+
+| name         | string                       | The name of the export.       |
++--------------+------------------------------+-------------------------------+
+| pk           | integer                      | The primary key of the        |
+|              |                              | export.                       |
++--------------+------------------------------+-------------------------------+
+| started\_at  | timestamp                    | Time of creation for the AOI: |
+|              |                              | ``YYYY-MM-DD HH24:MI:SS.FF6`` |
++--------------+------------------------------+-------------------------------+
+| status       | string                       | The status of the export      |
+|              |                              | (e.g., SUCCESS, FAILED,       |
+|              |                              | QUEUED).                      |
++--------------+------------------------------+-------------------------------+
+| url          | string                       | The download URL of the       |
+|              |                              | export.                       |
++--------------+------------------------------+-------------------------------+
+| file\_export | string                       | The file export option used   |
+| \_options    |                              | (e.g., individual, collect,   |
+|              |                              | super).                       |
++--------------+------------------------------+-------------------------------+
+| file\_format | string                       | The format of the output file |
+| \_options    |                              | (e.g., GTiff, NITF).          |
++--------------+------------------------------+-------------------------------+
+| notes        | string                       | User notes.                   |
++--------------+------------------------------+-------------------------------+
+| exportfiles  | array of `Exportfile         | The export files of the       |
+|              | objects <#exportfile-object> | export.                       |
+|              | `_                           |                               |
++--------------+------------------------------+-------------------------------+
+| tda\_set     | array of `TDA                | The TDA set of the export.    |
+|              | objects <#tda-object>`_      |                               |
++--------------+------------------------------+-------------------------------+
+| task\_id     | string                       | The ID of the associated task |
+|              |                              | used for generation.          |
++--------------+------------------------------+-------------------------------+
+
+Exportfile object
+~~~~~~~~~~~~~~~~~
 
 +--------+--------------+----------------------------------------+
 | Key    | Value Type   | Value Description                      |
@@ -791,35 +1203,13 @@ Exportfiles object
 | url    | string       | The download URL of the export file.   |
 +--------+--------------+----------------------------------------+
 
-Generate Export object
-~~~~~~~~~~~~~~~~~~~~~~
-
-+------------+--------------+-----------------------------------------------------------+
-| Key        | Value Type   | Value Description                                         |
-+============+==============+===========================================================+
-| started    | boolean      | Whether or not the point cloud export task has started.   |
-+------------+--------------+-----------------------------------------------------------+
-| task\_id   | string       | The id of the task.                                       |
-+------------+--------------+-----------------------------------------------------------+
-
-Geoname object
-~~~~~~~~~~~~~~
-
-+----------------------+--------------+---------------------------------------------+
-| Key                  | Value Type   | Value Description                           |
-+======================+==============+=============================================+
-| name                 | string       | The suggested name.                         |
-+----------------------+--------------+---------------------------------------------+
-| provided\_geometry   | string       | WKT used to determine the suggested name.   |
-+----------------------+--------------+---------------------------------------------+
-
 Task object
 ~~~~~~~~~~~
 
 +-------------------+--------------+---------------------------------------------------------------+
 | Key               | Value Type   | Value Description                                             |
 +===================+==============+===============================================================+
-| task\_traceback   | string       | TBD                                                           |
+| task\_traceback   | string       | The description of any failures if they occurred.             |
 +-------------------+--------------+---------------------------------------------------------------+
 | task\_state       | string       | The state of the task (e.g., SUCCESS, FAILED, QUEUED).        |
 +-------------------+--------------+---------------------------------------------------------------+
@@ -830,8 +1220,8 @@ Task object
 | task\_id          | string       | The id of the task.                                           |
 +-------------------+--------------+---------------------------------------------------------------+
 
-TDA Set object
-~~~~~~~~~~~~~~
+TDA object
+~~~~~~~~~~
 
 +---------------+--------------+---------------------------------------------------------------+
 | Key           | Value Type   | Value Description                                             |
@@ -850,23 +1240,3 @@ TDA Set object
 +---------------+--------------+---------------------------------------------------------------+
 | url           | string       | The download URL of the TDA.                                  |
 +---------------+--------------+---------------------------------------------------------------+
-
-Upload object
-~~~~~~~~~~~~~
-
-+-----------+-------------------------------------------------------+-----------------------------+
-| Key       | Value Type                                            | Value Description           |
-+===========+=======================================================+=============================+
-| aoi       | array of `aoi upload objects <#aoi-upload-object>`_   | The uploaded AOI.           |
-+-----------+-------------------------------------------------------+-----------------------------+
-| success   | boolean                                               | The status of the upload.   |
-+-----------+-------------------------------------------------------+-----------------------------+
-
-Error object
-~~~~~~~~~~~~
-
-+---------+--------------+-------------------------------------------------------+
-| Key     | Value Type   | Value Description                                     |
-+=========+==============+=======================================================+
-| error   | string       | Description of the error from the given API request   |
-+---------+--------------+-------------------------------------------------------+
