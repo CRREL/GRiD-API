@@ -301,6 +301,10 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/<pk>
 
 #### Request Parameters
 
+  Path parameter   Value
+  ---------------- -----------------------------
+  pk               The primary key of the AOI.
+
   Query parameter   Value
   ----------------- -----------------------------------------------------
   name              *Optional*. The name for the AOI.
@@ -353,6 +357,10 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
 ~~~~
 
 #### Request Parameters
+
+  Path parameter   Value
+  ---------------- -----------------------------
+  pk               The primary key of the AOI.
 
   Query parameter   Value
   ----------------- -----------------------------------------------------
@@ -471,11 +479,15 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/edit/<pk>
 
 #### Request Parameters
 
+  Path parameter   Value
+  ---------------- -----------------------------
+  pk               The primary key of the export.
+
   Query parameter   Value
   ----------------- -----------------------------------------------------
-  name              *Optional*. The name for the AOI.
+  name              *Optional*. The name for the export.
   source            *Required*. Your GRiD generated API key.
-  notes             *Optional*. The notes for the AOI.
+  notes             *Optional*. User notes.
 
 #### Response Format
 
@@ -534,6 +546,10 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
 ~~~~
 
 #### Request Parameters
+
+  Path parameter   Value
+  ---------------- -----------------------------
+  pk               The primary key of the export.
 
   Query parameter   Value
   ----------------- -----------------------------------------------------
@@ -654,23 +670,38 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   ---------------- -----------------------------
   pk               The primary key of the AOI.
 
-  Query parameter         Value
-  ----------------------- ---------------------------------------------------------------------------------------------------------------------------------
-  collects                *Required*. A list of collection primary keys to include in the export, separated by `+` or `,`.
-  source                  *Required*. Your GRiD generated API key.
-  name                    *Optional*. An optional name for the export.
-  intensity               *Optional*. Whether or not to export intensity. Default: True.
-  dim\_classification     *Optional*. Whether or not to export classification. Default: True.
-  hsrs                    *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
-  file\_export\_options   *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default: ``individual``.
-  export\_file\_type      *Optional*. Determine the The format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
-  compressed              *Optional*. Whether or not to export compressed data. Default: True.
-  send\_email             *Optional*. Whether or not to notify user via email upon completion. Default: False.
-  generate\_dem           *Optional*. Whether or not to generate a DEM from the export. Default: False.
-  cell\_spacing           *Optional*. Used together with ``generate\_dem``.  Default: 1.0.
-  pcl\_terrain            *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``ubran``, ``suburban``, ``mountainous``, and ``foliated``.  Default: None.  Cannot be used with sri_hres option.
-  sri\_hres               *Optional*. Used to trigger a Sarnoff Bare Earth export.  Accespts the horizontal resolution.  Default: None.  Cannot be used with pcl_terrain option.
+  ----------------------------------------------------------------------------------------------
+  Query parameter       Value
+  --------------------- -------------------------------------------------------------------------
+  products              *Required*. A list of product primary keys to include in the export, separated by `+` or `,`.
   
+  source                *Required*. Your GRiD generated API key.
+  
+  name                  *Optional*. An optional name for the export.
+  
+  intensity             *Optional*. Whether or not to export intensity. Default: True.
+  
+  dim\_classification   *Optional*. Whether or not to export classification. Default: True.
+  
+  hsrs                  *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
+  
+  file\_export\_options *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default: ``individual``.
+  
+  export\_file\_type    *Optional*. Determine the The format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
+  
+  compressed            *Optional*. Whether or not to export compressed data. Default: True.
+  
+  send\_email           *Optional*. Whether or not to notify user via email upon completion. Default: False.
+  
+  generate\_dem         *Optional*. Whether or not to generate a DEM from the export. Default: False.
+  
+  cell\_spacing         *Optional*. Used together with ``generate_dem``.  Default: 1.0.
+  
+  pcl\_terrain          *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``ubran``, ``suburban``, ``mountainous``, and ``foliated``.  Default: None.  Cannot be used with sri_hres option.
+  
+  sri\_hres             *Optional*. Used to trigger a Sarnoff Bare Earth export.  Accepts the horizontal resolution.  Default: None.  Cannot be used with pcl_terrain option.
+  ----------------------------------------------------------------------------------------------
+
 #### Response Format
 
 On success, the HTTP status code in the header response is `200` OK and
@@ -680,7 +711,7 @@ object](#generate-export-object) in JSON format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/pointcloud/?collects=100+102&source=grid
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/pointcloud/?products=100+102&source=grid
 ~~~~
 
 ~~~~ {.json}
@@ -709,16 +740,25 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
   ---------------- -----------------------------
   pk               The primary key of the AOI.
 
+  -------------------------------------------------------------------------------------------------
   Query parameter         Value
-  ----------------------- ---------------------------------------------------------------------------------------------------------------------------------
-  collects                *Required*. A list of collection primary keys to include in the export, separated by `+` or `,`.
+  ----------------------- -------------------------------------------------------------------------
+  products                *Required*. A list of product primary keys to include in the export, separated by `+` or `,`.
+ 
   source                  *Required*. Your GRiD generated API key.
+  
   name                    *Optional*. An optional name for the export.
+  
   hsrs                    *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
+  
   file\_export\_options   *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default ``individual``
+  
   file\_format\_options   *Optional*. Determine the The format of the output file.  Accepts  ``GTiff`` and ``NITF``. Default: ``GTiff``
+  
   compressed              *Optional*. Whether or not to export compressed data. Default: True.
+  
   send\_email             *Optional*. Whether or not to notify user via email upon completion. Default: False.
+  -------------------------------------------------------------------------------------------------
 
 #### Response Format
 
