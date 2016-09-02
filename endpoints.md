@@ -49,7 +49,9 @@ curl -u <username> "http://gridte.rsgis.erdc.dren.mil/te_ba/cgi-bin/gridws?servi
    xmlns:wfs="http://www.opengis.net/wfs"
    xmlns:ogc="http://www.opengis.net/ogc"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver http://gridte-proc.erdc.dren.mil/te_ba/cgi-bin/gridws?SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=DescribeFeatureType&amp;TYPENAME=ms:gridws_pointcloud&amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.1.1  http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
+   xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver 
+   http://gridte-proc.erdc.dren.mil/te_ba/cgi-bin/gridws?SERVICE=WFS&amp;VERSION=1.1.0&amp;REQUEST=DescribeFeatureType&amp;TYPENAME=ms:gridws_pointcloud&amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.1.1  
+   http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
       <gml:boundedBy>
         <gml:Envelope srsName="EPSG:4326">
                 <gml:lowerCorner>33.001454 62.094691</gml:lowerCorner>
@@ -122,7 +124,9 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/?geom=POLY
 {
     "aoi_list": [
       {
-        "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
+        "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+        68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
+        68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
         "created_at": "2013-04-16T13:10:33.974", 
         "is_active": true, 
         "name": "First_Aoi", 
@@ -132,7 +136,8 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/?geom=POLY
         "pk": 123
       },
       {
-        "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994, 68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
+        "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,
+        68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
         "created_at": "2015-09-23T09:50:19.856", 
         "is_active": true, 
         "name": "Second_Aoi", 
@@ -183,7 +188,9 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?sourc
     "API Version": "v2", 
     "aoi": 
     {
-      "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011, 68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982, 68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
+      "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+      68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
+      68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
       "created_at": "2013-04-16T13:10:33.974", 
       "is_active": true, 
       "name": "First_Aoi", 
@@ -264,7 +271,8 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/add/?sourc
 {
     "aoi": 
     {
-      "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000, 20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
+      "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+      20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
       "created_at": "2015-11-13T12:58:28.040", 
       "is_active": true, 
       "name": "test", 
@@ -288,7 +296,7 @@ Update an AOIs name, notes, or geometry.  In order to change an AOI's geometry, 
 #### Endpoint
 
 ~~~~ {.bash}
-GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/123
+GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/<pk>
 ~~~~
 
 #### Request Parameters
@@ -316,7 +324,8 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/edit/123/?
 {
     "aoi": 
     {
-      "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000, 20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
+      "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+      20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
       "created_at": "2015-11-13T12:58:28.040", 
       "is_active": true, 
       "name": "new name", 
@@ -340,7 +349,7 @@ Delete an existing AOI.
 #### Endpoint
 
 ~~~~ {.bash}
-GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/123
+GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
 ~~~~
 
 #### Request Parameters
@@ -457,7 +466,7 @@ Update an Exports name or notes.
 #### Endpoint
 
 ~~~~ {.bash}
-GET <instance_url>/<instance_root>_ba/api/v2/export/edit/1335
+GET <instance_url>/<instance_root>_ba/api/v2/export/edit/<pk>
 ~~~~
 
 #### Request Parameters
@@ -477,7 +486,7 @@ JSON format.
 #### Example
 
 ~~~~ {.bash}
-curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/1335/?source=grid&name=new name&notes=updated notes
+curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/1335/?source=grid&name=new name&notes=notes
 ~~~~
 
 ~~~~ {.json}
@@ -491,7 +500,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/13
       "name": "new name",
       "classification": "",
       "datatype": "LAS 1.2",
-      "notes": "updated notes",
+      "notes": "notes",
       "rgb": false,
       "hsrs": "32641",
       "url": "http://localhost:8000/export/download/1335/",
@@ -521,7 +530,7 @@ Delete an existing Export.
 #### Endpoint
 
 ~~~~ {.bash}
-GET <instance_url>/<instance_root>_ba/api/v2/export/delete/1335
+GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
 ~~~~
 
 #### Request Parameters
