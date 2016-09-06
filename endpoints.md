@@ -167,6 +167,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}
   ---------------- ------------------------------
   pk                *Required*. The primary key for the AOI.
   
+  
   Query parameter   Value
   ----------------- ------------------------------------------------
   source            *Required*. Your GRiD generated API key.
@@ -305,6 +306,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/<pk>
   ---------------- -----------------------------
   pk               The primary key of the AOI.
 
+
   Query parameter   Value
   ----------------- -----------------------------------------------------
   name              *Optional*. The name for the AOI.
@@ -362,6 +364,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
   ---------------- -----------------------------
   pk               The primary key of the AOI.
 
+
   Query parameter   Value
   ----------------- -----------------------------------------------------
   N/A               N/A
@@ -399,6 +402,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/{pk}
   Path parameter   Value
   ---------------- ---------------------------------
   pk               *Required*.The primary key for the export.
+  
   
   Query parameter   Value
   ----------------- ------------------------------------------------
@@ -483,6 +487,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/edit/<pk>
   ---------------- -----------------------------
   pk               The primary key of the export.
 
+
   Query parameter   Value
   ----------------- -----------------------------------------------------
   name              *Optional*. The name for the export.
@@ -550,6 +555,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
   Path parameter   Value
   ---------------- -----------------------------
   pk               The primary key of the export.
+
 
   Query parameter   Value
   ----------------- -----------------------------------------------------
@@ -626,6 +632,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/task/{task_id}
   ---------------- ---------------------
   task\_id          *Required*. The ID of the task.
   
+  
   Query parameter   Value
   ----------------- ------------------------------------------------
   source            *Required*. Your GRiD generated API key.
@@ -669,6 +676,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   Path parameter   Value
   ---------------- -----------------------------
   pk               The primary key of the AOI.
+
 
   ----------------------------------------------------------------------------------------------
   Query parameter       Value
@@ -739,6 +747,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
   Path parameter   Value
   ---------------- -----------------------------
   pk               The primary key of the AOI.
+
 
   -------------------------------------------------------------------------------------------------
   Query parameter         Value
