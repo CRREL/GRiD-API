@@ -3,7 +3,7 @@ Object Model
 
 ### AOI List object
 
-  Key                     Value Type   Value Description
+  Key                 Value Type   Value Description
   ------------------- ------------ -------------------------------------
   name                string       The name of the AOI.
   created\_at         timestamp    The date of AOI creation. ISO 8601 format as UTC.
