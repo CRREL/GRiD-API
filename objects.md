@@ -83,91 +83,91 @@ Object Model
   hsrs                string       The Horizontal Spatial Reference System EPSG code.
   name                string       The name of the export.
   pk                  integer      The primary key of the export.
-  started\_at         timestamp    Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  started\_at         timestamp    Time of creation for the AOI. ISO 8601 format as UTC.
   status              string       The status of the export (e.g., SUCCESS, FAILED, QUEUED).
   url                 string       The download URL of the export.
 
 ### Export Detail object (pointcloud)
 
-  --------------------------------------------------------------------------------------------------------------------------------
-  Key                   Value Type                                            Value Description
-  --------------------- ----------------------------------------------------- ----------------------------------------------------
-  datatype              string                                                The datatype (e.g., LAS 1.2, DTM).
+  ----------------------------------------------------------------------------------------------------------------------------------
+  Key                   Value Type                                              Value Description
+  --------------------- ------------------------------------------------------- ----------------------------------------------------
+  datatype              string                                                  The datatype (e.g., LAS 1.2, DTM).
   
-  user                  integer                                               The id of the creating user.
+  user                  integer                                                 The id of the creating user.
   
-  hsrs                  string                                                The Horizontal Spatial Reference System EPSG code.
+  hsrs                  string                                                  The Horizontal Spatial Reference System EPSG code.
   
-  name                  string                                                The name of the export.
+  name                  string                                                  The name of the export.
   
-  pk                    integer                                               The primary key of the export.
+  pk                    integer                                                 The primary key of the export.
   
-  started\_at           timestamp                                             Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  started\_at           timestamp                                               Time of creation for the AOI. ISO 8601 format as UTC.
   
-  status                string                                                The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+  status                string                                                  The status of the export (e.g., SUCCESS, FAILED, QUEUED).
   
-  url                   string                                                The download URL of the export.
+  url                   string                                                  The download URL of the export.
   
-  rgb                   boolean                                               Whether or not RGB dimension is included in exported data.
+  rgb                   boolean                                                 Whether or not RGB dimension is included in exported data.
   
-  intensity             boolean                                               Whether or not Intensity dimension is included in exported data.
+  intensity             boolean                                                 Whether or not Intensity dimension is included in exported data.
   
-  dim\_classification   boolean                                               Whether or not Classification dimension is included in exported data.
+  dim\_classification   boolean                                                 Whether or not Classification dimension is included in exported data.
   
-  file\_export\_options string                                                The file export option used (e.g., individual, collect, super).
+  file\_export\_options string                                                  The file export option used (e.g., individual, collect, super).
   
-  generate\_dem         boolean                                               Whether or not this was a generated DEM from pointcloud.
+  generate\_dem         boolean                                                 Whether or not this was a generated DEM from pointcloud.
   
-  cell\_spacing         float                                                 The cell spacing used in DEM generation, if applicable.
+  cell\_spacing         float                                                   The cell spacing used in DEM generation, if applicable.
   
-  notes                 string                                                User notes.
+  notes                 string                                                  User notes.
   
-  classification        string                                                The classifications selected for the export.
+  classification        string                                                  The classifications selected for the export.
   
-  pcl\_terrain          string                                                The PCL terrain option of the export.
+  pcl\_terrain          string                                                  The PCL terrain option of the export.
   
-  sri\_hres             decimal                                               The sri_hres value of the export.
+  sri\_hres             decimal                                                 The sri_hres value of the export.
   
-  exportfiles           array of [Exportfile objects](#exportfile-object)     The export files of the export.
+  exportfiles           array of [Exportfile objects](#exportfile-object)       The export files of the export.
   
-  tda\_set              array of [TDA objects](#tda-object)                   The TDA set of the export.
+  tda\_set              array of [TDA objects](#tda-object)                     The TDA set of the export.
   
-  task\_id              string                                                The ID of the associated task used for generation.
-  --------------------------------------------------------------------------------------------------------------------------------
+  task\_id              string                                                  The ID of the associated task used for generation.
+  ----------------------------------------------------------------------------------------------------------------------------------
 
 ### Export Detail object (raster)
 
-  ------------------------------------------------------------------------------------------------------------------------------
-  Key                    Value Type                                         Value Description
-  ---------------------- -------------------------------------------------- ----------------------------------------------------
-  datatype               string                                             The datatype (e.g., LAS 1.2, DTM).
+  ----------------------------------------------------------------------------------------------------------------------------------
+  Key                    Value Type                                             Value Description
+  ---------------------- ------------------------------------------------------ ----------------------------------------------------
+  datatype               string                                                 The datatype (e.g., LAS 1.2, DTM).
   
-  user                   integer                                            The id of the creating user.
+  user                   integer                                                The id of the creating user.
   
-  hsrs                   string                                             The Horizontal Spatial Reference System EPSG code.
+  hsrs                   string                                                 The Horizontal Spatial Reference System EPSG code.
   
-  name                   string                                             The name of the export.
+  name                   string                                                 The name of the export.
   
-  pk                     integer                                            The primary key of the export.
+  pk                     integer                                                The primary key of the export.
   
-  started\_at            timestamp                                          Time of creation for the AOI: `YYYY-MM-DD HH24:MI:SS.FF6`
+  started\_at            timestamp                                              Time of creation for the AOI. ISO 8601 format as UTC.
   
-  status                 string                                             The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+  status                 string                                                 The status of the export (e.g., SUCCESS, FAILED, QUEUED).
   
-  url                    string                                             The download URL of the export.
+  url                    string                                                 The download URL of the export.
   
-  file\_export\_options  string                                             The file export option used (e.g., individual, collect, super).
+  file\_export\_options  string                                                 The file export option used (e.g., individual, collect, super).
   
-  file\_format\_options  string                                             The format of the output file (e.g., GTiff, NITF).
+  file\_format\_options  string                                                 The format of the output file (e.g., GTiff, NITF).
   
-  notes                  string                                             User notes.
+  notes                  string                                                 User notes.
   
-  exportfiles            array of [Exportfile objects](#exportfile-object)  The export files of the export.
+  exportfiles            array of [Exportfile objects](#exportfile-object)      The export files of the export.
   
-  tda\_set               array of [TDA objects](#tda-object)                The TDA set of the export.
+  tda\_set               array of [TDA objects](#tda-object)                    The TDA set of the export.
   
-  task\_id               string                                             The ID of the associated task used for generation.
-  ------------------------------------------------------------------------------------------------------------------------------
+  task\_id               string                                                 The ID of the associated task used for generation.
+  ----------------------------------------------------------------------------------------------------------------------------------
 
 ### Exportfile object
 
@@ -191,7 +191,7 @@ Object Model
 
   Key           Value Type   Value Description
   ------------- ------------ -----------------------------------------------------------
-  created\_at   timestamp    Time of creation for the TDA: `YYYY-MM-DD HH24:MI:SS.FF6`
+  created\_at   timestamp    Time of creation for the TDA. ISO 8601 format as UTC.
   name          string       The name of the TDA.
   notes         string       User notes.
   pk            integer      The primary key of the TDA.

@@ -282,11 +282,11 @@ Request Parameters
 +-------------------+-------------------------------------------------------+
 | Query parameter   | Value                                                 |
 +===================+=======================================================+
+| source            | *Required*. Your GRiD generated API key.              |
++-------------------+-------------------------------------------------------+
 | name              | *Required*. The name for the AOI.                     |
 +-------------------+-------------------------------------------------------+
 | geom              | *Required*. A WKT geometry describing the AOI.        |
-+-------------------+-------------------------------------------------------+
-| source            | *Required*. Your GRiD generated API key.              |
 +-------------------+-------------------------------------------------------+
 | subscribe         | *Optional*. True, False, T, F, 1, 0. Default: false   |
 +-------------------+-------------------------------------------------------+
@@ -352,11 +352,11 @@ Request Parameters
 +-------------------+--------------------------------------------------+
 | Query parameter   | Value                                            |
 +===================+==================================================+
+| source            | *Required*. Your GRiD generated API key.         |
++-------------------+--------------------------------------------------+
 | name              | *Optional*. The name for the AOI.                |
 +-------------------+--------------------------------------------------+
 | geom              | *Optional*. A WKT geometry describing the AOI.   |
-+-------------------+--------------------------------------------------+
-| source            | *Required*. Your GRiD generated API key.         |
 +-------------------+--------------------------------------------------+
 | notes             | *Optional*. The notes for the AOI.               |
 +-------------------+--------------------------------------------------+
@@ -418,11 +418,11 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------+---------+
-| Query parameter   | Value   |
-+===================+=========+
-| N/A               | N/A     |
-+-------------------+---------+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -468,7 +468,7 @@ Request Parameters
 +-------------------+--------------------------------------------+
 | Query parameter   | Value                                      |
 +===================+============================================+
-| source \*         | Required\*. Your GRiD generated API key.   |
+| source            | *Required*. Your GRiD generated API key.   |
 +-------------------+--------------------------------------------+
 
 Response Format
@@ -560,9 +560,9 @@ Request Parameters
 +-------------------+--------------------------------------------+
 | Query parameter   | Value                                      |
 +===================+============================================+
-| name              | *Optional*. The name for the export.       |
-+-------------------+--------------------------------------------+
 | source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
+| name              | *Optional*. The name for the export.       |
 +-------------------+--------------------------------------------+
 | notes             | *Optional*. User notes.                    |
 +-------------------+--------------------------------------------+
@@ -636,11 +636,11 @@ Request Parameters
 | pk               | The primary key of the export.   |
 +------------------+----------------------------------+
 
-+-------------------+---------+
-| Query parameter   | Value   |
-+===================+=========+
-| N/A               | N/A     |
-+-------------------+---------+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -680,9 +680,9 @@ Request Parameters
 +-------------------+--------------------------------------------------+
 | Query parameter   | Value                                            |
 +===================+==================================================+
-| geom              | *Required*. A WKT geometry describing the AOI.   |
-+-------------------+--------------------------------------------------+
 | source            | *Required*. Your GRiD generated API key.         |
++-------------------+--------------------------------------------------+
+| geom              | *Required*. A WKT geometry describing the AOI.   |
 +-------------------+--------------------------------------------------+
 
 Response Format
@@ -784,10 +784,10 @@ Request Parameters
 +------------------+--------------------------------------------------------+
 | Query parameter  | Value                                                  |
 +==================+========================================================+
+| source           | *Required*. Your GRiD generated API key.               |
++------------------+--------------------------------------------------------+
 | products         | *Required*. A list of product primary keys to include  |
 |                  | in the export, separated by ``+`` or ``,``.            |
-+------------------+--------------------------------------------------------+
-| source           | *Required*. Your GRiD generated API key.               |
 +------------------+--------------------------------------------------------+
 | name             | *Optional*. An optional name for the export.           |
 +------------------+--------------------------------------------------------+
@@ -814,7 +814,7 @@ Request Parameters
 |                  | upon completion. Default: False.                       |
 +------------------+--------------------------------------------------------+
 | generate\_dem    | *Optional*. Whether or not to generate a DEM from the  |
-|                  | export. Default: False.                                |
+|                  | pointcloud. Default: False.                            |
 +------------------+--------------------------------------------------------+
 | cell\_spacing    | *Optional*. Used together with ``generate_dem``.       |
 |                  | Default: 1.0.                                          |
@@ -873,33 +873,33 @@ Request Parameters
 | pk               | The primary key of the AOI.   |
 +------------------+-------------------------------+
 
-+-------------------+-------------------------------------------------------+
-| Query parameter   | Value                                                 |
-+===================+=======================================================+
-| products          | *Required*. A list of product primary keys to include |
-|                   | in the export, separated by ``+`` or ``,``.           |
-+-------------------+-------------------------------------------------------+
-| source            | *Required*. Your GRiD generated API key.              |
-+-------------------+-------------------------------------------------------+
-| name              | *Optional*. An optional name for the export.          |
-+-------------------+-------------------------------------------------------+
-| hsrs              | *Optional*. Accepts an EPSG code. Defaults to AOI     |
-|                   | SRS.                                                  |
-+-------------------+-------------------------------------------------------+
-| file\_export\_opt | *Optional*. Determine file merging strategy. Accepts  |
-| ions              | ``individual`` and ``collect``. Default               |
-|                   | ``individual``                                        |
-+-------------------+-------------------------------------------------------+
-| file\_format\_opt | *Optional*. Determine the The format of the output    |
-| ions              | file. Accepts ``GTiff`` and ``NITF``. Default:        |
-|                   | ``GTiff``                                             |
-+-------------------+-------------------------------------------------------+
-| compressed        | *Optional*. Whether or not to export compressed data. |
-|                   | Default: True.                                        |
-+-------------------+-------------------------------------------------------+
-| send\_email       | *Optional*. Whether or not to notify user via email   |
-|                   | upon completion. Default: False.                      |
-+-------------------+-------------------------------------------------------+
++------------------+-------------------------------------------------------+
+| Query parameter  | Value                                                 |
++==================+=======================================================+
+| source           | *Required*. Your GRiD generated API key.              |
++------------------+-------------------------------------------------------+
+| products         | *Required*. A list of product primary keys to include |
+|                  | in the export, separated by ``+`` or ``,``.           |
++------------------+-------------------------------------------------------+
+| name             | *Optional*. An optional name for the export.          |
++------------------+-------------------------------------------------------+
+| hsrs             | *Optional*. Accepts an EPSG code. Defaults to AOI     |
+|                  | SRS.                                                  |
++------------------+-------------------------------------------------------+
+| file\_export\_op | *Optional*. Determine file merging strategy. Accepts  |
+| tions            | ``individual`` and ``collect``. Default               |
+|                  | ``individual``                                        |
++------------------+-------------------------------------------------------+
+| file\_format\_op | *Optional*. Determine the The format of the output    |
+| tions            | file. Accepts ``GTiff`` and ``NITF``. Default:        |
+|                  | ``GTiff``                                             |
++------------------+-------------------------------------------------------+
+| compressed       | *Optional*. Whether or not to export compressed data. |
+|                  | Default: True.                                        |
++------------------+-------------------------------------------------------+
+| send\_email      | *Optional*. Whether or not to notify user via email   |
+|                  | upon completion. Default: False.                      |
++------------------+-------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -929,25 +929,25 @@ Object Model
 AOI List object
 ~~~~~~~~~~~~~~~
 
-+------------------+-------------+-----------------------------------------------------+
-| Key              | Value Typ   | e Value Description                                 |
-+==================+=============+=====================================================+
-| name             | string      | The name of the AOI.                                |
-+------------------+-------------+-----------------------------------------------------+
-| created\_at      | timestamp   | The date of AOI creation. ISO 8601 format as UTC.   |
-+------------------+-------------+-----------------------------------------------------+
-| is\_active       | boolean     | Whether or not the AOI is active.                   |
-+------------------+-------------+-----------------------------------------------------+
-| source           | string      | Source of the AOI (e.g., map, api).                 |
-+------------------+-------------+-----------------------------------------------------+
-| user             | integer     | The name of the creating user.                      |
-+------------------+-------------+-----------------------------------------------------+
-| clip\_geometry   | string      | The WKT geometry of the AOI.                        |
-+------------------+-------------+-----------------------------------------------------+
-| notes            | string      | User notes.                                         |
-+------------------+-------------+-----------------------------------------------------+
-| pk               | integer     | The primary key of the AOI.                         |
-+------------------+-------------+-----------------------------------------------------+
++------------------+--------------+-----------------------------------------------------+
+| Key              | Value Type   | Value Description                                   |
++==================+==============+=====================================================+
+| name             | string       | The name of the AOI.                                |
++------------------+--------------+-----------------------------------------------------+
+| created\_at      | timestamp    | The date of AOI creation. ISO 8601 format as UTC.   |
++------------------+--------------+-----------------------------------------------------+
+| is\_active       | boolean      | Whether or not the AOI is active.                   |
++------------------+--------------+-----------------------------------------------------+
+| source           | string       | Source of the AOI (e.g., map, api).                 |
++------------------+--------------+-----------------------------------------------------+
+| user             | integer      | The name of the creating user.                      |
++------------------+--------------+-----------------------------------------------------+
+| clip\_geometry   | string       | The WKT geometry of the AOI.                        |
++------------------+--------------+-----------------------------------------------------+
+| notes            | string       | User notes.                                         |
++------------------+--------------+-----------------------------------------------------+
+| pk               | integer      | The primary key of the AOI.                         |
++------------------+--------------+-----------------------------------------------------+
 
 AOI Detail object
 ~~~~~~~~~~~~~~~~~
@@ -1048,147 +1048,146 @@ Raster Product object
 Export object
 ~~~~~~~~~~~~~
 
-+---------------+--------------+---------------------------------------------------------------+
-| Key           | Value Type   | Value Description                                             |
-+===============+==============+===============================================================+
-| datatype      | string       | The datatype (e.g., LAS 1.2, DTM).                            |
-+---------------+--------------+---------------------------------------------------------------+
-| user          | integer      | The id of the creating user.                                  |
-+---------------+--------------+---------------------------------------------------------------+
-| hsrs          | string       | The Horizontal Spatial Reference System EPSG code.            |
-+---------------+--------------+---------------------------------------------------------------+
-| name          | string       | The name of the export.                                       |
-+---------------+--------------+---------------------------------------------------------------+
-| pk            | integer      | The primary key of the export.                                |
-+---------------+--------------+---------------------------------------------------------------+
-| started\_at   | timestamp    | Time of creation for the AOI: ``YYYY-MM-DD HH24:MI:SS.FF6``   |
-+---------------+--------------+---------------------------------------------------------------+
-| status        | string       | The status of the export (e.g., SUCCESS, FAILED, QUEUED).     |
-+---------------+--------------+---------------------------------------------------------------+
-| url           | string       | The download URL of the export.                               |
-+---------------+--------------+---------------------------------------------------------------+
++---------------+--------------+-------------------------------------------------------------+
+| Key           | Value Type   | Value Description                                           |
++===============+==============+=============================================================+
+| datatype      | string       | The datatype (e.g., LAS 1.2, DTM).                          |
++---------------+--------------+-------------------------------------------------------------+
+| user          | integer      | The id of the creating user.                                |
++---------------+--------------+-------------------------------------------------------------+
+| hsrs          | string       | The Horizontal Spatial Reference System EPSG code.          |
++---------------+--------------+-------------------------------------------------------------+
+| name          | string       | The name of the export.                                     |
++---------------+--------------+-------------------------------------------------------------+
+| pk            | integer      | The primary key of the export.                              |
++---------------+--------------+-------------------------------------------------------------+
+| started\_at   | timestamp    | Time of creation for the AOI. ISO 8601 format as UTC.       |
++---------------+--------------+-------------------------------------------------------------+
+| status        | string       | The status of the export (e.g., SUCCESS, FAILED, QUEUED).   |
++---------------+--------------+-------------------------------------------------------------+
+| url           | string       | The download URL of the export.                             |
++---------------+--------------+-------------------------------------------------------------+
 
 Export Detail object (pointcloud)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------+-------------------------------+-------------------------------+
-| Key          | Value Type                    | Value Description             |
-+==============+===============================+===============================+
-| datatype     | string                        | The datatype (e.g., LAS 1.2,  |
-|              |                               | DTM).                         |
-+--------------+-------------------------------+-------------------------------+
-| user         | integer                       | The id of the creating user.  |
-+--------------+-------------------------------+-------------------------------+
-| hsrs         | string                        | The Horizontal Spatial        |
-|              |                               | Reference System EPSG code.   |
-+--------------+-------------------------------+-------------------------------+
-| name         | string                        | The name of the export.       |
-+--------------+-------------------------------+-------------------------------+
-| pk           | integer                       | The primary key of the        |
-|              |                               | export.                       |
-+--------------+-------------------------------+-------------------------------+
-| started\_at  | timestamp                     | Time of creation for the AOI: |
-|              |                               | ``YYYY-MM-DD HH24:MI:SS.FF6`` |
-+--------------+-------------------------------+-------------------------------+
-| status       | string                        | The status of the export      |
-|              |                               | (e.g., SUCCESS, FAILED,       |
-|              |                               | QUEUED).                      |
-+--------------+-------------------------------+-------------------------------+
-| url          | string                        | The download URL of the       |
-|              |                               | export.                       |
-+--------------+-------------------------------+-------------------------------+
-| rgb          | boolean                       | Whether or not RGB dimension  |
-|              |                               | is included in exported data. |
-+--------------+-------------------------------+-------------------------------+
-| intensity    | boolean                       | Whether or not Intensity      |
-|              |                               | dimension is included in      |
-|              |                               | exported data.                |
-+--------------+-------------------------------+-------------------------------+
-| dim\_classif | boolean                       | Whether or not Classification |
-| ication      |                               | dimension is included in      |
-|              |                               | exported data.                |
-+--------------+-------------------------------+-------------------------------+
-| file\_export | string                        | The file export option used   |
-| \_options    |                               | (e.g., individual, collect,   |
-|              |                               | super).                       |
-+--------------+-------------------------------+-------------------------------+
-| generate\_de | boolean                       | Whether or not this was a     |
-| m            |                               | generated DEM from            |
-|              |                               | pointcloud.                   |
-+--------------+-------------------------------+-------------------------------+
-| cell\_spacin | float                         | The cell spacing used in DEM  |
-| g            |                               | generation, if applicable.    |
-+--------------+-------------------------------+-------------------------------+
-| notes        | string                        | User notes.                   |
-+--------------+-------------------------------+-------------------------------+
-| classificati | string                        | The classifications selected  |
-| on           |                               | for the export.               |
-+--------------+-------------------------------+-------------------------------+
-| pcl\_terrain | string                        | The PCL terrain option of the |
-|              |                               | export.                       |
-+--------------+-------------------------------+-------------------------------+
-| sri\_hres    | decimal                       | The sri\_hres value of the    |
-|              |                               | export.                       |
-+--------------+-------------------------------+-------------------------------+
-| exportfiles  | array of `Exportfile          | The export files of the       |
-|              | objects <#exportfile-object>` | export.                       |
-|              | _                             |                               |
-+--------------+-------------------------------+-------------------------------+
-| tda\_set     | array of `TDA                 | The TDA set of the export.    |
-|              | objects <#tda-object>`_       |                               |
-+--------------+-------------------------------+-------------------------------+
-| task\_id     | string                        | The ID of the associated task |
-|              |                               | used for generation.          |
-+--------------+-------------------------------+-------------------------------+
++--------------+--------------------------------+------------------------------+
+| Key          | Value Type                     | Value Description            |
++==============+================================+==============================+
+| datatype     | string                         | The datatype (e.g., LAS 1.2, |
+|              |                                | DTM).                        |
++--------------+--------------------------------+------------------------------+
+| user         | integer                        | The id of the creating user. |
++--------------+--------------------------------+------------------------------+
+| hsrs         | string                         | The Horizontal Spatial       |
+|              |                                | Reference System EPSG code.  |
++--------------+--------------------------------+------------------------------+
+| name         | string                         | The name of the export.      |
++--------------+--------------------------------+------------------------------+
+| pk           | integer                        | The primary key of the       |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| started\_at  | timestamp                      | Time of creation for the     |
+|              |                                | AOI. ISO 8601 format as UTC. |
++--------------+--------------------------------+------------------------------+
+| status       | string                         | The status of the export     |
+|              |                                | (e.g., SUCCESS, FAILED,      |
+|              |                                | QUEUED).                     |
++--------------+--------------------------------+------------------------------+
+| url          | string                         | The download URL of the      |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| rgb          | boolean                        | Whether or not RGB dimension |
+|              |                                | is included in exported      |
+|              |                                | data.                        |
++--------------+--------------------------------+------------------------------+
+| intensity    | boolean                        | Whether or not Intensity     |
+|              |                                | dimension is included in     |
+|              |                                | exported data.               |
++--------------+--------------------------------+------------------------------+
+| dim\_classif | boolean                        | Whether or not               |
+| ication      |                                | Classification dimension is  |
+|              |                                | included in exported data.   |
++--------------+--------------------------------+------------------------------+
+| file\_export | string                         | The file export option used  |
+| \_options    |                                | (e.g., individual, collect,  |
+|              |                                | super).                      |
++--------------+--------------------------------+------------------------------+
+| generate\_de | boolean                        | Whether or not this was a    |
+| m            |                                | generated DEM from           |
+|              |                                | pointcloud.                  |
++--------------+--------------------------------+------------------------------+
+| cell\_spacin | float                          | The cell spacing used in DEM |
+| g            |                                | generation, if applicable.   |
++--------------+--------------------------------+------------------------------+
+| notes        | string                         | User notes.                  |
++--------------+--------------------------------+------------------------------+
+| classificati | string                         | The classifications selected |
+| on           |                                | for the export.              |
++--------------+--------------------------------+------------------------------+
+| pcl\_terrain | string                         | The PCL terrain option of    |
+|              |                                | the export.                  |
++--------------+--------------------------------+------------------------------+
+| sri\_hres    | decimal                        | The sri\_hres value of the   |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| exportfiles  | array of `Exportfile           | The export files of the      |
+|              | objects <#exportfile-object>`_ | export.                      |
++--------------+--------------------------------+------------------------------+
+| tda\_set     | array of `TDA                  | The TDA set of the export.   |
+|              | objects <#tda-object>`_        |                              |
++--------------+--------------------------------+------------------------------+
+| task\_id     | string                         | The ID of the associated     |
+|              |                                | task used for generation.    |
++--------------+--------------------------------+------------------------------+
 
 Export Detail object (raster)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------------+------------------------------+-------------------------------+
-| Key          | Value Type                   | Value Description             |
-+==============+==============================+===============================+
-| datatype     | string                       | The datatype (e.g., LAS 1.2,  |
-|              |                              | DTM).                         |
-+--------------+------------------------------+-------------------------------+
-| user         | integer                      | The id of the creating user.  |
-+--------------+------------------------------+-------------------------------+
-| hsrs         | string                       | The Horizontal Spatial        |
-|              |                              | Reference System EPSG code.   |
-+--------------+------------------------------+-------------------------------+
-| name         | string                       | The name of the export.       |
-+--------------+------------------------------+-------------------------------+
-| pk           | integer                      | The primary key of the        |
-|              |                              | export.                       |
-+--------------+------------------------------+-------------------------------+
-| started\_at  | timestamp                    | Time of creation for the AOI: |
-|              |                              | ``YYYY-MM-DD HH24:MI:SS.FF6`` |
-+--------------+------------------------------+-------------------------------+
-| status       | string                       | The status of the export      |
-|              |                              | (e.g., SUCCESS, FAILED,       |
-|              |                              | QUEUED).                      |
-+--------------+------------------------------+-------------------------------+
-| url          | string                       | The download URL of the       |
-|              |                              | export.                       |
-+--------------+------------------------------+-------------------------------+
-| file\_export | string                       | The file export option used   |
-| \_options    |                              | (e.g., individual, collect,   |
-|              |                              | super).                       |
-+--------------+------------------------------+-------------------------------+
-| file\_format | string                       | The format of the output file |
-| \_options    |                              | (e.g., GTiff, NITF).          |
-+--------------+------------------------------+-------------------------------+
-| notes        | string                       | User notes.                   |
-+--------------+------------------------------+-------------------------------+
-| exportfiles  | array of `Exportfile         | The export files of the       |
-|              | objects <#exportfile-object> | export.                       |
-|              | `_                           |                               |
-+--------------+------------------------------+-------------------------------+
-| tda\_set     | array of `TDA                | The TDA set of the export.    |
-|              | objects <#tda-object>`_      |                               |
-+--------------+------------------------------+-------------------------------+
-| task\_id     | string                       | The ID of the associated task |
-|              |                              | used for generation.          |
-+--------------+------------------------------+-------------------------------+
++--------------+--------------------------------+------------------------------+
+| Key          | Value Type                     | Value Description            |
++==============+================================+==============================+
+| datatype     | string                         | The datatype (e.g., LAS 1.2, |
+|              |                                | DTM).                        |
++--------------+--------------------------------+------------------------------+
+| user         | integer                        | The id of the creating user. |
++--------------+--------------------------------+------------------------------+
+| hsrs         | string                         | The Horizontal Spatial       |
+|              |                                | Reference System EPSG code.  |
++--------------+--------------------------------+------------------------------+
+| name         | string                         | The name of the export.      |
++--------------+--------------------------------+------------------------------+
+| pk           | integer                        | The primary key of the       |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| started\_at  | timestamp                      | Time of creation for the     |
+|              |                                | AOI. ISO 8601 format as UTC. |
++--------------+--------------------------------+------------------------------+
+| status       | string                         | The status of the export     |
+|              |                                | (e.g., SUCCESS, FAILED,      |
+|              |                                | QUEUED).                     |
++--------------+--------------------------------+------------------------------+
+| url          | string                         | The download URL of the      |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| file\_export | string                         | The file export option used  |
+| \_options    |                                | (e.g., individual, collect,  |
+|              |                                | super).                      |
++--------------+--------------------------------+------------------------------+
+| file\_format | string                         | The format of the output     |
+| \_options    |                                | file (e.g., GTiff, NITF).    |
++--------------+--------------------------------+------------------------------+
+| notes        | string                         | User notes.                  |
++--------------+--------------------------------+------------------------------+
+| exportfiles  | array of `Exportfile           | The export files of the      |
+|              | objects <#exportfile-object>`_ | export.                      |
++--------------+--------------------------------+------------------------------+
+| tda\_set     | array of `TDA                  | The TDA set of the export.   |
+|              | objects <#tda-object>`_        |                              |
++--------------+--------------------------------+------------------------------+
+| task\_id     | string                         | The ID of the associated     |
+|              |                                | task used for generation.    |
++--------------+--------------------------------+------------------------------+
 
 Exportfile object
 ~~~~~~~~~~~~~~~~~
@@ -1223,20 +1222,20 @@ Task object
 TDA object
 ~~~~~~~~~~
 
-+---------------+--------------+---------------------------------------------------------------+
-| Key           | Value Type   | Value Description                                             |
-+===============+==============+===============================================================+
-| created\_at   | timestamp    | Time of creation for the TDA: ``YYYY-MM-DD HH24:MI:SS.FF6``   |
-+---------------+--------------+---------------------------------------------------------------+
-| name          | string       | The name of the TDA.                                          |
-+---------------+--------------+---------------------------------------------------------------+
-| notes         | string       | User notes.                                                   |
-+---------------+--------------+---------------------------------------------------------------+
-| pk            | integer      | The primary key of the TDA.                                   |
-+---------------+--------------+---------------------------------------------------------------+
-| status        | string       | The status of the export (e.g., SUCCESS, FAILED, QUEUED).     |
-+---------------+--------------+---------------------------------------------------------------+
-| tda\_type     | string       | The TDA type (e.g., Hlz, Los).                                |
-+---------------+--------------+---------------------------------------------------------------+
-| url           | string       | The download URL of the TDA.                                  |
-+---------------+--------------+---------------------------------------------------------------+
++---------------+--------------+-------------------------------------------------------------+
+| Key           | Value Type   | Value Description                                           |
++===============+==============+=============================================================+
+| created\_at   | timestamp    | Time of creation for the TDA. ISO 8601 format as UTC.       |
++---------------+--------------+-------------------------------------------------------------+
+| name          | string       | The name of the TDA.                                        |
++---------------+--------------+-------------------------------------------------------------+
+| notes         | string       | User notes.                                                 |
++---------------+--------------+-------------------------------------------------------------+
+| pk            | integer      | The primary key of the TDA.                                 |
++---------------+--------------+-------------------------------------------------------------+
+| status        | string       | The status of the export (e.g., SUCCESS, FAILED, QUEUED).   |
++---------------+--------------+-------------------------------------------------------------+
+| tda\_type     | string       | The TDA type (e.g., Hlz, Los).                              |
++---------------+--------------+-------------------------------------------------------------+
+| url           | string       | The download URL of the TDA.                                |
++---------------+--------------+-------------------------------------------------------------+

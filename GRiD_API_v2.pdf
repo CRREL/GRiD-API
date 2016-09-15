@@ -1,0 +1,8626 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+% 'BasicFonts': class PDFDictionary 
+1 0 obj
+% The standard fonts dictionary
+<< /F1 2 0 R
+ /F2 3 0 R
+ /F3 4 0 R
+ /F4 5 0 R
+ /F5 6 0 R >>
+endobj
+% 'F1': class PDFType1Font 
+2 0 obj
+% Font Helvetica
+<< /BaseFont /Helvetica
+ /Encoding /WinAnsiEncoding
+ /Name /F1
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F2': class PDFType1Font 
+3 0 obj
+% Font Helvetica-Bold
+<< /BaseFont /Helvetica-Bold
+ /Encoding /WinAnsiEncoding
+ /Name /F2
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F3': class PDFType1Font 
+4 0 obj
+% Font Helvetica-BoldOblique
+<< /BaseFont /Helvetica-BoldOblique
+ /Encoding /WinAnsiEncoding
+ /Name /F3
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F4': class PDFType1Font 
+5 0 obj
+% Font Courier
+<< /BaseFont /Courier
+ /Encoding /WinAnsiEncoding
+ /Name /F4
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F5': class PDFType1Font 
+6 0 obj
+% Font Helvetica-Oblique
+<< /BaseFont /Helvetica-Oblique
+ /Encoding /WinAnsiEncoding
+ /Name /F5
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page1': class PDFPage 
+7 0 obj
+% Page dictionary
+<< /Contents 121 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER1': class LinkAnnotation 
+8 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 9 0 R
+ /XYZ
+ 148.8429
+ 532.8236
+ 0 ]
+ /Rect [ 99.37291
+ 519.5736
+ 148.8429
+ 531.5736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page2': class PDFPage 
+9 0 obj
+% Page dictionary
+<< /Annots [ 8 0 R ]
+ /Contents 122 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER2': class LinkAnnotation 
+10 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 11 0 R
+ /XYZ
+ 140.5029
+ 662.0236
+ 0 ]
+ /Rect [ 62.69291
+ 648.7736
+ 140.5029
+ 660.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page3': class PDFPage 
+11 0 obj
+% Page dictionary
+<< /Annots [ 10 0 R ]
+ /Contents 123 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER3': class LinkAnnotation 
+12 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 11 0 R
+ /XYZ
+ 140.5029
+ 662.0236
+ 0 ]
+ /Rect [ 62.69291
+ 618.7736
+ 140.5029
+ 630.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page4': class PDFPage 
+13 0 obj
+% Page dictionary
+<< /Annots [ 12 0 R ]
+ /Contents 124 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER4': class LinkAnnotation 
+14 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 11 0 R
+ /XYZ
+ 140.5029
+ 662.0236
+ 0 ]
+ /Rect [ 62.69291
+ 720.7736
+ 140.5029
+ 732.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page5': class PDFPage 
+15 0 obj
+% Page dictionary
+<< /Annots [ 14 0 R ]
+ /Contents 125 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER5': class LinkAnnotation 
+16 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 17 0 R
+ /XYZ
+ 152.1729
+ 508.8236
+ 0 ]
+ /Rect [ 62.69291
+ 495.5736
+ 152.1729
+ 507.5736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page6': class PDFPage 
+17 0 obj
+% Page dictionary
+<< /Annots [ 16 0 R ]
+ /Contents 126 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER6': class LinkAnnotation 
+18 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 17 0 R
+ /XYZ
+ 152.1729
+ 508.8236
+ 0 ]
+ /Rect [ 62.69291
+ 194.3736
+ 152.1729
+ 206.3736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page7': class PDFPage 
+19 0 obj
+% Page dictionary
+<< /Annots [ 18 0 R ]
+ /Contents 127 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page8': class PDFPage 
+20 0 obj
+% Page dictionary
+<< /Contents 128 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER7': class LinkAnnotation 
+21 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 22 0 R
+ /XYZ
+ 138.8429
+ 459.6236
+ 0 ]
+ /Rect [ 62.69291
+ 446.3736
+ 138.8429
+ 458.3736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page9': class PDFPage 
+22 0 obj
+% Page dictionary
+<< /Annots [ 21 0 R ]
+ /Contents 129 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER8': class LinkAnnotation 
+23 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 17 0 R
+ /XYZ
+ 152.1729
+ 508.8236
+ 0 ]
+ /Rect [ 62.69291
+ 720.7736
+ 116.6029
+ 732.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page10': class PDFPage 
+24 0 obj
+% Page dictionary
+<< /Annots [ 23 0 R ]
+ /Contents 130 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER9': class LinkAnnotation 
+25 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 26 0 R
+ /XYZ
+ 167.1929
+ 632.0236
+ 0 ]
+ /Rect [ 62.69291
+ 618.7736
+ 167.1929
+ 630.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page11': class PDFPage 
+26 0 obj
+% Page dictionary
+<< /Annots [ 25 0 R ]
+ /Contents 131 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER10': class LinkAnnotation 
+27 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 26 0 R
+ /XYZ
+ 167.1929
+ 632.0236
+ 0 ]
+ /Rect [ 62.69291
+ 720.7736
+ 167.1929
+ 732.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Annot.NUMBER11': class LinkAnnotation 
+28 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 32 0 R
+ /XYZ
+ 62.69291
+ 210.0236
+ 0 ]
+ /Rect [ 191.9316
+ 119.5897
+ 259.1816
+ 131.5897 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Annot.NUMBER12': class LinkAnnotation 
+29 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 32 0 R
+ /XYZ
+ 62.69291
+ 726.0236
+ 0 ]
+ /Rect [ 191.9316
+ 101.5897
+ 308.1016
+ 113.5897 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page12': class PDFPage 
+30 0 obj
+% Page dictionary
+<< /Annots [ 27 0 R
+ 28 0 R
+ 29 0 R ]
+ /Contents 132 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER13': class LinkAnnotation 
+31 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 32 0 R
+ /XYZ
+ 62.69291
+ 450.0236
+ 0 ]
+ /Rect [ 191.9316
+ 750.7736
+ 288.0816
+ 762.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page13': class PDFPage 
+32 0 obj
+% Page dictionary
+<< /Annots [ 31 0 R ]
+ /Contents 133 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER14': class LinkAnnotation 
+33 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 414.0236
+ 0 ]
+ /Rect [ 191.9316
+ 174.7736
+ 268.0716
+ 186.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Annot.NUMBER15': class LinkAnnotation 
+34 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 150.0236
+ 0 ]
+ /Rect [ 191.9316
+ 156.7736
+ 246.3916
+ 168.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page14': class PDFPage 
+35 0 obj
+% Page dictionary
+<< /Annots [ 33 0 R
+ 34 0 R ]
+ /Contents 134 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Annot.NUMBER16': class LinkAnnotation 
+36 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 414.0236
+ 0 ]
+ /Rect [ 191.9316
+ 474.7736
+ 268.0716
+ 486.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Annot.NUMBER17': class LinkAnnotation 
+37 0 obj
+<< /Border [ 0
+ 0
+ 0 ]
+ /Contents ()
+ /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 150.0236
+ 0 ]
+ /Rect [ 191.9316
+ 456.7736
+ 246.3916
+ 468.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'Page15': class PDFPage 
+38 0 obj
+% Page dictionary
+<< /Annots [ 36 0 R
+ 37 0 R ]
+ /Contents 135 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page16': class PDFPage 
+39 0 obj
+% Page dictionary
+<< /Contents 136 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 120 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R40': class PDFCatalog 
+40 0 obj
+% Document Root
+<< /Outlines 42 0 R
+ /PageLabels 137 0 R
+ /PageMode /UseNone
+ /Pages 120 0 R
+ /Type /Catalog >>
+endobj
+% 'R41': class PDFInfo 
+41 0 obj
+<< /Author ()
+ /CreationDate (D:20160915145251+05'00')
+ /Creator (\(unspecified\))
+ /Keywords ()
+ /Producer (ReportLab PDF Library - www.reportlab.com)
+ /Subject (\(unspecified\))
+ /Title (GRiD API v2) >>
+endobj
+% 'R42': class PDFOutlines 
+42 0 obj
+<< /Count 92
+ /First 43 0 R
+ /Last 109 0 R
+ /Type /Outlines >>
+endobj
+% 'Outline.0': class OutlineEntryObject 
+43 0 obj
+<< /Count 65
+ /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 729.0236
+ 0 ]
+ /First 44 0 R
+ /Last 104 0 R
+ /Next 109 0 R
+ /Parent 42 0 R
+ /Title (API Endpoint Reference) >>
+endobj
+% 'Outline.78.0': class OutlineEntryObject 
+44 0 obj
+<< /Count 4
+ /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 696.0236
+ 0 ]
+ /First 45 0 R
+ /Last 48 0 R
+ /Next 49 0 R
+ /Parent 43 0 R
+ /Title (Get Point Cloud or Raster Features) >>
+endobj
+% 'Outline.79.0': class OutlineEntryObject 
+45 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 648.0236
+ 0 ]
+ /Next 46 0 R
+ /Parent 44 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.79.1': class OutlineEntryObject 
+46 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 587.8236
+ 0 ]
+ /Next 47 0 R
+ /Parent 44 0 R
+ /Prev 45 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.79.2': class OutlineEntryObject 
+47 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 404.8236
+ 0 ]
+ /Next 48 0 R
+ /Parent 44 0 R
+ /Prev 46 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.79.3': class OutlineEntryObject 
+48 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 347.8236
+ 0 ]
+ /Parent 44 0 R
+ /Prev 47 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.1': class OutlineEntryObject 
+49 0 obj
+<< /Count 4
+ /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /First 50 0 R
+ /Last 53 0 R
+ /Next 54 0 R
+ /Parent 43 0 R
+ /Prev 44 0 R
+ /Title (Get a User's AOI List) >>
+endobj
+% 'Outline.80.0': class OutlineEntryObject 
+50 0 obj
+<< /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 717.0236
+ 0 ]
+ /Next 51 0 R
+ /Parent 49 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.80.1': class OutlineEntryObject 
+51 0 obj
+<< /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 656.8236
+ 0 ]
+ /Next 52 0 R
+ /Parent 49 0 R
+ /Prev 50 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.80.2': class OutlineEntryObject 
+52 0 obj
+<< /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 563.8236
+ 0 ]
+ /Next 53 0 R
+ /Parent 49 0 R
+ /Prev 51 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.80.3': class OutlineEntryObject 
+53 0 obj
+<< /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 506.8236
+ 0 ]
+ /Parent 49 0 R
+ /Prev 52 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.2': class OutlineEntryObject 
+54 0 obj
+<< /Count 4
+ /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 246.9514
+ 0 ]
+ /First 55 0 R
+ /Last 58 0 R
+ /Next 59 0 R
+ /Parent 43 0 R
+ /Prev 49 0 R
+ /Title (Get AOI Details) >>
+endobj
+% 'Outline.81.0': class OutlineEntryObject 
+55 0 obj
+<< /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 198.9514
+ 0 ]
+ /Next 56 0 R
+ /Parent 54 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.81.1': class OutlineEntryObject 
+56 0 obj
+<< /Dest [ 9 0 R
+ /XYZ
+ 62.69291
+ 138.7514
+ 0 ]
+ /Next 57 0 R
+ /Parent 54 0 R
+ /Prev 55 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.81.2': class OutlineEntryObject 
+57 0 obj
+<< /Dest [ 11 0 R
+ /XYZ
+ 62.69291
+ 693.0236
+ 0 ]
+ /Next 58 0 R
+ /Parent 54 0 R
+ /Prev 56 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.81.3': class OutlineEntryObject 
+58 0 obj
+<< /Dest [ 11 0 R
+ /XYZ
+ 62.69291
+ 636.0236
+ 0 ]
+ /Parent 54 0 R
+ /Prev 57 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.3': class OutlineEntryObject 
+59 0 obj
+<< /Count 4
+ /Dest [ 11 0 R
+ /XYZ
+ 62.69291
+ 210.1169
+ 0 ]
+ /First 60 0 R
+ /Last 63 0 R
+ /Next 64 0 R
+ /Parent 43 0 R
+ /Prev 54 0 R
+ /Title (Add AOI) >>
+endobj
+% 'Outline.82.0': class OutlineEntryObject 
+60 0 obj
+<< /Dest [ 11 0 R
+ /XYZ
+ 62.69291
+ 162.1169
+ 0 ]
+ /Next 61 0 R
+ /Parent 59 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.82.1': class OutlineEntryObject 
+61 0 obj
+<< /Dest [ 11 0 R
+ /XYZ
+ 62.69291
+ 101.9169
+ 0 ]
+ /Next 62 0 R
+ /Parent 59 0 R
+ /Prev 60 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.82.2': class OutlineEntryObject 
+62 0 obj
+<< /Dest [ 13 0 R
+ /XYZ
+ 62.69291
+ 663.0236
+ 0 ]
+ /Next 63 0 R
+ /Parent 59 0 R
+ /Prev 61 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.82.3': class OutlineEntryObject 
+63 0 obj
+<< /Dest [ 13 0 R
+ /XYZ
+ 62.69291
+ 606.0236
+ 0 ]
+ /Parent 59 0 R
+ /Prev 62 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.4': class OutlineEntryObject 
+64 0 obj
+<< /Count 4
+ /Dest [ 13 0 R
+ /XYZ
+ 62.69291
+ 409.1909
+ 0 ]
+ /First 65 0 R
+ /Last 68 0 R
+ /Next 69 0 R
+ /Parent 43 0 R
+ /Prev 59 0 R
+ /Title (Edit AOI) >>
+endobj
+% 'Outline.83.0': class OutlineEntryObject 
+65 0 obj
+<< /Dest [ 13 0 R
+ /XYZ
+ 62.69291
+ 349.1909
+ 0 ]
+ /Next 66 0 R
+ /Parent 64 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.83.1': class OutlineEntryObject 
+66 0 obj
+<< /Dest [ 13 0 R
+ /XYZ
+ 62.69291
+ 288.9909
+ 0 ]
+ /Next 67 0 R
+ /Parent 64 0 R
+ /Prev 65 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.83.2': class OutlineEntryObject 
+67 0 obj
+<< /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /Next 68 0 R
+ /Parent 64 0 R
+ /Prev 66 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.83.3': class OutlineEntryObject 
+68 0 obj
+<< /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 708.0236
+ 0 ]
+ /Parent 64 0 R
+ /Prev 67 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.5': class OutlineEntryObject 
+69 0 obj
+<< /Count 4
+ /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 507.6948
+ 0 ]
+ /First 70 0 R
+ /Last 73 0 R
+ /Next 74 0 R
+ /Parent 43 0 R
+ /Prev 64 0 R
+ /Title (Delete AOI) >>
+endobj
+% 'Outline.84.0': class OutlineEntryObject 
+70 0 obj
+<< /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 459.6948
+ 0 ]
+ /Next 71 0 R
+ /Parent 69 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.84.1': class OutlineEntryObject 
+71 0 obj
+<< /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 399.4948
+ 0 ]
+ /Next 72 0 R
+ /Parent 69 0 R
+ /Prev 70 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.84.2': class OutlineEntryObject 
+72 0 obj
+<< /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 282.4948
+ 0 ]
+ /Next 73 0 R
+ /Parent 69 0 R
+ /Prev 71 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.84.3': class OutlineEntryObject 
+73 0 obj
+<< /Dest [ 15 0 R
+ /XYZ
+ 62.69291
+ 225.4948
+ 0 ]
+ /Parent 69 0 R
+ /Prev 72 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.6': class OutlineEntryObject 
+74 0 obj
+<< /Count 4
+ /Dest [ 17 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /First 75 0 R
+ /Last 78 0 R
+ /Next 79 0 R
+ /Parent 43 0 R
+ /Prev 69 0 R
+ /Title (Get Export Details) >>
+endobj
+% 'Outline.85.0': class OutlineEntryObject 
+75 0 obj
+<< /Dest [ 17 0 R
+ /XYZ
+ 62.69291
+ 717.0236
+ 0 ]
+ /Next 76 0 R
+ /Parent 74 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.85.1': class OutlineEntryObject 
+76 0 obj
+<< /Dest [ 17 0 R
+ /XYZ
+ 62.69291
+ 656.8236
+ 0 ]
+ /Next 77 0 R
+ /Parent 74 0 R
+ /Prev 75 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.85.2': class OutlineEntryObject 
+77 0 obj
+<< /Dest [ 17 0 R
+ /XYZ
+ 62.69291
+ 539.8236
+ 0 ]
+ /Next 78 0 R
+ /Parent 74 0 R
+ /Prev 76 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.85.3': class OutlineEntryObject 
+78 0 obj
+<< /Dest [ 17 0 R
+ /XYZ
+ 62.69291
+ 482.8236
+ 0 ]
+ /Parent 74 0 R
+ /Prev 77 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.7': class OutlineEntryObject 
+79 0 obj
+<< /Count 4
+ /Dest [ 19 0 R
+ /XYZ
+ 62.69291
+ 499.8236
+ 0 ]
+ /First 80 0 R
+ /Last 83 0 R
+ /Next 84 0 R
+ /Parent 43 0 R
+ /Prev 74 0 R
+ /Title (Edit Export) >>
+endobj
+% 'Outline.86.0': class OutlineEntryObject 
+80 0 obj
+<< /Dest [ 19 0 R
+ /XYZ
+ 62.69291
+ 451.8236
+ 0 ]
+ /Next 81 0 R
+ /Parent 79 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.86.1': class OutlineEntryObject 
+81 0 obj
+<< /Dest [ 19 0 R
+ /XYZ
+ 62.69291
+ 391.6236
+ 0 ]
+ /Next 82 0 R
+ /Parent 79 0 R
+ /Prev 80 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.86.2': class OutlineEntryObject 
+82 0 obj
+<< /Dest [ 19 0 R
+ /XYZ
+ 62.69291
+ 238.6236
+ 0 ]
+ /Next 83 0 R
+ /Parent 79 0 R
+ /Prev 81 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.86.3': class OutlineEntryObject 
+83 0 obj
+<< /Dest [ 19 0 R
+ /XYZ
+ 62.69291
+ 181.6236
+ 0 ]
+ /Parent 79 0 R
+ /Prev 82 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.8': class OutlineEntryObject 
+84 0 obj
+<< /Count 4
+ /Dest [ 20 0 R
+ /XYZ
+ 62.69291
+ 432.0426
+ 0 ]
+ /First 85 0 R
+ /Last 88 0 R
+ /Next 89 0 R
+ /Parent 43 0 R
+ /Prev 79 0 R
+ /Title (Delete Export) >>
+endobj
+% 'Outline.87.0': class OutlineEntryObject 
+85 0 obj
+<< /Dest [ 20 0 R
+ /XYZ
+ 62.69291
+ 384.0426
+ 0 ]
+ /Next 86 0 R
+ /Parent 84 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.87.1': class OutlineEntryObject 
+86 0 obj
+<< /Dest [ 20 0 R
+ /XYZ
+ 62.69291
+ 323.8426
+ 0 ]
+ /Next 87 0 R
+ /Parent 84 0 R
+ /Prev 85 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.87.2': class OutlineEntryObject 
+87 0 obj
+<< /Dest [ 20 0 R
+ /XYZ
+ 62.69291
+ 206.8426
+ 0 ]
+ /Next 88 0 R
+ /Parent 84 0 R
+ /Prev 86 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.87.3': class OutlineEntryObject 
+88 0 obj
+<< /Dest [ 20 0 R
+ /XYZ
+ 62.69291
+ 149.8426
+ 0 ]
+ /Parent 84 0 R
+ /Prev 87 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.9': class OutlineEntryObject 
+89 0 obj
+<< /Count 4
+ /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 691.8236
+ 0 ]
+ /First 90 0 R
+ /Last 93 0 R
+ /Next 94 0 R
+ /Parent 43 0 R
+ /Prev 84 0 R
+ /Title (Lookup Geoname) >>
+endobj
+% 'Outline.88.0': class OutlineEntryObject 
+90 0 obj
+<< /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 643.8236
+ 0 ]
+ /Next 91 0 R
+ /Parent 89 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.88.1': class OutlineEntryObject 
+91 0 obj
+<< /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 583.6236
+ 0 ]
+ /Next 92 0 R
+ /Parent 89 0 R
+ /Prev 90 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.88.2': class OutlineEntryObject 
+92 0 obj
+<< /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 490.6236
+ 0 ]
+ /Next 93 0 R
+ /Parent 89 0 R
+ /Prev 91 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.88.3': class OutlineEntryObject 
+93 0 obj
+<< /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 433.6236
+ 0 ]
+ /Parent 89 0 R
+ /Prev 92 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.10': class OutlineEntryObject 
+94 0 obj
+<< /Count 4
+ /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 303.2459
+ 0 ]
+ /First 95 0 R
+ /Last 98 0 R
+ /Next 99 0 R
+ /Parent 43 0 R
+ /Prev 89 0 R
+ /Title (Get Task Details) >>
+endobj
+% 'Outline.89.0': class OutlineEntryObject 
+95 0 obj
+<< /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 255.2459
+ 0 ]
+ /Next 96 0 R
+ /Parent 94 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.89.1': class OutlineEntryObject 
+96 0 obj
+<< /Dest [ 22 0 R
+ /XYZ
+ 62.69291
+ 195.0459
+ 0 ]
+ /Next 97 0 R
+ /Parent 94 0 R
+ /Prev 95 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.89.2': class OutlineEntryObject 
+97 0 obj
+<< /Dest [ 24 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /Next 98 0 R
+ /Parent 94 0 R
+ /Prev 96 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.89.3': class OutlineEntryObject 
+98 0 obj
+<< /Dest [ 24 0 R
+ /XYZ
+ 62.69291
+ 708.0236
+ 0 ]
+ /Parent 94 0 R
+ /Prev 97 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.11': class OutlineEntryObject 
+99 0 obj
+<< /Count 4
+ /Dest [ 24 0 R
+ /XYZ
+ 62.69291
+ 539.6736
+ 0 ]
+ /First 100 0 R
+ /Last 103 0 R
+ /Next 104 0 R
+ /Parent 43 0 R
+ /Prev 94 0 R
+ /Title (Generate Point Cloud Export) >>
+endobj
+% 'Outline.90.0': class OutlineEntryObject 
+100 0 obj
+<< /Dest [ 24 0 R
+ /XYZ
+ 62.69291
+ 491.6736
+ 0 ]
+ /Next 101 0 R
+ /Parent 99 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.90.1': class OutlineEntryObject 
+101 0 obj
+<< /Dest [ 24 0 R
+ /XYZ
+ 62.69291
+ 431.4736
+ 0 ]
+ /Next 102 0 R
+ /Parent 99 0 R
+ /Prev 100 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.90.2': class OutlineEntryObject 
+102 0 obj
+<< /Dest [ 26 0 R
+ /XYZ
+ 62.69291
+ 663.0236
+ 0 ]
+ /Next 103 0 R
+ /Parent 99 0 R
+ /Prev 101 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.90.3': class OutlineEntryObject 
+103 0 obj
+<< /Dest [ 26 0 R
+ /XYZ
+ 62.69291
+ 606.0236
+ 0 ]
+ /Parent 99 0 R
+ /Prev 102 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.78.12': class OutlineEntryObject 
+104 0 obj
+<< /Count 4
+ /Dest [ 26 0 R
+ /XYZ
+ 62.69291
+ 473.4048
+ 0 ]
+ /First 105 0 R
+ /Last 108 0 R
+ /Parent 43 0 R
+ /Prev 99 0 R
+ /Title (Generate Raster Export) >>
+endobj
+% 'Outline.91.0': class OutlineEntryObject 
+105 0 obj
+<< /Dest [ 26 0 R
+ /XYZ
+ 62.69291
+ 425.4048
+ 0 ]
+ /Next 106 0 R
+ /Parent 104 0 R
+ /Title (Endpoint) >>
+endobj
+% 'Outline.91.1': class OutlineEntryObject 
+106 0 obj
+<< /Dest [ 26 0 R
+ /XYZ
+ 62.69291
+ 365.2048
+ 0 ]
+ /Next 107 0 R
+ /Parent 104 0 R
+ /Prev 105 0 R
+ /Title (Request Parameters) >>
+endobj
+% 'Outline.91.2': class OutlineEntryObject 
+107 0 obj
+<< /Dest [ 30 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /Next 108 0 R
+ /Parent 104 0 R
+ /Prev 106 0 R
+ /Title (Response Format) >>
+endobj
+% 'Outline.91.3': class OutlineEntryObject 
+108 0 obj
+<< /Dest [ 30 0 R
+ /XYZ
+ 62.69291
+ 708.0236
+ 0 ]
+ /Parent 104 0 R
+ /Prev 107 0 R
+ /Title (Example) >>
+endobj
+% 'Outline.1': class OutlineEntryObject 
+109 0 obj
+<< /Count 10
+ /Dest [ 30 0 R
+ /XYZ
+ 62.69291
+ 574.8397
+ 0 ]
+ /First 110 0 R
+ /Last 119 0 R
+ /Parent 42 0 R
+ /Prev 43 0 R
+ /Title (Object Model) >>
+endobj
+% 'Outline.92.0': class OutlineEntryObject 
+110 0 obj
+<< /Dest [ 30 0 R
+ /XYZ
+ 62.69291
+ 541.8397
+ 0 ]
+ /Next 111 0 R
+ /Parent 109 0 R
+ /Title (AOI List object) >>
+endobj
+% 'Outline.92.1': class OutlineEntryObject 
+111 0 obj
+<< /Dest [ 30 0 R
+ /XYZ
+ 62.69291
+ 337.8397
+ 0 ]
+ /Next 112 0 R
+ /Parent 109 0 R
+ /Prev 110 0 R
+ /Title (AOI Detail object) >>
+endobj
+% 'Outline.92.2': class OutlineEntryObject 
+112 0 obj
+<< /Dest [ 32 0 R
+ /XYZ
+ 62.69291
+ 723.0236
+ 0 ]
+ /Next 113 0 R
+ /Parent 109 0 R
+ /Prev 111 0 R
+ /Title (Pointcloud Product object) >>
+endobj
+% 'Outline.92.3': class OutlineEntryObject 
+113 0 obj
+<< /Dest [ 32 0 R
+ /XYZ
+ 62.69291
+ 447.0236
+ 0 ]
+ /Next 114 0 R
+ /Parent 109 0 R
+ /Prev 112 0 R
+ /Title (Raster Product object) >>
+endobj
+% 'Outline.92.4': class OutlineEntryObject 
+114 0 obj
+<< /Dest [ 32 0 R
+ /XYZ
+ 62.69291
+ 207.0236
+ 0 ]
+ /Next 115 0 R
+ /Parent 109 0 R
+ /Prev 113 0 R
+ /Title (Export object) >>
+endobj
+% 'Outline.92.5': class OutlineEntryObject 
+115 0 obj
+<< /Dest [ 35 0 R
+ /XYZ
+ 62.69291
+ 681.0236
+ 0 ]
+ /Next 116 0 R
+ /Parent 109 0 R
+ /Prev 114 0 R
+ /Title (Export Detail object \(pointcloud\)) >>
+endobj
+% 'Outline.92.6': class OutlineEntryObject 
+116 0 obj
+<< /Dest [ 35 0 R
+ /XYZ
+ 62.69291
+ 111.0236
+ 0 ]
+ /Next 117 0 R
+ /Parent 109 0 R
+ /Prev 115 0 R
+ /Title (Export Detail object \(raster\)) >>
+endobj
+% 'Outline.92.7': class OutlineEntryObject 
+117 0 obj
+<< /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 411.0236
+ 0 ]
+ /Next 118 0 R
+ /Parent 109 0 R
+ /Prev 116 0 R
+ /Title (Exportfile object) >>
+endobj
+% 'Outline.92.8': class OutlineEntryObject 
+118 0 obj
+<< /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 297.0236
+ 0 ]
+ /Next 119 0 R
+ /Parent 109 0 R
+ /Prev 117 0 R
+ /Title (Task object) >>
+endobj
+% 'Outline.92.9': class OutlineEntryObject 
+119 0 obj
+<< /Dest [ 38 0 R
+ /XYZ
+ 62.69291
+ 147.0236
+ 0 ]
+ /Parent 109 0 R
+ /Prev 118 0 R
+ /Title (TDA object) >>
+endobj
+% 'R120': class PDFPages 
+120 0 obj
+% page tree
+<< /Count 16
+ /Kids [ 7 0 R
+ 9 0 R
+ 11 0 R
+ 13 0 R
+ 15 0 R
+ 17 0 R
+ 19 0 R
+ 20 0 R
+ 22 0 R
+ 24 0 R
+ 26 0 R
+ 30 0 R
+ 32 0 R
+ 35 0 R
+ 38 0 R
+ 39 0 R ]
+ /Type /Pages >>
+endobj
+% 'R121': class PDFStream 
+121 0 obj
+% page stream
+<< /Length 9088 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 20 Tf 24 TL 176.5949 0 Td (GRiD API v2) Tj T* -176.5949 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 708.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (API Endpoint Reference) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 678.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Get Point Cloud or Raster Features) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 660.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Get a list of point cloud and/or raster features via GRiD's Web Feature Service \(WFS\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 633.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 599.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/cgi-bin/gridws) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 572.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 530.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .847209 Tw (This is not an exhaustive list of parameters for the WFS endpoint, but represents a common use case -) Tj T* 0 Tw .60436 Tw (querying for point cloud and/or raster features by bounding box. Please refer to the WFS specification or) Tj T* 0 Tw (any number of Internet tutorials for more complex use cases.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 524.8236 cm
+Q
+q
+1 0 0 1 62.69291 416.8236 cm
+1 1 1 rg
+n 0 108 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 90 469.8898 -18 re f*
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 108 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 93 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 90.6196 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 7.519802 0 Td (Query parameter) Tj T* -7.519802 0 Td ET
+Q
+Q
+q
+1 0 0 1 108.6196 93 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 355.2702 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 164.8501 0 Td (Value) Tj T* -164.8501 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (service) Tj T* ET
+Q
+Q
+q
+1 0 0 1 108.6196 75 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. wfs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (version) Tj T* ET
+Q
+Q
+q
+1 0 0 1 108.6196 57 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. 1.1.0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (request) Tj T* ET
+Q
+Q
+q
+1 0 0 1 108.6196 39 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. getfeature) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (typename) Tj T* ET
+Q
+Q
+q
+1 0 0 1 108.6196 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. ) Tj /F4 10 Tf (ms:gridws_pointcloud ) Tj /F1 10 Tf (and/or ) Tj /F4 10 Tf (ms:gridws_raster) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (bbox) Tj T* ET
+Q
+Q
+q
+1 0 0 1 108.6196 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. minx,miny,maxx,maxy) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 102.6196 0 m 102.6196 108 l S
+n 0 108 m 469.8898 108 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 108 l S
+n 469.8898 0 m 469.8898 108 l S
+Q
+Q
+q
+1 0 0 1 62.69291 416.8236 cm
+Q
+q
+1 0 0 1 62.69291 389.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 359.8236 cm
+q
+BT 1 0 0 1 0 14 Tm .856457 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains) Tj T* 0 Tw (the WFS response in XML format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 332.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 313.4291 cm
+q
+q
+.452165 0 0 .452165 0 0 cm
+q
+1 0 0 1 6.6 14.59644 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 1038 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( "http://gridte.rsgis.erdc.dren.mil/te_ba/cgi-bin/gridws?service=wfs) Tj (&) Tj (version=1.1.0) Tj (&) Tj (request=getfeature) Tj (&) Tj (typename=ms:gridws_pointcloud) Tj (&) Tj (bbox=62,33,62.1,33.1") Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 80.7601 cm
+q
+q
+.389239 0 0 .389239 0 0 cm
+q
+1 0 0 1 6.6 16.95615 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 1206 576 re B*
+Q
+q
+BT 1 0 0 1 0 554 Tm 12 TL /F4 10 Tf 0 0 0 rg (<) Tj (?xml version='1.0' encoding="UTF-8" ?) Tj (>) Tj  T* (<) Tj (wfs:FeatureCollection) Tj T* (   xmlns:ms="http://mapserver.gis.umn.edu/mapserver") Tj T* (   xmlns:gml="http://www.opengis.net/gml") Tj T* (   xmlns:wfs="http://www.opengis.net/wfs") Tj T* (   xmlns:ogc="http://www.opengis.net/ogc") Tj T* (   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance") Tj T* (   xsi:schemaLocation="http://mapserver.gis.umn.edu/mapserver) Tj T* (   http://gridte-proc.erdc.dren.mil/te_ba/cgi-bin/gridws?SERVICE=WFS) Tj (&) Tj (amp;VERSION=1.1.0) Tj (&) Tj (amp;REQUEST=DescribeFeatureType) Tj (&) Tj (amp;TYPENAME=ms:gridws_pointcloud) Tj (&) Tj (amp;OUTPUTFORMAT=text/xml;%20subtype=gml/3.1.1) Tj T* (   http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd") Tj (>) Tj  T* (      ) Tj (<) Tj (gml:boundedBy) Tj (>) Tj  T* (        ) Tj (<) Tj (gml:Envelope srsName="EPSG:4326") Tj (>) Tj  T* (                ) Tj (<) Tj (gml:lowerCorner) Tj (>) Tj (33.001454 62.094691) Tj (<) Tj (/gml:lowerCorner) Tj (>) Tj  T* (                ) Tj (<) Tj (gml:upperCorner) Tj (>) Tj (33.006002 62.100088) Tj (<) Tj (/gml:upperCorner) Tj (>) Tj  T* (        ) Tj (<) Tj (/gml:Envelope) Tj (>) Tj  T* (      ) Tj (<) Tj (/gml:boundedBy) Tj (>) Tj  T* (    ) Tj (<) Tj (gml:featureMember) Tj (>) Tj  T* (      ) Tj (<) Tj (ms:gridws_pointcloud gml:id="gridws_pointcloud.149319") Tj (>) Tj  T* (        ) Tj (<) Tj (gml:boundedBy) Tj (>) Tj  T* (                ) Tj (<) Tj (gml:Envelope srsName="EPSG:4326") Tj (>) Tj  T* (                        ) Tj (<) Tj (gml:lowerCorner) Tj (>) Tj (33.001454 62.094691) Tj (<) Tj (/gml:lowerCorner) Tj (>) Tj  T* (                        ) Tj (<) Tj (gml:upperCorner) Tj (>) Tj (33.006002 62.100088) Tj (<) Tj (/gml:upperCorner) Tj (>) Tj  T* (                ) Tj (<) Tj (/gml:Envelope) Tj (>) Tj  T* (        ) Tj (<) Tj (/gml:boundedBy) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:msGeometry) Tj (>) Tj  T* (          ) Tj (<) Tj (gml:Polygon srsName="EPSG:4326") Tj (>) Tj  T* (            ) Tj (<) Tj (gml:exterior) Tj (>) Tj  T* (              ) Tj (<) Tj (gml:LinearRing) Tj (>) Tj  T* (                ) Tj (<) Tj (gml:posList srsDimension="2") Tj (>) Tj (33.001454 62.094691 33.006002 62.094691 33.006002 62.100088 33.001454 62.100088 33.001454 62.094691 ) Tj (<) Tj (/gml:posList) Tj (>) Tj  T* (              ) Tj (<) Tj (/gml:LinearRing) Tj (>) Tj  T* (            ) Tj (<) Tj (/gml:exterior) Tj (>) Tj  T* (          ) Tj (<) Tj (/gml:Polygon) Tj (>) Tj  T* (        ) Tj (<) Tj (/ms:msGeometry) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:COLLECT_ID) Tj (>) Tj (652) Tj (<) Tj (/ms:COLLECT_ID) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:COLLECTION) Tj (>) Tj (collectName) Tj (<) Tj (/ms:COLLECTION) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:FILE_NAME) Tj (>) Tj (filename.ntf) Tj (<) Tj (/ms:FILE_NAME) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:DATE_LOADED) Tj (>) Tj (2012-09-01T00:00:00Z) Tj (<) Tj (/ms:DATE_LOADED) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:PC_ID) Tj (>) Tj (149319) Tj (<) Tj (/ms:PC_ID) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:X) Tj (>) Tj (62.0973893743891) Tj (<) Tj (/ms:X) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:Y) Tj (>) Tj (33.0037279493031) Tj (<) Tj (/ms:Y) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:FILE_SIZE_MB) Tj (>) Tj (25.8) Tj (<) Tj (/ms:FILE_SIZE_MB) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:COLLECTDATE) Tj (>) Tj (2011-10-19T00:00:00Z) Tj (<) Tj (/ms:COLLECTDATE) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:DOWNLOAD_URL) Tj (>) Tj (http://gridte.rsgis.erdc.dren.mil//te_ba/export/pointcloud/149319/laz/) Tj (<) Tj (/ms:DOWNLOAD_URL) Tj (>) Tj  T* (        ) Tj (<) Tj (ms:SENSOR_NAME) Tj (>) Tj (BuckEye) Tj (<) Tj (/ms:SENSOR_NAME) Tj (>) Tj  T* (      ) Tj (<) Tj (/ms:gridws_pointcloud) Tj (>) Tj  T* (    ) Tj (<) Tj (/gml:featureMember) Tj (>) Tj  T* (<) Tj (/wfs:FeatureCollection) Tj (>) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R122': class PDFStream 
+122 0 obj
+% page stream
+<< /Length 6420 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 747.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Get a User's AOI List) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 729.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Get a list of the AOIs created by or shared with the current GRiD user.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 702.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 668.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 641.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 629.8236 cm
+Q
+q
+1 0 0 1 62.69291 575.8236 cm
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 54 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 103.9468 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 14.18341 0 Td (Query parameter) Tj T* -14.18341 0 Td ET
+Q
+Q
+q
+1 0 0 1 121.9468 39 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 341.9429 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 158.1865 0 Td (Value) Tj T* -158.1865 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.9468 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (geom) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.9468 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. A WKT geometry used to filter AOI results.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 115.9468 0 m 115.9468 54 l S
+n 0 54 m 469.8898 54 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 54 l S
+n 469.8898 0 m 469.8898 54 l S
+Q
+Q
+q
+1 0 0 1 62.69291 575.8236 cm
+Q
+q
+1 0 0 1 62.69291 548.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 518.8236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw (array of ) Tj 0 0 .501961 rg (AOI object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 491.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 469.2265 cm
+q
+q
+.579253 0 0 .579253 0 0 cm
+q
+1 0 0 1 6.6 11.39399 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 810 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/?geom=POLYGON \(\(30 10, 40 40, 20 40, 10 20, 30 10\)\)) Tj (&) Tj (source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 258.9514 cm
+q
+q
+.579253 0 0 .579253 0 0 cm
+q
+1 0 0 1 6.6 11.39399 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 810 348 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 326 Tm /F4 10 Tf 12 TL ({) Tj T* (    "aoi_list": [) Tj T* (      {) Tj T* (        "clip_geometry": "SRID=4326;POLYGON \(\(68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,) Tj T* (        68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,) Tj T* (        68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983\)\)",) Tj T* (        "created_at": "2013-04-16T13:10:33.974",) Tj T* (        "is_active": true,) Tj T* (        "name": "First_Aoi",) Tj T* (        "notes": "",) Tj T* (        "source": "",) Tj T* (        "user": 102,) Tj T* (        "pk": 123) Tj T* (      },) Tj T* (      {) Tj T* (        "clip_geometry": "SRID=4326;POLYGON \(\(64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,) Tj T* (        68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020\)\)",) Tj T* (        "created_at": "2015-09-23T09:50:19.856",) Tj T* (        "is_active": true,) Tj T* (        "name": "Second_Aoi",) Tj T* (        "notes": "",) Tj T* (        "source": "",) Tj T* (        "user": 102,) Tj T* (        "pk": 1304) Tj T* (      }) Tj T* (    ],) Tj T* (    "API Version": "v2") Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 228.9514 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Get AOI Details) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 210.9514 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Get information for a single AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 183.9514 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 150.7514 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi/{pk}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 123.7514 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 111.7514 cm
+Q
+q
+1 0 0 1 62.69291 93.75142 cm
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 124.4196 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.7498 0 Td (Path parameter) Tj T* -27.7498 0 Td ET
+Q
+Q
+q
+1 0 0 1 142.4196 3 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 321.4702 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 147.9501 0 Td (Value) Tj T* -147.9501 0 Td ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 136.4196 0 m 136.4196 18 l S
+n 0 18 m 469.8898 18 l S
+n 0 0 m 0 18 l S
+n 469.8898 0 m 469.8898 18 l S
+Q
+Q
+ 
+endstream
+endobj
+% 'R123': class PDFStream 
+123 0 obj
+% page stream
+<< /Length 5702 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 747.0236 cm
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 142.4196 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. The primary key for the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 136.4196 0 m 136.4196 18 l S
+n 0 0 m 0 18 l S
+n 469.8898 0 m 469.8898 18 l S
+n 0 0 m 469.8898 0 l S
+Q
+Q
+q
+1 0 0 1 62.69291 747.0236 cm
+Q
+q
+1 0 0 1 62.69291 741.0236 cm
+Q
+q
+1 0 0 1 62.69291 705.0236 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 129.7128 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.06639 0 Td (Query parameter) Tj T* -27.06639 0 Td ET
+Q
+Q
+q
+1 0 0 1 147.7128 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 316.177 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 145.3035 0 Td (Value) Tj T* -145.3035 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 141.7128 0 m 141.7128 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 705.0236 cm
+Q
+q
+1 0 0 1 62.69291 678.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 648.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw 0 0 .501961 rg (AOI Detail object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 621.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 590.6479 cm
+q
+q
+.887925 0 0 .887925 0 0 cm
+q
+1 0 0 1 6.6 7.433063 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 528 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 222.1169 cm
+q
+q
+.58795 0 0 .58795 0 0 cm
+q
+1 0 0 1 6.6 11.22544 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 798 612 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 590 Tm /F4 10 Tf 12 TL ({) Tj T* (    "API Version": "v2",) Tj T* (    "aoi":) Tj T* (    {) Tj T* (      "clip_geometry": "SRID=4326;POLYGON \(\(68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,) Tj T* (      68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,) Tj T* (      68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983\)\)",) Tj T* (      "created_at": "2013-04-16T13:10:33.974",) Tj T* (      "is_active": true,) Tj T* (      "name": "First_Aoi",) Tj T* (      "notes": "",) Tj T* (      "source": "api",) Tj T* (      "user": 102,) Tj T* (      "pk": 123) Tj T* (    },) Tj T* (    "export_set": [) Tj T* (        {) Tj T* (            "datatype": "LAS 1.2",) Tj T* (            "hsrs": "32642",) Tj T* (            "name": "First_Aoi-UTMzone42N_2015-Oct-15.zip",) Tj T* (            "pk": 1335,) Tj T* (            "started_at": "2015-10-15T18:06:13.272161",) Tj T* (            "status": "SUCCESS",) Tj T* (            "url": "http://127.0.0.1:8000/export/download/1335/") Tj T* (        },) Tj T* (        {) Tj T* (            "datatype": "DSM",) Tj T* (            "hsrs": "32642",) Tj T* (            "name": "First_Aoi_WGS84-UTMzone42N_2015-Oct-15.zip",) Tj T* (            "pk": 1328,) Tj T* (            "started_at": "2015-10-15T17:59:05.937854",) Tj T* (            "status": "SUCCESS",) Tj T* (            "url": "http://127.0.0.1:8000/export/download/1328/") Tj T* (        },) Tj T* (    ],) Tj T* (    "pointcloud_intersects": [) Tj T* (        {) Tj T* (            "datatype": "LAS 1.2",) Tj T* (            "name": "20110323_00_0_UFO",) Tj T* (            "pk": 168) Tj T* (        }) Tj T* (    ],) Tj T* (    "raster_intersects": [) Tj T* (        {) Tj T* (            "datatype": "DSM",) Tj T* (            "name": "20080407_00_0_UFO",) Tj T* (            "pk": 228) Tj T* (        }) Tj T* (    ]) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 192.1169 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Add AOI) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 174.1169 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Create a new AOI for the given geometry.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 147.1169 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 113.9169 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi/add) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 86.91688 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 76.86614 cm
+Q
+ 
+endstream
+endobj
+% 'R124': class PDFStream 
+124 0 obj
+% page stream
+<< /Length 8087 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 675.0236 cm
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 90 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 108.6474 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 16.53369 0 Td (Query parameter) Tj T* -16.53369 0 Td ET
+Q
+Q
+q
+1 0 0 1 126.6474 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 337.2424 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 155.8362 0 Td (Value) Tj T* -155.8362 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 126.6474 57 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 126.6474 39 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. The name for the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (geom) Tj T* ET
+Q
+Q
+q
+1 0 0 1 126.6474 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. A WKT geometry describing the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (subscribe) Tj T* ET
+Q
+Q
+q
+1 0 0 1 126.6474 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. True, False, T, F, 1, 0. Default: false) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 120.6474 0 m 120.6474 90 l S
+n 0 90 m 469.8898 90 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 90 l S
+n 469.8898 0 m 469.8898 90 l S
+Q
+Q
+q
+1 0 0 1 62.69291 675.0236 cm
+Q
+q
+1 0 0 1 62.69291 648.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 618.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw 0 0 .501961 rg (AOI Detail object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 591.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 571.0045 cm
+q
+q
+.476949 0 0 .476949 0 0 cm
+q
+1 0 0 1 6.6 13.83797 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 984 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/add/?source=grid) Tj (&) Tj (name=test) Tj (&) Tj (geom=POLYGON \(\(30 10, 40 40, 20 40, 10 20, 30 10\)\)) Tj (&) Tj (subscribe=True) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 421.1909 cm
+q
+q
+.58795 0 0 .58795 0 0 cm
+q
+1 0 0 1 6.6 11.22544 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 798 240 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 218 Tm /F4 10 Tf 12 TL ({) Tj T* (    "aoi":) Tj T* (    {) Tj T* (      "clip_geometry": "SRID=4326;POLYGON \(\(30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,) Tj T* (      20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000\)\)",) Tj T* (      "created_at": "2015-11-13T12:58:28.040",) Tj T* (      "is_active": true,) Tj T* (      "name": "test",) Tj T* (      "notes": "",) Tj T* (      "source": "api",) Tj T* (      "user": 102,) Tj T* (      "pk": 1592) Tj T* (    },) Tj T* (    "export_set": [],) Tj T* (    "pointcloud_intersects": [],) Tj T* (    "raster_intersects": [],) Tj T* (    "API Version": "v2",) Tj T* (    "success": true) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 391.1909 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Edit AOI) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 361.1909 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.861751 Tw (Update an AOIs name, notes, or geometry. In order to change an AOI's geometry, it must contain 0) Tj T* 0 Tw (generated exports.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 334.1909 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 300.9909 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi/edit/) Tj (<) Tj (pk) Tj (>) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 273.9909 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 261.9909 cm
+Q
+q
+1 0 0 1 62.69291 225.9909 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 160.6126 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 45.84628 0 Td (Path parameter) Tj T* -45.84628 0 Td ET
+Q
+Q
+q
+1 0 0 1 178.6126 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 285.2772 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 129.8536 0 Td (Value) Tj T* -129.8536 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 178.6126 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 172.6126 0 m 172.6126 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 225.9909 cm
+Q
+q
+1 0 0 1 62.69291 219.9909 cm
+Q
+q
+1 0 0 1 62.69291 129.9909 cm
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 90 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 117.3899 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 20.90497 0 Td (Query parameter) Tj T* -20.90497 0 Td ET
+Q
+Q
+q
+1 0 0 1 135.3899 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 328.4998 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 151.4649 0 Td (Value) Tj T* -151.4649 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 135.3899 57 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 135.3899 39 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. The name for the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (geom) Tj T* ET
+Q
+Q
+q
+1 0 0 1 135.3899 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. A WKT geometry describing the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 135.3899 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. The notes for the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 129.3899 0 m 129.3899 90 l S
+n 0 90 m 469.8898 90 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 90 l S
+n 469.8898 0 m 469.8898 90 l S
+Q
+Q
+q
+1 0 0 1 62.69291 129.9909 cm
+Q
+ 
+endstream
+endobj
+% 'R125': class PDFStream 
+125 0 obj
+% page stream
+<< /Length 6235 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 750.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 720.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw 0 0 .501961 rg (AOI Detail object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 669.5084 cm
+q
+q
+.615684 0 0 .615684 0 0 cm
+q
+1 0 0 1 6.6 10.71979 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 762 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/edit/123/?source=grid) Tj (&) Tj (name=new name) Tj (&) Tj (notes=updated notes) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 519.6948 cm
+q
+q
+.58795 0 0 .58795 0 0 cm
+q
+1 0 0 1 6.6 11.22544 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 798 240 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 218 Tm /F4 10 Tf 12 TL ({) Tj T* (    "aoi":) Tj T* (    {) Tj T* (      "clip_geometry": "SRID=4326;POLYGON \(\(30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,) Tj T* (      20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000\)\)",) Tj T* (      "created_at": "2015-11-13T12:58:28.040",) Tj T* (      "is_active": true,) Tj T* (      "name": "new name",) Tj T* (      "notes": "updated notes",) Tj T* (      "source": "api",) Tj T* (      "user": 102,) Tj T* (      "pk": 123) Tj T* (    },) Tj T* (    "export_set": [],) Tj T* (    "pointcloud_intersects": [],) Tj T* (    "raster_intersects": [],) Tj T* (    "API Version": "v2",) Tj T* (    "success": true) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 489.6948 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Delete AOI) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 471.6948 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Delete an existing AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 444.6948 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 411.4948 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi/delete/) Tj (<) Tj (pk) Tj (>) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 384.4948 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 372.4948 cm
+Q
+q
+1 0 0 1 62.69291 336.4948 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 160.6126 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 45.84628 0 Td (Path parameter) Tj T* -45.84628 0 Td ET
+Q
+Q
+q
+1 0 0 1 178.6126 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 285.2772 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 129.8536 0 Td (Value) Tj T* -129.8536 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 178.6126 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 172.6126 0 m 172.6126 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 336.4948 cm
+Q
+q
+1 0 0 1 62.69291 330.4948 cm
+Q
+q
+1 0 0 1 62.69291 294.4948 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 129.7128 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.06639 0 Td (Query parameter) Tj T* -27.06639 0 Td ET
+Q
+Q
+q
+1 0 0 1 147.7128 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 316.177 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 145.3035 0 Td (Value) Tj T* -145.3035 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 141.7128 0 m 141.7128 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 294.4948 cm
+Q
+q
+1 0 0 1 62.69291 267.4948 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 237.4948 cm
+q
+BT 1 0 0 1 0 14 Tm .345542 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains a) Tj T* 0 Tw (the status in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 210.4948 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 181.7644 cm
+q
+q
+.822636 0 0 .822636 0 0 cm
+q
+1 0 0 1 6.6 8.022988 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 570 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/delete/123/?source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 112.5644 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 60 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F4 10 Tf 12 TL ({) Tj T* (    "API Version": "v2",) Tj T* (    "success": true) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R126': class PDFStream 
+126 0 obj
+% page stream
+<< /Length 5125 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 747.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Get Export Details) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 729.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Get information for a single export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 702.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 668.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/export/{pk}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 641.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 629.8236 cm
+Q
+q
+1 0 0 1 62.69291 593.8236 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 120.1565 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 25.61825 0 Td (Path parameter) Tj T* -25.61825 0 Td ET
+Q
+Q
+q
+1 0 0 1 138.1565 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 325.7333 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 150.0816 0 Td (Value) Tj T* -150.0816 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 138.1565 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (.The primary key for the export.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 132.1565 0 m 132.1565 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 593.8236 cm
+Q
+q
+1 0 0 1 62.69291 587.8236 cm
+Q
+q
+1 0 0 1 62.69291 551.8236 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 129.7128 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.06639 0 Td (Query parameter) Tj T* -27.06639 0 Td ET
+Q
+Q
+q
+1 0 0 1 147.7128 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 316.177 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 145.3035 0 Td (Value) Tj T* -145.3035 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 141.7128 0 m 141.7128 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 551.8236 cm
+Q
+q
+1 0 0 1 62.69291 524.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 494.8236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw 0 0 .501961 rg (Export Detail object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 467.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 438.4187 cm
+q
+q
+.849403 0 0 .849403 0 0 cm
+q
+1 0 0 1 6.6 7.770163 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 552 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335/?source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 109.4376 cm
+q
+q
+.91919 0 0 .91919 0 0 cm
+q
+1 0 0 1 6.6 7.180237 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 510 348 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 326 Tm /F4 10 Tf 12 TL ({) Tj T* (  "export":) Tj T* (  {) Tj T* (    "status": "SUCCESS",) Tj T* (    "pcl_terrain": "",) Tj T* (    "dim_classification": true,) Tj T* (    "file_export_options": "individual",) Tj T* (    "name": "",) Tj T* (    "classification": "",) Tj T* (    "datatype": "LAS 1.2",) Tj T* (    "notes": "",) Tj T* (    "rgb": false,) Tj T* (    "hsrs": "32641",) Tj T* (    "url": "http://localhost:8000/export/download/2880/",) Tj T* (    "intensity": true,) Tj T* (    "pk": 2880,) Tj T* (    "generate_dem": false,) Tj T* (    "started_at": "2016-05-16T16:18:12.752305",) Tj T* (    "sri_hres": null) Tj T* (  },) Tj T* (  "API Version": "v2",) Tj T* (  "exportfiles": [) Tj T* (    {) Tj T* (      "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",) Tj T* (      "pk": 30359,) Tj T* (      "name": "ExportedFile.laz") Tj T* (    }) Tj T* (  ],) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R127': class PDFStream 
+127 0 obj
+% page stream
+<< /Length 5866 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 511.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 252 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 230 Tm /F4 10 Tf 12 TL (  "tda_set": [) Tj T* (    {) Tj T* (      "status": "SUCCESS",) Tj T* (      "tda_type": "Los",) Tj T* (      "name": "LineOfSightResult",) Tj T* (      "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/tda/download/1069/",) Tj T* (      "created_at": "2015-05-12T18:25:05.082077",) Tj T* (      "pk": 1069,) Tj T* (      "notes": "") Tj T* (    }, {) Tj T* (      "status": "SUCCESS",) Tj T* (      "tda_type": "Hlz",) Tj T* (      "name": "HelicopterLandingZoneResult",) Tj T* (      "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/tda/download/1068/",) Tj T* (      "created_at": "2015-05-12T18:24:20.701910",) Tj T* (      "pk": 1068,) Tj T* (      "notes": "") Tj T* (    }) Tj T* (  ]) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 481.8236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Edit Export) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 463.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Update an Exports name or notes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 436.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 403.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/export/edit/) Tj (<) Tj (pk) Tj (>) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 376.6236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 364.6236 cm
+Q
+q
+1 0 0 1 62.69291 328.6236 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 150.6541 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 40.86707 0 Td (Path parameter) Tj T* -40.86707 0 Td ET
+Q
+Q
+q
+1 0 0 1 168.6541 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 295.2356 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 134.8328 0 Td (Value) Tj T* -134.8328 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.6541 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the export.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 162.6541 0 m 162.6541 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 328.6236 cm
+Q
+q
+1 0 0 1 62.69291 322.6236 cm
+Q
+q
+1 0 0 1 62.69291 250.6236 cm
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 72 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 57 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 129.7128 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.06639 0 Td (Query parameter) Tj T* -27.06639 0 Td ET
+Q
+Q
+q
+1 0 0 1 147.7128 57 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 316.177 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 145.3035 0 Td (Value) Tj T* -145.3035 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 39 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. The name for the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. User notes.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 141.7128 0 m 141.7128 72 l S
+n 0 72 m 469.8898 72 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 72 l S
+n 469.8898 0 m 469.8898 72 l S
+Q
+Q
+q
+1 0 0 1 62.69291 250.6236 cm
+Q
+q
+1 0 0 1 62.69291 223.6236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 193.6236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw 0 0 .501961 rg (Export Detail object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 166.6236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 142.6047 cm
+q
+q
+.635673 0 0 .635673 0 0 cm
+q
+1 0 0 1 6.6 10.38269 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 738 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/1335/?source=grid) Tj (&) Tj (name=new name) Tj (&) Tj (notes=notes) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 85.40465 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 48 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F4 10 Tf 12 TL ({) Tj T* (    "export":) Tj T* (    {) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R128': class PDFStream 
+128 0 obj
+% page stream
+<< /Length 5152 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 444.0426 cm
+q
+q
+.91919 0 0 .91919 0 0 cm
+q
+1 0 0 1 6.6 7.180237 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 510 348 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 326 Tm /F4 10 Tf 12 TL (      "status": "SUCCESS",) Tj T* (      "pcl_terrain": "",) Tj T* (      "dim_classification": true,) Tj T* (      "file_export_options": "individual",) Tj T* (      "name": "new name",) Tj T* (      "classification": "",) Tj T* (      "datatype": "LAS 1.2",) Tj T* (      "notes": "notes",) Tj T* (      "rgb": false,) Tj T* (      "hsrs": "32641",) Tj T* (      "url": "http://localhost:8000/export/download/1335/",) Tj T* (      "intensity": true,) Tj T* (      "pk": 1335,) Tj T* (      "generate_dem": false,) Tj T* (      "started_at": "2016-05-16T16:18:12.752305",) Tj T* (      "sri_hres": null) Tj T* (    },) Tj T* (    "exportfiles": [) Tj T* (    {) Tj T* (      "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",) Tj T* (      "pk": 30359,) Tj T* (      "name": "ExportedFile.laz") Tj T* (    }) Tj T* (    ],) Tj T* (    "tda_set": [],) Tj T* (    "API Version": "v2",) Tj T* (    "success": true) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 414.0426 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Delete Export) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 396.0426 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Delete an existing Export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 369.0426 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 335.8426 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/export/delete/) Tj (<) Tj (pk) Tj (>) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 308.8426 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 296.8426 cm
+Q
+q
+1 0 0 1 62.69291 260.8426 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 150.6541 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 40.86707 0 Td (Path parameter) Tj T* -40.86707 0 Td ET
+Q
+Q
+q
+1 0 0 1 168.6541 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 295.2356 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 134.8328 0 Td (Value) Tj T* -134.8328 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 168.6541 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the export.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 162.6541 0 m 162.6541 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 260.8426 cm
+Q
+q
+1 0 0 1 62.69291 254.8426 cm
+Q
+q
+1 0 0 1 62.69291 218.8426 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 129.7128 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.06639 0 Td (Query parameter) Tj T* -27.06639 0 Td ET
+Q
+Q
+q
+1 0 0 1 147.7128 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 316.177 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 145.3035 0 Td (Value) Tj T* -145.3035 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 141.7128 0 m 141.7128 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 218.8426 cm
+Q
+q
+1 0 0 1 62.69291 191.8426 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 161.8426 cm
+q
+BT 1 0 0 1 0 14 Tm .345542 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains a) Tj T* 0 Tw (the status in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 134.8426 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 106.9481 cm
+q
+q
+.789465 0 0 .789465 0 0 cm
+q
+1 0 0 1 6.6 8.360088 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 594 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/delete/1335/?source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R129': class PDFStream 
+129 0 obj
+% page stream
+<< /Length 7055 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 703.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 60 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F4 10 Tf 12 TL ({) Tj T* (    "API Version": "v2",) Tj T* (    "success": true) Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 673.8236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Lookup Geoname) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 655.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Get suggested AOI name based on geographic coordinates of the geometry.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 628.8236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 595.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/geoname) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 568.6236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 556.6236 cm
+Q
+q
+1 0 0 1 62.69291 502.6236 cm
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 54 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 117.3899 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 20.90497 0 Td (Query parameter) Tj T* -20.90497 0 Td ET
+Q
+Q
+q
+1 0 0 1 135.3899 39 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 328.4998 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 151.4649 0 Td (Value) Tj T* -151.4649 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 135.3899 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (geom) Tj T* ET
+Q
+Q
+q
+1 0 0 1 135.3899 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. A WKT geometry describing the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 129.3899 0 m 129.3899 54 l S
+n 0 54 m 469.8898 54 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 54 l S
+n 469.8898 0 m 469.8898 54 l S
+Q
+Q
+q
+1 0 0 1 62.69291 502.6236 cm
+Q
+q
+1 0 0 1 62.69291 475.6236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 445.6236 cm
+q
+BT 1 0 0 1 0 14 Tm .345542 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains a) Tj T* 0 Tw 0 0 .501961 rg (Geoname object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 418.6236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 396.4459 cm
+q
+q
+.562607 0 0 .562607 0 0 cm
+q
+1 0 0 1 6.6 11.73109 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 834 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/geoname/?geom=POLYGON \(\(30 10, 40 40, 20 40, 10 20, 30 10\)\)) Tj (&) Tj (source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 315.2459 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F4 10 Tf 12 TL ({) Tj T* (    "API Version": "v2",) Tj T* (    "name": "Great Sand Sea",) Tj T* (    "provided_geometry": "POLYGON \(\(30 10, 40 40, 20 40, 10 20, 30 10\)\)") Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 285.2459 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Get Task Details) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 267.2459 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Get task status/details for the provided task_id.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 240.2459 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 207.0459 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/task/{task_id}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 180.0459 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 168.0459 cm
+Q
+q
+1 0 0 1 62.69291 132.0459 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 147.5852 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 39.3326 0 Td (Path parameter) Tj T* -39.3326 0 Td ET
+Q
+Q
+q
+1 0 0 1 165.5852 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 298.3046 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 136.3673 0 Td (Value) Tj T* -136.3673 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_id) Tj T* ET
+Q
+Q
+q
+1 0 0 1 165.5852 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. The ID of the task.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 159.5852 0 m 159.5852 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 132.0459 cm
+Q
+q
+1 0 0 1 62.69291 126.0459 cm
+Q
+q
+1 0 0 1 62.69291 90.04591 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 129.7128 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 27.06639 0 Td (Query parameter) Tj T* -27.06639 0 Td ET
+Q
+Q
+q
+1 0 0 1 147.7128 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 316.177 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 145.3035 0 Td (Value) Tj T* -145.3035 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 147.7128 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 141.7128 0 m 141.7128 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 90.04591 cm
+Q
+ 
+endstream
+endobj
+% 'R130': class PDFStream 
+130 0 obj
+% page stream
+<< /Length 8490 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 750.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 720.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .036654 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains an) Tj T* 0 Tw 0 0 .501961 rg (Task object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 668.8736 cm
+q
+q
+.640875 0 0 .640875 0 0 cm
+q
+1 0 0 1 6.6 10.29842 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 732 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/task/bacb736e-e900-457c-9b24-fd409bc3019d/?source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 551.6736 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 108 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 86 Tm /F4 10 Tf 12 TL ({) Tj T* (  "API Version": "v2",) Tj T* (  "task_traceback": "",) Tj T* (  "task_state": "SUCCESS",) Tj T* (  "task_tstamp": "2015-09-09T14:19:36.080",) Tj T* (  "task_name": "export.tasks.generate_export",) Tj T* (  "task_id": "774b4666-5706-4237-8661-df0f96cd7b9c") Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 521.6736 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Generate Point Cloud Export) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 503.6736 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Generate point cloud export for the given AOI primary key and collect primary keys.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 476.6736 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 443.4736 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi/{pk}/generate/pointcloud) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 416.4736 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 404.4736 cm
+Q
+q
+1 0 0 1 62.69291 368.4736 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 160.6126 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 45.84628 0 Td (Path parameter) Tj T* -45.84628 0 Td ET
+Q
+Q
+q
+1 0 0 1 178.6126 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 285.2772 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 129.8536 0 Td (Value) Tj T* -129.8536 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 178.6126 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 172.6126 0 m 172.6126 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 368.4736 cm
+Q
+q
+1 0 0 1 62.69291 362.4736 cm
+Q
+q
+1 0 0 1 62.69291 86.47356 cm
+1 1 1 rg
+n 0 276 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 258 469.8898 -18 re f*
+1 1 1 rg
+n 0 240 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 210 469.8898 -18 re f*
+1 1 1 rg
+n 0 192 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 174 469.8898 -18 re f*
+1 1 1 rg
+n 0 156 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 138 469.8898 -30 re f*
+1 1 1 rg
+n 0 108 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 78 469.8898 -18 re f*
+1 1 1 rg
+n 0 60 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 30 469.8898 -30 re f*
+.960784 .960784 .862745 rg
+n 0 276 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 261 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 102.2975 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 13.35876 0 Td (Query parameter) Tj T* -13.35876 0 Td ET
+Q
+Q
+q
+1 0 0 1 120.2975 261 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 343.5923 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 159.0111 0 Td (Value) Tj T* -159.0111 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 243 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 243 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 225 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (products) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 213 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. A list of product primary keys to include in the export, separated by) Tj T* /F4 10 Tf (+ ) Tj /F1 10 Tf (or ) Tj /F4 10 Tf (,) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 195 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 195 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. An optional name for the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (intensity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 177 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to export intensity. Default: True.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 159 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (dim_classificat ion) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 159 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to export classification. Default: True.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 141 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (hsrs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 141 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Accepts an EPSG code. Defaults to AOI SRS.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (file_export_op tions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 111 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Determine file merging strategy. Accepts ) Tj /F4 10 Tf (individual ) Tj /F1 10 Tf (and) Tj T* /F4 10 Tf (collect) Tj /F1 10 Tf (. Default: ) Tj /F4 10 Tf (individual) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (export_file_ty pe) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 81 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Determine the The format of the output file. Accepts ) Tj /F4 10 Tf (las12) Tj /F1 10 Tf (, ) Tj /F4 10 Tf (las14) Tj /F1 10 Tf (,) Tj T* /F4 10 Tf (nitf) Tj /F1 10 Tf (, ) Tj /F4 10 Tf (pdf) Tj /F1 10 Tf (, and ) Tj /F4 10 Tf (bpf3) Tj /F1 10 Tf (. Default: ) Tj /F4 10 Tf (las12) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 63 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (compressed) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 63 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to export compressed data. Default: True.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 45 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (send_email) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 33 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to notify user via email upon completion. Default:) Tj T* (False.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (generate_dem) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 3 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to generate a DEM from the pointcloud. Default:) Tj T* (False.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 0 258 m 469.8898 258 l S
+n 0 240 m 469.8898 240 l S
+n 0 210 m 469.8898 210 l S
+n 0 192 m 469.8898 192 l S
+n 0 174 m 469.8898 174 l S
+n 0 156 m 469.8898 156 l S
+n 0 138 m 469.8898 138 l S
+n 0 108 m 469.8898 108 l S
+n 0 78 m 469.8898 78 l S
+n 0 60 m 469.8898 60 l S
+n 0 30 m 469.8898 30 l S
+n 114.2975 0 m 114.2975 276 l S
+n 0 276 m 469.8898 276 l S
+n 0 0 m 0 276 l S
+n 469.8898 0 m 469.8898 276 l S
+Q
+Q
+ 
+endstream
+endobj
+% 'R131': class PDFStream 
+131 0 obj
+% page stream
+<< /Length 8766 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 675.0236 cm
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -42 re f*
+1 1 1 rg
+n 0 30 469.8898 -30 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (cell_spacing) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 75 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Used together with ) Tj /F4 10 Tf (generate_dem) Tj /F1 10 Tf (. Default: 1.0.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pcl_terrain) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 33 cm
+q
+BT 1 0 0 1 0 26 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Used to trigger a PMF Bare Earth export. Accepts ) Tj /F4 10 Tf (ubran) Tj /F1 10 Tf (,) Tj T* /F4 10 Tf (suburban) Tj /F1 10 Tf (, ) Tj /F4 10 Tf (mountainous) Tj /F1 10 Tf (, and ) Tj /F4 10 Tf (foliated) Tj /F1 10 Tf (. Default: None. Cannot be used) Tj T* (with sri_hres option.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sri_hres) Tj T* ET
+Q
+Q
+q
+1 0 0 1 120.2975 3 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal) Tj T* (resolution. Default: None. Cannot be used with pcl_terrain option.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 30 m 469.8898 30 l S
+n 114.2975 0 m 114.2975 90 l S
+n 0 0 m 0 90 l S
+n 469.8898 0 m 469.8898 90 l S
+n 0 0 m 469.8898 0 l S
+Q
+Q
+q
+1 0 0 1 62.69291 675.0236 cm
+Q
+q
+1 0 0 1 62.69291 648.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 618.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .345542 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains a) Tj T* 0 Tw 0 0 .501961 rg (Generate export object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 591.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 566.6048 cm
+q
+q
+.651539 0 0 .651539 0 0 cm
+q
+1 0 0 1 6.6 10.12987 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 720 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/pointcloud/?products=100+102) Tj (&) Tj (source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 485.4048 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F4 10 Tf 12 TL ({) Tj T* (  "API Version": "v2",) Tj T* (  "started" : true,) Tj T* (  "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c") Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 455.4048 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Generate Raster Export) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 437.4048 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Generate point cloud export for the given AOI primary key and collect primary keys.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 410.4048 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Endpoint) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 377.2048 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (GET ) Tj (<) Tj (instance_url) Tj (>) Tj (/) Tj (<) Tj (instance_root) Tj (>) Tj (_ba/api/v2/aoi/{pk}/generate/raster) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 350.2048 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Request Parameters) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 338.2048 cm
+Q
+q
+1 0 0 1 62.69291 302.2048 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 160.6126 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 45.84628 0 Td (Path parameter) Tj T* -45.84628 0 Td ET
+Q
+Q
+q
+1 0 0 1 178.6126 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 285.2772 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 129.8536 0 Td (Value) Tj T* -129.8536 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 178.6126 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 18 m 469.8898 18 l S
+n 172.6126 0 m 172.6126 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+q
+1 0 0 1 62.69291 302.2048 cm
+Q
+q
+1 0 0 1 62.69291 296.2048 cm
+Q
+q
+1 0 0 1 62.69291 86.20484 cm
+1 1 1 rg
+n 0 210 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 192 469.8898 -18 re f*
+1 1 1 rg
+n 0 174 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 144 469.8898 -18 re f*
+1 1 1 rg
+n 0 126 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 108 469.8898 -30 re f*
+1 1 1 rg
+n 0 78 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 48 469.8898 -18 re f*
+1 1 1 rg
+n 0 30 469.8898 -30 re f*
+.960784 .960784 .862745 rg
+n 0 210 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 195 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 103.8632 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 14.14161 0 Td (Query parameter) Tj T* -14.14161 0 Td ET
+Q
+Q
+q
+1 0 0 1 121.8632 195 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 342.0265 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 158.2283 0 Td (Value) Tj T* -158.2283 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 177 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. Your GRiD generated API key.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 159 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (products) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 147 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Required) Tj /F1 10 Tf (. A list of product primary keys to include in the export, separated by) Tj T* /F4 10 Tf (+ ) Tj /F1 10 Tf (or ) Tj /F4 10 Tf (,) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 129 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. An optional name for the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (hsrs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 111 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Accepts an EPSG code. Defaults to AOI SRS.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (file_export_op tions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 81 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Determine file merging strategy. Accepts ) Tj /F4 10 Tf (individual ) Tj /F1 10 Tf (and) Tj T* /F4 10 Tf (collect) Tj /F1 10 Tf (. Default ) Tj /F4 10 Tf (individual) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 63 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (file_format_op tions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 51 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Determine the The format of the output file. Accepts ) Tj /F4 10 Tf (GTiff ) Tj /F1 10 Tf (and) Tj T* /F4 10 Tf (NITF) Tj /F1 10 Tf (. Default: ) Tj /F4 10 Tf (GTiff) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (compressed) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 33 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to export compressed data. Default: True.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (send_email) Tj T* ET
+Q
+Q
+q
+1 0 0 1 121.8632 3 cm
+q
+BT 1 0 0 1 0 14 Tm 12 TL /F5 10 Tf 0 0 0 rg (Optional) Tj /F1 10 Tf (. Whether or not to notify user via email upon completion. Default:) Tj T* (False.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 192 m 469.8898 192 l S
+n 0 174 m 469.8898 174 l S
+n 0 144 m 469.8898 144 l S
+n 0 126 m 469.8898 126 l S
+n 0 108 m 469.8898 108 l S
+n 0 78 m 469.8898 78 l S
+n 0 48 m 469.8898 48 l S
+n 0 30 m 469.8898 30 l S
+n 115.8632 0 m 115.8632 210 l S
+n 0 210 m 469.8898 210 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 210 l S
+n 469.8898 0 m 469.8898 210 l S
+Q
+Q
+q
+1 0 0 1 62.69291 86.20484 cm
+Q
+ 
+endstream
+endobj
+% 'R132': class PDFStream 
+132 0 obj
+% page stream
+<< /Length 10848 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 750.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Response Format) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 720.0236 cm
+q
+BT 1 0 0 1 0 14 Tm .345542 Tw 12 TL /F1 10 Tf 0 0 0 rg (On success, the HTTP status code in the header response is ) Tj /F4 10 Tf (200 ) Tj /F1 10 Tf (OK and the response body contains a) Tj T* 0 Tw 0 0 .501961 rg (Generate export object ) Tj 0 0 0 rg (in JSON format.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Example) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 668.0397 cm
+q
+q
+.673967 0 0 .673967 0 0 cm
+q
+1 0 0 1 6.6 9.792765 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 696 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F4 10 Tf 0 0 0 rg (curl -u ) Tj (<) Tj (username) Tj (>) Tj ( http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/raster/?collects=100+102) Tj (&) Tj (source=grid) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 586.8397 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 72 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 50 Tm /F4 10 Tf 12 TL ({) Tj T* (  "API Version": "v2",) Tj T* (  "started" : true,) Tj T* (  "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c") Tj T* (}) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 553.8397 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Object Model) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 523.8397 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (AOI List object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 511.8397 cm
+Q
+q
+1 0 0 1 62.69291 349.8397 cm
+1 1 1 rg
+n 0 162 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 144 469.8898 -18 re f*
+1 1 1 rg
+n 0 126 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 108 469.8898 -18 re f*
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 162 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 147 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 87.50607 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 35.13803 0 Td (Key) Tj T* -35.13803 0 Td ET
+Q
+Q
+q
+1 0 0 1 105.5061 147 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 65.39361 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 7.406804 0 Td (Value Type) Tj T* -7.406804 0 Td ET
+Q
+Q
+q
+1 0 0 1 182.8997 147 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 280.9901 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 101.315 0 Td (Value Description) Tj T* -101.315 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (created_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The date of AOI creation. ISO 8601 format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (is_active) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (boolean) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Whether or not the AOI is active.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Source of the AOI \(e.g., map, api\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (user) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the creating user.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (clip_geometry) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The WKT geometry of the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (User notes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 105.5061 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.8997 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 144 m 469.8898 144 l S
+n 0 126 m 469.8898 126 l S
+n 0 108 m 469.8898 108 l S
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 99.50607 0 m 99.50607 162 l S
+n 176.8997 0 m 176.8997 162 l S
+n 0 162 m 469.8898 162 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 162 l S
+n 469.8898 0 m 469.8898 162 l S
+Q
+Q
+q
+1 0 0 1 62.69291 349.8397 cm
+Q
+q
+1 0 0 1 62.69291 319.8397 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (AOI Detail object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 307.8397 cm
+Q
+q
+1 0 0 1 62.69291 85.83965 cm
+1 1 1 rg
+n 0 222 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 204 469.8898 -18 re f*
+1 1 1 rg
+n 0 186 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 156 469.8898 -18 re f*
+1 1 1 rg
+n 0 138 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 120 469.8898 -18 re f*
+1 1 1 rg
+n 0 102 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 84 469.8898 -18 re f*
+1 1 1 rg
+n 0 66 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 48 469.8898 -18 re f*
+1 1 1 rg
+n 0 30 469.8898 -30 re f*
+.960784 .960784 .862745 rg
+n 0 222 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 207 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 74.55864 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 28.66432 0 Td (Key) Tj T* -28.66432 0 Td ET
+Q
+Q
+q
+1 0 0 1 92.55864 207 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 179.6656 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 64.54278 0 Td (Value Type) Tj T* -64.54278 0 Td ET
+Q
+Q
+q
+1 0 0 1 284.2242 207 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 179.6656 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 50.65278 0 Td (Value Description) Tj T* -50.65278 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 189 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (clip_geomet ry) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 189 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 189 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The WKT geometry of the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 171 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (created_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 171 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 159 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The date of AOI creation. ISO 8601) Tj T* (format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 141 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (is_active) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 141 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (boolean) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 141 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Whether or not the AOI is active.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 123 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 105 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 105 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 105 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (User notes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Source of the AOI \(e.g., map, api\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (user) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The id of the creating user.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (export_set) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 33 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (exports objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The exports of the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (pointcloud_) Tj T* (intersects) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 15 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (pointcloud product objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The pointcloud products for the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 0 204 m 469.8898 204 l S
+n 0 186 m 469.8898 186 l S
+n 0 156 m 469.8898 156 l S
+n 0 138 m 469.8898 138 l S
+n 0 120 m 469.8898 120 l S
+n 0 102 m 469.8898 102 l S
+n 0 84 m 469.8898 84 l S
+n 0 66 m 469.8898 66 l S
+n 0 48 m 469.8898 48 l S
+n 0 30 m 469.8898 30 l S
+n 86.55864 0 m 86.55864 222 l S
+n 278.2242 0 m 278.2242 222 l S
+n 0 222 m 469.8898 222 l S
+n 0 0 m 0 222 l S
+n 469.8898 0 m 469.8898 222 l S
+Q
+Q
+ 
+endstream
+endobj
+% 'R133': class PDFStream 
+133 0 obj
+% page stream
+<< /Length 14448 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 735.0236 cm
+1 1 1 rg
+n 0 30 469.8898 -30 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (raster_inte) Tj T* (rsects) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 15 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (raster product objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 284.2242 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The raster products for the AOI.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 30 m 469.8898 30 l S
+n 86.55864 0 m 86.55864 30 l S
+n 278.2242 0 m 278.2242 30 l S
+n 0 0 m 0 30 l S
+n 469.8898 0 m 469.8898 30 l S
+n 0 0 m 469.8898 0 l S
+Q
+Q
+q
+1 0 0 1 62.69291 735.0236 cm
+Q
+q
+1 0 0 1 62.69291 705.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Pointcloud Product object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 459.0236 cm
+1 1 1 rg
+n 0 234 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 216 469.8898 -18 re f*
+1 1 1 rg
+n 0 198 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 180 469.8898 -18 re f*
+1 1 1 rg
+n 0 162 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 144 469.8898 -18 re f*
+1 1 1 rg
+n 0 126 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 108 469.8898 -18 re f*
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 234 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 219 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 89.45347 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 36.11174 0 Td (Key) Tj T* -36.11174 0 Td ET
+Q
+Q
+q
+1 0 0 1 107.4535 219 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 62.75519 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 6.087595 0 Td (Value Type) Tj T* -6.087595 0 Td ET
+Q
+Q
+q
+1 0 0 1 182.2087 219 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 281.6811 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 101.6606 0 Td (Value Description) Tj T* -101.6606 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 201 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (datatype) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 201 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 201 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The datatype \(e.g., LAS 1.2, DTM\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 183 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 183 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 183 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sensor) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The sensor used to make the collection.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (collect_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The date of collection. ISO 8601 format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (classification) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The security classification.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (geometry) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The WKT geometry of the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (area) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (float) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The area of the geometry in sq_km.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (coverage_ratio) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The percent of the product area covered by the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (filesize) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The size of the product on the filesystem in bytes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (point_count) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The total number of points in the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (density) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (float) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The average point density of the product.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 216 m 469.8898 216 l S
+n 0 198 m 469.8898 198 l S
+n 0 180 m 469.8898 180 l S
+n 0 162 m 469.8898 162 l S
+n 0 144 m 469.8898 144 l S
+n 0 126 m 469.8898 126 l S
+n 0 108 m 469.8898 108 l S
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 101.4535 0 m 101.4535 234 l S
+n 176.2087 0 m 176.2087 234 l S
+n 0 234 m 469.8898 234 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 234 l S
+n 469.8898 0 m 469.8898 234 l S
+Q
+Q
+q
+1 0 0 1 62.69291 459.0236 cm
+Q
+q
+1 0 0 1 62.69291 429.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Raster Product object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 417.0236 cm
+Q
+q
+1 0 0 1 62.69291 219.0236 cm
+1 1 1 rg
+n 0 198 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 180 469.8898 -18 re f*
+1 1 1 rg
+n 0 162 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 144 469.8898 -18 re f*
+1 1 1 rg
+n 0 126 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 108 469.8898 -18 re f*
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 198 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 183 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 89.45347 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 36.11174 0 Td (Key) Tj T* -36.11174 0 Td ET
+Q
+Q
+q
+1 0 0 1 107.4535 183 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 62.75519 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 6.087595 0 Td (Value Type) Tj T* -6.087595 0 Td ET
+Q
+Q
+q
+1 0 0 1 182.2087 183 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 281.6811 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 101.6606 0 Td (Value Description) Tj T* -101.6606 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (datatype) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The datatype \(e.g., LAS 1.2, DTM\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sensor) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 111 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The sensor used to make the collection.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (collect_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The date of collection. ISO 8601 format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (classification) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The security classification.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (geometry) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The WKT geometry of the product.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (area) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (float) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The area of the geometry in sq_km.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (coverage_ratio) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The percent of the product area covered by the AOI.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (filesize) Tj T* ET
+Q
+Q
+q
+1 0 0 1 107.4535 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 182.2087 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The size of the product on the filesystem in bytes.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 180 m 469.8898 180 l S
+n 0 162 m 469.8898 162 l S
+n 0 144 m 469.8898 144 l S
+n 0 126 m 469.8898 126 l S
+n 0 108 m 469.8898 108 l S
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 101.4535 0 m 101.4535 198 l S
+n 176.2087 0 m 176.2087 198 l S
+n 0 198 m 469.8898 198 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 198 l S
+n 469.8898 0 m 469.8898 198 l S
+Q
+Q
+q
+1 0 0 1 62.69291 219.0236 cm
+Q
+q
+1 0 0 1 62.69291 189.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Export object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 177.0236 cm
+Q
+q
+1 0 0 1 62.69291 87.02362 cm
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 90 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 66.31496 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 24.54248 0 Td (Key) Tj T* -24.54248 0 Td ET
+Q
+Q
+q
+1 0 0 1 84.31496 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 61.09396 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.256982 0 Td (Value Type) Tj T* -5.256982 0 Td ET
+Q
+Q
+q
+1 0 0 1 157.4089 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 306.4808 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 114.0604 0 Td (Value Description) Tj T* -114.0604 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (datatype) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The datatype \(e.g., LAS 1.2, DTM\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (user) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The id of the creating user.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (hsrs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The Horizontal Spatial Reference System EPSG code.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the export.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 78.31496 0 m 78.31496 90 l S
+n 151.4089 0 m 151.4089 90 l S
+n 0 90 m 469.8898 90 l S
+n 0 0 m 0 90 l S
+n 469.8898 0 m 469.8898 90 l S
+Q
+Q
+ 
+endstream
+endobj
+% 'R134': class PDFStream 
+134 0 obj
+% page stream
+<< /Length 11955 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 693.0236 cm
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (started_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Time of creation for the AOI. ISO 8601 format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The status of the export \(e.g., SUCCESS, FAILED, QUEUED\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (url) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The download URL of the export.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 78.31496 0 m 78.31496 72 l S
+n 151.4089 0 m 151.4089 72 l S
+n 0 0 m 0 72 l S
+n 469.8898 0 m 469.8898 72 l S
+n 0 0 m 469.8898 0 l S
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 663.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Export Detail object \(pointcloud\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 651.0236 cm
+Q
+q
+1 0 0 1 62.69291 123.0236 cm
+1 1 1 rg
+n 0 528 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 510 469.8898 -18 re f*
+1 1 1 rg
+n 0 492 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 474 469.8898 -30 re f*
+1 1 1 rg
+n 0 444 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 426 469.8898 -18 re f*
+1 1 1 rg
+n 0 408 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 378 469.8898 -30 re f*
+1 1 1 rg
+n 0 348 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 330 469.8898 -30 re f*
+1 1 1 rg
+n 0 300 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 270 469.8898 -30 re f*
+1 1 1 rg
+n 0 240 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 210 469.8898 -30 re f*
+1 1 1 rg
+n 0 180 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 150 469.8898 -18 re f*
+1 1 1 rg
+n 0 132 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 102 469.8898 -18 re f*
+1 1 1 rg
+n 0 84 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 66 469.8898 -18 re f*
+1 1 1 rg
+n 0 48 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 30 469.8898 -30 re f*
+.960784 .960784 .862745 rg
+n 0 528 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 513 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 74.55864 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 28.66432 0 Td (Key) Tj T* -28.66432 0 Td ET
+Q
+Q
+q
+1 0 0 1 92.55864 513 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 185.8483 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 67.63416 0 Td (Value Type) Tj T* -67.63416 0 Td ET
+Q
+Q
+q
+1 0 0 1 290.407 513 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 173.4828 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 47.5614 0 Td (Value Description) Tj T* -47.5614 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 495 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (datatype) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 495 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 495 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The datatype \(e.g., LAS 1.2, DTM\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 477 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (user) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 477 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 477 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The id of the creating user.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 459 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (hsrs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 459 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 447 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The Horizontal Spatial Reference) Tj T* (System EPSG code.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 429 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 429 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 429 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 411 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 411 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 411 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 393 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (started_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 393 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 381 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Time of creation for the AOI. ISO 8601) Tj T* (format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 363 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 363 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 351 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The status of the export \(e.g.,) Tj T* (SUCCESS, FAILED, QUEUED\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 333 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (url) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 333 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 333 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The download URL of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 315 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (rgb) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 315 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (boolean) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 303 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Whether or not RGB dimension is) Tj T* (included in exported data.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 285 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (intensity) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 285 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (boolean) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 273 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Whether or not Intensity dimension is) Tj T* (included in exported data.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 243 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (dim_classif) Tj T* (ication) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 255 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (boolean) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 243 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Whether or not Classification) Tj T* (dimension is included in exported data.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 213 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (file_export) Tj T* (_options) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 225 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 213 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The file export option used \(e.g.,) Tj T* (individual, collect, super\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 195 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (generate_de m) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 195 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (boolean) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 183 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Whether or not this was a generated) Tj T* (DEM from pointcloud.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (cell_spacin g) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (float) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 153 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The cell spacing used in DEM) Tj T* (generation, if applicable.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 135 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (User notes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 117 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (classificati on) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 117 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 105 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The classifications selected for the) Tj T* (export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pcl_terrain) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The PCL terrain option of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sri_hres) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (decimal) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The sri_hres value of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (exportfiles) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 51 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (Exportfile objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 290.407 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The export files of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (tda_set) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 33 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (TDA objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 290.407 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The TDA set of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_id) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The ID of the associated task used for) Tj T* (generation.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 510 m 469.8898 510 l S
+n 0 492 m 469.8898 492 l S
+n 0 474 m 469.8898 474 l S
+n 0 444 m 469.8898 444 l S
+n 0 426 m 469.8898 426 l S
+n 0 408 m 469.8898 408 l S
+n 0 378 m 469.8898 378 l S
+n 0 348 m 469.8898 348 l S
+n 0 330 m 469.8898 330 l S
+n 0 300 m 469.8898 300 l S
+n 0 270 m 469.8898 270 l S
+n 0 240 m 469.8898 240 l S
+n 0 210 m 469.8898 210 l S
+n 0 180 m 469.8898 180 l S
+n 0 150 m 469.8898 150 l S
+n 0 132 m 469.8898 132 l S
+n 0 102 m 469.8898 102 l S
+n 0 84 m 469.8898 84 l S
+n 0 66 m 469.8898 66 l S
+n 0 48 m 469.8898 48 l S
+n 0 30 m 469.8898 30 l S
+n 86.55864 0 m 86.55864 528 l S
+n 284.407 0 m 284.407 528 l S
+n 0 528 m 469.8898 528 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 528 l S
+n 469.8898 0 m 469.8898 528 l S
+Q
+Q
+q
+1 0 0 1 62.69291 123.0236 cm
+Q
+q
+1 0 0 1 62.69291 93.02362 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Export Detail object \(raster\)) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 81.02362 cm
+Q
+ 
+endstream
+endobj
+% 'R135': class PDFStream 
+135 0 obj
+% page stream
+<< /Length 13698 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 423.0236 cm
+1 1 1 rg
+n 0 342 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 324 469.8898 -18 re f*
+1 1 1 rg
+n 0 306 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 288 469.8898 -30 re f*
+1 1 1 rg
+n 0 258 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 240 469.8898 -18 re f*
+1 1 1 rg
+n 0 222 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 192 469.8898 -30 re f*
+1 1 1 rg
+n 0 162 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 144 469.8898 -30 re f*
+1 1 1 rg
+n 0 114 469.8898 -30 re f*
+.878431 .878431 .878431 rg
+n 0 84 469.8898 -18 re f*
+1 1 1 rg
+n 0 66 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 48 469.8898 -18 re f*
+1 1 1 rg
+n 0 30 469.8898 -30 re f*
+.960784 .960784 .862745 rg
+n 0 342 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 327 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 74.55864 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 28.66432 0 Td (Key) Tj T* -28.66432 0 Td ET
+Q
+Q
+q
+1 0 0 1 92.55864 327 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 185.8483 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 67.63416 0 Td (Value Type) Tj T* -67.63416 0 Td ET
+Q
+Q
+q
+1 0 0 1 290.407 327 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 173.4828 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 47.5614 0 Td (Value Description) Tj T* -47.5614 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 309 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (datatype) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 309 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 309 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The datatype \(e.g., LAS 1.2, DTM\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 291 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (user) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 291 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 291 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The id of the creating user.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 273 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (hsrs) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 273 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 261 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The Horizontal Spatial Reference) Tj T* (System EPSG code.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 243 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 243 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 243 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 225 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 225 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 225 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 207 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (started_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 207 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 195 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (Time of creation for the AOI. ISO 8601) Tj T* (format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 177 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 165 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The status of the export \(e.g.,) Tj T* (SUCCESS, FAILED, QUEUED\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (url) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 147 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The download URL of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 117 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (file_export) Tj T* (_options) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 129 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 117 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The file export option used \(e.g.,) Tj T* (individual, collect, super\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (file_format) Tj T* (_options) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 99 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 87 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The format of the output file \(e.g.,) Tj T* (GTiff, NITF\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 69 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (User notes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (exportfiles) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 51 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (Exportfile objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 290.407 51 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The export files of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (tda_set) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 33 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (array of ) Tj 0 0 .501961 rg (TDA objects) Tj  T* ET
+Q
+Q
+q
+1 0 0 1 290.407 33 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The TDA set of the export.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_id) Tj T* ET
+Q
+Q
+q
+1 0 0 1 92.55864 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 290.407 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL (The ID of the associated task used for) Tj T* (generation.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 324 m 469.8898 324 l S
+n 0 306 m 469.8898 306 l S
+n 0 288 m 469.8898 288 l S
+n 0 258 m 469.8898 258 l S
+n 0 240 m 469.8898 240 l S
+n 0 222 m 469.8898 222 l S
+n 0 192 m 469.8898 192 l S
+n 0 162 m 469.8898 162 l S
+n 0 144 m 469.8898 144 l S
+n 0 114 m 469.8898 114 l S
+n 0 84 m 469.8898 84 l S
+n 0 66 m 469.8898 66 l S
+n 0 48 m 469.8898 48 l S
+n 0 30 m 469.8898 30 l S
+n 86.55864 0 m 86.55864 342 l S
+n 284.407 0 m 284.407 342 l S
+n 0 342 m 469.8898 342 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 342 l S
+n 469.8898 0 m 469.8898 342 l S
+Q
+Q
+q
+1 0 0 1 62.69291 423.0236 cm
+Q
+q
+1 0 0 1 62.69291 393.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Exportfile object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 381.0236 cm
+Q
+q
+1 0 0 1 62.69291 309.0236 cm
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 72 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 57 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 48.63094 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 15.70047 0 Td (Key) Tj T* -15.70047 0 Td ET
+Q
+Q
+q
+1 0 0 1 66.63094 57 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 94.10414 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 21.76207 0 Td (Value Type) Tj T* -21.76207 0 Td ET
+Q
+Q
+q
+1 0 0 1 172.7351 57 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 291.1547 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 106.3973 0 Td (Value Description) Tj T* -106.3973 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 66.63094 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 172.7351 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the export file.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 66.63094 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 172.7351 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the export file.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (url) Tj T* ET
+Q
+Q
+q
+1 0 0 1 66.63094 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 172.7351 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The download URL of the export file.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 60.63094 0 m 60.63094 72 l S
+n 166.7351 0 m 166.7351 72 l S
+n 0 72 m 469.8898 72 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 72 l S
+n 469.8898 0 m 469.8898 72 l S
+Q
+Q
+q
+1 0 0 1 62.69291 309.0236 cm
+Q
+q
+1 0 0 1 62.69291 279.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Task object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 267.0236 cm
+Q
+q
+1 0 0 1 62.69291 159.0236 cm
+1 1 1 rg
+n 0 108 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 90 469.8898 -18 re f*
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 108 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 93 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 80.99902 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 31.88451 0 Td (Key) Tj T* -31.88451 0 Td ET
+Q
+Q
+q
+1 0 0 1 98.99902 93 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 56.52559 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 2.972795 0 Td (Value Type) Tj T* -2.972795 0 Td ET
+Q
+Q
+q
+1 0 0 1 167.5246 93 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 296.3652 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 109.0026 0 Td (Value Description) Tj T* -109.0026 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_traceback) Tj T* ET
+Q
+Q
+q
+1 0 0 1 98.99902 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 167.5246 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The description of any failures if they occurred.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_state) Tj T* ET
+Q
+Q
+q
+1 0 0 1 98.99902 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 167.5246 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The state of the task \(e.g., SUCCESS, FAILED, QUEUED\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_tstamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 98.99902 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 167.5246 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (ISO 8601 format as UTC.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 98.99902 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 167.5246 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the task \(e.g., export.tasks.generate_export\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (task_id) Tj T* ET
+Q
+Q
+q
+1 0 0 1 98.99902 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 167.5246 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The id of the task.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 92.99902 0 m 92.99902 108 l S
+n 161.5246 0 m 161.5246 108 l S
+n 0 108 m 469.8898 108 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 108 l S
+n 469.8898 0 m 469.8898 108 l S
+Q
+Q
+q
+1 0 0 1 62.69291 159.0236 cm
+Q
+q
+1 0 0 1 62.69291 129.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (TDA object) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 117.0236 cm
+Q
+q
+1 0 0 1 62.69291 81.02362 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 36 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 66.31496 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 24.54248 0 Td (Key) Tj T* -24.54248 0 Td ET
+Q
+Q
+q
+1 0 0 1 84.31496 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 61.09396 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.256982 0 Td (Value Type) Tj T* -5.256982 0 Td ET
+Q
+Q
+q
+1 0 0 1 157.4089 21 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 306.4808 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 114.0604 0 Td (Value Description) Tj T* -114.0604 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (created_at) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (timestamp) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Time of creation for the TDA. ISO 8601 format as UTC.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 0 18 m 469.8898 18 l S
+n 78.31496 0 m 78.31496 36 l S
+n 151.4089 0 m 151.4089 36 l S
+n 0 36 m 469.8898 36 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
+Q
+Q
+ 
+endstream
+endobj
+% 'R136': class PDFStream 
+136 0 obj
+% page stream
+<< /Length 2630 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 657.0236 cm
+1 1 1 rg
+n 0 108 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 90 469.8898 -18 re f*
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 93 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The name of the TDA.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (notes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 75 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (User notes.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (pk) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (integer) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The primary key of the TDA.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (status) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The status of the export \(e.g., SUCCESS, FAILED, QUEUED\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (tda_type) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The TDA type \(e.g., Hlz, Los\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (url) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (string) Tj T* ET
+Q
+Q
+q
+1 0 0 1 157.4089 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The download URL of the TDA.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 108 m 469.8898 108 l S
+n 0 90 m 469.8898 90 l S
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 78.31496 0 m 78.31496 108 l S
+n 151.4089 0 m 151.4089 108 l S
+n 0 0 m 0 108 l S
+n 469.8898 0 m 469.8898 108 l S
+n 0 0 m 469.8898 0 l S
+Q
+Q
+q
+1 0 0 1 62.69291 657.0236 cm
+Q
+ 
+endstream
+endobj
+% 'R137': class PDFPageLabels 
+137 0 obj
+% Document Root
+<< /Nums [ 0
+ 138 0 R
+ 1
+ 139 0 R
+ 2
+ 140 0 R
+ 3
+ 141 0 R
+ 4
+ 142 0 R
+ 5
+ 143 0 R
+ 6
+ 144 0 R
+ 7
+ 145 0 R
+ 8
+ 146 0 R
+ 9
+ 147 0 R
+ 10
+ 148 0 R
+ 11
+ 149 0 R
+ 12
+ 150 0 R
+ 13
+ 151 0 R
+ 14
+ 152 0 R
+ 15
+ 153 0 R ] >>
+endobj
+% 'R138': class PDFPageLabel 
+138 0 obj
+% None
+<< /S /D
+ /St 1 >>
+endobj
+% 'R139': class PDFPageLabel 
+139 0 obj
+% None
+<< /S /D
+ /St 2 >>
+endobj
+% 'R140': class PDFPageLabel 
+140 0 obj
+% None
+<< /S /D
+ /St 3 >>
+endobj
+% 'R141': class PDFPageLabel 
+141 0 obj
+% None
+<< /S /D
+ /St 4 >>
+endobj
+% 'R142': class PDFPageLabel 
+142 0 obj
+% None
+<< /S /D
+ /St 5 >>
+endobj
+% 'R143': class PDFPageLabel 
+143 0 obj
+% None
+<< /S /D
+ /St 6 >>
+endobj
+% 'R144': class PDFPageLabel 
+144 0 obj
+% None
+<< /S /D
+ /St 7 >>
+endobj
+% 'R145': class PDFPageLabel 
+145 0 obj
+% None
+<< /S /D
+ /St 8 >>
+endobj
+% 'R146': class PDFPageLabel 
+146 0 obj
+% None
+<< /S /D
+ /St 9 >>
+endobj
+% 'R147': class PDFPageLabel 
+147 0 obj
+% None
+<< /S /D
+ /St 10 >>
+endobj
+% 'R148': class PDFPageLabel 
+148 0 obj
+% None
+<< /S /D
+ /St 11 >>
+endobj
+% 'R149': class PDFPageLabel 
+149 0 obj
+% None
+<< /S /D
+ /St 12 >>
+endobj
+% 'R150': class PDFPageLabel 
+150 0 obj
+% None
+<< /S /D
+ /St 13 >>
+endobj
+% 'R151': class PDFPageLabel 
+151 0 obj
+% None
+<< /S /D
+ /St 14 >>
+endobj
+% 'R152': class PDFPageLabel 
+152 0 obj
+% None
+<< /S /D
+ /St 15 >>
+endobj
+% 'R153': class PDFPageLabel 
+153 0 obj
+% None
+<< /S /D
+ /St 16 >>
+endobj
+xref
+0 154
+0000000000 65535 f
+0000000113 00000 n
+0000000257 00000 n
+0000000422 00000 n
+0000000597 00000 n
+0000000786 00000 n
+0000000947 00000 n
+0000001126 00000 n
+0000001422 00000 n
+0000001647 00000 n
+0000001963 00000 n
+0000002190 00000 n
+0000002508 00000 n
+0000002735 00000 n
+0000003053 00000 n
+0000003280 00000 n
+0000003598 00000 n
+0000003825 00000 n
+0000004143 00000 n
+0000004370 00000 n
+0000004673 00000 n
+0000004970 00000 n
+0000005197 00000 n
+0000005515 00000 n
+0000005743 00000 n
+0000006061 00000 n
+0000006289 00000 n
+0000006608 00000 n
+0000006851 00000 n
+0000007094 00000 n
+0000007322 00000 n
+0000007659 00000 n
+0000007887 00000 n
+0000008206 00000 n
+0000008449 00000 n
+0000008677 00000 n
+0000009005 00000 n
+0000009248 00000 n
+0000009476 00000 n
+0000009789 00000 n
+0000010072 00000 n
+0000010233 00000 n
+0000010492 00000 n
+0000010619 00000 n
+0000010849 00000 n
+0000011088 00000 n
+0000011259 00000 n
+0000011455 00000 n
+0000011648 00000 n
+0000011818 00000 n
+0000012059 00000 n
+0000012230 00000 n
+0000012426 00000 n
+0000012619 00000 n
+0000012789 00000 n
+0000013024 00000 n
+0000013195 00000 n
+0000013391 00000 n
+0000013585 00000 n
+0000013756 00000 n
+0000013984 00000 n
+0000014156 00000 n
+0000014353 00000 n
+0000014547 00000 n
+0000014718 00000 n
+0000014947 00000 n
+0000015119 00000 n
+0000015316 00000 n
+0000015510 00000 n
+0000015681 00000 n
+0000015912 00000 n
+0000016084 00000 n
+0000016281 00000 n
+0000016475 00000 n
+0000016646 00000 n
+0000016885 00000 n
+0000017057 00000 n
+0000017254 00000 n
+0000017448 00000 n
+0000017619 00000 n
+0000017851 00000 n
+0000018023 00000 n
+0000018220 00000 n
+0000018414 00000 n
+0000018585 00000 n
+0000018819 00000 n
+0000018991 00000 n
+0000019188 00000 n
+0000019382 00000 n
+0000019553 00000 n
+0000019788 00000 n
+0000019960 00000 n
+0000020157 00000 n
+0000020351 00000 n
+0000020523 00000 n
+0000020760 00000 n
+0000020932 00000 n
+0000021129 00000 n
+0000021323 00000 n
+0000021495 00000 n
+0000021746 00000 n
+0000021920 00000 n
+0000022120 00000 n
+0000022317 00000 n
+0000022491 00000 n
+0000022722 00000 n
+0000022897 00000 n
+0000023098 00000 n
+0000023296 00000 n
+0000023467 00000 n
+0000023689 00000 n
+0000023871 00000 n
+0000024071 00000 n
+0000024279 00000 n
+0000024483 00000 n
+0000024679 00000 n
+0000024897 00000 n
+0000025111 00000 n
+0000025311 00000 n
+0000025505 00000 n
+0000025664 00000 n
+0000025908 00000 n
+0000035097 00000 n
+0000041618 00000 n
+0000047421 00000 n
+0000055609 00000 n
+0000061945 00000 n
+0000067171 00000 n
+0000073138 00000 n
+0000078391 00000 n
+0000085547 00000 n
+0000094138 00000 n
+0000103005 00000 n
+0000113955 00000 n
+0000128505 00000 n
+0000140562 00000 n
+0000154362 00000 n
+0000157097 00000 n
+0000157409 00000 n
+0000157488 00000 n
+0000157567 00000 n
+0000157646 00000 n
+0000157725 00000 n
+0000157804 00000 n
+0000157883 00000 n
+0000157962 00000 n
+0000158041 00000 n
+0000158120 00000 n
+0000158200 00000 n
+0000158280 00000 n
+0000158360 00000 n
+0000158440 00000 n
+0000158520 00000 n
+0000158600 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
+ [(uZ\263+\261q~]\375\231\240w@\262M!) (uZ\263+\261q~]\375\231\240w@\262M!)] 
+
+ /Info 41 0 R
+ /Root 40 0 R
+ /Size 154 >>
+startxref
+158649
+%%EOF
