@@ -250,9 +250,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/add
 
   Query parameter   Value
   ----------------- -----------------------------------------------------
+  source            *Required*. Your GRiD generated API key.
   name              *Required*. The name for the AOI.
   geom              *Required*. A WKT geometry describing the AOI.
-  source            *Required*. Your GRiD generated API key.
   subscribe         *Optional*. True, False, T, F, 1, 0. Default: false
 
 #### Response Format
@@ -307,9 +307,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/<pk>
 
   Query parameter   Value
   ----------------- -----------------------------------------------------
+  source            *Required*. Your GRiD generated API key.
   name              *Optional*. The name for the AOI.
   geom              *Optional*. A WKT geometry describing the AOI.
-  source            *Required*. Your GRiD generated API key.
   notes             *Optional*. The notes for the AOI.
 
 #### Response Format
@@ -361,6 +361,10 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
   Path parameter   Value
   ---------------- -----------------------------
   pk               The primary key of the AOI.
+  
+  Query parameter   Value
+  ----------------- ------------------------------------------------
+  source            *Required*. Your GRiD generated API key.
 
 #### Response Format
 
@@ -398,7 +402,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/{pk}
   
   Query parameter   Value
   ----------------- ------------------------------------------------
-  source           *Required*. Your GRiD generated API key.  
+  source            *Required*. Your GRiD generated API key.  
 
 #### Response Format
 
@@ -481,8 +485,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/edit/<pk>
 
   Query parameter   Value
   ----------------- -----------------------------------------------------
-  name              *Optional*. The name for the export.
   source            *Required*. Your GRiD generated API key.
+  name              *Optional*. The name for the export.
   notes             *Optional*. User notes.
 
 #### Response Format
@@ -546,6 +550,10 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
   Path parameter   Value
   ---------------- -----------------------------
   pk               The primary key of the export.
+  
+  Query parameter   Value
+  ----------------- ------------------------------------------------
+  source            *Required*. Your GRiD generated API key.
 
 #### Response Format
 
@@ -579,8 +587,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/geoname
 
   Query parameter   Value
   ----------------- ------------------------------------------------
-  geom              *Required*. A WKT geometry describing the AOI.
   source            *Required*. Your GRiD generated API key.
+  geom              *Required*. A WKT geometry describing the AOI.
 
 #### Response Format
 
@@ -665,9 +673,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   ----------------------------------------------------------------------------------------------
   Query parameter       Value
   --------------------- -------------------------------------------------------------------------
-  products              *Required*. A list of product primary keys to include in the export, separated by `+` or `,`.
-  
   source                *Required*. Your GRiD generated API key.
+  
+  products              *Required*. A list of product primary keys to include in the export, separated by `+` or `,`.
   
   name                  *Optional*. An optional name for the export.
   
@@ -685,7 +693,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   
   send\_email           *Optional*. Whether or not to notify user via email upon completion. Default: False.
   
-  generate\_dem         *Optional*. Whether or not to generate a DEM from the export. Default: False.
+  generate\_dem         *Optional*. Whether or not to generate a DEM from the pointcloud. Default: False.
   
   cell\_spacing         *Optional*. Used together with ``generate_dem``.  Default: 1.0.
   
@@ -732,25 +740,25 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
   ---------------- -----------------------------
   pk               The primary key of the AOI.
 
-  -------------------------------------------------------------------------------------------------
-  Query parameter         Value
-  ----------------------- -------------------------------------------------------------------------
-  products                *Required*. A list of product primary keys to include in the export, separated by `+` or `,`.
- 
-  source                  *Required*. Your GRiD generated API key.
+  ------------------------------------------------------------------------------------------------
+  Query parameter        Value
+  ---------------------- -------------------------------------------------------------------------
+  source                 *Required*. Your GRiD generated API key.
   
-  name                    *Optional*. An optional name for the export.
+  products               *Required*. A list of product primary keys to include in the export, separated by `+` or `,`.
   
-  hsrs                    *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
+  name                   *Optional*. An optional name for the export.
   
-  file\_export\_options   *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default ``individual``
+  hsrs                   *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
   
-  file\_format\_options   *Optional*. Determine the The format of the output file.  Accepts  ``GTiff`` and ``NITF``. Default: ``GTiff``
+  file\_export\_options  *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default ``individual``
   
-  compressed              *Optional*. Whether or not to export compressed data. Default: True.
+  file\_format\_options  *Optional*. Determine the The format of the output file.  Accepts  ``GTiff`` and ``NITF``. Default: ``GTiff``
   
-  send\_email             *Optional*. Whether or not to notify user via email upon completion. Default: False.
-  -------------------------------------------------------------------------------------------------
+  compressed             *Optional*. Whether or not to export compressed data. Default: True.
+  
+  send\_email            *Optional*. Whether or not to notify user via email upon completion. Default: False.
+  ------------------------------------------------------------------------------------------------
 
 #### Response Format
 
