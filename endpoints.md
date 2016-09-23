@@ -734,7 +734,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   
   hsrs                  *Optional*. Accepts an EPSG code. Defaults to AOI SRS.
   
-  file\_export\_options *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default: ``individual``.
+  file\_export\_options *Optional*. Determine file merging strategy. Accepts ``individual`` and ``collect``. Default: ``individual``.
   
   export\_file\_type    *Optional*. Determine the The format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
   
@@ -748,7 +748,13 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   
   pcl\_terrain          *Optional*. Used to trigger a PMF Bare Earth export. Accepts ``ubran``, ``suburban``, ``mountainous``, and ``foliated``.  Default: None.  Cannot be used with sri_hres option.
   
-  sri\_hres             *Optional*. Used to trigger a Sarnoff Bare Earth export.  Accepts the horizontal resolution.  Default: None.  Cannot be used with pcl_terrain option.
+  sri\_hres             *Optional*. Used to trigger a Sarnoff Bare Earth export.  Accepts the horizontal resolution.  Default: None.  Cannot be used with pcl\_terrain option.
+  
+  decimation\_radius    *Optional*. The minimum distance between points. If a neighboring point is found within this radius, it will be discarded. Uses PDAL decimation filter. Default: None.
+  
+  retile\_size          *Optional*. How many points to fit into each tile. The number of points in each tile will not exceed this value, and will sometimes be less than it. Uses PDAL chipper filter. Cannot be used with retile\_area option. Default: None.
+  
+  retile\_area          *Optional*. The target length of generated tiles. Units determined by source data. Uses PDAL splitter filter. Cannot be used with retile\_size option. Default: None.
   ----------------------------------------------------------------------------------------------
 
 #### Response Format
