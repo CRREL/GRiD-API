@@ -250,18 +250,20 @@ Example
         ], 
         "pointcloud_intersects": [
             {
-                "datatype": "LAS 1.2", 
-                "name": "20110323_00_0_UFO", 
-                "pk": 168
+                "coverage_ratio": "100%",
+                "point_count": 3040524,
+                "classification": "UNCLASS",
+                "area": 3.17799291347327,
+                "datatype": "LAS 1.2",
+                "density": 0.9657120156,
+                "filesize": 61731366,
+                "collected_at": "2012-05-04",
+                "pk": 209,
+                "sensor": "NGA ALIRT",
+                "name": "20120504_00_0_UFO"
             }
         ], 
-        "raster_intersects": [
-            {
-                "datatype": "DSM", 
-                "name": "20080407_00_0_UFO", 
-                "pk": 228
-            }
-        ]
+        "raster_intersects": []
     }
 
 Add AOI
@@ -662,6 +664,62 @@ Example
         "success": true
     }
 
+Get Product Details
+~~~~~~~~~~~~~~~~~~~
+
+Get information for a single Product.
+
+Endpoint
+^^^^^^^^
+
+::
+
+    GET <instance_url>/<instance_root>_ba/api/v2/product/{pk}
+
+Request Parameters
+^^^^^^^^^^^^^^^^^^
+
++------------------+------------------------------------------------+
+| Path parameter   | Value                                          |
++==================+================================================+
+| pk               | *Required*. The primary key for the Product.   |
++------------------+------------------------------------------------+
+
++-------------------+--------------------------------------------+
+| Query parameter   | Value                                      |
++===================+============================================+
+| source            | *Required*. Your GRiD generated API key.   |
++-------------------+--------------------------------------------+
+
+Response Format
+^^^^^^^^^^^^^^^
+
+On success, the HTTP status code in the header response is ``200`` OK
+and the response body contains an `Product Detail
+object <#product-detail-object>`_ in JSON format.
+
+Example
+^^^^^^^
+
+::
+
+    curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/product/252/?source=grid
+
+::
+
+    {
+        "API Version": "v2", 
+        "geometry": "POLYGON ((70.0499966824633020 35.2004503720556983, 70.0493481153355049 35.1499987225927981, 70.1000060967199943 35.1495493748128993, 70.1006859587326971 35.2000001882180982, 70.0499966824633020 35.2004503720556983))",
+        "name": "20101109_00_0_UFO",
+        "classification": "UNCLASS",
+        "collected_at": "2010-11-09",
+        "datatype": "DSM",
+        "pk": 252,
+        "area": 25.8400993148659,
+        "sensor": "NGA ALIRT",
+        "filesize": 103347831}
+    }
+
 Lookup Geoname
 ~~~~~~~~~~~~~~
 
@@ -828,6 +886,22 @@ Request Parameters
 |                  | export. Accepts the horizontal resolution. Default:    |
 |                  | None. Cannot be used with pcl\_terrain option.         |
 +------------------+--------------------------------------------------------+
+| decimation\_radi | *Optional*. The minimum distance between points. If a  |
+| us               | neighboring point is found within this radius, it will |
+|                  | be discarded. Uses PDAL decimation filter. Default:    |
+|                  | None.                                                  |
++------------------+--------------------------------------------------------+
+| retile\_size     | *Optional*. How many points to fit into each tile. The |
+|                  | number of points in each tile will not exceed this     |
+|                  | value, and will sometimes be less than it. Uses PDAL   |
+|                  | chipper filter. Cannot be used with retile\_area       |
+|                  | option. Default: None.                                 |
++------------------+--------------------------------------------------------+
+| retile\_area     | *Optional*. The target length of generated tiles.      |
+|                  | Units determined by source data. Uses PDAL splitter    |
+|                  | filter. Cannot be used with retile\_size option.       |
+|                  | Default: None.                                         |
++------------------+--------------------------------------------------------+
 
 Response Format
 ^^^^^^^^^^^^^^^
@@ -990,60 +1064,60 @@ AOI Detail object
 Pointcloud Product object
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------+--------------+-------------------------------------------------------+
-| Key               | Value Type   | Value Description                                     |
-+===================+==============+=======================================================+
-| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                    |
-+-------------------+--------------+-------------------------------------------------------+
-| name              | string       | The name of the product.                              |
-+-------------------+--------------+-------------------------------------------------------+
-| pk                | integer      | The primary key of the product.                       |
-+-------------------+--------------+-------------------------------------------------------+
-| sensor            | string       | The sensor used to make the collection.               |
-+-------------------+--------------+-------------------------------------------------------+
-| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.       |
-+-------------------+--------------+-------------------------------------------------------+
-| classification    | string       | The security classification.                          |
-+-------------------+--------------+-------------------------------------------------------+
-| geometry          | string       | The WKT geometry of the product.                      |
-+-------------------+--------------+-------------------------------------------------------+
-| area              | float        | The area of the geometry in sq\_km.                   |
-+-------------------+--------------+-------------------------------------------------------+
-| coverage\_ratio   | string       | The percent of the product area covered by the AOI.   |
-+-------------------+--------------+-------------------------------------------------------+
-| filesize          | integer      | The size of the product on the filesystem in bytes.   |
-+-------------------+--------------+-------------------------------------------------------+
-| point\_count      | integer      | The total number of points in the product.            |
-+-------------------+--------------+-------------------------------------------------------+
-| density           | float        | The average point density of the product.             |
-+-------------------+--------------+-------------------------------------------------------+
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| Key               | Value Type   | Value Description                                                                   |
++===================+==============+=====================================================================================+
+| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                                                  |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| name              | string       | The name of the product.                                                            |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| pk                | integer      | The primary key of the product.                                                     |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| sensor            | string       | The sensor used to make the collection.                                             |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.                                     |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| classification    | string       | The security classification.                                                        |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| area              | float        | The area of the geometry in sq\_km.                                                 |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| filesize          | integer      | The size of the product on the filesystem in bytes.                                 |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| point\_count      | integer      | The total number of points in the product.                                          |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| density           | float        | The average point density of the product.                                           |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| coverage\_ratio   | string       | The percent of the product area covered by the AOI. Only available in AOI detail.   |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| geometry          | string       | The WKT geometry of the product. Only available in product detail.                  |
++-------------------+--------------+-------------------------------------------------------------------------------------+
 
 Raster Product object
 ~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------+--------------+-------------------------------------------------------+
-| Key               | Value Type   | Value Description                                     |
-+===================+==============+=======================================================+
-| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                    |
-+-------------------+--------------+-------------------------------------------------------+
-| name              | string       | The name of the product.                              |
-+-------------------+--------------+-------------------------------------------------------+
-| pk                | integer      | The primary key of the product.                       |
-+-------------------+--------------+-------------------------------------------------------+
-| sensor            | string       | The sensor used to make the collection.               |
-+-------------------+--------------+-------------------------------------------------------+
-| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.       |
-+-------------------+--------------+-------------------------------------------------------+
-| classification    | string       | The security classification.                          |
-+-------------------+--------------+-------------------------------------------------------+
-| geometry          | string       | The WKT geometry of the product.                      |
-+-------------------+--------------+-------------------------------------------------------+
-| area              | float        | The area of the geometry in sq\_km.                   |
-+-------------------+--------------+-------------------------------------------------------+
-| coverage\_ratio   | string       | The percent of the product area covered by the AOI.   |
-+-------------------+--------------+-------------------------------------------------------+
-| filesize          | integer      | The size of the product on the filesystem in bytes.   |
-+-------------------+--------------+-------------------------------------------------------+
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| Key               | Value Type   | Value Description                                                                   |
++===================+==============+=====================================================================================+
+| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                                                  |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| name              | string       | The name of the product.                                                            |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| pk                | integer      | The primary key of the product.                                                     |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| sensor            | string       | The sensor used to make the collection.                                             |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.                                     |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| classification    | string       | The security classification.                                                        |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| area              | float        | The area of the geometry in sq\_km.                                                 |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| filesize          | integer      | The size of the product on the filesystem in bytes.                                 |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| coverage\_ratio   | string       | The percent of the product area covered by the AOI. Only available in AOI detail.   |
++-------------------+--------------+-------------------------------------------------------------------------------------+
+| geometry          | string       | The WKT geometry of the product. Only available in product detail.                  |
++-------------------+--------------+-------------------------------------------------------------------------------------+
 
 Export object
 ~~~~~~~~~~~~~
