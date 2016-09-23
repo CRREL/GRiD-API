@@ -52,12 +52,12 @@ Object Model
   sensor         string       The sensor used to make the collection.
   collect\_at    timestamp    The date of collection. ISO 8601 format as UTC.
   classification string       The security classification.
-  geometry       string       The WKT geometry of the product.
   area           float        The area of the geometry in sq_km.
-  coverage\_ratio string      The percent of the product area covered by the AOI.
   filesize       integer      The size of the product on the filesystem in bytes.
   point\_count    integer     The total number of points in the product.
   density        float        The average point density of the product.
+  coverage\_ratio string      The percent of the product area covered by the AOI.  Only available in AOI detail.
+  geometry       string       The WKT geometry of the product.  Only available in product detail.
 
 ### Raster Product object
 
@@ -69,10 +69,10 @@ Object Model
   sensor         string       The sensor used to make the collection.
   collect\_at    timestamp    The date of collection. ISO 8601 format as UTC.
   classification string       The security classification.
-  geometry       string       The WKT geometry of the product.
   area           float        The area of the geometry in sq_km.
-  coverage\_ratio string      The percent of the product area covered by the AOI.
   filesize       integer      The size of the product on the filesystem in bytes.
+  coverage\_ratio string      The percent of the product area covered by the AOI.  Only available in AOI detail.
+  geometry       string       The WKT geometry of the product.  Only available in product detail.
 
 ### Export object
 
