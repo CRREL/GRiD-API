@@ -10,7 +10,7 @@ Object Model
   is\_active          boolean      Whether or not the AOI is active.
   source              string       Source of the AOI (e.g., map, api).
   user                integer      The name of the creating user.
-  clip\_geometry      string       The WKT geometry of the AOI.
+  geom                string       The WKT geometry of the AOI.
   notes               string       User notes.
   pk                  integer      The primary key of the AOI.
 
@@ -19,7 +19,7 @@ Object Model
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------
   Key                        Value Type                                                        Value Description
   -------------------------- ----------------------------------------------------------------- ------------------------------------------------------------------
-  clip\_geometry             string                                                            The WKT geometry of the AOI.
+  geom                       string                                                            The WKT geometry of the AOI.
   
   created\_at                timestamp                                                         The date of AOI creation. ISO 8601 format as UTC.
   
@@ -44,35 +44,35 @@ Object Model
 
 ### Pointcloud Product object
 
-  Key            Value Type   Value Description
-  -------------- ------------ -------------------------------------
-  datatype       string       The datatype (e.g., LAS 1.2, DTM).
-  name           string       The name of the product.
-  pk             integer      The primary key of the product.
-  sensor         string       The sensor used to make the collection.
-  collect\_at    timestamp    The date of collection. ISO 8601 format as UTC.
-  classification string       The security classification.
-  area           float        The area of the geometry in sq_km.
-  filesize       integer      The size of the product on the filesystem in bytes.
-  point\_count    integer     The total number of points in the product.
-  density        float        The average point density of the product.
-  coverage\_ratio string      The percent of the product area covered by the AOI.  Only available in AOI detail.
-  geometry       string       The WKT geometry of the product.  Only available in product detail.
+  Key               Value Type   Value Description
+  ----------------- ------------ -------------------------------------
+  datatype          string       The datatype (e.g., LAS 1.2, DTM).
+  name              string       The name of the product.
+  pk                integer      The primary key of the product.
+  sensor            string       The sensor used to make the collection.
+  collect\_at       timestamp    The date of collection. ISO 8601 format as UTC.
+  classification    string       The security classification.
+  area              float        The area of the geometry in sq_km.
+  filesize          integer      The size of the product on the filesystem in bytes.
+  point\_count      integer      The total number of points in the product.
+  density           float        The average point density of the product.
+  percent\_coverage float        The percent of the product area covered by the AOI.  Only available in AOI detail.
+  geom              string       The WKT geometry of the product.  Only available in product detail.
 
 ### Raster Product object
 
-  Key            Value Type   Value Description
-  -------------- ------------ -------------------------------------
-  datatype       string       The datatype (e.g., LAS 1.2, DTM).
-  name           string       The name of the product.
-  pk             integer      The primary key of the product.
-  sensor         string       The sensor used to make the collection.
-  collect\_at    timestamp    The date of collection. ISO 8601 format as UTC.
-  classification string       The security classification.
-  area           float        The area of the geometry in sq_km.
-  filesize       integer      The size of the product on the filesystem in bytes.
-  coverage\_ratio string      The percent of the product area covered by the AOI.  Only available in AOI detail.
-  geometry       string       The WKT geometry of the product.  Only available in product detail.
+  Key               Value Type   Value Description
+  ----------------- ------------ -------------------------------------
+  datatype          string       The datatype (e.g., LAS 1.2, DTM).
+  name              string       The name of the product.
+  pk                integer      The primary key of the product.
+  sensor            string       The sensor used to make the collection.
+  collect\_at       timestamp    The date of collection. ISO 8601 format as UTC.
+  classification    string       The security classification.
+  area              float        The area of the geometry in sq_km.
+  filesize          integer      The size of the product on the filesystem in bytes.
+  percent\_coverage float        The percent of the product area covered by the AOI.  Only available in AOI detail.
+  geom              string       The WKT geometry of the product.  Only available in product detail.
 
 ### Export object
 
@@ -116,6 +116,8 @@ Object Model
   
   file\_export\_options string                                                  The file export option used (e.g., individual, collect, super).
   
+  file\_export\_type    string                                                  The format of the output file (e.g., las12, las14, bpf3, pdf).
+  
   generate\_dem         boolean                                                 Whether or not this was a generated DEM from pointcloud.
   
   cell\_spacing         float                                                   The cell spacing used in DEM generation, if applicable.
@@ -126,7 +128,13 @@ Object Model
   
   pcl\_terrain          string                                                  The PCL terrain option of the export.
   
-  sri\_hres             decimal                                                 The sri_hres value of the export.
+  sri\_hres             float                                                   The sri_hres value of the export.
+  
+  decimation\_radius    float                                                   The decimation\_radius value of the export.
+  
+  capacity              integer                                                 The capacity value of the export.
+  
+  length                float                                                   The length value of the export.
   
   exportfiles           array of [Exportfile objects](#exportfile-object)       The export files of the export.
   
