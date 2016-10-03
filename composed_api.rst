@@ -144,30 +144,29 @@ Example
     {
         "aoi_list": [
           {
-            "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+            "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
             68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
             68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
             "created_at": "2013-04-16T13:10:33.974", 
             "is_active": true, 
             "name": "First_Aoi", 
-            "notes": "", 
-            "source": "", 
+            "notes": "notes", 
+            "source": "map", 
             "user": 102,
             "pk": 123
           },
           {
-            "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,
+            "geom": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,
             68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
             "created_at": "2015-09-23T09:50:19.856", 
             "is_active": true, 
             "name": "Second_Aoi", 
             "notes": "", 
-            "source": "", 
+            "source": "map", 
             "user": 102,
             "pk": 1304
           }
         ], 
-        "API Version": "v2"
     }
 
 Get AOI Details
@@ -214,10 +213,9 @@ Example
 ::
 
     {
-        "API Version": "v2", 
         "aoi": 
         {
-          "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+          "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
           68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
           68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
           "created_at": "2013-04-16T13:10:33.974", 
@@ -250,7 +248,7 @@ Example
         ], 
         "pointcloud_intersects": [
             {
-                "coverage_ratio": "100%",
+                "percent_coverage": 1.0,
                 "point_count": 3040524,
                 "classification": "UNCLASS",
                 "area": 3.17799291347327,
@@ -312,7 +310,7 @@ Example
     {
         "aoi": 
         {
-          "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+          "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
           20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
           "created_at": "2015-11-13T12:58:28.040", 
           "is_active": true, 
@@ -324,9 +322,19 @@ Example
         },
         "export_set": [], 
         "pointcloud_intersects": [], 
-        "raster_intersects": [],
-        "API Version": "v2",
-        "success": true
+        "raster_intersects": [
+            {
+            "name": "20120424_00_0_UFO",
+            "classification": "UNCLASS",
+            "area": 27.4865918090656,
+            "datatype": "DSM",
+            "filesize": 109947223,
+            "collected_at": "2012-04-24",
+            "percent_coverage": 0.02,
+            "pk": 233,
+            "sensor": "NGA ALIRT"
+            }
+        ],
     }
 
 Edit AOI
@@ -382,7 +390,7 @@ Example
     {
         "aoi": 
         {
-          "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+          "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
           20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
           "created_at": "2015-11-13T12:58:28.040", 
           "is_active": true, 
@@ -395,8 +403,6 @@ Example
         "export_set": [], 
         "pointcloud_intersects": [], 
         "raster_intersects": [],
-        "API Version": "v2",
-        "success": true
     }
 
 Delete AOI
@@ -441,10 +447,7 @@ Example
 
 ::
 
-    {
-        "API Version": "v2",
-        "success": true
-    }
+    {}
 
 Get Export Details
 ~~~~~~~~~~~~~~~~~~
@@ -496,6 +499,7 @@ Example
         "pcl_terrain": "",
         "dim_classification": true,
         "file_export_options": "individual",
+        "file_export_type": "las12",
         "name": "",
         "classification": "",
         "datatype": "LAS 1.2",
@@ -507,9 +511,11 @@ Example
         "pk": 2880,
         "generate_dem": false,
         "started_at": "2016-05-16T16:18:12.752305",
-        "sri_hres": null
+        "sri_hres": null,
+        "decimation_radius": null,
+        "capacity": null,
+        "length": null
       },
-      "API Version": "v2",
       "exportfiles": [
         {
           "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
@@ -592,6 +598,7 @@ Example
           "pcl_terrain": "",
           "dim_classification": true,
           "file_export_options": "individual",
+          "file_export_type": "las12",
           "name": "new name",
           "classification": "",
           "datatype": "LAS 1.2",
@@ -603,7 +610,10 @@ Example
           "pk": 1335,
           "generate_dem": false,
           "started_at": "2016-05-16T16:18:12.752305",
-          "sri_hres": null
+          "sri_hres": null,
+          "decimation_radius": null,
+          "capacity": null,
+          "length": null
         },
         "exportfiles": [
         {
@@ -613,8 +623,6 @@ Example
         }
         ],
         "tda_set": [],
-        "API Version": "v2",
-        "success": true
     }
 
 Delete Export
@@ -659,10 +667,7 @@ Example
 
 ::
 
-    {
-        "API Version": "v2",
-        "success": true
-    }
+    {}
 
 Get Product Details
 ~~~~~~~~~~~~~~~~~~~
@@ -708,8 +713,7 @@ Example
 ::
 
     {
-        "API Version": "v2", 
-        "geometry": "POLYGON ((70.0499966824633020 35.2004503720556983, 70.0493481153355049 35.1499987225927981, 70.1000060967199943 35.1495493748128993, 70.1006859587326971 35.2000001882180982, 70.0499966824633020 35.2004503720556983))",
+        "geom": "POLYGON ((70.0499966824633020 35.2004503720556983, 70.0493481153355049 35.1499987225927981, 70.1000060967199943 35.1495493748128993, 70.1006859587326971 35.2000001882180982, 70.0499966824633020 35.2004503720556983))",
         "name": "20101109_00_0_UFO",
         "classification": "UNCLASS",
         "collected_at": "2010-11-09",
@@ -717,7 +721,7 @@ Example
         "pk": 252,
         "area": 25.8400993148659,
         "sensor": "NGA ALIRT",
-        "filesize": 103347831}
+        "filesize": 103347831
     }
 
 Lookup Geoname
@@ -760,9 +764,8 @@ Example
 ::
 
     {
-        "API Version": "v2", 
         "name": "Great Sand Sea", 
-        "provided_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+        "geom": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
     }
 
 Get Task Details
@@ -809,7 +812,6 @@ Example
 ::
 
     {
-      "API Version": "v2", 
       "task_traceback": "",
       "task_state": "SUCCESS",
       "task_tstamp": "2015-09-09T14:19:36.080",
@@ -861,9 +863,9 @@ Request Parameters
 | tions            | ``individual`` and ``collect``. Default:               |
 |                  | ``individual``.                                        |
 +------------------+--------------------------------------------------------+
-| export\_file\_ty | *Optional*. Determine the The format of the output     |
-| pe               | file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, |
-|                  | and ``bpf3``. Default: ``las12``.                      |
+| file\_export\_ty | *Optional*. Determine the format of the output file.   |
+| pe               | Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and   |
+|                  | ``bpf3``. Default: ``las12``.                          |
 +------------------+--------------------------------------------------------+
 | compressed       | *Optional*. Whether or not to export compressed data.  |
 |                  | Default: True.                                         |
@@ -891,16 +893,16 @@ Request Parameters
 |                  | be discarded. Uses PDAL decimation filter. Default:    |
 |                  | None.                                                  |
 +------------------+--------------------------------------------------------+
-| retile\_size     | *Optional*. How many points to fit into each tile. The |
+| capacity         | *Optional*. How many points to fit into each tile. The |
 |                  | number of points in each tile will not exceed this     |
 |                  | value, and will sometimes be less than it. Uses PDAL   |
-|                  | chipper filter. Cannot be used with retile\_area       |
-|                  | option. Default: None.                                 |
-+------------------+--------------------------------------------------------+
-| retile\_area     | *Optional*. The target length of generated tiles.      |
-|                  | Units determined by source data. Uses PDAL splitter    |
-|                  | filter. Cannot be used with retile\_size option.       |
+|                  | chipper filter. Cannot be used with length option.     |
 |                  | Default: None.                                         |
++------------------+--------------------------------------------------------+
+| length           | *Optional*. The target length of generated tiles.      |
+|                  | Units determined by source data. Uses PDAL splitter    |
+|                  | filter. Cannot be used with capacity option. Default:  |
+|                  | None.                                                  |
 +------------------+--------------------------------------------------------+
 
 Response Format
@@ -920,8 +922,7 @@ Example
 ::
 
     {
-      "API Version": "v2", 
-      "started" : true,
+      "export_id" : 1568,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
 
@@ -964,9 +965,8 @@ Request Parameters
 | tions            | ``individual`` and ``collect``. Default               |
 |                  | ``individual``                                        |
 +------------------+-------------------------------------------------------+
-| file\_format\_op | *Optional*. Determine the The format of the output    |
-| tions            | file. Accepts ``GTiff`` and ``NITF``. Default:        |
-|                  | ``GTiff``                                             |
+| file\_format\_op | *Optional*. Determine the format of the output file.  |
+| tions            | Accepts ``GTiff`` and ``NITF``. Default: ``GTiff``    |
 +------------------+-------------------------------------------------------+
 | compressed       | *Optional*. Whether or not to export compressed data. |
 |                  | Default: True.                                        |
@@ -992,8 +992,7 @@ Example
 ::
 
     {
-      "API Version": "v2", 
-      "started" : true,
+      "export_id" : 1569,
       "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
     }
 
@@ -1003,25 +1002,25 @@ Object Model
 AOI List object
 ~~~~~~~~~~~~~~~
 
-+------------------+--------------+-----------------------------------------------------+
-| Key              | Value Type   | Value Description                                   |
-+==================+==============+=====================================================+
-| name             | string       | The name of the AOI.                                |
-+------------------+--------------+-----------------------------------------------------+
-| created\_at      | timestamp    | The date of AOI creation. ISO 8601 format as UTC.   |
-+------------------+--------------+-----------------------------------------------------+
-| is\_active       | boolean      | Whether or not the AOI is active.                   |
-+------------------+--------------+-----------------------------------------------------+
-| source           | string       | Source of the AOI (e.g., map, api).                 |
-+------------------+--------------+-----------------------------------------------------+
-| user             | integer      | The name of the creating user.                      |
-+------------------+--------------+-----------------------------------------------------+
-| clip\_geometry   | string       | The WKT geometry of the AOI.                        |
-+------------------+--------------+-----------------------------------------------------+
-| notes            | string       | User notes.                                         |
-+------------------+--------------+-----------------------------------------------------+
-| pk               | integer      | The primary key of the AOI.                         |
-+------------------+--------------+-----------------------------------------------------+
++---------------+--------------+-----------------------------------------------------+
+| Key           | Value Type   | Value Description                                   |
++===============+==============+=====================================================+
+| name          | string       | The name of the AOI.                                |
++---------------+--------------+-----------------------------------------------------+
+| created\_at   | timestamp    | The date of AOI creation. ISO 8601 format as UTC.   |
++---------------+--------------+-----------------------------------------------------+
+| is\_active    | boolean      | Whether or not the AOI is active.                   |
++---------------+--------------+-----------------------------------------------------+
+| source        | string       | Source of the AOI (e.g., map, api).                 |
++---------------+--------------+-----------------------------------------------------+
+| user          | integer      | The name of the creating user.                      |
++---------------+--------------+-----------------------------------------------------+
+| geom          | string       | The WKT geometry of the AOI.                        |
++---------------+--------------+-----------------------------------------------------+
+| notes         | string       | User notes.                                         |
++---------------+--------------+-----------------------------------------------------+
+| pk            | integer      | The primary key of the AOI.                         |
++---------------+--------------+-----------------------------------------------------+
 
 AOI Detail object
 ~~~~~~~~~~~~~~~~~
@@ -1029,8 +1028,7 @@ AOI Detail object
 +--------------+-------------------------------+-------------------------------+
 | Key          | Value Type                    | Value Description             |
 +==============+===============================+===============================+
-| clip\_geomet | string                        | The WKT geometry of the AOI.  |
-| ry           |                               |                               |
+| geom         | string                        | The WKT geometry of the AOI.  |
 +--------------+-------------------------------+-------------------------------+
 | created\_at  | timestamp                     | The date of AOI creation. ISO |
 |              |                               | 8601 format as UTC.           |
@@ -1064,60 +1062,60 @@ AOI Detail object
 Pointcloud Product object
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| Key               | Value Type   | Value Description                                                                   |
-+===================+==============+=====================================================================================+
-| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                                                  |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| name              | string       | The name of the product.                                                            |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| pk                | integer      | The primary key of the product.                                                     |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| sensor            | string       | The sensor used to make the collection.                                             |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.                                     |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| classification    | string       | The security classification.                                                        |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| area              | float        | The area of the geometry in sq\_km.                                                 |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| filesize          | integer      | The size of the product on the filesystem in bytes.                                 |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| point\_count      | integer      | The total number of points in the product.                                          |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| density           | float        | The average point density of the product.                                           |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| coverage\_ratio   | string       | The percent of the product area covered by the AOI. Only available in AOI detail.   |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| geometry          | string       | The WKT geometry of the product. Only available in product detail.                  |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| Key                 | Value Type   | Value Description                                                                   |
++=====================+==============+=====================================================================================+
+| datatype            | string       | The datatype (e.g., LAS 1.2, DTM).                                                  |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| name                | string       | The name of the product.                                                            |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| pk                  | integer      | The primary key of the product.                                                     |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| sensor              | string       | The sensor used to make the collection.                                             |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| collect\_at         | timestamp    | The date of collection. ISO 8601 format as UTC.                                     |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| classification      | string       | The security classification.                                                        |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| area                | float        | The area of the geometry in sq\_km.                                                 |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| filesize            | integer      | The size of the product on the filesystem in bytes.                                 |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| point\_count        | integer      | The total number of points in the product.                                          |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| density             | float        | The average point density of the product.                                           |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| percent\_coverage   | float        | The percent of the product area covered by the AOI. Only available in AOI detail.   |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| geom                | string       | The WKT geometry of the product. Only available in product detail.                  |
++---------------------+--------------+-------------------------------------------------------------------------------------+
 
 Raster Product object
 ~~~~~~~~~~~~~~~~~~~~~
 
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| Key               | Value Type   | Value Description                                                                   |
-+===================+==============+=====================================================================================+
-| datatype          | string       | The datatype (e.g., LAS 1.2, DTM).                                                  |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| name              | string       | The name of the product.                                                            |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| pk                | integer      | The primary key of the product.                                                     |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| sensor            | string       | The sensor used to make the collection.                                             |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| collect\_at       | timestamp    | The date of collection. ISO 8601 format as UTC.                                     |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| classification    | string       | The security classification.                                                        |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| area              | float        | The area of the geometry in sq\_km.                                                 |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| filesize          | integer      | The size of the product on the filesystem in bytes.                                 |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| coverage\_ratio   | string       | The percent of the product area covered by the AOI. Only available in AOI detail.   |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
-| geometry          | string       | The WKT geometry of the product. Only available in product detail.                  |
-+-------------------+--------------+-------------------------------------------------------------------------------------+
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| Key                 | Value Type   | Value Description                                                                   |
++=====================+==============+=====================================================================================+
+| datatype            | string       | The datatype (e.g., LAS 1.2, DTM).                                                  |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| name                | string       | The name of the product.                                                            |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| pk                  | integer      | The primary key of the product.                                                     |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| sensor              | string       | The sensor used to make the collection.                                             |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| collect\_at         | timestamp    | The date of collection. ISO 8601 format as UTC.                                     |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| classification      | string       | The security classification.                                                        |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| area                | float        | The area of the geometry in sq\_km.                                                 |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| filesize            | integer      | The size of the product on the filesystem in bytes.                                 |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| percent\_coverage   | float        | The percent of the product area covered by the AOI. Only available in AOI detail.   |
++---------------------+--------------+-------------------------------------------------------------------------------------+
+| geom                | string       | The WKT geometry of the product. Only available in product detail.                  |
++---------------------+--------------+-------------------------------------------------------------------------------------+
 
 Export object
 ~~~~~~~~~~~~~
@@ -1187,6 +1185,10 @@ Export Detail object (pointcloud)
 | \_options    |                                | (e.g., individual, collect,  |
 |              |                                | super).                      |
 +--------------+--------------------------------+------------------------------+
+| file\_export | string                         | The format of the output     |
+| \_type       |                                | file (e.g., las12, las14,    |
+|              |                                | bpf3, pdf).                  |
++--------------+--------------------------------+------------------------------+
 | generate\_de | boolean                        | Whether or not this was a    |
 | m            |                                | generated DEM from           |
 |              |                                | pointcloud.                  |
@@ -1202,7 +1204,16 @@ Export Detail object (pointcloud)
 | pcl\_terrain | string                         | The PCL terrain option of    |
 |              |                                | the export.                  |
 +--------------+--------------------------------+------------------------------+
-| sri\_hres    | decimal                        | The sri\_hres value of the   |
+| sri\_hres    | float                          | The sri\_hres value of the   |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| decimation\_ | float                          | The decimation\_radius value |
+| radius       |                                | of the export.               |
++--------------+--------------------------------+------------------------------+
+| capacity     | integer                        | The capacity value of the    |
+|              |                                | export.                      |
++--------------+--------------------------------+------------------------------+
+| length       | float                          | The length value of the      |
 |              |                                | export.                      |
 +--------------+--------------------------------+------------------------------+
 | exportfiles  | array of `Exportfile           | The export files of the      |
