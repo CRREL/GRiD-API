@@ -124,30 +124,29 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/?geom=POLY
 {
     "aoi_list": [
       {
-        "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+        "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
         68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
         68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
         "created_at": "2013-04-16T13:10:33.974", 
         "is_active": true, 
         "name": "First_Aoi", 
-        "notes": "", 
-        "source": "", 
+        "notes": "notes", 
+        "source": "map", 
         "user": 102,
         "pk": 123
       },
       {
-        "clip_geometry": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,
+        "geom": "SRID=4326;POLYGON ((64.2115925480768936 36.8743567152622020, 59.2018269230769008 32.7632670467287994,
         68.6940144230768936 32.9847159272803978, 64.2115925480768936 36.8743567152622020))", 
         "created_at": "2015-09-23T09:50:19.856", 
         "is_active": true, 
         "name": "Second_Aoi", 
         "notes": "", 
-        "source": "", 
+        "source": "map", 
         "user": 102,
         "pk": 1304
       }
     ], 
-    "API Version": "v2"
 }
 ~~~~
 
@@ -185,10 +184,9 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?sourc
 
 ~~~~ {.json}
 {
-    "API Version": "v2", 
     "aoi": 
     {
-      "clip_geometry": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+      "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
       68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
       68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
       "created_at": "2013-04-16T13:10:33.974", 
@@ -221,7 +219,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?sourc
     ], 
     "pointcloud_intersects": [
         {
-            "coverage_ratio": "100%",
+            "percent_coverage": 1.0,
             "point_count": 3040524,
             "classification": "UNCLASS",
             "area": 3.17799291347327,
@@ -273,7 +271,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/add/?sourc
 {
     "aoi": 
     {
-      "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+      "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
       20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
       "created_at": "2015-11-13T12:58:28.040", 
       "is_active": true, 
@@ -285,9 +283,19 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/add/?sourc
     },
     "export_set": [], 
     "pointcloud_intersects": [], 
-    "raster_intersects": [],
-    "API Version": "v2",
-    "success": true
+    "raster_intersects": [
+        {
+        "name": "20120424_00_0_UFO",
+        "classification": "UNCLASS",
+        "area": 27.4865918090656,
+        "datatype": "DSM",
+        "filesize": 109947223,
+        "collected_at": "2012-04-24",
+        "percent_coverage": 0.02,
+        "pk": 233,
+        "sensor": "NGA ALIRT"
+        }
+    ],
 }
 ~~~~
 
@@ -330,7 +338,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/edit/123/?
 {
     "aoi": 
     {
-      "clip_geometry": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+      "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
       20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
       "created_at": "2015-11-13T12:58:28.040", 
       "is_active": true, 
@@ -343,8 +351,6 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/edit/123/?
     "export_set": [], 
     "pointcloud_intersects": [], 
     "raster_intersects": [],
-    "API Version": "v2",
-    "success": true
 }
 ~~~~
 
@@ -380,10 +386,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/delete/123
 ~~~~
 
 ~~~~ {.json}
-{
-    "API Version": "v2",
-    "success": true
-}
+{}
 ~~~~
 
 ### Get Export Details
@@ -426,6 +429,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335/?s
     "pcl_terrain": "",
     "dim_classification": true,
     "file_export_options": "individual",
+    "file_export_type": "las12",
     "name": "",
     "classification": "",
     "datatype": "LAS 1.2",
@@ -437,9 +441,11 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335/?s
     "pk": 2880,
     "generate_dem": false,
     "started_at": "2016-05-16T16:18:12.752305",
-    "sri_hres": null
+    "sri_hres": null,
+    "decimation_radius": null,
+    "capacity": null,
+    "length": null
   },
-  "API Version": "v2",
   "exportfiles": [
     {
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
@@ -511,6 +517,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/13
       "pcl_terrain": "",
       "dim_classification": true,
       "file_export_options": "individual",
+      "file_export_type": "las12",
       "name": "new name",
       "classification": "",
       "datatype": "LAS 1.2",
@@ -522,7 +529,10 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/13
       "pk": 1335,
       "generate_dem": false,
       "started_at": "2016-05-16T16:18:12.752305",
-      "sri_hres": null
+      "sri_hres": null,
+      "decimation_radius": null,
+      "capacity": null,
+      "length": null
     },
     "exportfiles": [
     {
@@ -532,8 +542,6 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/13
     }
     ],
     "tda_set": [],
-    "API Version": "v2",
-    "success": true
 }
 ~~~~
 
@@ -569,10 +577,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/delete/
 ~~~~
 
 ~~~~ {.json}
-{
-    "API Version": "v2",
-    "success": true
-}
+{}
 ~~~~
 
 ### Get Product Details
@@ -609,8 +614,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/product/252/?s
 
 ~~~~ {.json}
 {
-    "API Version": "v2", 
-    "geometry": "POLYGON ((70.0499966824633020 35.2004503720556983, 70.0493481153355049 35.1499987225927981, 70.1000060967199943 35.1495493748128993, 70.1006859587326971 35.2000001882180982, 70.0499966824633020 35.2004503720556983))",
+    "geom": "POLYGON ((70.0499966824633020 35.2004503720556983, 70.0493481153355049 35.1499987225927981, 70.1000060967199943 35.1495493748128993, 70.1006859587326971 35.2000001882180982, 70.0499966824633020 35.2004503720556983))",
     "name": "20101109_00_0_UFO",
     "classification": "UNCLASS",
     "collected_at": "2010-11-09",
@@ -618,7 +622,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/product/252/?s
     "pk": 252,
     "area": 25.8400993148659,
     "sensor": "NGA ALIRT",
-    "filesize": 103347831}
+    "filesize": 103347831
 }
 ~~~~
 
@@ -653,9 +657,8 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/geoname/?geom=
 
 ~~~~ {.json}
 {
-    "API Version": "v2", 
     "name": "Great Sand Sea", 
-    "provided_geometry": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
+    "geom": "POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))"
 }
 ~~~~
 
@@ -693,7 +696,6 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/task/bacb736e-
 
 ~~~~ {.json}
 {
-  "API Version": "v2", 
   "task_traceback": "",
   "task_state": "SUCCESS",
   "task_tstamp": "2015-09-09T14:19:36.080",
@@ -736,7 +738,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   
   file\_export\_options *Optional*. Determine file merging strategy. Accepts ``individual`` and ``collect``. Default: ``individual``.
   
-  export\_file\_type    *Optional*. Determine the The format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
+  file\_export\_type    *Optional*. Determine the The format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
   
   compressed            *Optional*. Whether or not to export compressed data. Default: True.
   
@@ -752,9 +754,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   
   decimation\_radius    *Optional*. The minimum distance between points. If a neighboring point is found within this radius, it will be discarded. Uses PDAL decimation filter. Default: None.
   
-  retile\_size          *Optional*. How many points to fit into each tile. The number of points in each tile will not exceed this value, and will sometimes be less than it. Uses PDAL chipper filter. Cannot be used with retile\_area option. Default: None.
+  capacity              *Optional*. How many points to fit into each tile. The number of points in each tile will not exceed this value, and will sometimes be less than it. Uses PDAL chipper filter. Cannot be used with length option. Default: None.
   
-  retile\_area          *Optional*. The target length of generated tiles. Units determined by source data. Uses PDAL splitter filter. Cannot be used with retile\_size option. Default: None.
+  length                *Optional*. The target length of generated tiles. Units determined by source data. Uses PDAL splitter filter. Cannot be used with capacity option. Default: None.
   ----------------------------------------------------------------------------------------------
 
 #### Response Format
@@ -771,8 +773,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/po
 
 ~~~~ {.json}
 {
-  "API Version": "v2", 
-  "started" : true,
+  "export_id" : 1568,
   "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
 }
 ~~~~
@@ -829,8 +830,7 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/api/v2/aoi/2389/generate/ra
 
 ~~~~ {.json}
 {
-  "API Version": "v2", 
-  "started" : true,
+  "export_id" : 1569,
   "task_id" : "774b4666-5706-4237-8661-df0f96cd7b9c"
 }
 ~~~~
