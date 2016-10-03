@@ -738,7 +738,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
   
   file\_export\_options *Optional*. Determine file merging strategy. Accepts ``individual`` and ``collect``. Default: ``individual``.
   
-  file\_export\_type    *Optional*. Determine the The format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
+  file\_export\_type    *Optional*. Determine the format of the output file. Accepts ``las12``, ``las14``, ``nitf``, ``pdf``, and ``bpf3``.  Default: ``las12``.
   
   compressed            *Optional*. Whether or not to export compressed data. Default: True.
   
@@ -809,7 +809,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
   
   file\_export\_options  *Optional*. Determine file merging strategy.  Accepts ``individual`` and ``collect``. Default ``individual``
   
-  file\_format\_options  *Optional*. Determine the The format of the output file.  Accepts  ``GTiff`` and ``NITF``. Default: ``GTiff``
+  file\_format\_options  *Optional*. Determine the format of the output file.  Accepts  ``GTiff`` and ``NITF``. Default: ``GTiff``
   
   compressed             *Optional*. Whether or not to export compressed data. Default: True.
   
