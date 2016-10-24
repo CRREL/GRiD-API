@@ -50,7 +50,7 @@ Object Model
   name              string       The name of the product.
   pk                integer      The primary key of the product.
   sensor            string       The sensor used to make the collection.
-  collect\_at       timestamp    The date of collection. ISO 8601 format as UTC.
+  collected\_at     timestamp    The date of collection. ISO 8601 format as UTC.
   classification    string       The security classification.
   area              float        The area of the geometry in sq_km.
   filesize          integer      The size of the product on the filesystem in bytes.
@@ -67,7 +67,7 @@ Object Model
   name              string       The name of the product.
   pk                integer      The primary key of the product.
   sensor            string       The sensor used to make the collection.
-  collect\_at       timestamp    The date of collection. ISO 8601 format as UTC.
+  collected\_at     timestamp    The date of collection. ISO 8601 format as UTC.
   classification    string       The security classification.
   area              float        The area of the geometry in sq_km.
   filesize          integer      The size of the product on the filesystem in bytes.
