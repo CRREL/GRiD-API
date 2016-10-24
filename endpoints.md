@@ -111,7 +111,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi
 #### Response Format
 
 On success, the HTTP status code in the header response is `200` OK and
-the response body contains an array of [AOI object](#aoi-object) in JSON
+the response body contains an 'aoi_list' dictionary that contains an array of [AOI object](#aoi-object) in JSON
 format.
 
 #### Example
@@ -184,19 +184,16 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/123/?sourc
 
 ~~~~ {.json}
 {
-    "aoi": 
-    {
-      "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
-      68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
-      68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
-      "created_at": "2013-04-16T13:10:33.974", 
-      "is_active": true, 
-      "name": "First_Aoi", 
-      "notes": "", 
-      "source": "api", 
-      "user": 102,
-      "pk": 123
-    }, 
+    "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
+    68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
+    68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))",
+    "created_at": "2013-04-16T13:10:33.974",
+    "is_active": true,
+    "name": "First_Aoi",
+    "notes": "",
+    "source": "api",
+    "user": 102,
+    "pk": 123, 
     "export_set": [
         {
             "datatype": "LAS 1.2", 
@@ -269,20 +266,17 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/add/?sourc
 
 ~~~~ {.json}
 {
-    "aoi": 
-    {
-      "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
-      20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
-      "created_at": "2015-11-13T12:58:28.040", 
-      "is_active": true, 
-      "name": "test", 
-      "notes": "", 
-      "source": "api", 
-      "user": 102,
-      "pk": 1592
-    },
-    "export_set": [], 
-    "pointcloud_intersects": [], 
+    "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+    20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
+    "created_at": "2015-11-13T12:58:28.040",
+    "is_active": true,
+    "name": "test",
+    "notes": "",
+    "source": "api",
+    "user": 102,
+    "pk": 1592,
+    "export_set": [],
+    "pointcloud_intersects": [],
     "raster_intersects": [
         {
         "name": "20120424_00_0_UFO",
@@ -336,18 +330,18 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/edit/123/?
 
 ~~~~ {.json}
 {
-    "aoi": 
-    {
-      "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
-      20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
-      "created_at": "2015-11-13T12:58:28.040", 
-      "is_active": true, 
-      "name": "new name", 
-      "notes": "updated notes", 
-      "source": "api", 
-      "user": 102,
-      "pk": 123
-    },
+    "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
+    20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
+    "created_at": "2015-11-13T12:58:28.040",
+    "is_active": true,
+    "name": "new name",
+    "notes": "updated notes",
+    "source": "api",
+    "user": 102,
+    "pk": 123,
+    "export_set": [],
+    "pointcloud_intersects": [],
+    "raster_intersects": [],
     "export_set": [], 
     "pointcloud_intersects": [], 
     "raster_intersects": [],
@@ -376,17 +370,12 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and
-the response body contains a the status in JSON format.
+On success, the HTTP status code in the header response is `200` OK. On failure, the response body contains a the status in JSON format.
 
 #### Example
 
 ~~~~ {.bash}
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/delete/123/?source=grid
-~~~~
-
-~~~~ {.json}
-{}
 ~~~~
 
 ### Get Export Details
@@ -423,29 +412,26 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/1335/?s
 
 ~~~~ {.json}
 {
-  "export": 
-  {
-    "status": "SUCCESS",
-    "pcl_terrain": "",
-    "dim_classification": true,
-    "file_export_options": "individual",
-    "file_export_type": "las12",
-    "name": "",
-    "classification": "",
-    "datatype": "LAS 1.2",
-    "notes": "",
-    "rgb": false,
-    "hsrs": "32641",
-    "url": "http://localhost:8000/export/download/2880/",
-    "intensity": true,
-    "pk": 2880,
-    "generate_dem": false,
-    "started_at": "2016-05-16T16:18:12.752305",
-    "sri_hres": null,
-    "decimation_radius": null,
-    "capacity": null,
-    "length": null
-  },
+  "status": "SUCCESS",
+  "pcl_terrain": "",
+  "dim_classification": true,
+  "file_export_options": "individual",
+  "file_export_type": "las12",
+  "name": "",
+  "classification": "",
+  "datatype": "LAS 1.2",
+  "notes": "",
+  "rgb": false,
+  "hsrs": "32641",
+  "url": "http://localhost:8000/export/download/2880/",
+  "intensity": true,
+  "pk": 2880,
+  "generate_dem": false,
+  "started_at": "2016-05-16T16:18:12.752305",
+  "sri_hres": null,
+  "decimation_radius": null,
+  "capacity": null,
+  "length": null,
   "exportfiles": [
     {
       "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
@@ -511,28 +497,26 @@ curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/edit/13
 
 ~~~~ {.json}
 {
-    "export": 
-    {
-      "status": "SUCCESS",
-      "pcl_terrain": "",
-      "dim_classification": true,
-      "file_export_options": "individual",
-      "file_export_type": "las12",
-      "name": "new name",
-      "classification": "",
-      "datatype": "LAS 1.2",
-      "notes": "notes",
-      "rgb": false,
-      "hsrs": "32641",
-      "url": "http://localhost:8000/export/download/1335/",
-      "intensity": true,
-      "pk": 1335,
-      "generate_dem": false,
-      "started_at": "2016-05-16T16:18:12.752305",
-      "sri_hres": null,
-      "decimation_radius": null,
-      "capacity": null,
-      "length": null
+    "status": "SUCCESS",
+    "pcl_terrain": "",
+    "dim_classification": true,
+    "file_export_options": "individual",
+    "file_export_type": "las12",
+    "name": "new name",
+    "classification": "",
+    "datatype": "LAS 1.2",
+    "notes": "notes",
+    "rgb": false,
+    "hsrs": "32641",
+    "url": "http://localhost:8000/export/download/1335/",
+    "intensity": true,
+    "pk": 1335,
+    "generate_dem": false,
+    "started_at": "2016-05-16T16:18:12.752305",
+    "sri_hres": null,
+    "decimation_radius": null,
+    "capacity": null,
+    "length": null,
     },
     "exportfiles": [
     {
@@ -567,8 +551,7 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK and
-the response body contains a the status in JSON format.
+On success, the HTTP status code in the header response is `200` OK. On failure, the response body contains a the status in JSON format.
 
 #### Example
 
@@ -576,9 +559,6 @@ the response body contains a the status in JSON format.
 curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/delete/1335/?source=grid
 ~~~~
 
-~~~~ {.json}
-{}
-~~~~
 
 ### Get Product Details
 
