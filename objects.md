@@ -179,18 +179,19 @@ Object Model
 
 ### Exportfile object
 
-  Key    Value Type   Value Description
-  ------ ------------ --------------------------------------
-  name   string       The name of the export file.
-  pk     integer      The primary key of the export file.
-  url    string       The download URL of the export file.
+  Key      Value Type   Value Description
+  -------- ------------ --------------------------------------
+  name     string       The name of the export file.
+  pk       integer      The primary key of the export file.
+  url      string       The download URL of the export file.
+  datatype string       The datatype of the export file.
 
 ### Task object
 
   Key               Value Type   Value Description
   ----------------- ------------ -------------------------------------------------------------
   task\_traceback   string       The description of any failures if they occurred.
-  task\_state       string       The state of the task (e.g., SUCCESS, FAILED, QUEUED).
+  task\_state       string       The state of the task (e.g., SUCCESS, FAILED, QUEUED, CANCELED, RUNNING).
   task\_tstamp      timestamp    ISO 8601 format as UTC.
   task\_name        string       The name of the task (e.g., export.tasks.generate\_export).
   task\_id          string       The id of the task.
