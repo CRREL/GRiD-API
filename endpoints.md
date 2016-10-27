@@ -33,7 +33,7 @@ number of Internet tutorials for more complex use cases.
 #### Response Format
 
 On success, the HTTP status code in the header response is `200` OK and
-the response body contains the WFS response in XML format.
+the response body contains the WFS response in XML format.  
 
 #### Example
 
@@ -112,7 +112,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi
 
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an 'aoi_list' dictionary that contains an array of [AOI object](#aoi-object) in JSON
-format.
+format. 
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -174,7 +176,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}
 
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [AOI Detail object](#aoi-detail-object) in
-JSON format.
+JSON format. 
+On failure, the HTTP status code in the header response is `400` 
+BAD and the response body contains an error in JSON format.
 
 #### Example
 
@@ -256,7 +260,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/add
 
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [AOI Detail object](#aoi-detail-object) in
-JSON format.
+JSON format. 
+On failure, the HTTP status code in the header response is 
+`400` BAD and the response body contains an error in JSON format.
 
 #### Example
 
@@ -320,7 +326,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/edit/<pk>
 
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [AOI Detail object](#aoi-detail-object) in
-JSON format.
+JSON format. 
+On failure, the HTTP status code in the header response is 
+`400` BAD and the response body contains an error in JSON format.
 
 #### Example
 
@@ -370,8 +378,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/delete/<pk>
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK. On failure, the response body contains a the status in JSON format.
-
+On success, the HTTP status code in the header response is `200` OK.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error in JSON format.
 #### Example
 
 ~~~~ {.bash}
@@ -403,6 +411,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/{pk}
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [Export Detail
 object](#export-detail-object) in JSON format.
+On failure, the HTTP status code in the header response is `400` BAD and 
+the response body contains an error in JSON format.
 
 #### Example
 
@@ -488,6 +498,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/edit/<pk>
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [Export Detail object](#export-detail-object) in
 JSON format.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -551,7 +563,9 @@ GET <instance_url>/<instance_root>_ba/api/v2/export/delete/<pk>
 
 #### Response Format
 
-On success, the HTTP status code in the header response is `200` OK. On failure, the response body contains a the status in JSON format.
+On success, the HTTP status code in the header response is `200` OK.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -585,6 +599,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/product/{pk}
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [Product Detail object](#product-detail-object) in
 JSON format.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -628,6 +644,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/geoname
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains a [Geoname object](#geoname-object) in JSON
 format.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -667,6 +685,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/task/{task_id}
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains an [Task object](#export-detail-object) in
 JSON format.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -744,6 +764,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/pointcloud
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains a [Generate export
 object](#generate-export-object) in JSON format.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
@@ -801,6 +823,8 @@ GET <instance_url>/<instance_root>_ba/api/v2/aoi/{pk}/generate/raster
 On success, the HTTP status code in the header response is `200` OK and
 the response body contains a [Generate export
 object](#generate-export-object) in JSON format.
+On failure, the HTTP status code in the header response is `400` BAD and the response body contains an error 
+in JSON format.
 
 #### Example
 
