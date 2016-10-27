@@ -129,8 +129,10 @@ Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK
-and the response body contains an 'aoi_list' dictionary array of `AOI object <#aoi-object>`_
-in JSON format.
+and the response body contains an 'aoi\_list' dictionary that contains
+an array of `AOI object <#aoi-object>`_ in JSON format. On failure, the
+HTTP status code in the header response is ``400`` BAD and the response
+body contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -201,7 +203,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `AOI Detail
-object <#aoi-detail-object>`_ in JSON format.
+object <#aoi-detail-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -215,14 +219,14 @@ Example
     {
         "geom": "SRID=4326;POLYGON ((68.9150709532930961 33.5950250284996983, 68.8704389952918063 33.5955969812235011,
         68.8724989318148033 33.5858732691386024, 68.9020246886466055 33.5853012519442018, 68.9068312072003977 33.5549789148388982,
-        68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))", 
-        "created_at": "2013-04-16T13:10:33.974", 
-        "is_active": true, 
-        "name": "First_Aoi", 
-        "notes": "", 
-        "source": "api", 
+        68.9274305724316037 33.5589843621810999, 68.9274305724316037 33.5944530719840984, 68.9150709532930961 33.5950250284996983))",
+        "created_at": "2013-04-16T13:10:33.974",
+        "is_active": true,
+        "name": "First_Aoi",
+        "notes": "",
+        "source": "api",
         "user": 102,
-        "pk": 123,
+        "pk": 123, 
         "export_set": [
             {
                 "datatype": "LAS 1.2", 
@@ -293,7 +297,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `AOI Detail
-object <#aoi-detail-object>`_ in JSON format.
+object <#aoi-detail-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -306,16 +312,16 @@ Example
 
     {
         "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
-        20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))", 
-        "created_at": "2015-11-13T12:58:28.040", 
+        20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
+        "created_at": "2015-11-13T12:58:28.040",
         "is_active": true,
-        "name": "test", 
-        "notes": "", 
-        "source": "api", 
+        "name": "test",
+        "notes": "",
+        "source": "api",
         "user": 102,
         "pk": 1592,
-        "export_set": [], 
-        "pointcloud_intersects": [], 
+        "export_set": [],
+        "pointcloud_intersects": [],
         "raster_intersects": [
             {
             "name": "20120424_00_0_UFO",
@@ -370,7 +376,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `AOI Detail
-object <#aoi-detail-object>`_ in JSON format.
+object <#aoi-detail-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -384,13 +392,16 @@ Example
     {
         "geom": "SRID=4326;POLYGON ((30.0000000000000000 10.0000000000000000, 40.0000000000000000 40.0000000000000000,
         20.0000000000000000 40.0000000000000000, 10.0000000000000000 20.0000000000000000, 30.0000000000000000 10.0000000000000000))",
-        "created_at": "2015-11-13T12:58:28.040", 
-        "is_active": true, 
-        "name": "new name", 
-        "notes": "updated notes", 
-        "source": "api", 
+        "created_at": "2015-11-13T12:58:28.040",
+        "is_active": true,
+        "name": "new name",
+        "notes": "updated notes",
+        "source": "api",
         "user": 102,
         "pk": 123,
+        "export_set": [],
+        "pointcloud_intersects": [],
+        "raster_intersects": [],
         "export_set": [], 
         "pointcloud_intersects": [], 
         "raster_intersects": [],
@@ -427,15 +438,12 @@ Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK.
-On failure, the response body contains a the status in JSON format.
-
-Example
-^^^^^^^
+On failure, the HTTP status code in the header response is ``400`` BAD
+and the response body contains an error in JSON format. #### Example
 
 ::
 
     curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/aoi/delete/123/?source=grid
-
 
 Get Export Details
 ~~~~~~~~~~~~~~~~~~
@@ -469,7 +477,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `Export Detail
-object <#export-detail-object>`_ in JSON format.
+object <#export-detail-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -565,7 +575,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `Export Detail
-object <#export-detail-object>`_ in JSON format.
+object <#export-detail-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -597,6 +609,7 @@ Example
         "decimation_radius": null,
         "capacity": null,
         "length": null,
+        },
         "exportfiles": [
         {
           "url": "http://gridte.rsgis.erdc.dren.mil/te_ba/export/download/file/30359/",
@@ -638,7 +651,8 @@ Response Format
 ^^^^^^^^^^^^^^^
 
 On success, the HTTP status code in the header response is ``200`` OK.
-On failure, the response body contains a the status in JSON format.
+On failure, the HTTP status code in the header response is ``400`` BAD
+and the response body contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -646,7 +660,6 @@ Example
 ::
 
     curl -u <username> http://gridte.rsgis.erdc.dren.mil/te_ba/api/v2/export/delete/1335/?source=grid
-
 
 Get Product Details
 ~~~~~~~~~~~~~~~~~~~
@@ -680,7 +693,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `Product Detail
-object <#product-detail-object>`_ in JSON format.
+object <#product-detail-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -731,7 +746,8 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains a `Geoname object <#geoname-object>`_ in
-JSON format.
+JSON format. On failure, the HTTP status code in the header response is
+``400`` BAD and the response body contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -779,7 +795,8 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains an `Task object <#export-detail-object>`_
-in JSON format.
+in JSON format. On failure, the HTTP status code in the header response
+is ``400`` BAD and the response body contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -889,7 +906,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains a `Generate export
-object <#generate-export-object>`_ in JSON format.
+object <#generate-export-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -959,7 +978,9 @@ Response Format
 
 On success, the HTTP status code in the header response is ``200`` OK
 and the response body contains a `Generate export
-object <#generate-export-object>`_ in JSON format.
+object <#generate-export-object>`_ in JSON format. On failure, the HTTP
+status code in the header response is ``400`` BAD and the response body
+contains an error in JSON format.
 
 Example
 ^^^^^^^
@@ -1256,32 +1277,34 @@ Export Detail object (raster)
 Exportfile object
 ~~~~~~~~~~~~~~~~~
 
-+--------+--------------+----------------------------------------+
-| Key    | Value Type   | Value Description                      |
-+========+==============+========================================+
-| name   | string       | The name of the export file.           |
-+--------+--------------+----------------------------------------+
-| pk     | integer      | The primary key of the export file.    |
-+--------+--------------+----------------------------------------+
-| url    | string       | The download URL of the export file.   |
-+--------+--------------+----------------------------------------+
++------------+--------------+----------------------------------------+
+| Key        | Value Type   | Value Description                      |
++============+==============+========================================+
+| name       | string       | The name of the export file.           |
++------------+--------------+----------------------------------------+
+| pk         | integer      | The primary key of the export file.    |
++------------+--------------+----------------------------------------+
+| url        | string       | The download URL of the export file.   |
++------------+--------------+----------------------------------------+
+| datatype   | string       | The datatype of the export file.       |
++------------+--------------+----------------------------------------+
 
 Task object
 ~~~~~~~~~~~
 
-+-------------------+--------------+---------------------------------------------------------------+
-| Key               | Value Type   | Value Description                                             |
-+===================+==============+===============================================================+
-| task\_traceback   | string       | The description of any failures if they occurred.             |
-+-------------------+--------------+---------------------------------------------------------------+
-| task\_state       | string       | The state of the task (e.g., SUCCESS, FAILED, QUEUED).        |
-+-------------------+--------------+---------------------------------------------------------------+
-| task\_tstamp      | timestamp    | ISO 8601 format as UTC.                                       |
-+-------------------+--------------+---------------------------------------------------------------+
-| task\_name        | string       | The name of the task (e.g., export.tasks.generate\_export).   |
-+-------------------+--------------+---------------------------------------------------------------+
-| task\_id          | string       | The id of the task.                                           |
-+-------------------+--------------+---------------------------------------------------------------+
++-------------------+--------------+-----------------------------------------------------------------------------+
+| Key               | Value Type   | Value Description                                                           |
++===================+==============+=============================================================================+
+| task\_traceback   | string       | The description of any failures if they occurred.                           |
++-------------------+--------------+-----------------------------------------------------------------------------+
+| task\_state       | string       | The state of the task (e.g., SUCCESS, FAILED, QUEUED, CANCELED, RUNNING).   |
++-------------------+--------------+-----------------------------------------------------------------------------+
+| task\_tstamp      | timestamp    | ISO 8601 format as UTC.                                                     |
++-------------------+--------------+-----------------------------------------------------------------------------+
+| task\_name        | string       | The name of the task (e.g., export.tasks.generate\_export).                 |
++-------------------+--------------+-----------------------------------------------------------------------------+
+| task\_id          | string       | The id of the task.                                                         |
++-------------------+--------------+-----------------------------------------------------------------------------+
 
 TDA object
 ~~~~~~~~~~
