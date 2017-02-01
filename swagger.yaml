@@ -16,8 +16,6 @@ info:
     errors will return an HTTP status code `4xx` with a JSON encoded error 
     message.
     
-    # Changes from v2
-    
     OAuth 2.0
   version: "3.0.0"
   contact:
@@ -84,7 +82,7 @@ paths:
             properties:
               aois:
                 items:
-                  $ref: '#/definitions/AOIArray'
+                  $ref: '#/definitions/AOISimpleArray'
                 description: aois
         default:
           description: Unexpected error
@@ -100,22 +98,22 @@ paths:
         Create a new AOI for the given geometry.
       parameters:
         - name: name
-          in: formData
+          in: query
           description: The name for the AOI.
           required: true
           type: string
         - name: geom
-          in: formData
+          in: query
           description: A WKT geometry describing the AOI.
           required: true
           type: string
         - name: notes
-          in: formData
+          in: query
           description: The notes for the AOI.
           required: false
           type: string
         - name: subscribe
-          in: formData
+          in: query
           description: |
             True, False, T, F, 1, or 0. Default value is false.
           default: false
@@ -140,7 +138,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: A comma-separated list of primary keys.
+          description: A comma-separated list of AOI primary keys.
           required: true
           type: integer
       responses:
@@ -197,7 +195,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: A comma-separated list of primary keys.
+          description: A comma-separated list of AOI primary keys.
           required: true
           type: integer
       responses:
@@ -337,7 +335,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: The primary key of the AOI.
+          description: A comma-separated list of AOI primary keys.
           required: true
           type: integer
       responses:
@@ -564,7 +562,7 @@ paths:
       consumes:
         - application/json
       description: |
-        Exports is new in API v3. It replaces the former `/aoi/{pk}/generate/pointcloud` endpoint. In fact, no AOI is required to export data. A user would typically begin by querying `/products` for available products that are coincident with the provided geometry `geom`. With the list of available products, they can now order an export directly by providing a valid order object.
+        Exports is new in API v3. It replaces the former `/aoi/{pk}/generate/pointcloud` endpoint. A user would typically begin by querying `/products` for available products that are coincident with the provided geometry `geom`.
       parameters:
         - name: aoi
           in: query
@@ -574,8 +572,7 @@ paths:
         - name: products
           in: query
           description: |
-            A list of product primary keys to include in the export, separated 
-            by + or ,.
+            A comma-separated list of product primary keys to include in the export.
           required: true
           type: string
         - name: name
@@ -714,7 +711,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: The primary key of the AOI.
+          description: A comma-separated list of export primary keys.
           required: true
           type: integer
       responses:
@@ -730,7 +727,7 @@ paths:
       tags:
         - Export
       summary: Edit export
-      description: Updates an exports name or notes.
+      description: Updates an exports name or notes. While we can `GET` or `DELETE` multiple primary keys, the `PATCH` may only be applied to a single primary key.
       parameters:
         - name: pk
           in: path
@@ -764,7 +761,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: The primary key of the export.
+          description: A comma-separated list of export primary keys.
           required: true
           type: integer
       responses:
@@ -870,7 +867,7 @@ paths:
           type: string
         - name: type
           in: query
-          description: Limit results to products of a particular datatype.
+          description: Limit results to products of a particular datatype (e.g. pointcloud, raster).
           required: false
           type: string
       responses:
@@ -896,7 +893,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: The primary key of the product.
+          description: A comma-separated list of product primary keys.
           required: true
           type: integer
       responses:
@@ -974,7 +971,7 @@ paths:
           type: string
       responses:
         200:
-          description: An array of geoname objects.
+          description: A geoname object.
           schema:
             type: object
             properties:
@@ -997,7 +994,12 @@ paths:
       parameters:
         - name: state
           in: query
-          description: The state of the task (e.g., `SUCCESS`, `QUEUED`, `FAILED`.
+          description: The state of the task (e.g., `SUCCESS`, `QUEUED`, `FAILED`).
+          required: false
+          type: string
+        - name: name
+          in: query
+          description: The name of the task (e.g., `export.tasks.generate_export`).
           required: false
           type: string
       responses:
@@ -1085,12 +1087,12 @@ paths:
         Create a new Hook for the given event and target.
       parameters:
         - name: event
-          in: formData
+          in: query
           description: The event being subscribed to (e.g. export.complete, newdata.loaded)
           required: true
           type: string
         - name: target
-          in: formData
+          in: query
           description: The destination URL for payloads to be delivered to.
           required: true
           type: string
@@ -1112,7 +1114,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: The primary key of the hook.
+          description: A comma-separated list of hook primary keys.
           required: true
           type: string
       responses:
@@ -1132,7 +1134,7 @@ paths:
       parameters:
         - name: pk
           in: path
-          description: The primary key of the hook.
+          description: A comma-separated list of hook primary keys.
           required: true
           type: integer
       responses:
@@ -1182,6 +1184,35 @@ definitions:
         items:
           $ref: '#/definitions/AOI'
         description: A list of AOIs.
+  AOISimple:
+    type: object
+    properties:
+      name:
+        $ref: '#/definitions/Name'
+      created_at:
+        $ref: '#/definitions/CreatedAt'
+      user:
+        $ref: '#/definitions/User'
+      geom:
+        type: string
+        description: The WKT geometry of the AOI.
+      notes:
+        $ref: '#/definitions/Notes'
+      pk:
+        $ref: '#/definitions/Pk'
+      exports:
+        type: array
+        items:
+          $ref: '#/definitions/ExportArray'
+        description: The exports of the AOI.
+  AOISimpleArray:
+    type: object
+    properties:
+      aois:
+        type: array
+        items:
+          $ref: '#/definitions/AOISimple'
+        description: A list of AOIs without product intersection information.
   Area:
     type: number
     format: float
@@ -1536,9 +1567,6 @@ definitions:
   Task:
     type: object
     properties:
-      traceback:
-        type: string
-        description: The description of any failures if they occurred.
       state:
         type: string
         description: The state of the task (e.g., SUCCESS, FAILED, QUEUED).
