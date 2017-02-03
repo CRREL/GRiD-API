@@ -16,7 +16,9 @@ info:
     errors will return an HTTP status code `4xx` with a JSON encoded error 
     message.
     
-    OAuth 2.0
+    Authentication using OAuth 2.0.
+
+    If you have any errors, requests, or questions, please check out our repo at: https://github.com/CRREL/GRiD-API/
   version: "3.0.0"
   contact:
     name: GRiD Support
@@ -27,7 +29,7 @@ info:
 ################################################################################
 host: alex-dev.rsgiscx.net
 schemes:
-  - https
+  - http
 securityDefinitions:
   OauthSecurity:
     type: oauth2
@@ -1564,10 +1566,12 @@ definitions:
         type: string
         description: The ID of the task.
   TaskReturn:
-    type: array
-    items:
-      $ref: '#/definitions/Task'
-    description: A list of tasks.
+    properties:
+      tasks:
+        type: array
+        items:
+          $ref: '#/definitions/Task'
+        description: A list of tasks.
   TaskID:
     type: string
     description: The ID of the associated task used for generation.
