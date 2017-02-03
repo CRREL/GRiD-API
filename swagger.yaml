@@ -1135,7 +1135,9 @@ definitions:
       pk:
         $ref: '#/definitions/Pk'
       exports:
-        $ref: '#/definitions/ExportSimple'
+        type: array
+        items:
+          $ref: '#/definitions/ExportSimple'
       pointcloud_intersects:
         type: array
         items:
@@ -1171,7 +1173,9 @@ definitions:
       pk:
         $ref: '#/definitions/Pk'
       exports:
-        $ref: '#/definitions/ExportSimple'
+        type: array
+        items:
+          $ref: '#/definitions/ExportSimple'
   AOISimpleReturn:
     type: object
     properties:
