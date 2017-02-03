@@ -25,7 +25,7 @@ info:
 ################################################################################
 # Other root-level fixed fields
 ################################################################################
-host: rsgis.erdc.dren.mil
+host: alex-dev.rsgiscx.net
 schemes:
   - https
 securityDefinitions:
@@ -66,7 +66,7 @@ paths:
     get:
       tags:
         - AOI
-      summary: Get a User's AOI List
+      summary: Get your AOIs
       description: |
         Get a list of the AOIs created by or shared with the current GRiD user.
       parameters:
@@ -79,11 +79,7 @@ paths:
         200:
           description: An array of AOIs.
           schema:
-            properties:
-              aois:
-                items:
-                  $ref: '#/definitions/AOISimpleArray'
-                description: aois
+            $ref: '#/definitions/AOISimpleReturn'
         default:
           description: Unexpected error
           schema:
@@ -98,22 +94,22 @@ paths:
         Create a new AOI for the given geometry.
       parameters:
         - name: name
-          in: query
+          in: formData
           description: The name for the AOI.
           required: true
           type: string
         - name: geom
-          in: query
+          in: formData
           description: A WKT geometry describing the AOI.
           required: true
           type: string
         - name: notes
-          in: query
+          in: formData
           description: The notes for the AOI.
           required: false
           type: string
         - name: subscribe
-          in: query
+          in: formData
           description: |
             True, False, T, F, 1, or 0. Default value is false.
           default: false
@@ -121,9 +117,9 @@ paths:
           type: boolean
       responses:
         200:
-          description: An AOI object.
+          description: An array containing the new AOI.
           schema:
-            $ref: '#/definitions/AOI'
+            $ref: '#/definitions/AOIReturn'
         default:
           description: Unexpected error
           schema:
@@ -145,7 +141,7 @@ paths:
         200:
           description: An array of AOIs.
           schema:
-            $ref: '#/definitions/AOIArray'
+            $ref: '#/definitions/AOIReturn'
         default:
           description: Unexpected error
           schema:
@@ -180,9 +176,9 @@ paths:
           type: string
       responses:
         200:
-          description: An AOI object.
+          description: An array containing the updated AOI.
           schema:
-            $ref: '#/definitions/AOI'
+            $ref: '#/definitions/AOIReturn'
         default:
           description: Unexpected error
           schema:
@@ -223,7 +219,7 @@ paths:
         200:
           description: An array of AOIs.
           schema:
-            $ref: '#/definitions/AOIArray'
+            $ref: '#/definitions/AOIReturn'
         default:
           description: Unexpected error
           schema:
@@ -565,61 +561,61 @@ paths:
         Exports is new in API v3. It replaces the former `/aoi/{pk}/generate/pointcloud` endpoint. A user would typically begin by querying `/products` for available products that are coincident with the provided geometry `geom`.
       parameters:
         - name: aoi
-          in: query
+          in: formData
           description: The primary key of the AOI used to export from.
           required: true
           type: integer
         - name: products
-          in: query
+          in: formData
           description: |
             A comma-separated list of product primary keys to include in the export.
           required: true
           type: string
         - name: name
-          in: query
+          in: formData
           description: An optional name for the export.
           required: false
           type: string
         - name: hsrs
-          in: query
+          in: formData
           description: Accepts an EPSG code. Defaults to AOI SRS.
           required: false
           type: string
         - name: file_export_options
-          in: query
+          in: formData
           description: |
             Determine file merging strategy. Accepts individual and collect. 
             Default is individual.
           required: false
           type: string
         - name: compressed
-          in: query
+          in: formData
           description: |
             Whether or not to export compressed data.
           default: true
           required: false
           type: boolean
         - name: send_email
-          in: query
+          in: formData
           description: |
             Whether or not to notify user via email upon completion.
           default: false
           required: false
           type: boolean
         - name: intensity
-          in: query
+          in: formData
           description: Pointcloud export option. Whether or not to export intensity.
           default: true
           required: false
           type: boolean
         - name: dim_classification
-          in: query
+          in: formData
           description: Pointcloud export option. Whether or not to export classification.
           default: true
           required: false
           type: boolean
         - name: file_export_format
-          in: query
+          in: formData
           description: |
             Pointcloud export option. Determine the format of the output file(s). Valid values are las12, 
             las14, nitf, pdf, and bpf3.
@@ -627,14 +623,14 @@ paths:
           required: false
           type: string
         - name: generate_dem
-          in: query
+          in: formData
           description: |
             Pointcloud export option. Whether or not to generate a DEM from the pointcloud.
           default: false
           required: false
           type: boolean
         - name: cell_spacing
-          in: query
+          in: formData
           description: |
             Pointcloud export option used together with generate_dem. Ignored for 
             raster types.
@@ -643,7 +639,7 @@ paths:
           type: number
           format: float
         - name: pcl_terrain
-          in: query
+          in: formData
           description: |
             Pointcloud export option. Used to trigger a PMF Bare Earth export. Accepts ubran, suburban, 
             mountainous, and foliated. Default is none. Cannot be used with 
@@ -651,7 +647,7 @@ paths:
           required: false
           type: string
         - name: sri_hres
-          in: query
+          in: formData
           description: |
             Pointcloud export option. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal 
             resolution. Default is none. Cannot be used with pcl_terrain option.
@@ -659,7 +655,7 @@ paths:
           type: number
           format: float
         - name: decimation_radius
-          in: query
+          in: formData
           description: |
             Pointcloud export option. The minimum distance between points. If a neighboring point is
             found within this radius, it will be discarded. Uses PDAL
@@ -668,7 +664,7 @@ paths:
           type: number
           format: float
         - name: capacity
-          in: query
+          in: formData
           description: |
             Pointcloud export option. How many points to fit into each tile. The number of points in each 
             tile will not exceed this value, and will sometimes be less than 
@@ -677,7 +673,7 @@ paths:
           required: false
           type: integer
         - name: length
-          in: query
+          in: formData
           description: |
             Pointcloud export option. The target length of generated tiles. Units determined by source 
             data. Uses PDAL splitter filter. Cannot be used with retile_size 
@@ -686,7 +682,7 @@ paths:
           type: number
           format: float
         - name: file_format_options
-          in: query
+          in: formData
           description: |
             Raster export option.  Determine the format of the output file(s). Valid values are GTiff and 
             NITF.
@@ -695,9 +691,9 @@ paths:
           type: string
       responses:
         200:
-          description: A dictionary containing export and task PKs.
+          description: Started export object.
           schema:
-            $ref: '#/definitions/ExportStarted'
+            $ref: '#/definitions/ExportStartedReturn'
         default:
           description: Unexpected error
           schema:
@@ -716,9 +712,9 @@ paths:
           type: integer
       responses:
         200:
-          description: An export object.
+          description: Export objects.
           schema:
-            $ref: '#/definitions/Export'
+            $ref: '#/definitions/ExportReturn'
         default:
           description: Unexpected error
           schema:
@@ -746,9 +742,9 @@ paths:
           type: string
       responses:
         200:
-          description: An export object.
+          description: Export object.
           schema:
-            $ref: '#/definitions/Export'
+            $ref: '#/definitions/ExportReturn'
         default:
           description: Unexpected error
           schema:
@@ -849,7 +845,7 @@ paths:
     get:
       tags:
         - Product
-      summary: Get product details
+      summary: Get products
       description: |
         API users will query the `products` endpoint to discover available products that are coincident with the given geometry `geom`. Results can be filtered further by specifying a desired `sensor` or `datatype`.
         
@@ -872,14 +868,9 @@ paths:
           type: string
       responses:
         200:
-          description: A product (pointcloud or raster) object.
+          description: Product objects.
           schema:
-            type: object
-            properties:
-              products:
-                items:
-                  $ref: '#/definitions/ProductArray'
-                description: products
+            $ref: '#/definitions/ProductReturn'
         default:
           description: Unexpected error
           schema:
@@ -900,7 +891,7 @@ paths:
         200:
           description: A product (pointcloud or raster) object.
           schema:
-            $ref: '#/definitions/Product'
+            $ref: '#/definitions/ProductReturn'
         default:
           description: Unexpected error
           schema:
@@ -942,15 +933,9 @@ paths:
           type: string
       responses:
         200:
-          description: An array of geoname objects.
+          description: Geoname object.
           schema:
-            type: object
-            properties:
-              geonames:
-                type: array
-                items:
-                  $ref: '#/definitions/GeonameArray'
-                description: geonames
+            $ref: '#/definitions/GeonameReturn'
         default:
           description: Unexpected error
           schema:
@@ -1004,15 +989,9 @@ paths:
           type: string
       responses:
         200:
-          description: An array of tasks.
+          description: Task objects.
           schema:
-            type: object
-            properties:
-              tasks:
-                type: array
-                items:
-                  $ref: '#/definitions/TaskArray'
-                description: products
+            $ref: '#/definitions/TaskReturn'
         default:
           description: Unexpected error
           schema:
@@ -1031,9 +1010,9 @@ paths:
           type: string
       responses:
         200:
-          description: A task object.
+          description: Task object.
           schema:
-            $ref: '#/definitions/Task'
+            $ref: '#/definitions/TaskReturn'
         default:
           description: Unexpected error
           schema:
@@ -1068,15 +1047,9 @@ paths:
       description: Get list of all hooks.
       responses:
         200:
-          description: An array of hooks.
+          description: Hook objects.
           schema:
-            type: object
-            properties:
-              hooks:
-                type: array
-                items:
-                  $ref: '#/definitions/HookArray'
-                description: hooks
+            $ref: '#/definitions/HookReturn'
     post:
       tags:
         - Hook
@@ -1087,12 +1060,12 @@ paths:
         Create a new Hook for the given event and target.
       parameters:
         - name: event
-          in: query
+          in: formData
           description: The event being subscribed to (e.g. export.complete, newdata.loaded)
           required: true
           type: string
         - name: target
-          in: query
+          in: formData
           description: The destination URL for payloads to be delivered to.
           required: true
           type: string
@@ -1100,7 +1073,7 @@ paths:
         200:
           description: A hook object.
           schema:
-            $ref: '#/definitions/Hook'
+            $ref: '#/definitions/HookReturn'
         default:
           description: Unexpected error
           schema:
@@ -1121,7 +1094,7 @@ paths:
         200:
           description: A hook object.
           schema:
-            $ref: '#/definitions/Hook'
+            $ref: '#/definitions/HookReturn'
         default:
           description: Unexpected error
           schema:
@@ -1164,7 +1137,7 @@ definitions:
       exports:
         type: array
         items:
-          $ref: '#/definitions/ExportArray'
+          $ref: '#/definitions/ExportSimpleReturn'
         description: The exports of the AOI.
       pointcloud_intersects:
         type: array
@@ -1176,14 +1149,14 @@ definitions:
         items:
           $ref: '#/definitions/RasterDatasetSimple'
         description: The raster products for the AOI.
-  AOIArray:
+  AOIReturn:
     type: object
     properties:
       aois:
         type: array
         items:
           $ref: '#/definitions/AOI'
-        description: A list of AOIs.
+        description: AOI.
   AOISimple:
     type: object
     properties:
@@ -1203,9 +1176,9 @@ definitions:
       exports:
         type: array
         items:
-          $ref: '#/definitions/ExportArray'
+          $ref: '#/definitions/ExportSimpleReturn'
         description: The exports of the AOI.
-  AOISimpleArray:
+  AOISimpleReturn:
     type: object
     properties:
       aois:
@@ -1295,23 +1268,23 @@ definitions:
       sri_hres:
         $ref: '#/definitions/SRIHRES'
       exportfiles:
-        $ref: '#/definitions/ExportfilesArray'
+        $ref: '#/definitions/ExportfilesReturn'
       tdas:
-        $ref: '#/definitions/TDAArray'
+        $ref: '#/definitions/TDAReturn'
       task_id:
         $ref: '#/definitions/TaskID'
       capacity:
         $ref: '#/definitions/Capacity'
       length:
         $ref: '#/definitions/Length'
-  ExportArray:
+  ExportReturn:
     type: object
     properties:
-      aois:
+      exports:
         type: array
         items:
-          $ref: '#/definitions/ExportSimple'
-        description: A list of simplified exports.
+          $ref: '#/definitions/Export'
+        description: Exports
   Exportfile:
     type: object
     properties:
@@ -1323,7 +1296,7 @@ definitions:
         $ref: '#/definitions/Pk'
       url:
         $ref: '#/definitions/URL'
-  ExportfilesArray:
+  ExportfilesReturn:
     type: array
     items:
       $ref: '#/definitions/Exportfile'
@@ -1345,21 +1318,33 @@ definitions:
         $ref: '#/definitions/StartedAt'
       status:
         $ref: '#/definitions/Status'
+      task_id:
+        $ref: '#/definitions/TaskID'
       url:
         $ref: '#/definitions/URL'
-  ExportStarted:
+  ExportSimpleReturn:
     type: object
     properties:
       exports:
         type: array
         items:
-          $ref: '#/definitions/Pk'
-        description: The pk of the generated export.
-      tasks:
+          $ref: '#/definitions/ExportSimple'
+        description: Simplified exports
+  ExportStarted:
+    type: object
+    properties:
+      export_id:
+        $ref: '#/definitions/Pk'
+      task_id:
+          $ref: '#/definitions/TaskID'
+  ExportStartedReturn:
+    type: object
+    properties:
+      exports:
         type: array
         items:
-          $ref: '#/definitions/TaskID'
-        description: The ID of the generated task.
+          $ref: '#/definitions/ExportStarted'
+        description: Export ID and task ID.
   FileExportOptions:
     type: string
     description: |
@@ -1390,10 +1375,10 @@ definitions:
         $ref: '#/definitions/Name'
       geom:
         $ref: '#/definitions/Geometry'
-  GeonameArray:
+  GeonameReturn:
     type: object
     properties:
-      products:
+      geonames:
         type: array
         items:
           $ref: '#/definitions/Geoname'
@@ -1418,7 +1403,7 @@ definitions:
       event:
         type: string
         description: The event to be notified for (e.g., export.complete, newdata.loaded)
-  HookArray:
+  HookReturn:
     type: object
     properties:
       hooks:
@@ -1479,7 +1464,7 @@ definitions:
         $ref: '#/definitions/PercentCoverage'
       geom:
         $ref: '#/definitions/Geometry'
-  ProductArray:
+  ProductReturn:
     type: object
     properties:
       products:
@@ -1570,7 +1555,7 @@ definitions:
       state:
         type: string
         description: The state of the task (e.g., SUCCESS, FAILED, QUEUED).
-      tstamp:
+      time_stamp:
         type: string
         format: date-time
         description: ISO 8601 format as UTC.
@@ -1580,14 +1565,11 @@ definitions:
       task_id:
         type: string
         description: The ID of the task.
-  TaskArray:
-    type: object
-    properties:
-      products:
-        type: array
-        items:
-          $ref: '#/definitions/Task'
-        description: A list of tasks.
+  TaskReturn:
+    type: array
+    items:
+      $ref: '#/definitions/Task'
+    description: A list of tasks.
   TaskID:
     type: string
     description: The ID of the associated task used for generation.
@@ -1609,7 +1591,7 @@ definitions:
         description: The TDA type (eg., HLZ, LOS).
       url:
         $ref: '#/definitions/URL'
-  TDAArray:
+  TDAReturn:
     type: array
     items:
       $ref: '#/definitions/TDA'
