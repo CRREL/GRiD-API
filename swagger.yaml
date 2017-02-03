@@ -1135,10 +1135,7 @@ definitions:
       pk:
         $ref: '#/definitions/Pk'
       exports:
-        type: array
-        items:
-          $ref: '#/definitions/ExportSimpleReturn'
-        description: The exports of the AOI.
+        $ref: '#/definitions/ExportSimple'
       pointcloud_intersects:
         type: array
         items:
@@ -1174,10 +1171,7 @@ definitions:
       pk:
         $ref: '#/definitions/Pk'
       exports:
-        type: array
-        items:
-          $ref: '#/definitions/ExportSimpleReturn'
-        description: The exports of the AOI.
+        $ref: '#/definitions/ExportSimple'
   AOISimpleReturn:
     type: object
     properties:
