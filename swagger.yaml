@@ -8,21 +8,16 @@ info:
   title: GRiD API v3
   description: |
     This is the API v3 specification for the Geospatial Repository and 
-    Data Management System (aka GRiD).
-    
-    Unless otherwise noted, successful calls will return an HTTP status code 
-    `200` with the appropriate response body. Server-side errors will return an 
-    HTTP status code `5xx` with a JSON encoded error message, while client-side 
-    errors will return an HTTP status code `4xx` with a JSON encoded error 
-    message.
-    
-    Authentication using OAuth 2.0.
+    Data Management System (aka GRiD). Here you can see API examples and
+    interact with the API endpoints visually in your browser. If you would
+    like to see the API in action, be sure to Authorize and then try the
+    "Try it out!" button for an endpoint. Note: you will be interacting with
+    live data.
 
-    If you have any errors, requests, or questions, please check out our repo at: https://github.com/CRREL/GRiD-API/
+    Authentication using OAuth 2.0 - Authorization Code.
   version: "3.0.0"
   contact:
-    name: GRiD Support
-    email: GRiD.Core.Team@erdc.dren.mil
+    url: https://github.com/CRREL/GRiD-API/
 
 ################################################################################
 # Other root-level fixed fields
@@ -33,15 +28,15 @@ schemes:
 securityDefinitions:
   OauthSecurity:
     type: oauth2
-    authorizationUrl: /api/authorize
-    tokenUrl: /api/token
+    authorizationUrl: /grid/api/authorize
+    tokenUrl: /grid/api/token
     flow: accessCode
     scopes:
       api: grant api access
 security:
   - OauthSecurity:
     - api
-basePath: /api/v3
+basePath: /grid/api/v3
 consumes:
   - application/json
 produces:
@@ -977,7 +972,7 @@ paths:
       tags:
         - Task
       summary: Get tasks
-      description: Get list of all tasks, filtered by state
+      description: Get list of all tasks, filtered by state or name.
       parameters:
         - name: state
           in: query
