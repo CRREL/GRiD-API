@@ -108,7 +108,7 @@ paths:
         - name: subscribe
           in: formData
           description: |
-            True, False, T, F, 1, or 0. Default value is false.
+            Whether or not to subscribe to the AOI. Accepted values: True, False, T, F, 1, or 0.
           default: false
           required: false
           type: boolean
@@ -171,6 +171,11 @@ paths:
           description: The notes for the AOI.
           required: false
           type: string
+        - name: subscribe
+          in: formData
+          description: Whether or not to subscribe to the AOI.
+          required: false
+          type: boolean
       responses:
         200:
           description: An array containing the updated AOI.
@@ -1127,8 +1132,7 @@ definitions:
       user:
         $ref: '#/definitions/User'
       geom:
-        type: string
-        description: The WKT geometry of the AOI.
+        $ref: '#/definitions/Geometry'
       notes:
         $ref: '#/definitions/Notes'
       pk:
@@ -1147,6 +1151,9 @@ definitions:
         items:
           $ref: '#/definitions/RasterDatasetSimple'
         description: The raster products for the AOI.
+      subscribed:
+        type: boolean
+        description: Indicates the subscription status for the AOI.
   AOIReturn:
     type: object
     properties:
@@ -1165,8 +1172,7 @@ definitions:
       user:
         $ref: '#/definitions/User'
       geom:
-        type: string
-        description: The WKT geometry of the AOI.
+        $ref: '#/definitions/Geometry'
       notes:
         $ref: '#/definitions/Notes'
       pk:
@@ -1356,7 +1362,7 @@ definitions:
   Geometry:
     type: string
     description: |
-      The WKT geometry of the product. Only available in product detail.
+      The WKT geometry of the object.
   Geoname:
     type: object
     properties:
