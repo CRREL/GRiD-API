@@ -866,7 +866,7 @@ paths:
         200:
           description: Product objects.
           schema:
-            $ref: '#/definitions/ProductReturn'
+            $ref: '#/definitions/ProductReturnSimple'
         default:
           description: Unexpected error
           schema:
@@ -1319,14 +1319,6 @@ definitions:
         $ref: '#/definitions/TaskID'
       url:
         $ref: '#/definitions/URL'
-  ExportSimpleReturn:
-    type: object
-    properties:
-      exports:
-        type: array
-        items:
-          $ref: '#/definitions/ExportSimple'
-        description: Simplified exports
   ExportStarted:
     type: object
     properties:
@@ -1431,6 +1423,60 @@ definitions:
   Pk:
     type: integer
     description: The primary key of the object.
+  PointcloudProduct:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      point_count:
+        type: integer
+        description: The total number of points in the product.
+      density:
+        type: number
+        format: float
+        description: The average point density of the product.
+      geom:
+        $ref: '#/definitions/Geometry'
+  PointcloudProductSimple:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      point_count:
+        type: integer
+        description: The total number of points in the product.
+      density:
+        type: number
+        format: float
+        description: The average point density of the product.
   Product:
     type: object
     properties:
@@ -1452,23 +1498,39 @@ definitions:
         $ref: '#/definitions/Filesize'
       point_count:
         type: integer
-        description: The total number of points in the product (pointcloud products only).
+        description: The total number of points in the product.
       density:
         type: number
         format: float
-        description: The average point density of the product (pointcloud products only).
-      percent_coverage:
-        $ref: '#/definitions/PercentCoverage'
+        description: The average point density of the product.
       geom:
         $ref: '#/definitions/Geometry'
   ProductReturn:
     type: object
     properties:
-      products:
+      pointclouds:
         type: array
         items:
-          $ref: '#/definitions/Product'
-        description: A list of products.
+          $ref: '#/definitions/PointcloudProduct'
+        description: A list of pointcloud products.
+      rasters:
+        type: array
+        items:
+          $ref: '#/definitions/RasterProduct'
+        description: A list of raster products.
+  ProductReturnSimple:
+    type: object
+    properties:
+      pointclouds:
+        type: array
+        items:
+          $ref: '#/definitions/PointcloudProductSimple'
+        description: A list of pointcloud products without a geometry.
+      rasters:
+        type: array
+        items:
+          $ref: '#/definitions/RasterProductSimple'
+        description: A list of raster products without a geometry.
   PointcloudDatasetSimple:
     type: object
     description: |
@@ -1501,6 +1563,54 @@ definitions:
         description: The average point density of the product.
       percent_coverage:
         $ref: '#/definitions/PercentCoverage'
+  RasterProduct:
+    type: object
+    description: |
+      The simplified raster product object lacks the geometry. This is only
+      calculated when raster products are queried via the 
+      `/product/{pk}` endpoint.
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      geom:
+        $ref: '#/definitions/Geometry'
+  RasterProductSimple:
+    type: object
+    description: |
+      The simplified raster product object lacks the geometry. This is only
+      calculated when raster products are queried via the 
+      `/product/{pk}` endpoint.
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
   RasterDatasetSimple:
     type: object
     description: |
