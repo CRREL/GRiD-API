@@ -1124,7 +1124,7 @@ paths:
   /hooks/{pk}/test:
     post:
       tags:
-        - Hook Test
+        - Hook
       summary: Test a hook by PK
       description: Tests a hook by sending event-specific test data to the hooks target url.
       parameters:
