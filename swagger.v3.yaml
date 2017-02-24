@@ -1121,6 +1121,25 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+  /hooks/{pk}/test:
+    post:
+      tags:
+        - Hook Test
+      summary: Test a hook by PK
+      description: Tests a hook by sending event-specific test data to the hooks target url.
+      parameters:
+        - name: pk
+          in: path
+          description: A comma-separated list of hook primary keys.
+          required: true
+          type: string
+      responses:
+        200:
+          description: Successful hook test responds with an empty body.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 definitions:
   AOI:
     type: object
@@ -1140,7 +1159,7 @@ definitions:
       exports:
         type: array
         items:
-          $ref: '#/definitions/ExportSimple'
+          $ref: '#/definitions/Export'
       pointcloud_intersects:
         type: array
         items:
@@ -1180,7 +1199,7 @@ definitions:
       exports:
         type: array
         items:
-          $ref: '#/definitions/ExportSimple'
+          $ref: '#/definitions/Export'
   AOISimpleReturn:
     type: object
     properties:
@@ -1304,27 +1323,6 @@ definitions:
     items:
       $ref: '#/definitions/Exportfile'
     description: The export files of the export.
-  ExportSimple:
-    type: object
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      user:
-        $ref: '#/definitions/User'
-      hsrs:
-        $ref: '#/definitions/HSRS'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      started_at:
-        $ref: '#/definitions/StartedAt'
-      status:
-        $ref: '#/definitions/Status'
-      task_id:
-        $ref: '#/definitions/TaskID'
-      url:
-        $ref: '#/definitions/URL'
   ExportStarted:
     type: object
     properties:
