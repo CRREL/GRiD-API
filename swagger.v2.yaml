@@ -354,7 +354,7 @@ paths:
           required: false
           type: number
           format: float
-        - name: retile_size
+        - name: capacity
           in: query
           description: |
             How many points to fit into each tile. The number of points in each 
@@ -363,7 +363,7 @@ paths:
             option. Default is none.
           required: false
           type: integer
-        - name: retile_area
+        - name: length
           in: query
           description: |
             The target length of generated tiles. Units determined by source 
@@ -710,6 +710,9 @@ definitions:
     type: number
     format: float
     description: The area of the geometry in sq_km.
+  Capacity:
+    type: integer
+    description: How many points to fit into each tile. The number of points in each tile will not exceed this value, and will sometimes be less than it. Uses PDAL chipper filter. Cannot be used with length option. Default is none.
   CellSpacing:
     type: number
     format: float
@@ -808,6 +811,10 @@ definitions:
         $ref: '#/definitions/TDASet'
       task_id:
         $ref: '#/definitions/TaskID'
+      length:
+        $ref: '#/definitions/Length'
+      capacity:
+        $ref: '#/definitions/Capacity'
   Exportfile:
     type: object
     properties:
@@ -853,7 +860,10 @@ definitions:
   Intensity:
     type: boolean
     description: |
-      Whether or not Intensity dimension is included in exported data.
+      Whether or not Intensity dimension is included in exported data.  
+  Length:
+    type: float
+    description: The target length of generated tiles. Units determined by source data. Uses PDAL splitter filter. Cannot be used with capacity option. Default is none.
   Name:
     type: string
     description: The name of the export.
