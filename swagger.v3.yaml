@@ -588,12 +588,12 @@ paths:
           type: string
         - name: hsrs
           in: formData
-          description: Accepts an EPSG code. Defaults to the source data HSRS.
+          description: Horizontal Spatial Reference System. Accepts an EPSG code. Defaults to the source data HSRS.
           required: false
           type: integer
         - name: vsrs
           in: formData
-          description: Pointcloud and Raster export option. Accepts an EPSG code. Valid supported values are 4326, 5773, and 3855. Defaults to source data VSRS if present.
+          description: Vertical Spatial Reference System. Pointcloud and Raster export option. Accepts an EPSG code. Valid supported values are 4326, 5773, and 3855. Defaults to source data VSRS if present.
           required: false
           type: integer
         - name: file_export_options
@@ -632,12 +632,28 @@ paths:
             las14, nitf, pdf, and bpf3. Defaults to las12.
           required: false
           type: string
+        - name: clipping
+          in: formData
+          description: |
+            Pointcloud export option. Whether or not to clip selected products to the boundary of the AOI.
+            If false, tiles that intersect the AOI are included in their entirety. Defaults to true.
+          required: false
+          type: boolean
         - name: generate_dem
           in: formData
           description: |
-            Pointcloud export option. Whether or not to generate a DEM from the pointcloud. Defauls to False.
+            Pointcloud export option. Whether or not to generate a DEM from the pointcloud. Defaults to False.
           required: false
           type: boolean
+        - name: custom_filters
+          in: formData
+          description: |
+            Pointcloud export option. Custom PDAL filters to use for pointcloud generation. A single filter block should be
+            in json object format, multiple filters should be passed as an array of json objects. Any reader or writer blocks
+            included will be ignored. See pdal.io/stages/filters.html for filter details. Defaults to None.
+          required: false
+          type: string
+          format: json
         - name: cell_spacing
           in: formData
           description: |
@@ -660,6 +676,7 @@ paths:
             Pointcloud export option. Used to trigger a PMF Bare Earth export. Accepts urban, suburban,
             mountainous, and foliated. Default is none. Cannot be used with
             sri_hres option.
+          type: string
         - name: sri_hres
           in: formData
           description: |
@@ -702,6 +719,13 @@ paths:
             NITF. Defaults to GTiff.
           required: false
           type: string
+        - name: target_resolution
+          in: formData
+          description: |
+            Raster export option.  Determine the raster cell size (in output projection units). Defaults to None which uses the source resolution size.
+          required: false
+          type: number
+          format: float
         - name: vector_format
           in: formData
           description: |
@@ -783,6 +807,29 @@ paths:
       responses:
         200:
           description: Successful export deletion responds with an empty body.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /exports/{pk}/index:
+    post:
+      tags:
+        - Export
+      summary: Generate Entwine index
+      description: Starts an Entwine indexing task for an export.
+      consumes: 
+        - text/plain; charset=utf-8
+      parameters:
+        - name: pk
+          in: path
+          description: The primary key of the export.
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Export objects.
+          schema:
+            $ref: '#/definitions/EntwineStartedReturn'
         default:
           description: Unexpected error
           schema:
@@ -882,7 +929,7 @@ paths:
           type: string
         - name: type
           in: query
-          description: Limit results to products of a particular type (pointcloud, raster, vector).
+          description: Limit results to products of a particular type (pointcloud, raster, vector, mesh).
           required: false
           type: string
       responses:
@@ -908,7 +955,7 @@ paths:
           type: integer
       responses:
         200:
-          description: A product (pointcloud or raster) object.
+          description: A product (pointcloud, raster, vector, or mesh) object.
           schema:
             $ref: '#/definitions/ProductReturn'
         default:
@@ -921,7 +968,7 @@ paths:
       tags:
         - Product
       summary: Get product details
-      description: Get information for a single product (pointcloud or raster).
+      description: Get information for a single product (pointcloud, raster).
       parameters:
         - name: pk
           in: path
@@ -1077,7 +1124,7 @@ paths:
         - application/json
       description: |
         Create a new hook. Hooks are new to v3 of the API and allow for users to subscribe to particular GRiD events and be notified when they occur.
-        Currently supported events are: newdata.loaded and export.complete. The newdata.loaded event is triggered any time new pointcloud or raster data
+        Currently supported events are: newdata.loaded and export.complete. The newdata.loaded event is triggered any time new pointcloud, raster, vector, or mesh data
         is ingested into GRiD and intersects one of your existing AOIs. The export.complete event is triggered any time one of your exports finishes, SUCCESS or FAILURE.
         The scope of these notifications can be controlled by including an optional AOI parameter. Newdata and export notifications will be limited to the given AOI if supplied.
         Hooks that fail to deliver will retry 5 times. Delivered hooks that receive a 410 or 500+ return response will be automatically deleted.
@@ -1292,6 +1339,9 @@ definitions:
     type: string
     format: date-time
     description: The date of AOI creation. ISO 8601 format as UTC.
+  CustomFilters:
+    type: string
+    description: Custom PDAL filters to use for pointcloud generation.
   Datatype:
     type: string
     description: The datatype (e.g., LAS 1.2, DTM).
@@ -1299,6 +1349,21 @@ definitions:
     type: boolean
     description: |
       Whether or not Classification dimension is included in exported data.
+  EntwineStarted:
+    type: object
+    properties:
+      export_id:
+        $ref: '#/definitions/Pk'
+      entwine_task_id:
+          $ref: '#/definitions/TaskID'
+  EntwineStartedReturn:
+    type: object
+    properties:
+      exports:
+        type: array
+        items:
+          $ref: '#/definitions/EntwineStarted'
+        description: Export ID and entwine task ID.
   Error:
     type: object
     properties:
@@ -1328,6 +1393,8 @@ definitions:
         $ref: '#/definitions/URL'
       rgb:
         $ref: '#/definitions/RGB'
+      export_type:
+        $ref: '#definitions/ExportType'
       intensity:
         $ref: '#/definitions/Intensity'
       dim_classification:
@@ -1364,6 +1431,12 @@ definitions:
         $ref: '#definitions/FileFormatOptions'
       vector_format:
         $ref: '#definitions/VectorFormat'
+      custom_filters:
+        $ref: '#definitions/CustomFilters'
+      entwine_task_id:
+        $ref: '#/definitions/TaskID'
+      greyhound_url:
+        $ref: '#/definitions/GreyhoundURL'
   ExportReturn:
     type: object
     properties:
@@ -1407,6 +1480,9 @@ definitions:
         items:
           $ref: '#/definitions/ExportStarted'
         description: Export ID and task ID.
+  ExportType:
+    type: string
+    description: The base type of export (pointcloud, raster, vector).
   FileExportOptions:
     type: string
     description: |
@@ -1448,6 +1524,9 @@ definitions:
         items:
           $ref: '#/definitions/Geoname'
         description: A list of geonames.
+  GreyhoundURL:
+    type: string
+    description: The url of an export used to stream the Greyhound resource.
   Hook:
     type: object
     properties:
@@ -1490,6 +1569,54 @@ definitions:
     type: number
     format: float
     description: The length used to generate each file.
+  MeshProduct:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      geom:
+        $ref: '#/definitions/Geometry'
+      streaming_url:
+        $ref: '#/definitions/StreamingURL'
+  MeshProductReturn:
+    type: object
+    properties:
+      meshes:
+        type: array
+        items:
+          $ref: '#/definitions/MeshProduct'
+        description: A list of mesh products.
+  MeshProductSimple:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      streaming_url:
+        $ref: '#/definitions/StreamingURL'
   Name:
     type: string
     description: The name of the export.
@@ -1618,6 +1745,11 @@ definitions:
   ProductReturn:
     type: object
     properties:
+      meshes:
+        type: array
+        items:
+          $ref: '#/definitions/MeshProduct'
+        description: A list of mesh products.
       pointclouds:
         type: array
         items:
@@ -1636,6 +1768,11 @@ definitions:
   ProductReturnSimple:
     type: object
     properties:
+      meshes:
+        type: array
+        items:
+          $ref: '#/definitions/MeshProductSimple'
+        description: A list of vector products without a geometry.
       pointclouds:
         type: array
         items:
@@ -1744,6 +1881,9 @@ definitions:
   Status:
     type: string
     description: The status of the export (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
+  StreamingURL:
+    type: string
+    description: The URL of the object used to stream the data.
   Task:
     type: object
     properties:
@@ -1797,7 +1937,7 @@ definitions:
     description: The tool set of the export.
   URL:
     type: string
-    description: The download URL of the export.
+    description: The download URL of the object.
   User:
     type: string
     description: The email address of the user that created the object.
