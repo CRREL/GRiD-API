@@ -9,7 +9,7 @@ info:
   description: |
     This is the API v3 specification for the Geospatial Repository and 
     Data Management System (aka GRiD). Here you can see API examples and
-    interact with the API endpoints visually in your browser. If you would
+    interact with all of the API endpoints visually in your browser. If you would
     like to see the API in action, be sure to Authorize and then try the
     "Try it out!" button for an endpoint. Note: you will be interacting with
     live data.
@@ -22,21 +22,21 @@ info:
 ################################################################################
 # Other root-level fixed fields
 ################################################################################
-host: alex-dev.rsgiscx.net
+host: {{ domain }}
 schemes:
-  - http
+  - {{ protocol }}
 securityDefinitions:
   OauthSecurity:
     type: oauth2
-    authorizationUrl: /grid/api/authorize
-    tokenUrl: /grid/api/token
+    authorizationUrl: {{ URL_ROOT }}api/authorize
+    tokenUrl: {{ URL_ROOT }}api/token
     flow: accessCode
     scopes:
       api: grant api access
 security:
   - OauthSecurity:
     - api
-basePath: /grid/api/v3
+basePath: {{ URL_ROOT }}api/v3
 consumes:
   - application/json
 produces:
@@ -63,9 +63,9 @@ paths:
     get:
       tags:
         - AOI
-      summary: Get your AOIs
+      summary: Get all AOIs
       description: |
-        Get a list of the AOIs created by or shared with the current GRiD user.
+        Get a list of the AOIs created by or shared with your user.
       parameters:
         - name: geom
           in: query
@@ -76,7 +76,7 @@ paths:
         200:
           description: An array of AOIs.
           schema:
-            $ref: '#/definitions/AOISimpleReturn'
+            $ref: '#/definitions/AOIReturn'
         default:
           description: Unexpected error
           schema:
@@ -84,7 +84,7 @@ paths:
     post:
       tags:
         - AOI
-      summary: Add AOI
+      summary: Create an AOI
       consumes:
         - application/json
       description: |
@@ -108,7 +108,7 @@ paths:
         - name: subscribe
           in: formData
           description: |
-            True, False, T, F, 1, or 0. Default value is false.
+            Whether or not to subscribe to the AOI. Accepted values: True, False, T, F, 1, or 0.
           default: false
           required: false
           type: boolean
@@ -125,7 +125,7 @@ paths:
     get:
       tags:
         - AOI
-      summary: AOI Detail
+      summary: Get AOI by PK
       description: |
         Get information for one or more AOIs.
       parameters:
@@ -146,7 +146,7 @@ paths:
     patch:
       tags:
         - AOI
-      summary: Edit AOI
+      summary: Edit AOI by PK
       description: |
         Update an AOIs name, notes, or geometry. In order to change an AOI's
         geometry, it must contain 0 generated exports. While we can `GET` or `DELETE` multiple primary keys, the `PATCH` may only be applied to a single primary key.
@@ -171,6 +171,11 @@ paths:
           description: The notes for the AOI.
           required: false
           type: string
+        - name: subscribe
+          in: formData
+          description: Whether or not to subscribe to the AOI.
+          required: false
+          type: boolean
       responses:
         200:
           description: An array containing the updated AOI.
@@ -183,7 +188,7 @@ paths:
     delete:
       tags:
         - AOI
-      summary: Delete AOI
+      summary: Delete AOI by PK
       description: Delete one or more existing AOIs.
       parameters:
         - name: pk
@@ -380,11 +385,11 @@ paths:
           in: query
           description: Accepts an EPSG code. Defaults to AOI SRS.
           required: false
-          type: string
+          type: integer
         - name: file_export_options
           in: query
           description: |
-            Determine file merging strategy. Accepts individual and collect. 
+            Determine file merging strategy. Accepts individual, collect, and super. 
             Default is individual.
           required: false
           type: string
@@ -426,19 +431,27 @@ paths:
           required: false
           type: number
           format: float
-        - name: pcl_terrain
+        - name: smrf_terrain
           in: query
           description: |
-            Used to trigger a PMF Bare Earth export. Accepts ubran, suburban, 
+            Used to trigger a SMRF Bare Earth export. Accepts default, urban or suburban, 
+            mountainous, and foliated. Default is None. Cannot be used with 
+            sri_hres or pmf_terrain options.
+          required: false
+          type: string
+        - name: pmf_terrain
+          in: query
+          description: |
+            Used to trigger a PMF Bare Earth export. Accepts urban, suburban, 
             mountainous, and foliated. Default is none. Cannot be used with 
-            sri_hres option.
+            smrf_terrain or sri_hres options.
           required: false
           type: string
         - name: sri_hres
           in: query
           description: |
             Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal 
-            resolution. Default is none. Cannot be used with pcl_terrain option.
+            resolution. Default is none. Cannot be used with smrf_terrain or pmf_terrain options.
           required: false
           type: number
           format: float
@@ -451,7 +464,7 @@ paths:
           required: false
           type: number
           format: float
-        - name: retile_size
+        - name: capacity
           in: query
           description: |
             How many points to fit into each tile. The number of points in each 
@@ -460,7 +473,7 @@ paths:
             option. Default is none.
           required: false
           type: integer
-        - name: retile_area
+        - name: length
           in: query
           description: |
             The target length of generated tiles. Units determined by source 
@@ -508,7 +521,7 @@ paths:
           in: query
           description: Accepts an EPSG code. Defaults to AOI SRS.
           required: false
-          type: string
+          type: integer
         - name: file_export_options
           in: query
           description: |
@@ -551,7 +564,7 @@ paths:
     post:
       tags:
         - Export
-      summary: Create exports.
+      summary: Generate export
       consumes:
         - application/json
       description: |
@@ -575,79 +588,100 @@ paths:
           type: string
         - name: hsrs
           in: formData
-          description: Accepts an EPSG code. Defaults to AOI SRS.
+          description: Horizontal Spatial Reference System. Accepts an EPSG code. Defaults to the source data HSRS.
           required: false
-          type: string
+          type: integer
+        - name: vsrs
+          in: formData
+          description: Vertical Spatial Reference System. Pointcloud and Raster export option. Accepts an EPSG code. Valid supported values are 4326, 5773, and 3855. Defaults to source data VSRS if present.
+          required: false
+          type: integer
         - name: file_export_options
           in: formData
           description: |
-            Determine file merging strategy. Accepts individual and collect. 
+            Pointcloud and Raster export option. Determine file merging strategy. Accepts individual and collect. 
             Default is individual.
           required: false
           type: string
         - name: compressed
           in: formData
           description: |
-            Whether or not to export compressed data.
-          default: true
+            Pointcloud and Raster export option. Whether or not to export compressed data. Defaults to True.
           required: false
           type: boolean
         - name: send_email
           in: formData
           description: |
-            Whether or not to notify user via email upon completion.
-          default: false
+            Whether or not to notify user via email upon completion. Defaults to False.
           required: false
           type: boolean
         - name: intensity
           in: formData
-          description: Pointcloud export option. Whether or not to export intensity.
-          default: true
+          description: Pointcloud export option. Whether or not to export intensity. Defaults to True.
           required: false
           type: boolean
         - name: dim_classification
           in: formData
-          description: Pointcloud export option. Whether or not to export classification.
-          default: true
+          description: Pointcloud export option. Whether or not to export classification. Defaults to True.
           required: false
           type: boolean
         - name: file_export_format
           in: formData
           description: |
             Pointcloud export option. Determine the format of the output file(s). Valid values are las12, 
-            las14, nitf, pdf, and bpf3.
-          default: las12
+            las14, nitf, pdf, and bpf3. Defaults to las12.
           required: false
           type: string
+        - name: clipping
+          in: formData
+          description: |
+            Pointcloud export option. Whether or not to clip selected products to the boundary of the AOI.
+            If false, tiles that intersect the AOI are included in their entirety. Defaults to true.
+          required: false
+          type: boolean
         - name: generate_dem
           in: formData
           description: |
-            Pointcloud export option. Whether or not to generate a DEM from the pointcloud.
-          default: false
+            Pointcloud export option. Whether or not to generate a DEM from the pointcloud. Defaults to False.
           required: false
           type: boolean
+        - name: custom_filters
+          in: formData
+          description: |
+            Pointcloud export option. Custom PDAL filters to use for pointcloud generation. A single filter block should be
+            in json object format, multiple filters should be passed as an array of json objects. Any reader or writer blocks
+            included will be ignored. See pdal.io/stages/filters.html for filter details. Defaults to None.
+          required: false
+          type: string
+          format: json
         - name: cell_spacing
           in: formData
           description: |
             Pointcloud export option used together with generate_dem. Ignored for 
-            raster types.
-          default: 1.0
+            raster types. Defaults to 1.0.
           required: false
           type: number
           format: float
-        - name: pcl_terrain
+        - name: smrf_terrain
           in: formData
           description: |
-            Pointcloud export option. Used to trigger a PMF Bare Earth export. Accepts ubran, suburban, 
-            mountainous, and foliated. Default is none. Cannot be used with 
-            sri_hres option.
+            Pointcloud export option. Used to trigger a SMRF Bare Earth export. Accepts default, urban or suburban,
+            mountainous, and foliated. Default is None. Cannot be used with
+            pmf_terrain or sri_hres options.
           required: false
+          type: string
+        - name: pmf_terrain
+          in: formData
+          description: |
+            Pointcloud export option. Used to trigger a PMF Bare Earth export. Accepts urban, suburban,
+            mountainous, and foliated. Default is none. Cannot be used with
+            sri_hres option.
           type: string
         - name: sri_hres
           in: formData
           description: |
-            Pointcloud export option. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal 
-            resolution. Default is none. Cannot be used with pcl_terrain option.
+            Pointcloud export option. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal
+            resolution. Default is none. Cannot be used with smrf_terrain or pmf_terrain options.
           required: false
           type: number
           format: float
@@ -682,8 +716,21 @@ paths:
           in: formData
           description: |
             Raster export option.  Determine the format of the output file(s). Valid values are GTiff and 
-            NITF.
-          default: GTiff
+            NITF. Defaults to GTiff.
+          required: false
+          type: string
+        - name: target_resolution
+          in: formData
+          description: |
+            Raster export option.  Determine the raster cell size (in output projection units). Defaults to None which uses the source resolution size.
+          required: false
+          type: number
+          format: float
+        - name: vector_format
+          in: formData
+          description: |
+            Vector export option. Accepts officially supported vector formats. Valid values are ESRI Shapefile, GML, GPKG, LIBKML, GeoJSON, and SQLite. 
+            Defaults to ESRI Shapefile.
           required: false
           type: string
       responses:
@@ -699,8 +746,8 @@ paths:
     get:
       tags:
         - Export
-      summary: Get export details.
-      description: Get information for a single export.
+      summary: Get export by PK
+      description: Get information for one or more exports.
       parameters:
         - name: pk
           in: path
@@ -719,7 +766,7 @@ paths:
     patch:
       tags:
         - Export
-      summary: Edit export
+      summary: Edit export by PK
       description: Updates an exports name or notes. While we can `GET` or `DELETE` multiple primary keys, the `PATCH` may only be applied to a single primary key.
       parameters:
         - name: pk
@@ -749,8 +796,8 @@ paths:
     delete:
       tags:
         - Export
-      summary: Delete export
-      description: Deletes an existing export.
+      summary: Delete export by PK
+      description: Delete one or more existing exports.
       parameters:
         - name: pk
           in: path
@@ -760,6 +807,29 @@ paths:
       responses:
         200:
           description: Successful export deletion responds with an empty body.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /exports/{pk}/index:
+    post:
+      tags:
+        - Export
+      summary: Generate Entwine index
+      description: Starts an Entwine indexing task for an export.
+      consumes: 
+        - text/plain; charset=utf-8
+      parameters:
+        - name: pk
+          in: path
+          description: The primary key of the export.
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Export objects.
+          schema:
+            $ref: '#/definitions/EntwineStartedReturn'
         default:
           description: Unexpected error
           schema:
@@ -842,11 +912,10 @@ paths:
     get:
       tags:
         - Product
-      summary: Get products
+      summary: Get products by geom
       description: |
-        API users will query the `products` endpoint to discover available products that are coincident with the given geometry `geom`. Results can be filtered further by specifying a desired `sensor` or `datatype`.
-        
-        In GRiD API v2 workflow, products were obtained by first creating a named AOI for the geometry. The new workflow still requires users to query GRiD for coincident products, but provides the additional capability to filter product results.
+        API users will query the `products` endpoint to discover available products that are coincident with the given geometry `geom`. 
+        Results can be filtered by sensor or type.
       parameters:
         - name: geom
           in: query
@@ -860,14 +929,14 @@ paths:
           type: string
         - name: type
           in: query
-          description: Limit results to products of a particular datatype (e.g. pointcloud, raster).
+          description: Limit results to products of a particular type (pointcloud, raster, vector, mesh).
           required: false
           type: string
       responses:
         200:
           description: Product objects.
           schema:
-            $ref: '#/definitions/ProductReturn'
+            $ref: '#/definitions/ProductReturnSimple'
         default:
           description: Unexpected error
           schema:
@@ -876,8 +945,8 @@ paths:
     get:
       tags:
         - Product
-      summary: Get product details
-      description: Get information for a single product (pointcloud or raster).
+      summary: Get product by PK
+      description: Get information for one or more products.
       parameters:
         - name: pk
           in: path
@@ -886,7 +955,7 @@ paths:
           type: integer
       responses:
         200:
-          description: A product (pointcloud or raster) object.
+          description: A product (pointcloud, raster, vector, or mesh) object.
           schema:
             $ref: '#/definitions/ProductReturn'
         default:
@@ -899,7 +968,7 @@ paths:
       tags:
         - Product
       summary: Get product details
-      description: Get information for a single product (pointcloud or raster).
+      description: Get information for a single product (pointcloud, raster).
       parameters:
         - name: pk
           in: path
@@ -919,7 +988,7 @@ paths:
     get:
       tags:
         - Geoname
-      summary: Lookup Geoname
+      summary: Lookup geoname by geom
       description: |
         Get suggested AOI name based on geographic coordinates of the geometry.
       parameters:
@@ -942,7 +1011,7 @@ paths:
       deprecated: true
       tags:
         - Geoname
-      summary: Lookup Geoname
+      summary: Lookup eoname
       description: |
         Get suggested AOI name based on geographic coordinates of the geometry.
       parameters:
@@ -971,17 +1040,17 @@ paths:
     get:
       tags:
         - Task
-      summary: Get tasks
-      description: Get list of all tasks, filtered by state or name.
+      summary: Get all tasks
+      description: Get all of your tasks. Results can be filtered by state or name.
       parameters:
         - name: state
           in: query
-          description: The state of the task (e.g., `SUCCESS`, `QUEUED`, `FAILED`).
+          description: The state of the task (SUCCESS, RUNNING, QUEUED, CANCELED, or FAILURE).
           required: false
           type: string
         - name: name
           in: query
-          description: The name of the task (e.g., `export.tasks.generate_export`).
+          description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
           required: false
           type: string
       responses:
@@ -997,8 +1066,8 @@ paths:
     get:
       tags:
         - Task
-      summary: Get task details
-      description: Get task status/details for the provided `task_id`.
+      summary: Get task by task_id
+      description: Get information for one or more tasks.
       parameters:
         - name: task_id
           in: path
@@ -1020,7 +1089,7 @@ paths:
       tags:
         - Task
       summary: Get task details
-      description: Get task status/details for the provided `task_id`.
+      description: Get task status/details for the provided task_id.
       parameters:
         - name: task_id
           in: path
@@ -1040,8 +1109,8 @@ paths:
     get:
       tags:
         - Hook
-      summary: Get hooks
-      description: Get list of all hooks.
+      summary: Get all hooks
+      description: Get all of your hooks.
       responses:
         200:
           description: Hook objects.
@@ -1050,15 +1119,19 @@ paths:
     post:
       tags:
         - Hook
-      summary: Add Hook
+      summary: Create hook
       consumes:
         - application/json
       description: |
-        Create a new Hook for the given event and target.
+        Create a new hook. Hooks are new to v3 of the API and allow for users to subscribe to particular GRiD events and be notified when they occur.
+        Currently supported events are: newdata.loaded and export.complete. The newdata.loaded event is triggered any time new pointcloud, raster, vector, or mesh data
+        is ingested into GRiD and intersects one of your existing AOIs. The export.complete event is triggered any time one of your exports finishes, SUCCESS or FAILURE.
+        The scope of these notifications can be controlled by including an optional AOI parameter. Newdata and export notifications will be limited to the given AOI if supplied.
+        Hooks that fail to deliver will retry 5 times. Delivered hooks that receive a 410 or 500+ return response will be automatically deleted.
       parameters:
         - name: event
           in: formData
-          description: The event being subscribed to (e.g. export.complete, newdata.loaded)
+          description: The event being subscribed to (export.complete, newdata.loaded)
           required: true
           type: string
         - name: target
@@ -1066,6 +1139,11 @@ paths:
           description: The destination URL for payloads to be delivered to.
           required: true
           type: string
+        - name: aoi
+          in: formData
+          description: The pk of an AOI. Used to limit the scope of event notifications.
+          required: false
+          type: integer
       responses:
         200:
           description: A hook object.
@@ -1079,17 +1157,52 @@ paths:
     get:
       tags:
         - Hook
-      summary: Get hook details
-      description: Get hook /details for the provided `pk`.
+      summary: Get hook by PK
+      description: Get information for one or more hooks.
       parameters:
         - name: pk
           in: path
           description: A comma-separated list of hook primary keys.
           required: true
-          type: string
+          type: integer
       responses:
         200:
           description: A hook object.
+          schema:
+            $ref: '#/definitions/HookReturn'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    patch:
+      tags:
+        - Hook
+      summary: Edit hook by PK
+      description: Updates an hooks event, target, or AOI. While we can `GET` or `DELETE` multiple primary keys, the `PATCH` may only be applied to a single primary key.
+      parameters:
+        - name: pk
+          in: path
+          description: The primary key of the hook.
+          required: true
+          type: integer
+        - name: event
+          in: formData
+          description: The event being subscribed to (export.complete, newdata.loaded)
+          required: false
+          type: string
+        - name: target
+          in: formData
+          description: The destination URL for payloads to be delivered to.
+          required: false
+          type: string
+        - name: aoi
+          in: formData
+          description: The pk of an AOI. Used to limit the scope of event notifications.
+          required: false
+          type: integer
+      responses:
+        200:
+          description: Hook object.
           schema:
             $ref: '#/definitions/HookReturn'
         default:
@@ -1100,7 +1213,7 @@ paths:
       tags:
         - Hook
       summary: Delete hook
-      description: Deletes an existing hook.
+      description: Delete one or more existing hooks.
       parameters:
         - name: pk
           in: path
@@ -1110,6 +1223,27 @@ paths:
       responses:
         200:
           description: Successful hook deletion responds with an empty body.
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /hooks/{pk}/test:
+    post:
+      tags:
+        - Hook
+      summary: Test a hook by PK
+      description: Tests a hook by sending event-specific test data to the hooks target url.
+      consumes: 
+        - text/plain; charset=utf-8
+      parameters:
+        - name: pk
+          in: path
+          description: A comma-separated list of hook primary keys.
+          required: true
+          type: integer
+      responses:
+        200:
+          description: Successful hook test responds with an empty body.
         default:
           description: Unexpected error
           schema:
@@ -1125,8 +1259,9 @@ definitions:
       user:
         $ref: '#/definitions/User'
       geom:
-        type: string
-        description: The WKT geometry of the AOI.
+        $ref: '#/definitions/Geometry'
+      area:
+        $ref: '#/definitions/Area'
       notes:
         $ref: '#/definitions/Notes'
       pk:
@@ -1134,17 +1269,45 @@ definitions:
       exports:
         type: array
         items:
-          $ref: '#/definitions/ExportSimple'
+          $ref: '#/definitions/Export'
       pointcloud_intersects:
         type: array
         items:
           $ref: '#/definitions/PointcloudDatasetSimple'
-        description: The pointcloud products for the AOI.
+        description: The pointcloud products for the AOI. Includes AOI coverage.
       raster_intersects:
         type: array
         items:
           $ref: '#/definitions/RasterDatasetSimple'
-        description: The raster products for the AOI.
+        description: The raster products for the AOI. Includes AOI coverage.
+      vector_intersects:
+        type: array
+        items:
+          $ref: '#/definitions/VectorDatasetSimple'
+        description: The vector products for the AOI. Includes AOI coverage.
+      new_pointcloud_data:
+        type: array
+        items:
+          $ref: '#/definitions/Pk'
+        description: The list of pointcloud product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+      new_raster_data:
+        type: array
+        items:
+          $ref: '#/definitions/Pk'
+        description: The list of raster product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+      new_vector_data:
+        type: array
+        items:
+          $ref: '#/definitions/Pk'
+        description: The list of vector product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+      subscribed:
+        type: boolean
+        description: Indicates the subscription status for the AOI.
+  AOICoverage:
+    type: number
+    format: float
+    description: |
+      The percent of the object area covered by the AOI.
   AOIReturn:
     type: object
     properties:
@@ -1153,34 +1316,6 @@ definitions:
         items:
           $ref: '#/definitions/AOI'
         description: AOI.
-  AOISimple:
-    type: object
-    properties:
-      name:
-        $ref: '#/definitions/Name'
-      created_at:
-        $ref: '#/definitions/CreatedAt'
-      user:
-        $ref: '#/definitions/User'
-      geom:
-        type: string
-        description: The WKT geometry of the AOI.
-      notes:
-        $ref: '#/definitions/Notes'
-      pk:
-        $ref: '#/definitions/Pk'
-      exports:
-        type: array
-        items:
-          $ref: '#/definitions/ExportSimple'
-  AOISimpleReturn:
-    type: object
-    properties:
-      aois:
-        type: array
-        items:
-          $ref: '#/definitions/AOISimple'
-        description: A list of AOIs without product intersection information.
   Area:
     type: number
     format: float
@@ -1200,16 +1335,13 @@ definitions:
     type: string
     format: date-time
     description: The date of collection. ISO 8601 format as UTC.
-  PercentCoverage:
-    type: number
-    format: float
-    description: |
-      The percent of the product area covered by the AOI. Only available in AOI 
-      detail.
   CreatedAt:
     type: string
     format: date-time
     description: The date of AOI creation. ISO 8601 format as UTC.
+  CustomFilters:
+    type: string
+    description: Custom PDAL filters to use for pointcloud generation.
   Datatype:
     type: string
     description: The datatype (e.g., LAS 1.2, DTM).
@@ -1217,6 +1349,21 @@ definitions:
     type: boolean
     description: |
       Whether or not Classification dimension is included in exported data.
+  EntwineStarted:
+    type: object
+    properties:
+      export_id:
+        $ref: '#/definitions/Pk'
+      entwine_task_id:
+          $ref: '#/definitions/TaskID'
+  EntwineStartedReturn:
+    type: object
+    properties:
+      exports:
+        type: array
+        items:
+          $ref: '#/definitions/EntwineStarted'
+        description: Export ID and entwine task ID.
   Error:
     type: object
     properties:
@@ -1232,6 +1379,8 @@ definitions:
         $ref: '#/definitions/User'
       hsrs:
         $ref: '#/definitions/HSRS'
+      vsrs:
+        $ref: '#/definitions/VSRS'
       name:
         $ref: '#/definitions/Name'
       pk:
@@ -1244,6 +1393,8 @@ definitions:
         $ref: '#/definitions/URL'
       rgb:
         $ref: '#/definitions/RGB'
+      export_type:
+        $ref: '#definitions/ExportType'
       intensity:
         $ref: '#/definitions/Intensity'
       dim_classification:
@@ -1252,26 +1403,40 @@ definitions:
         $ref: '#/definitions/FileExportOptions'
       generate_dem:
         $ref: '#/definitions/GenerateDEM'
+      send_email:
+        $ref: '#/definitions/SendEmail'
       cell_spacing:
         $ref: '#/definitions/CellSpacing'
       notes:
         $ref: '#/definitions/Notes'
       classification:
         $ref: '#/definitions/Classification'
-      pcl_terrain:
-        $ref: '#/definitions/PCLTerrain'
+      pmf_terrain:
+        $ref: '#/definitions/PMFTerrain'
+      smrf_terrain:
+        $ref: '#/definitions/SMRFTerrain'
       sri_hres:
         $ref: '#/definitions/SRIHRES'
       exportfiles:
         $ref: '#/definitions/ExportfilesReturn'
-      tdas:
-        $ref: '#/definitions/TDAReturn'
+      tools:
+        $ref: '#/definitions/ToolsReturn'
       task_id:
         $ref: '#/definitions/TaskID'
       capacity:
         $ref: '#/definitions/Capacity'
       length:
         $ref: '#/definitions/Length'
+      file_format_options:
+        $ref: '#definitions/FileFormatOptions'
+      vector_format:
+        $ref: '#definitions/VectorFormat'
+      custom_filters:
+        $ref: '#definitions/CustomFilters'
+      entwine_task_id:
+        $ref: '#/definitions/TaskID'
+      greyhound_url:
+        $ref: '#/definitions/GreyhoundURL'
   ExportReturn:
     type: object
     properties:
@@ -1291,40 +1456,15 @@ definitions:
         $ref: '#/definitions/Pk'
       url:
         $ref: '#/definitions/URL'
+      filesize:
+        $ref: '#definitions/Filesize'
+      aoi_coverage:
+        $ref: '#/definitions/AOICoverage'
   ExportfilesReturn:
     type: array
     items:
       $ref: '#/definitions/Exportfile'
     description: The export files of the export.
-  ExportSimple:
-    type: object
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      user:
-        $ref: '#/definitions/User'
-      hsrs:
-        $ref: '#/definitions/HSRS'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      started_at:
-        $ref: '#/definitions/StartedAt'
-      status:
-        $ref: '#/definitions/Status'
-      task_id:
-        $ref: '#/definitions/TaskID'
-      url:
-        $ref: '#/definitions/URL'
-  ExportSimpleReturn:
-    type: object
-    properties:
-      exports:
-        type: array
-        items:
-          $ref: '#/definitions/ExportSimple'
-        description: Simplified exports
   ExportStarted:
     type: object
     properties:
@@ -1340,10 +1480,16 @@ definitions:
         items:
           $ref: '#/definitions/ExportStarted'
         description: Export ID and task ID.
+  ExportType:
+    type: string
+    description: The base type of export (pointcloud, raster, vector).
   FileExportOptions:
     type: string
     description: |
-      The file export options used (e.g., individual, collect, super).
+      The file export options used (individual, collect, super).
+  FileFormatOptions:
+    type: string
+    description: The format of the output raster file(s).
   Filesize:
     type: integer
     description: The size of the product on the filesystem in bytes.
@@ -1362,7 +1508,7 @@ definitions:
   Geometry:
     type: string
     description: |
-      The WKT geometry of the product. Only available in product detail.
+      The WKT geometry of the object.
   Geoname:
     type: object
     properties:
@@ -1378,6 +1524,9 @@ definitions:
         items:
           $ref: '#/definitions/Geoname'
         description: A list of geonames.
+  GreyhoundURL:
+    type: string
+    description: The url of an export used to stream the Greyhound resource.
   Hook:
     type: object
     properties:
@@ -1388,6 +1537,9 @@ definitions:
         description: The version of the API used to create the hook and used for hook serialization.
       user:
         $ref: '#/definitions/User'
+      aoi:
+        type: integer
+        description: The pk of the AOI used to filter hook event notifications.
       created:
         type: string
         format: date-time
@@ -1397,7 +1549,7 @@ definitions:
         description: The destination url callback data is sent to.
       event:
         type: string
-        description: The event to be notified for (e.g., export.complete, newdata.loaded)
+        description: The event to be notified for (export.complete, newdata.loaded)
   HookReturn:
     type: object
     properties:
@@ -1407,7 +1559,7 @@ definitions:
           $ref: '#/definitions/Hook'
         description: A list of hooks.
   HSRS:
-    type: string
+    type: integer
     description: The horizontal spatial reference system EPSG code.
   Intensity:
     type: boolean
@@ -1417,19 +1569,7 @@ definitions:
     type: number
     format: float
     description: The length used to generate each file.
-  Name:
-    type: string
-    description: The name of the export.
-  Notes:
-    type: string
-    description: User notes.
-  PCLTerrain:
-    type: string
-    description: The PCL terrain option of the export.
-  Pk:
-    type: integer
-    description: The primary key of the object.
-  Product:
+  MeshProduct:
     type: object
     properties:
       datatype:
@@ -1444,35 +1584,56 @@ definitions:
         $ref: '#/definitions/CollectedAt'
       classification:
         $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
       filesize:
         $ref: '#/definitions/Filesize'
-      point_count:
-        type: integer
-        description: The total number of points in the product (pointcloud products only).
-      density:
-        type: number
-        format: float
-        description: The average point density of the product (pointcloud products only).
-      percent_coverage:
-        $ref: '#/definitions/PercentCoverage'
       geom:
         $ref: '#/definitions/Geometry'
-  ProductReturn:
+      streaming_url:
+        $ref: '#/definitions/StreamingURL'
+  MeshProductReturn:
     type: object
     properties:
-      products:
+      meshes:
         type: array
         items:
-          $ref: '#/definitions/Product'
-        description: A list of products.
+          $ref: '#/definitions/MeshProduct'
+        description: A list of mesh products.
+  MeshProductSimple:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      streaming_url:
+        $ref: '#/definitions/StreamingURL'
+  Name:
+    type: string
+    description: The name of the export.
+  Notes:
+    type: string
+    description: User notes.
+  PMFTerrain:
+    type: string
+    description: The PMF terrain option of the export.
+  Pk:
+    type: integer
+    description: The primary key of the object.
   PointcloudDatasetSimple:
     type: object
     description: |
-      The simplified point cloud product object lacks the geometry. This is only
-      calculated when point cloud products are queried via the 
-      `/product/{pk}` endpoint.
+      The simplified point cloud product object lacks the geometry. Geometries are only returned when point cloud products are queried via the 
+      `/products/{pk}` endpoint.
     properties:
       datatype:
         $ref: '#/definitions/Datatype'
@@ -1496,15 +1657,11 @@ definitions:
       density:
         type: number
         format: float
-        description: The average point density of the product.
-      percent_coverage:
-        $ref: '#/definitions/PercentCoverage'
-  RasterDatasetSimple:
+        description: The average point density of the product in sq meters.
+      aoi_coverage:
+        $ref: '#/definitions/AOICoverage'
+  PointcloudProduct:
     type: object
-    description: |
-      The simplified raster product object lacks the geometry. This is only
-      calculated when raster products are queried via the 
-      `/product/{pk}` endpoint.
     properties:
       datatype:
         $ref: '#/definitions/Datatype'
@@ -1522,17 +1679,197 @@ definitions:
         $ref: '#/definitions/Area'
       filesize:
         $ref: '#/definitions/Filesize'
-      percent_coverage:
-        $ref: '#/definitions/PercentCoverage'
+      point_count:
+        type: integer
+        description: The total number of points in the product.
+      density:
+        type: number
+        format: float
+        description: The average point density of the product in sq meters.
+      geom:
+        $ref: '#/definitions/Geometry'
+  PointcloudProductSimple:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      point_count:
+        type: integer
+        description: The total number of points in the product.
+      density:
+        type: number
+        format: float
+        description: The average point density of the product in sq meters.
+  Product:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      point_count:
+        type: integer
+        description: The total number of points in the product.
+      density:
+        type: number
+        format: float
+        description: The average point density of the product in sq meters.
+      geom:
+        $ref: '#/definitions/Geometry'
+  ProductReturn:
+    type: object
+    properties:
+      meshes:
+        type: array
+        items:
+          $ref: '#/definitions/MeshProduct'
+        description: A list of mesh products.
+      pointclouds:
+        type: array
+        items:
+          $ref: '#/definitions/PointcloudProduct'
+        description: A list of pointcloud products.
+      rasters:
+        type: array
+        items:
+          $ref: '#/definitions/RasterProduct'
+        description: A list of raster products.
+      vectors:
+        type: array
+        items:
+          $ref: '#/definitions/VectorProduct'
+        description: A list of vector products.
+  ProductReturnSimple:
+    type: object
+    properties:
+      meshes:
+        type: array
+        items:
+          $ref: '#/definitions/MeshProductSimple'
+        description: A list of vector products without a geometry.
+      pointclouds:
+        type: array
+        items:
+          $ref: '#/definitions/PointcloudProductSimple'
+        description: A list of pointcloud products without a geometry.
+      rasters:
+        type: array
+        items:
+          $ref: '#/definitions/RasterProductSimple'
+        description: A list of raster products without a geometry.
+      vectors:
+        type: array
+        items:
+          $ref: '#/definitions/VectorProductSimple'
+        description: A list of vector products without a geometry.
+  RasterProduct:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      geom:
+        $ref: '#/definitions/Geometry'
+  RasterProductSimple:
+    type: object
+    description: |
+      The simplified raster product object lacks the geometry. Geometries are only returned when raster products are queried via the 
+      `/products/{pk}` endpoint.
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+  RasterDatasetSimple:
+    type: object
+    description: |
+      The simplified raster product object lacks the geometry. Geometries are only returned when raster products are queried via the 
+      `/products/{pk}` endpoint.
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      sensor:
+        $ref: '#/definitions/Sensor'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      aoi_coverage:
+        $ref: '#/definitions/AOICoverage'
   RGB:
     type: boolean
     description: Whether or not RGB dimension is included in exported data.
   SecurityClassification:
     type: string
     description: The security classification.
+  SendEmail:
+    type: boolean
+    description: Whether or not to send an email notification upon completion.
   Sensor:
     type: string
     description: The sensor used to make the collection.
+  SMRFTerrain:
+    type: string
+    description: The SMRF terrain option of the export.
   SRIHRES:
     type: number
     format: float
@@ -1543,20 +1880,23 @@ definitions:
     description: Time of creation for the AOI. ISO 8601 format as UTC.
   Status:
     type: string
-    description: The status of the export (e.g., SUCCESS, FAILED, QUEUED).
+    description: The status of the export (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
+  StreamingURL:
+    type: string
+    description: The URL of the object used to stream the data.
   Task:
     type: object
     properties:
       state:
         type: string
-        description: The state of the task (e.g., SUCCESS, FAILED, QUEUED).
+        description: The state of the task (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
       time_stamp:
         type: string
         format: date-time
         description: ISO 8601 format as UTC.
       name:
         type: string
-        description: The name of the task (e.g., export.tasks.generate_export).
+        description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
       task_id:
         type: string
         description: The ID of the task.
@@ -1570,7 +1910,7 @@ definitions:
   TaskID:
     type: string
     description: The ID of the associated task used for generation.
-  TDA:
+  Tool:
     type: object
     properties:
       created_at:
@@ -1583,19 +1923,88 @@ definitions:
         $ref: '#/definitions/Pk'
       status:
         $ref: '#/definitions/Status'
-      tda_type:
+      type:
         type: string
-        description: The TDA type (eg., HLZ, LOS).
+        description: The tool type (HLZ, LOS, FETE, SLOPE).
       url:
         $ref: '#/definitions/URL'
-  TDAReturn:
+      task_id:
+        $ref: '#/definitions/TaskID'
+  ToolsReturn:
     type: array
     items:
-      $ref: '#/definitions/TDA'
-    description: The TDA set of the export.
+      $ref: '#/definitions/Tool'
+    description: The tool set of the export.
   URL:
     type: string
-    description: The download URL of the export.
+    description: The download URL of the object.
   User:
+    type: string
+    description: The email address of the user that created the object.
+  VectorDatasetSimple:
+    type: object
+    description: |
+      The simplified vector product object lacks the geometry. Geometries are only returned when vector products are queried via the 
+      `/products/{pk}` endpoint.
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      aoi_coverage:
+        $ref: '#/definitions/AOICoverage'
+  VectorFormat:
+    type: string
+    description: The format of the output vector file(s).
+  VectorProduct:
+    type: object
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+      geom:
+        $ref: '#/definitions/Geometry'
+  VectorProductSimple:
+    type: object
+    description: |
+      The simplified vector product object lacks the geometry. Geometries are only returned when vector products are queried via the 
+      `/products/{pk}` endpoint.
+    properties:
+      datatype:
+        $ref: '#/definitions/Datatype'
+      name:
+        $ref: '#/definitions/Name'
+      pk:
+        $ref: '#/definitions/Pk'
+      collected_at:
+        $ref: '#/definitions/CollectedAt'
+      classification:
+        $ref: '#/definitions/SecurityClassification'
+      area:
+        $ref: '#/definitions/Area'
+      filesize:
+        $ref: '#/definitions/Filesize'
+  VSRS:
     type: integer
-    description: The ID of the creating user.
+    description: The vertical spatial reference system EPSG code.
