@@ -1,4 +1,3 @@
----
 swagger: '2.0'
 
 ################################################################################
@@ -10,12 +9,12 @@ info:
     This is the API v3 specification for the Geospatial Repository and 
     Data Management System (aka GRiD). Here you can see API examples and
     interact with all of the API endpoints visually in your browser. If you would
-    like to see the API in action, be sure to Authorize and then try the
+    like to see the API in action, use the
     "Try it out!" button for an endpoint. Note: you will be interacting with
     live data.
 
     Authentication using OAuth 2.0 - Authorization Code.
-  version: "3.0.0"
+  version: "3.0.2"
   contact:
     url: https://github.com/CRREL/GRiD-API/
 
@@ -39,6 +38,7 @@ security:
 basePath: {{ URL_ROOT }}api/v3
 consumes:
   - application/json
+  - application/x-www-form-urlencoded
 produces:
   - application/json
 tags:
@@ -54,6 +54,8 @@ tags:
     description: Task resources.
   - name: Hook
     description: Hook resources.
+  - name: Holding
+    description: Data Holding resources.
 
 ################################################################################
 # Paths
@@ -72,15 +74,59 @@ paths:
           description: A WKT geometry used to filter AOI results.
           required: false
           type: string
+        - name: intersections
+          in: query
+          description: |
+            Determines whether or not to include a list of products that intersect with the AOI geometry. This can
+            be time-consuming so setting this to False is recommended if product intersections aren't needed.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean
+        - name: intersection_types
+          in: query
+          description: |
+            A comma-separated list of product types to include in the product intersection check.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            All types are included by default.
+          required: false
+          type: string
+        - name: intersection_geoms
+          in: query
+          description: |
+            Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.
+            Product geometries can be complex, so setting this to False can greatly reduce the return size and
+            is recommended if the entire geometry is not needed.
+            Default value is False.
+          required: false
+          default: false
+          type: boolean
+        - name: export_full
+          in: query
+          description: |
+            Determines whether or not to include a list of export files that
+            belong to exports for the AOI.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean            
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid AOI sorting parameters: area, created_at, name, pk, user.
+          default: pk
+          required: false
+          type: string
       responses:
         200:
-          description: An array of AOIs.
+          description: All of a users AOIs.
           schema:
-            $ref: '#/definitions/AOIReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/AOIResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
     post:
       tags:
         - AOI
@@ -97,9 +143,14 @@ paths:
           type: string
         - name: geom
           in: formData
-          description: A WKT geometry describing the AOI.
+          description: A WKT geometry describing the AOI. Supports POLYGON and MULTIPOLYGON natively, POINT and LINESTRING with a buffer parameter.
           required: true
           type: string
+        - name: buffer
+          in: formData
+          description: A buffer radius in meters for POINT or LINESTRING geom WKTs.
+          required: false
+          type: float
         - name: notes
           in: formData
           description: The notes for the AOI.
@@ -112,15 +163,42 @@ paths:
           default: false
           required: false
           type: boolean
+        - name: intersections
+          in: formData
+          description: |
+            Determines whether or not to include a list of products that intersect with the AOI geometry. This can
+            be time-consuming so setting this to False is recommended if product intersections aren't needed.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean
+        - name: intersection_types
+          in: formData
+          description: |
+            A comma-separated list of product types to include in the product intersection check.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            All types are included by default.
+          required: false
+          type: string
+        - name: intersection_geoms
+          in: formData
+          description: |
+            Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.
+            Product geometries can be complex, so setting this to False can greatly reduce the return size and
+            is recommended if the entire geometry is not needed.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean
       responses:
         200:
-          description: An array containing the new AOI.
+          description: The new AOI.
           schema:
-            $ref: '#/definitions/AOIReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/AOIResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
   /aois/{pk}:
     get:
       tags:
@@ -134,15 +212,61 @@ paths:
           description: A comma-separated list of AOI primary keys.
           required: true
           type: integer
+        - name: intersections
+          in: query
+          description: |
+            Determines whether or not to include a list of products that intersect with the AOI geometry. This can
+            be time-consuming so setting this to False is recommended if product intersections aren't needed.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean
+        - name: intersection_types
+          in: query
+          description: |
+            A comma-separated list of product types to include in the product intersection check.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            All types are included by default.
+          required: false
+          type: string
+        - name: intersection_geoms
+          in: query
+          description: |
+            Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.
+            Product geometries can be complex, so setting this to False can greatly reduce the return size and
+            is recommended if the entire geometry is not needed.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean
+        - name: export_full
+          in: query
+          description: |
+            Determines whether or not to include a list of export files that
+            belong to exports for the AOI.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean      
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid AOI sorting parameters: area, created_at, name, pk, user.
+          default: pk
+          required: false
+          type: string
       responses:
         200:
           description: An array of AOIs.
           schema:
-            $ref: '#/definitions/AOIReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/AOIResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
     patch:
       tags:
         - AOI
@@ -178,13 +302,15 @@ paths:
           type: boolean
       responses:
         200:
-          description: An array containing the updated AOI.
+          description: The updated AOI.
           schema:
-            $ref: '#/definitions/AOIReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/AOIResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
     delete:
       tags:
         - AOI
@@ -199,367 +325,12 @@ paths:
       responses:
         200:
           description: Successful AOI deletion responds with an empty body.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: Get a User's AOI List
-      description: |
-        Get a list of the AOIs created by or shared with the current GRiD user.
-      parameters:
-        - name: geom
-          in: query
-          description: A WKT geometry used to filter AOI results.
-          required: false
-          type: string
-      responses:
-        200:
-          description: An array of AOIs.
-          schema:
-            $ref: '#/definitions/AOIReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi/add:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: Add AOI
-      description: |
-        Create a new AOI for the given geometry.
-      parameters:
-        - name: name
-          in: query
-          description: The name for the AOI.
-          required: true
-          type: string
-        - name: geom
-          in: query
-          description: A WKT geometry describing the AOI.
-          required: true
-          type: string
-        - name: subscribe
-          in: query
-          description: |
-            True, False, T, F, 1, or 0. Default value is false.
-          default: false
-          required: false
-          type: boolean
-      responses:
-        200:
-          description: An AOI object.
-          schema:
-            $ref: '#/definitions/AOI'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi/{pk}:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: AOI Detail
-      description: |
-        Get information for a single AOI.
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key for the AOI.
-          required: true
-          type: integer
-      responses:
-        200:
-          description: An AOI object.
-          schema:
-            $ref: '#/definitions/AOI'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi/edit/{pk}:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: Edit AOI
-      description: |
-        Update an AOIs name, notes, or geometry. In order to change an AOI's
-        geometry, it must contain 0 generated exports.
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key of the AOI.
-          required: true
-          type: integer
-        - name: name
-          in: query
-          description: The name for the AOI.
-          required: false
-          type: string
-        - name: geom
-          in: query
-          description: A WKT geometry describing the AOI.
-          required: false
-          type: string
-        - name: notes
-          in: query
-          description: The notes for the AOI.
-          required: false
-          type: string
-      responses:
-        200:
-          description: An AOI object.
-          schema:
-            $ref: '#/definitions/AOI'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi/delete/{pk}:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: Delete AOI
-      description: Delete an existing AOI.
-      parameters:
-        - name: pk
-          in: path
-          description: A comma-separated list of AOI primary keys.
-          required: true
-          type: integer
-      responses:
-        200:
-          description: Successful AOI deletion responds with an empty body.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi/{pk}/generate/pointcloud:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: Generate Pointcloud Export
-      description: |
-        Generate pointcloud export for the given AOI and collect primary keys.
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key for the AOI.
-          required: true
-          type: integer
-        - name: products
-          in: query
-          description: |
-            A list of product primary keys to include in the export, separated 
-            by + or ,.
-          required: true
-          type: string
-        - name: name
-          in: query
-          description: An optional name for the export.
-          required: false
-          type: string
-        - name: intensity
-          in: query
-          description: Whether or not to export intensity. Default is true.
-          default: true
-          required: false
-          type: boolean
-        - name: dim_classification
-          in: query
-          description: Whether or not to export classification. Default is true.
-          default: true
-          required: false
-          type: boolean
-        - name: hsrs
-          in: query
-          description: Accepts an EPSG code. Defaults to AOI SRS.
-          required: false
-          type: integer
-        - name: file_export_options
-          in: query
-          description: |
-            Determine file merging strategy. Accepts individual, collect, and super. 
-            Default is individual.
-          required: false
-          type: string
-        - name: file_export_format
-          in: query
-          description: |
-            Determine the format of the output file. Valid values are las12, 
-            las14, nitf, pdf, and bpf3. Default is las12.
-          required: false
-          type: string
-        - name: compressed
-          in: query
-          description: |
-            Whether or not to export compressed data. Default is true.
-          default: true
-          required: false
-          type: boolean
-        - name: send_email
-          in: query
-          description: |
-            Whether or not to notify user via email upon completion. Default is 
-            false.
-          default: false
-          required: false
-          type: boolean
-        - name: generate_dem
-          in: query
-          description: |
-            Whether or not to generate a DEM from the pointcloud. Default is 
-            false.
-          default: false
-          required: false
-          type: boolean
-        - name: cell_spacing
-          in: query
-          description: |
-            Used together with generate_dem. Default is 1.0. Ignored for 
-            raster types.
-          required: false
-          type: number
-          format: float
-        - name: smrf_terrain
-          in: query
-          description: |
-            Used to trigger a SMRF Bare Earth export. Accepts default, urban or suburban, 
-            mountainous, and foliated. Default is None. Cannot be used with 
-            sri_hres or pmf_terrain options.
-          required: false
-          type: string
-        - name: pmf_terrain
-          in: query
-          description: |
-            Used to trigger a PMF Bare Earth export. Accepts urban, suburban, 
-            mountainous, and foliated. Default is none. Cannot be used with 
-            smrf_terrain or sri_hres options.
-          required: false
-          type: string
-        - name: sri_hres
-          in: query
-          description: |
-            Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal 
-            resolution. Default is none. Cannot be used with smrf_terrain or pmf_terrain options.
-          required: false
-          type: number
-          format: float
-        - name: decimation_radius
-          in: query
-          description: |
-            The minimum distance between points. If a neighboring point is
-            found within this radius, it will be discarded. Uses PDAL
-            decimation filter. Default is none.
-          required: false
-          type: number
-          format: float
-        - name: capacity
-          in: query
-          description: |
-            How many points to fit into each tile. The number of points in each 
-            tile will not exceed this value, and will sometimes be less than 
-            it. Uses PDAL chipper filter. Cannot be used with retile_area 
-            option. Default is none.
-          required: false
-          type: integer
-        - name: length
-          in: query
-          description: |
-            The target length of generated tiles. Units determined by source 
-            data. Uses PDAL splitter filter. Cannot be used with retile_size 
-            option. Default is none.
-          required: false
-          type: number
-          format: float
-      responses:
-        200:
-          description: A generate export object.
-          schema:
-            $ref: '#/definitions/GenerateExport'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /aoi/{pk}/generate/raster:
-    get:
-      deprecated: true
-      tags:
-        - AOI
-      summary: Generate Raster Export
-      description: |
-        Generate raster export for the given AOI and collect primary keys.
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key for the AOI.
-          required: true
-          type: integer
-        - name: products
-          in: query
-          description: |
-            A list of product primary keys to include in the export, separated 
-            by + or ,.
-          required: true
-          type: string
-        - name: name
-          in: query
-          description: An optional name for the export.
-          required: false
-          type: string
-        - name: hsrs
-          in: query
-          description: Accepts an EPSG code. Defaults to AOI SRS.
-          required: false
-          type: integer
-        - name: file_export_options
-          in: query
-          description: |
-            Determine file merging strategy. Accepts individual and collect. 
-            Default is individual.
-          required: false
-          type: string
-        - name: file_format_options
-          in: query
-          description: |
-            Determine the format of the output file. Valid values are GTiff and 
-            NITF. Default is GTiff.
-          required: false
-          type: string
-        - name: compressed
-          in: query
-          description: |
-            Whether or not to export compressed data. Default is true.
-          default: true
-          required: false
-          type: boolean
-        - name: send_email
-          in: query
-          description: |
-            Whether or not to notify user via email upon completion. Default is 
-            false.
-          default: false
-          required: false
-          type: boolean
-      responses:
-        200:
-          description: A generate export object.
-          schema:
-            $ref: '#/definitions/GenerateExport'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
   /exports:
     post:
       tags:
@@ -599,7 +370,7 @@ paths:
         - name: file_export_options
           in: formData
           description: |
-            Pointcloud and Raster export option. Determine file merging strategy. Accepts individual and collect. 
+            Pointcloud and Raster export option. Determine file merging strategy. Both export types accept individual and collect. 
             Default is individual.
           required: false
           type: string
@@ -615,21 +386,11 @@ paths:
             Whether or not to notify user via email upon completion. Defaults to False.
           required: false
           type: boolean
-        - name: intensity
-          in: formData
-          description: Pointcloud export option. Whether or not to export intensity. Defaults to True.
-          required: false
-          type: boolean
-        - name: dim_classification
-          in: formData
-          description: Pointcloud export option. Whether or not to export classification. Defaults to True.
-          required: false
-          type: boolean
         - name: file_export_format
           in: formData
           description: |
             Pointcloud export option. Determine the format of the output file(s). Valid values are las12, 
-            las14, nitf, pdf, and bpf3. Defaults to las12.
+            las14, nitf, pdf, bpf3, and source. Defaults to las12.
           required: false
           type: string
         - name: clipping
@@ -667,7 +428,7 @@ paths:
           description: |
             Pointcloud export option. Used to trigger a SMRF Bare Earth export. Accepts default, urban or suburban,
             mountainous, and foliated. Default is None. Cannot be used with
-            pmf_terrain or sri_hres options.
+            pmf_terrain option.
           required: false
           type: string
         - name: pmf_terrain
@@ -675,12 +436,12 @@ paths:
           description: |
             Pointcloud export option. Used to trigger a PMF Bare Earth export. Accepts urban, suburban,
             mountainous, and foliated. Default is none. Cannot be used with
-            sri_hres option.
+            smrf_terrain option.
           type: string
         - name: sri_hres
           in: formData
           description: |
-            Pointcloud export option. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal
+            Deprecated Pointcloud export option. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal
             resolution. Default is none. Cannot be used with smrf_terrain or pmf_terrain options.
           required: false
           type: number
@@ -688,8 +449,8 @@ paths:
         - name: decimation_radius
           in: formData
           description: |
-            Pointcloud export option. The minimum distance between points. If a neighboring point is
-            found within this radius, it will be discarded. Uses PDAL
+            Pointcloud export option. The minimum distance between points.  If a neighboring point is
+            found within this radius, it will be discarded.  Units in meters. Uses PDAL
             decimation filter. Default is none.
           required: false
           type: number
@@ -699,15 +460,14 @@ paths:
           description: |
             Pointcloud export option. How many points to fit into each tile. The number of points in each 
             tile will not exceed this value, and will sometimes be less than 
-            it. Uses PDAL chipper filter. Cannot be used with retile_area 
+            it. Uses PDAL chipper filter. Cannot be used with length 
             option. Default is none.
           required: false
           type: integer
         - name: length
           in: formData
           description: |
-            Pointcloud export option. The target length of generated tiles. Units determined by source 
-            data. Uses PDAL splitter filter. Cannot be used with retile_size 
+            Pointcloud export option. The target length of generated tiles. Units in meters. Uses PDAL splitter filter. Cannot be used with capacity
             option. Default is none.
           required: false
           type: number
@@ -715,33 +475,112 @@ paths:
         - name: file_format_options
           in: formData
           description: |
-            Raster export option.  Determine the format of the output file(s). Valid values are GTiff and 
-            NITF. Defaults to GTiff.
+            Raster export option.  Determine the format of the output file(s). Valid values are GTiff, NITF, and source. Defaults to GTiff.
           required: false
           type: string
         - name: target_resolution
           in: formData
           description: |
-            Raster export option.  Determine the raster cell size (in output projection units). Defaults to None which uses the source resolution size.
+            Raster export option.  Determine the raster cell size (in meters). Defaults to None which uses the source resolution size.
           required: false
           type: number
           format: float
         - name: vector_format
           in: formData
           description: |
-            Vector export option. Accepts officially supported vector formats. Valid values are ESRI Shapefile, GML, GPKG, LIBKML, GeoJSON, and SQLite. 
+            Vector export option. Accepts officially supported vector formats. Valid values are ESRI Shapefile, GML, GPKG, KMZ, GeoJSON, and SQLite. 
             Defaults to ESRI Shapefile.
           required: false
           type: string
+        # - name: afe_selection
+        #   in: formData
+        #   required: false
+        #   description: |
+        #     Automated Feature Extraction selection. Accepts a number of different algorithm names, some with the option to include Tree output. Algorithm name
+        #     ends in semicolon (;) which is the separator for whether Tree / Vegetaion output is requested.
+        #   type: string
+        #   enum: [texpert_1.2.12;, ara_mrf;, ara_mrf;trees, ara;, ara;trees, psu;, texpert_3.0.14;, texpert_3.0.14;trees]
+        - name: derived_rasters
+          in: formData
+          required: false
+          description: |
+            Raster Export Option - Elevation only. Generate Derived Rasters, eg alternative representations of the Elevation data. Accepts a number of different derived outputs
+          type: string
+          enum: [Hillshade, Shaded Relief, Shaded Slope, Slope, Aspect]
+        - name: modsim_export_type
+          in: formData
+          description: |
+            Modsim export option. Valid values are cdb_to_geoint, tak, and 3d_runtime.
+            Defaults to tak
+          required: false
+          type: string
+          enum: [cdb_to_geoint, tak, 3d_runtime]
+        - name: tak_format
+          in: formData
+          description: |
+            Modsim export option. Only applies if modsim_export_type is tak.
+            Specifies which type of TAK format will be produced.
+            Valid values are OBJ_ATAK and OBJ_VTAK. Defaults to OBJ_ATAK.
+          required: false
+          type: string
+          enum: [OBJ_ATAK, OBJ_VTAK]
+        - name: runtime_engine
+          in: formData
+          description: |
+            Modsim export option. Only applies if modsim_export_type is 3d_runtime.
+            Specifies which type of 3D runtime format will be produced.
+            Valid values are CDB, VBS3, OBJ_SIMBLOCKS, OBJ_NEARMAP, OBJ_SOFPREP, OBJ_OWT, FBX_UNREAL, CESIUM_FG3D_NO_LOD, CESIUM_VRICON_LOD, and I3S. 
+            Defaults to CDB.
+          required: false
+          type: string
+          enum: [CDB, VBS3, OBJ_SIMBLOCKS, OBJ_NEARMAP, OBJ_SOFPREP, OBJ_OWT, FBX_UNREAL, CESIUM_FG3D_NO_LOD, CESIUM_VRICON_LOD, I3S]
+        - name: geoint_imagery
+          in: formData
+          description: |
+            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+            Specifies which format to export any CDB imagery content present.
+            Valid values are tif, gpkg, img.
+            If not specified, no imagery will be exported.
+          required: false
+          type: string
+          enum: [tif, gpkg, img]
+        - name: geoint_elevation
+          in: formData
+          description: |
+            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+            Specifies which format to export any CDB elevation content present.
+            Valid values are tif, gpkg, dted.
+            If not specified, no elevation data will be exported.
+          required: false
+          type: string
+          enum: [tif, gpkg, dted]
+        - name: geoint_vectors
+          in: formData
+          description: |
+            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+            Specifies which format to export any CDB vector content present.
+            Valid values are shp, gpkg, kml, gdb.
+            If not specified, no vector data will be exported.
+          required: false
+          type: string
+          enum: [shp, gpkg, kml, gdb]
+        - name: geoint_models
+          in: formData
+          description: |
+            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+            Specifies which format to export any CDB model content present.
+            Valid values are flt, dae, kmz, glb, fbx, obj.
+            If not specified, no model data will be exported.
+          required: false
+          type: string
+          enum: [flt, dae, kmz, glb, fbx, obj]
       responses:
         200:
           description: Started export object.
           schema:
-            $ref: '#/definitions/ExportStartedReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ExportStartedResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
   /exports/{pk}:
     get:
       tags:
@@ -754,15 +593,37 @@ paths:
           description: A comma-separated list of export primary keys.
           required: true
           type: integer
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Export sorting parameters: name, pk, started_at, user.
+          default: pk
+          required: false
+          type: string
+        - name: file_geoms
+          in: query
+          description:  |
+            Determines whether or not to include the geometry of each export file generated by this Export.
+            Geometries can be verbose, so keeping this set to False can greatly reduce the return size and
+            is recommended if the geometries are not needed.
+            Default value is False.
+          default: false
+          required: false
+          type: boolean
       responses:
         200:
           description: Export objects.
           schema:
-            $ref: '#/definitions/ExportReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ExportResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
+        403:
+          $ref: '#/responses/ForbiddenResponse'
     patch:
       tags:
         - Export
@@ -788,11 +649,15 @@ paths:
         200:
           description: Export object.
           schema:
-            $ref: '#/definitions/ExportReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ExportResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        403:
+          $ref: '#/responses/ForbiddenResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
     delete:
       tags:
         - Export
@@ -807,10 +672,10 @@ paths:
       responses:
         200:
           description: Successful export deletion responds with an empty body.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        403:
+          $ref: '#/responses/ForbiddenResponse'
   /exports/{pk}/index:
     post:
       tags:
@@ -829,85 +694,64 @@ paths:
         200:
           description: Export objects.
           schema:
-            $ref: '#/definitions/EntwineStartedReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /export/{pk}:
+            $ref: '#/definitions/EntwineStartedResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        403:
+          $ref: '#/responses/ForbiddenResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
+  /holdings:
     get:
-      deprecated: true
       tags:
-        - Export
-      summary: Get export details.
-      description: Get information for a single export.
+        - Holding
+      summary: Get data holdings
+      description: |
+        Provides a high level overview of GRiD's data holdings.
       parameters:
-        - name: pk
-          in: path
-          description: The primary key of the AOI.
-          required: true
-          type: integer
-      responses:
-        200:
-          description: An export object.
-          schema:
-            $ref: '#/definitions/Export'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /export/edit/{pk}:
-    get:
-      deprecated: true
-      tags:
-        - Export
-      summary: Edit export
-      description: Updates an exports name or notes.
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key of the export.
-          required: true
-          type: integer
-        - name: name
+        - name: geom
           in: query
-          description: The name for the export.
+          description: A WKT geometry used to filter Holdings results.
           required: false
           type: string
-        - name: notes
+        - name: geoms
           in: query
-          description: The notes for the export.
+          description: |
+            Determines whether or not to include the full coverage geometry WKT with the return.
+            Product geometries can be complex, so setting this to False can greatly reduce the return size and
+            is recommended if the geometry is not needed.
+          required: false
+          type: boolean
+          default: true
+        - name: program
+          in: query
+          description: |
+            A comma-separated list of program names used to filter the results.
+          required: false
+          type: string
+        - name: access_tag
+          in: query
+          description: |
+            A comma-separated list of access permision names used to filter the results.
+          required: false
+          type: string
+        - name: datatype
+          in: query
+          description: |
+            A comma-separated list of datatypes used to filter the results.
           required: false
           type: string
       responses:
         200:
-          description: An export object.
+          description: Holdings objects.
           schema:
-            $ref: '#/definitions/Export'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /export/delete/{pk}:
-    get:
-      deprecated: true
-      tags:
-        - Export
-      summary: Delete export
-      description: Deletes an existing export.
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key of the export.
-          required: true
-          type: integer
-      responses:
-        200:
-          description: Successful export deletion responds with an empty body.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/DataHoldingResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
   /products:
     get:
       tags:
@@ -919,28 +763,66 @@ paths:
       parameters:
         - name: geom
           in: query
-          description: A WKT geometry describing the AOI.
+          description: A WKT geometry used to discover the Product results that intersect the given geometry.
           required: true
           type: string
+        - name: geoms
+          in: query
+          description: |
+            Determines whether or not to include full product geometries with the return.
+            Product geometries can be complex, so setting this to False can greatly reduce the return size and
+            is recommended if the entire geometry is not needed.
+          required: false
+          default: false
+          type: boolean
         - name: sensor
           in: query
-          description: Limit results to products from a particular sensor.
+          description: A comma-separated list of sensor names used to filter the results.
+          required: false
+          type: string
+        - name: datatype
+          in: query
+          description: |
+            A comma-separated list of datatypes used to filter the results.
+          required: false
+          type: string
+        - name: program
+          in: query
+          description: |
+            A comma-separated list of program names used to filter the results.
+          required: false
+          type: string
+        - name: access_tag
+          in: query
+          description: |
+            A comma-separated list of access permission names used to filter the results.
           required: false
           type: string
         - name: type
           in: query
-          description: Limit results to products of a particular type (pointcloud, raster, vector, mesh).
+          description: |
+            A comma-separated list of product types to include in the product intersection check.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            All types are included by default.
+          required: false
+          type: string
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Product sorting parameters: collected_at, name, pk.
+          default: pk
           required: false
           type: string
       responses:
         200:
           description: Product objects.
           schema:
-            $ref: '#/definitions/ProductReturnSimple'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ProductResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
   /products/{pk}:
     get:
       tags:
@@ -953,37 +835,35 @@ paths:
           description: A comma-separated list of product primary keys.
           required: true
           type: integer
+        - name: geoms
+          in: query
+          description: |
+            Determines whether or not to include the full product geometry with the return.
+            Product geometries can be complex, so setting this to False can greatly reduce the return size and
+            is recommended if the entire geometry is not needed.
+            Default value is True.
+          required: false
+          default: true
+          type: boolean
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Product sorting parameters: collected_at, name, pk.
+          default: pk
+          required: false
+          type: string
       responses:
         200:
           description: A product (pointcloud, raster, vector, or mesh) object.
           schema:
-            $ref: '#/definitions/ProductReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /product/{pk}:
-    get:
-      deprecated: true
-      tags:
-        - Product
-      summary: Get product details
-      description: Get information for a single product (pointcloud, raster).
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key of the product.
-          required: true
-          type: integer
-      responses:
-        200:
-          description: A product (pointcloud or raster) object.
-          schema:
-            $ref: '#/definitions/Product'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ProductResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
   /geonames:
     get:
       tags:
@@ -1001,41 +881,11 @@ paths:
         200:
           description: Geoname object.
           schema:
-            $ref: '#/definitions/GeonameReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /geoname:
-    get:
-      deprecated: true
-      tags:
-        - Geoname
-      summary: Lookup eoname
-      description: |
-        Get suggested AOI name based on geographic coordinates of the geometry.
-      parameters:
-        - name: geom
-          in: query
-          description: A WKT geometry describing the AOI.
-          required: true
-          type: string
-      responses:
-        200:
-          description: A geoname object.
-          schema:
-            type: object
-            properties:
-              geom:
-                type: string
-                description: The WKT geometry describing the AOI.
-              name:
-                type: string
-                description: The suggested name for the given geometry.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/GeonameResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
   /tasks:
     get:
       tags:
@@ -1045,23 +895,31 @@ paths:
       parameters:
         - name: state
           in: query
-          description: The state of the task (SUCCESS, RUNNING, QUEUED, CANCELED, or FAILURE).
+          description: The state of the task (SUCCESS, RUNNING, QUEUED, CANCELED, or FAILURE). Accepts a comma-separated list.
           required: false
           type: string
         - name: name
           in: query
-          description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
+          description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf). Accepts a comma-separated list.
+          required: false
+          type: string
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Task sorting parameters: name, state, task_id, time_stamp.
+          default: task_id
           required: false
           type: string
       responses:
         200:
           description: Task objects.
           schema:
-            $ref: '#/definitions/TaskReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/TaskResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
   /tasks/{task_id}:
     get:
       tags:
@@ -1071,51 +929,52 @@ paths:
       parameters:
         - name: task_id
           in: path
-          description: The ID of the task.
+          description: A comma-separated list of task IDs.
           required: true
+          type: string
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Task sorting parameters: name, state, task_id, time_stamp.
+          default: task_id
+          required: false
           type: string
       responses:
         200:
           description: Task object.
           schema:
-            $ref: '#/definitions/TaskReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
-  /task/{task_id}:
-    get:
-      deprecated: true
-      tags:
-        - Task
-      summary: Get task details
-      description: Get task status/details for the provided task_id.
-      parameters:
-        - name: task_id
-          in: path
-          description: The ID of the task.
-          required: true
-          type: string
-      responses:
-        200:
-          description: A task object.
-          schema:
-            $ref: '#/definitions/Task'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/TaskResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
   /hooks:
     get:
       tags:
         - Hook
       summary: Get all hooks
       description: Get all of your hooks.
+      parameters:
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Hook sorting parameters: created_at, event, pk, target.
+          default: pk
+          required: false
+          type: string
       responses:
         200:
           description: Hook objects.
           schema:
-            $ref: '#/definitions/HookReturn'
+            $ref: '#/definitions/HookResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
     post:
       tags:
         - Hook
@@ -1148,11 +1007,11 @@ paths:
         200:
           description: A hook object.
           schema:
-            $ref: '#/definitions/HookReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/HookResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
   /hooks/{pk}:
     get:
       tags:
@@ -1165,15 +1024,25 @@ paths:
           description: A comma-separated list of hook primary keys.
           required: true
           type: integer
+        - name: sort
+          in: query
+          description: |
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Valid Hook sorting parameters: created_at, event, pk, target.
+          default: pk
+          required: false
+          type: string
       responses:
         200:
           description: A hook object.
           schema:
-            $ref: '#/definitions/HookReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/HookResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
     patch:
       tags:
         - Hook
@@ -1204,11 +1073,13 @@ paths:
         200:
           description: Hook object.
           schema:
-            $ref: '#/definitions/HookReturn'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/HookResponse'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
     delete:
       tags:
         - Hook
@@ -1223,10 +1094,12 @@ paths:
       responses:
         200:
           description: Successful hook deletion responds with an empty body.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
   /hooks/{pk}/test:
     post:
       tags:
@@ -1244,47 +1117,81 @@ paths:
       responses:
         200:
           description: Successful hook test responds with an empty body.
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/ErrorResponse'
+        401:
+          $ref: '#/responses/UnauthenticatedResponse'
+        404:
+          $ref: '#/responses/DoesNotExistResponse'
+responses:
+  DoesNotExistResponse:
+    description: Object with specified ID(s) does not exist.
+    schema:
+      $ref: "#/definitions/ErrorResponse"
+  UnauthenticatedResponse:
+    description: Authorization information is missing or invalid.
+    schema:
+      $ref: "#/definitions/ErrorResponse"
+  ForbiddenResponse:
+    description: User does not have permission to access this object.
+    schema:
+      $ref: "#/definitions/ErrorResponse"
+  ErrorResponse:
+    description: Unexpected error occurred.
+    schema:
+      $ref: "#/definitions/ErrorResponse"
 definitions:
   AOI:
     type: object
     properties:
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the AOI.
       created_at:
-        $ref: '#/definitions/CreatedAt'
+        type: string
+        format: date-time
+        description: The date of AOI creation. ISO 8601 format as UTC.
       user:
-        $ref: '#/definitions/User'
+        type: string
+        description: The email address of the user that created the object.
       geom:
-        $ref: '#/definitions/Geometry'
+        type: string
+        description: The WKT geometry of the object.
       area:
-        $ref: '#/definitions/Area'
+        type: number
+        format: float
+        description: The area of the geometry in sq_km.
       notes:
-        $ref: '#/definitions/Notes'
+        type: string
+        description: User notes about the object.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       exports:
         type: array
+        description: A list of Export objects for this AOI.
         items:
           $ref: '#/definitions/Export'
       pointcloud_intersects:
         type: array
         items:
-          $ref: '#/definitions/PointcloudDatasetSimple'
-        description: The pointcloud products for the AOI. Includes AOI coverage.
+          $ref: '#/definitions/PointcloudProduct'
+        description: The pointcloud products intersecting AOI.
       raster_intersects:
         type: array
         items:
-          $ref: '#/definitions/RasterDatasetSimple'
-        description: The raster products for the AOI. Includes AOI coverage.
+          $ref: '#/definitions/RasterProduct'
+        description: The raster products intersecting AOI.
       vector_intersects:
         type: array
         items:
-          $ref: '#/definitions/VectorDatasetSimple'
-        description: The vector products for the AOI. Includes AOI coverage.
+          $ref: '#/definitions/VectorProduct'
+        description: The vector products intersecting AOI.
+      mesh_intersects:
+        type: array
+        items:
+          $ref: '#/definitions/MeshProduct'
+        description: The mesh products intersecting AOI.
       new_pointcloud_data:
         type: array
         items:
@@ -1303,68 +1210,102 @@ definitions:
       subscribed:
         type: boolean
         description: Indicates the subscription status for the AOI.
-  AOICoverage:
-    type: number
-    format: float
-    description: |
-      The percent of the object area covered by the AOI.
-  AOIReturn:
+  AOIResponse:
     type: object
     properties:
       aois:
         type: array
+        description: A dictionary with an "aois" key containing an array of AOI objects.
         items:
           $ref: '#/definitions/AOI'
-        description: AOI.
-  Area:
-    type: number
-    format: float
-    description: The area of the geometry in sq_km.
-  Capacity:
-    type: number
-    format: float
-    description: The number of points used to generate each file.
-  CellSpacing:
-    type: number
-    format: float
-    description: The cell spacing used in DEM generation, if applicable.
-  Classification:
-    type: string
-    description: The classifications selected for the export.
-  CollectedAt:
-    type: string
-    format: date-time
-    description: The date of collection. ISO 8601 format as UTC.
-  CreatedAt:
-    type: string
-    format: date-time
-    description: The date of AOI creation. ISO 8601 format as UTC.
-  CustomFilters:
-    type: string
-    description: Custom PDAL filters to use for pointcloud generation.
-  Datatype:
-    type: string
-    description: The datatype (e.g., LAS 1.2, DTM).
-  DimClassification:
-    type: boolean
-    description: |
-      Whether or not Classification dimension is included in exported data.
+  AssociatedProductResponse:
+    type: object
+    properties:
+      pointclouds:
+        type: array
+        items:
+          $ref: '#/definitions/PointcloudProduct'
+        description: A list of associated pointcloud products.
+      rasters:
+        type: array
+        items:
+          $ref: '#/definitions/RasterProduct'
+        description: A list of associated raster products.
+      vectors:
+        type: array
+        items:
+          $ref: '#/definitions/VectorProduct'
+        description: A list of associated vector products.
+    description: Associated products are supporting products that should only be exported along with their parent product.
+  DataHolding:
+    type: object
+    properties:
+      program:
+        type: string
+        description: The name of the program that the data falls under.
+      program_description:
+        type: string
+        description: Information about the program and the data contained.
+      datatype:
+        type: string
+        description: Indicates the type of data contained for these holdings.
+      area:
+        type: number
+        format: float
+        description: The total area of the holdings coverage in sq_km.
+      access_tag:
+        type: string
+        description: The name of the Access Tag permission required to access this data.
+      latest_load:
+        type: string
+        format: date-time
+        description: Most recent date of data loaded. ISO 8601 format as UTC.
+      geom:
+        type: string
+        description: The WKT geometry of the coverage for these holdings. A WKT will only be present if the user has the necessary permissions to interact with this data.
+      coverage_download_urls:
+        type: array
+        items:
+          $ref: '#/definitions/Url'
+        description: A list of download urls containing the coverage shape of the data. Only returned if the user has the required permissions to access the data.
+      filesize:
+        type: integer
+        description: The total size on the filesystem in bytes.
+      file_count:
+        type: integer
+        description: The total number of files loaded on the filesystem.
+      point_count:
+        type: integer
+        description: Only applies to pointcloud datasets. The total number of points.
+      global_dataset:
+        type: boolean
+        description: Indicates whether or not the data coverage is global.
+  DataHoldingResponse:
+    type: object
+    properties:
+      holdings:
+        type: array
+        items:
+          $ref: '#/definitions/DataHolding'
+        description: A dictionary with a "holdings" key containing an array of DataHolding objects.
   EntwineStarted:
     type: object
     properties:
       export_id:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the export object.
       entwine_task_id:
-          $ref: '#/definitions/TaskID'
-  EntwineStartedReturn:
+        type: string
+        description: The task_id of the Entwine indexing task.
+  EntwineStartedResponse:
     type: object
     properties:
       exports:
         type: array
         items:
           $ref: '#/definitions/EntwineStarted'
-        description: Export ID and entwine task ID.
-  Error:
+        description: A dictionary with an "exports" key containing an array of EntwineStarted objects.
+  ErrorResponse:
     type: object
     properties:
       error:
@@ -1373,174 +1314,197 @@ definitions:
   Export:
     type: object
     properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      user:
-        $ref: '#/definitions/User'
-      hsrs:
-        $ref: '#/definitions/HSRS'
-      vsrs:
-        $ref: '#/definitions/VSRS'
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Export.
+      datatype:
+        type: string
+        description: The datatype(s) of exportfiles contained in the export.
+      user:
+        type: string
+        description: The email address of the user that created the object.
+      hsrs:
+        type: integer
+        description: The horizontal spatial reference system EPSG code.
+      vsrs:
+        type: integer
+        description: The vertical spatial reference system EPSG code.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       started_at:
-        $ref: '#/definitions/StartedAt'
+        type: string
+        format: date-time
+        description: Time of creation for the AOI. ISO 8601 format as UTC.
       status:
-        $ref: '#/definitions/Status'
+        type: string
+        description: The task status of the export generation (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
       url:
-        $ref: '#/definitions/URL'
+        type: string
+        description: The download URL of the Export object.
       rgb:
-        $ref: '#/definitions/RGB'
+        type: boolean
+        description: Whether or not RGB dimension is included in exported data.
       export_type:
-        $ref: '#definitions/ExportType'
+        type: string
+        description: The base type of export (pointcloud, raster, vector).
       intensity:
-        $ref: '#/definitions/Intensity'
+        type: boolean
+        description: Whether or not Intensity dimension is included in exported data.
       dim_classification:
-        $ref: '#/definitions/DimClassification'
+        type: boolean
+        description: Whether or not Classification dimension is included in exported data.
       file_export_options:
-        $ref: '#/definitions/FileExportOptions'
+        type: string
+        description: The file export options used (individual, collect).
       generate_dem:
-        $ref: '#/definitions/GenerateDEM'
+        type: boolean
+        description: Whether or not this was a generated DEM from pointcloud.
       send_email:
-        $ref: '#/definitions/SendEmail'
+        type: boolean
+        description: Whether or not to send an email notification upon completion.
       cell_spacing:
-        $ref: '#/definitions/CellSpacing'
+        type: number
+        format: float
+        description: The cell spacing used in DEM generation, if applicable.
       notes:
-        $ref: '#/definitions/Notes'
+        type: string
+        description: User notes about the object.
       classification:
-        $ref: '#/definitions/Classification'
+        type: string
+        description: The geospatial classifications selected for the export.
       pmf_terrain:
-        $ref: '#/definitions/PMFTerrain'
+        type: string
+        description: The PMF terrain option of the export.
       smrf_terrain:
-        $ref: '#/definitions/SMRFTerrain'
+        type: string
+        description: The SMRF terrain option of the export.
       sri_hres:
-        $ref: '#/definitions/SRIHRES'
+        type: number
+        format: float
+        description: The sri_hres value of the export. Deprecated option.
       exportfiles:
-        $ref: '#/definitions/ExportfilesReturn'
+        oneOf: 
+          - type: array
+            description: A list of Exportfile objects for this Export.
+            items:
+              $ref: '#/definitions/Exportfile'
+          - type: boolean
+            description: boolean indicating presence of Exportfile
       tools:
-        $ref: '#/definitions/ToolsReturn'
+        type: array
+        description: A list of Tool objects for this Export.
+        items:
+          $ref: '#/definitions/Tool'
       task_id:
-        $ref: '#/definitions/TaskID'
+        type: string
+        description: The task_id of the Export processing task.
       capacity:
-        $ref: '#/definitions/Capacity'
+        type: number
+        format: float
+        description: The number of points used to generate each file.
       length:
-        $ref: '#/definitions/Length'
+        type: number
+        format: float
+        description: The length in meters used to generate each file.
       file_format_options:
-        $ref: '#definitions/FileFormatOptions'
+        type: string
+        description: The format of the output raster file(s).
       vector_format:
-        $ref: '#definitions/VectorFormat'
+        type: string
+        description: The format of the output vector file(s).
       custom_filters:
-        $ref: '#definitions/CustomFilters'
+        type: string
+        description: Custom PDAL filters used for pointcloud generation.
       entwine_task_id:
-        $ref: '#/definitions/TaskID'
+        type: string
+        description: The task_id of the Entwine indexing task.
       greyhound_url:
-        $ref: '#/definitions/GreyhoundURL'
-  ExportReturn:
+        type: string
+        description: The url of an export used to stream the Greyhound resource.
+  ExportResponse:
     type: object
     properties:
       exports:
         type: array
         items:
           $ref: '#/definitions/Export'
-        description: Exports
+        description: A dictionary with an "exports" key containing an array of Export objects.
   Exportfile:
     type: object
     properties:
       datatype:
-        $ref: '#/definitions/Datatype'
+        type: string
+        description: The datatype of the exportfile.
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Exportfile.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       url:
-        $ref: '#/definitions/URL'
+        type: string
+        description: The download URL of the Exportfile object.
       filesize:
-        $ref: '#definitions/Filesize'
+        type: integer
+        description: The size of the product on the filesystem in bytes.
       aoi_coverage:
-        $ref: '#/definitions/AOICoverage'
-  ExportfilesReturn:
-    type: array
-    items:
-      $ref: '#/definitions/Exportfile'
-    description: The export files of the export.
+        type: number
+        format: float
+        description: The percent of the Exportfile area covered by the AOI.
+      geom:
+        type: string
+        description: The WKT geometry of this generated file. A WKT will only be present if the user has specifically requested them.
   ExportStarted:
     type: object
     properties:
       export_id:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the export object.
       task_id:
-          $ref: '#/definitions/TaskID'
-  ExportStartedReturn:
+        type: string
+        description: The task_id of the Export processing task.
+  ExportStartedResponse:
     type: object
     properties:
       exports:
         type: array
         items:
           $ref: '#/definitions/ExportStarted'
-        description: Export ID and task ID.
-  ExportType:
-    type: string
-    description: The base type of export (pointcloud, raster, vector).
-  FileExportOptions:
-    type: string
-    description: |
-      The file export options used (individual, collect, super).
-  FileFormatOptions:
-    type: string
-    description: The format of the output raster file(s).
-  Filesize:
-    type: integer
-    description: The size of the product on the filesystem in bytes.
-  GenerateDEM:
-    type: boolean
-    description: Whether or not this was a generated DEM from pointcloud.
-  GenerateExport:
-    type: object
-    properties:
-      name:
-        type: integer
-        description: The ID of the resulting export.
-      geom:
-        type: string
-        description: The ID of the task.
-  Geometry:
-    type: string
-    description: |
-      The WKT geometry of the object.
+        description: A dictionary with an "exports" key containing an array of ExportStarted objects.
   Geoname:
     type: object
     properties:
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the geolocation.
       geom:
-        $ref: '#/definitions/Geometry'
-  GeonameReturn:
+        type: string
+        description: The WKT geometry of the object.
+  GeonameResponse:
     type: object
     properties:
       geonames:
         type: array
         items:
           $ref: '#/definitions/Geoname'
-        description: A list of geonames.
-  GreyhoundURL:
-    type: string
-    description: The url of an export used to stream the Greyhound resource.
+        description: A dictionary with a "geonames" key containing an array of Geoname objects.
   Hook:
     type: object
     properties:
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       version:
         type: string
         description: The version of the API used to create the hook and used for hook serialization.
       user:
-        $ref: '#/definitions/User'
+        type: string
+        description: The email address of the user that created the object.
       aoi:
         type: integer
         description: The pk of the AOI used to filter hook event notifications.
-      created:
+      created_at:
         type: string
         format: date-time
         description: The date the hook was created.
@@ -1550,135 +1514,91 @@ definitions:
       event:
         type: string
         description: The event to be notified for (export.complete, newdata.loaded)
-  HookReturn:
+  HookResponse:
     type: object
     properties:
       hooks:
         type: array
         items:
           $ref: '#/definitions/Hook'
-        description: A list of hooks.
-  HSRS:
-    type: integer
-    description: The horizontal spatial reference system EPSG code.
-  Intensity:
-    type: boolean
-    description: |
-      Whether or not Intensity dimension is included in exported data.
-  Length:
-    type: number
-    format: float
-    description: The length used to generate each file.
+        description: A dictionary with an "hooks" key containing an array of Hook objects.
   MeshProduct:
     type: object
     properties:
       datatype:
-        $ref: '#/definitions/Datatype'
+        type: string
+        description: The datatype (e.g., 3D Tile, Collada, I3S).
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Product.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       sensor:
-        $ref: '#/definitions/Sensor'
+        type: string
+        description: The sensor used to make the collection.
       collected_at:
-        $ref: '#/definitions/CollectedAt'
+        type: string
+        format: date-time
+        description: The date of collection. ISO 8601 format as UTC.
       classification:
-        $ref: '#/definitions/SecurityClassification'
+        type: string
+        description: The security classification.
       filesize:
-        $ref: '#/definitions/Filesize'
+        type: integer
+        description: The size of the product on the filesystem in bytes.
       geom:
-        $ref: '#/definitions/Geometry'
+        type: string
+        description: The WKT geometry of the object.
       streaming_url:
-        $ref: '#/definitions/StreamingURL'
-  MeshProductReturn:
-    type: object
-    properties:
-      meshes:
+        type: string
+        description: The URL of the object used to stream the data.
+      program:
+        type: string
+        description: The name of the program that the product falls under.
+      access_tag:
+        type: string
+        description: The name of the access tag that this product is protected by.
+      file_paths:
         type: array
+        description: A list of all the file paths of the tiles within this product (clipped by geometry if applicable).
         items:
-          $ref: '#/definitions/MeshProduct'
-        description: A list of mesh products.
-  MeshProductSimple:
-    type: object
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      sensor:
-        $ref: '#/definitions/Sensor'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      filesize:
-        $ref: '#/definitions/Filesize'
-      streaming_url:
-        $ref: '#/definitions/StreamingURL'
-  Name:
+          $ref: '#/definitions/Path'
+  Path:
     type: string
-    description: The name of the export.
-  Notes:
-    type: string
-    description: User notes.
-  PMFTerrain:
-    type: string
-    description: The PMF terrain option of the export.
+    description: The location of the file on the filesystem.
   Pk:
     type: integer
     description: The primary key of the object.
-  PointcloudDatasetSimple:
-    type: object
-    description: |
-      The simplified point cloud product object lacks the geometry. Geometries are only returned when point cloud products are queried via the 
-      `/products/{pk}` endpoint.
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      sensor:
-        $ref: '#/definitions/Sensor'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
-      point_count:
-        type: integer
-        description: The total number of points in the product.
-      density:
-        type: number
-        format: float
-        description: The average point density of the product in sq meters.
-      aoi_coverage:
-        $ref: '#/definitions/AOICoverage'
   PointcloudProduct:
     type: object
     properties:
       datatype:
-        $ref: '#/definitions/Datatype'
+        type: string
+        description: The datatype (e.g., LAS1.2, LAS1.4).
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Product.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       sensor:
-        $ref: '#/definitions/Sensor'
+        type: string
+        description: The sensor used to make the collection.
       collected_at:
-        $ref: '#/definitions/CollectedAt'
+        type: string
+        format: date-time
+        description: The date of collection. ISO 8601 format as UTC.
       classification:
-        $ref: '#/definitions/SecurityClassification'
+        type: string
+        description: The security classification.
       area:
-        $ref: '#/definitions/Area'
+        type: number
+        format: float
+        description: The area of the geometry in sq_km.
       filesize:
-        $ref: '#/definitions/Filesize'
+        type: integer
+        description: The size of the product on the filesystem in bytes.
       point_count:
         type: integer
         description: The total number of points in the product.
@@ -1687,69 +1607,39 @@ definitions:
         format: float
         description: The average point density of the product in sq meters.
       geom:
-        $ref: '#/definitions/Geometry'
-  PointcloudProductSimple:
-    type: object
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      sensor:
-        $ref: '#/definitions/Sensor'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
-      point_count:
-        type: integer
-        description: The total number of points in the product.
-      density:
+        type: string
+        description: The WKT geometry of the object.
+      aoi_coverage:
         type: number
         format: float
-        description: The average point density of the product in sq meters.
-  Product:
-    type: object
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      sensor:
-        $ref: '#/definitions/Sensor'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
-      point_count:
-        type: integer
-        description: The total number of points in the product.
-      density:
-        type: number
-        format: float
-        description: The average point density of the product in sq meters.
-      geom:
-        $ref: '#/definitions/Geometry'
-  ProductReturn:
-    type: object
-    properties:
-      meshes:
+        description: The percent of the Product area covered by the AOI or passed in geometry respectively.
+      parent_product_pks:
         type: array
+        description: Having this field populated with parent product PK(s) indicates this is an associated supporting product. Associated products should only be exported with their parent product included.
         items:
-          $ref: '#/definitions/MeshProduct'
-        description: A list of mesh products.
+          $ref: '#/definitions/Pk'
+      associated_products:
+        description: Associated products are supporting products that should only be exported along with their parent product.
+        $ref: '#/definitions/AssociatedProductResponse'
+      program:
+        type: string
+        description: The name of the program that the product falls under.
+      access_tag:
+        type: string
+        description: The name of the access tag that this product is protected by.
+      file_paths:
+        type: array
+        description: A list of all the file paths of the tiles within this product (clipped by geometry if applicable).
+        items:
+          $ref: '#/definitions/Path'
+      srs:
+        type: array
+        description: A list of all the spatial reference systems that apply to the tiles within this product (clipped by geometry if applicable).
+        items:
+          $ref: '#/definitions/Srs'
+  ProductResponse:
+    type: object
+    properties:
       pointclouds:
         type: array
         items:
@@ -1765,125 +1655,78 @@ definitions:
         items:
           $ref: '#/definitions/VectorProduct'
         description: A list of vector products.
-  ProductReturnSimple:
-    type: object
-    properties:
       meshes:
         type: array
         items:
-          $ref: '#/definitions/MeshProductSimple'
-        description: A list of vector products without a geometry.
-      pointclouds:
-        type: array
-        items:
-          $ref: '#/definitions/PointcloudProductSimple'
-        description: A list of pointcloud products without a geometry.
-      rasters:
-        type: array
-        items:
-          $ref: '#/definitions/RasterProductSimple'
-        description: A list of raster products without a geometry.
-      vectors:
-        type: array
-        items:
-          $ref: '#/definitions/VectorProductSimple'
-        description: A list of vector products without a geometry.
+          $ref: '#/definitions/MeshProduct'
+        description: A list of mesh products.
   RasterProduct:
     type: object
     properties:
       datatype:
-        $ref: '#/definitions/Datatype'
+        type: string
+        description: The datatype (e.g., DSM, DTM).
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Product.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       sensor:
-        $ref: '#/definitions/Sensor'
+        type: string
+        description: The sensor used to make the collection.
       collected_at:
-        $ref: '#/definitions/CollectedAt'
+        type: string
+        format: date-time
+        description: The date of collection. ISO 8601 format as UTC.
       classification:
-        $ref: '#/definitions/SecurityClassification'
+        type: string
+        description: The security classification.
       area:
-        $ref: '#/definitions/Area'
+        type: number
+        format: float
+        description: The area of the geometry in sq_km.
       filesize:
-        $ref: '#/definitions/Filesize'
+        type: integer
+        description: The size of the product on the filesystem in bytes.
       geom:
-        $ref: '#/definitions/Geometry'
-  RasterProductSimple:
-    type: object
-    description: |
-      The simplified raster product object lacks the geometry. Geometries are only returned when raster products are queried via the 
-      `/products/{pk}` endpoint.
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      sensor:
-        $ref: '#/definitions/Sensor'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
-  RasterDatasetSimple:
-    type: object
-    description: |
-      The simplified raster product object lacks the geometry. Geometries are only returned when raster products are queried via the 
-      `/products/{pk}` endpoint.
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      sensor:
-        $ref: '#/definitions/Sensor'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
+        type: string
+        description: The WKT geometry of the object.
+      cell_size:
+        type: number
+        format: float
+        description: The average cell size of the product.
       aoi_coverage:
-        $ref: '#/definitions/AOICoverage'
-  RGB:
-    type: boolean
-    description: Whether or not RGB dimension is included in exported data.
-  SecurityClassification:
+        type: number
+        format: float
+        description: The percent of the Product area covered by the AOI or passed in geometry respectively.
+      parent_product_pks:
+        type: array
+        description: Having this field populated with parent product PK(s) indicates this is an associated supporting product. Associated products should only be exported with their parent product included.
+        items:
+          $ref: '#/definitions/Pk'
+      associated_products:
+        description: Associated products are supporting products that should only be exported along with their parent product.
+        $ref: '#/definitions/AssociatedProductResponse'
+      program:
+        type: string
+        description: The name of the program that the product falls under.
+      access_tag:
+        type: string
+        description: The name of the access tag that this product is protected by.
+      file_paths:
+        type: array
+        description: A list of all the file paths of the tiles within this product (clipped by geometry if applicable).
+        items:
+          $ref: '#/definitions/Path'
+      srs:
+        type: array
+        description: A list of all the spatial reference systems that apply to the tiles within this product (clipped by geometry if applicable).
+        items:
+          $ref: '#/definitions/Srs'
+  Srs:
     type: string
-    description: The security classification.
-  SendEmail:
-    type: boolean
-    description: Whether or not to send an email notification upon completion.
-  Sensor:
-    type: string
-    description: The sensor used to make the collection.
-  SMRFTerrain:
-    type: string
-    description: The SMRF terrain option of the export.
-  SRIHRES:
-    type: number
-    format: float
-    description: The sri_hres value of the export.
-  StartedAt:
-    type: string
-    format: date-time
-    description: Time of creation for the AOI. ISO 8601 format as UTC.
-  Status:
-    type: string
-    description: The status of the export (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
-  StreamingURL:
-    type: string
-    description: The URL of the object used to stream the data.
+    description: A spatial reference system (SRS) is a coordinate-based local, regional or global system used to locate geographical entities that defines a specific map projection, as well as transformations between different spatial reference systems.
   Task:
     type: object
     properties:
@@ -1893,118 +1736,106 @@ definitions:
       time_stamp:
         type: string
         format: date-time
-        description: ISO 8601 format as UTC.
+        description: Date and time the task was started. ISO 8601 format as UTC.
       name:
         type: string
         description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
       task_id:
         type: string
         description: The ID of the task.
-  TaskReturn:
+      object_id:
+        type: integer
+        description: The ID of the object the task is associated with.
+  TaskResponse:
     properties:
       tasks:
         type: array
         items:
           $ref: '#/definitions/Task'
-        description: A list of tasks.
-  TaskID:
-    type: string
-    description: The ID of the associated task used for generation.
+        description: A dictionary with an "tasks" key containing an array of Task objects.
   Tool:
     type: object
     properties:
       created_at:
-        $ref: '#/definitions/CreatedAt'
+        type: string
+        format: date-time
+        description: The date of AOI creation. ISO 8601 format as UTC.
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Tool.
       notes:
-        $ref: '#/definitions/Notes'
+        type: string
+        description: User notes about the object.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       status:
-        $ref: '#/definitions/Status'
+        type: string
+        description: The task status of the tool generation (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
       type:
         type: string
         description: The tool type (HLZ, LOS, FETE, SLOPE).
       url:
-        $ref: '#/definitions/URL'
+        type: string
+        description: The download URL of the Tool object.
       task_id:
-        $ref: '#/definitions/TaskID'
-  ToolsReturn:
-    type: array
-    items:
-      $ref: '#/definitions/Tool'
-    description: The tool set of the export.
-  URL:
+        type: string
+        description: The task_id of the Tool processing task.
+  Url:
     type: string
-    description: The download URL of the object.
-  User:
-    type: string
-    description: The email address of the user that created the object.
-  VectorDatasetSimple:
-    type: object
-    description: |
-      The simplified vector product object lacks the geometry. Geometries are only returned when vector products are queried via the 
-      `/products/{pk}` endpoint.
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
-      aoi_coverage:
-        $ref: '#/definitions/AOICoverage'
-  VectorFormat:
-    type: string
-    description: The format of the output vector file(s).
+    description: The download url of the object.
   VectorProduct:
     type: object
     properties:
       datatype:
-        $ref: '#/definitions/Datatype'
+        type: string
+        description: The datatype (e.g., trees, buildings_2d).
       name:
-        $ref: '#/definitions/Name'
+        type: string
+        description: The name of the Product.
       pk:
-        $ref: '#/definitions/Pk'
+        type: string
+        description: The primary key (ID) of the object.
       collected_at:
-        $ref: '#/definitions/CollectedAt'
+        type: string
+        format: date-time
+        description: The date of collection. ISO 8601 format as UTC.
       classification:
-        $ref: '#/definitions/SecurityClassification'
+        type: string
+        description: The security classification.
       area:
-        $ref: '#/definitions/Area'
+        type: number
+        format: float
+        description: The area of the geometry in sq_km.
       filesize:
-        $ref: '#/definitions/Filesize'
+        type: integer
+        description: The size of the product on the filesystem in bytes.
       geom:
-        $ref: '#/definitions/Geometry'
-  VectorProductSimple:
-    type: object
-    description: |
-      The simplified vector product object lacks the geometry. Geometries are only returned when vector products are queried via the 
-      `/products/{pk}` endpoint.
-    properties:
-      datatype:
-        $ref: '#/definitions/Datatype'
-      name:
-        $ref: '#/definitions/Name'
-      pk:
-        $ref: '#/definitions/Pk'
-      collected_at:
-        $ref: '#/definitions/CollectedAt'
-      classification:
-        $ref: '#/definitions/SecurityClassification'
-      area:
-        $ref: '#/definitions/Area'
-      filesize:
-        $ref: '#/definitions/Filesize'
-  VSRS:
-    type: integer
-    description: The vertical spatial reference system EPSG code.
+        type: string
+        description: The WKT geometry of the object.
+      sensor:
+        type: string
+        description: The sensor used to make the collection.
+      aoi_coverage:
+        type: number
+        format: float
+        description: The percent of the Product area covered by the AOI or passed in geometry respectively.
+      parent_product_pks:
+        type: array
+        description: Having this field populated with parent product PK(s) indicates this is an associated supporting product. Associated products should only be exported with their parent product included.
+        items:
+          $ref: '#/definitions/Pk'
+      associated_products:
+        description: Associated products are supporting products that should only be exported along with their parent product.
+        $ref: '#/definitions/AssociatedProductResponse'
+      program:
+        type: string
+        description: The name of the program that the product falls under.
+      access_tag:
+        type: string
+        description: The name of the access tag that this product is protected by.
+      file_paths:
+        type: array
+        description: A list of all the file paths of the tiles within this product (clipped by geometry if applicable).
+        items:
+          $ref: '#/definitions/Path'
