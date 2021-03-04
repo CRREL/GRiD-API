@@ -1596,10 +1596,12 @@ components:
             data.
         latest_load:
           type: string
-          description: Most recent date of data loaded. ISO 8601 format as UTC.
-          format: date-time
+          nullable: true
+          description: Most recent date of data loaded. ISO 8601 format.
+          format: date
         geom:
           type: string
+          nullable: true
           description: The WKT geometry of the coverage for these holdings. A WKT
             will only be present if the user has the necessary permissions to interact
             with this data.
