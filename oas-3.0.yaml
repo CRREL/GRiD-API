@@ -2276,4 +2276,3 @@ components:
           tokenUrl: https://grid.nga.mil/grid/api/token
           scopes:
             api: grant api access
-
