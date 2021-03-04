@@ -1,0 +1,2279 @@
+openapi: 3.0.1
+info:
+  title: GRiD API v3
+  description: "This is the API v3 specification for the Geospatial Repository and\
+    \ \nData Management System (aka GRiD). Here you can see API examples and\ninteract\
+    \ with all of the API endpoints visually in your browser. If you would\nlike to\
+    \ see the API in action, use the\n\"Try it out!\" button for an endpoint. Note:\
+    \ you will be interacting with\nlive data.\n\nAuthentication using OAuth 2.0 -\
+    \ Authorization Code.\n"
+  contact:
+    url: https://github.com/CRREL/GRiD-API/
+  version: 3.0.2
+servers:
+- url: https://grid.nga.mil/grid/api/v3
+security:
+- OauthSecurity:
+  - api
+tags:
+- name: AOI
+  description: AOI resources.
+- name: Export
+  description: Export resources.
+- name: Product
+  description: Product resources.
+- name: Geoname
+  description: Lookup geoname.
+- name: Task
+  description: Task resources.
+- name: Hook
+  description: Hook resources.
+- name: Holding
+  description: Data Holding resources.
+paths:
+  /aois:
+    get:
+      tags:
+      - AOI
+      summary: Get all AOIs
+      description: |
+        Get a list of the AOIs created by or shared with your user.
+      parameters:
+      - name: geom
+        in: query
+        description: A WKT or GeoJSON geometry used to filter AOI results.
+        schema:
+          type: string
+      - name: intersections
+        in: query
+        description: |
+          Determines whether or not to include a list of products that intersect with the AOI geometry. This can
+          be time-consuming so setting this to False is recommended if product intersections aren't needed.
+          Default value is True.
+        schema:
+          type: boolean
+          default: true
+      - name: intersection_types
+        in: query
+        description: |
+          A comma-separated list of product types to include in the product intersection check.
+          Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+          All types are included by default.
+        schema:
+          type: string
+      - name: intersection_geoms
+        in: query
+        description: |
+          Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.
+          Product geometries can be complex, so setting this to False can greatly reduce the return size and
+          is recommended if the entire geometry is not needed.
+          Default value is False.
+        schema:
+          type: boolean
+          default: false
+      - name: export_full
+        in: query
+        description: |
+          Determines whether or not to include a list of export files that
+          belong to exports for the AOI.
+          Default value is True.
+        schema:
+          type: boolean
+          default: true
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid AOI sorting parameters:\
+          \ area, created_at, name, pk, user.\n"
+        schema:
+          type: string
+          default: pk
+      responses:
+        200:
+          description: All of a users AOIs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AOIResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - AOI
+      summary: Create an AOI
+      description: |
+        Create a new AOI for the given geometry.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - geom
+              - name
+              properties:
+                name:
+                  type: string
+                  description: The name for the AOI.
+                geom:
+                  type: string
+                  description: A WKT or GeoJSON geometry describing the AOI. For WKT,
+                    supports POLYGON and MULTIPOLYGON natively, POINT and LINESTRING
+                    with a buffer parameter.
+                buffer:
+                  description: A buffer radius in meters for POINT or LINESTRING geom
+                    WKTs.
+                notes:
+                  type: string
+                  description: The notes for the AOI.
+                subscribe:
+                  type: boolean
+                  description: |
+                    Whether or not to subscribe to the AOI. Accepted values: True, False, T, F, 1, or 0.
+                  default: false
+                intersections:
+                  type: boolean
+                  description: |
+                    Determines whether or not to include a list of products that intersect with the AOI geometry. This can
+                    be time-consuming so setting this to False is recommended if product intersections aren't needed.
+                    Default value is True.
+                  default: true
+                intersection_types:
+                  type: string
+                  description: |
+                    A comma-separated list of product types to include in the product intersection check.
+                    Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+                    All types are included by default.
+                intersection_geoms:
+                  type: boolean
+                  description: |
+                    Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.
+                    Product geometries can be complex, so setting this to False can greatly reduce the return size and
+                    is recommended if the entire geometry is not needed.
+                    Default value is True.
+                  default: true
+        required: true
+      responses:
+        200:
+          description: The new AOI.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AOIResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /aois/{pk}:
+    get:
+      tags:
+      - AOI
+      summary: Get AOI by PK
+      description: |
+        Get information for one or more AOIs.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of AOI primary keys.
+        required: true
+        schema:
+          type: integer
+      - name: intersections
+        in: query
+        description: |
+          Determines whether or not to include a list of products that intersect with the AOI geometry. This can
+          be time-consuming so setting this to False is recommended if product intersections aren't needed.
+          Default value is True.
+        schema:
+          type: boolean
+          default: true
+      - name: intersection_types
+        in: query
+        description: |
+          A comma-separated list of product types to include in the product intersection check.
+          Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+          All types are included by default.
+        schema:
+          type: string
+      - name: intersection_geoms
+        in: query
+        description: |
+          Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.
+          Product geometries can be complex, so setting this to False can greatly reduce the return size and
+          is recommended if the entire geometry is not needed.
+          Default value is True.
+        schema:
+          type: boolean
+          default: true
+      - name: export_full
+        in: query
+        description: |
+          Determines whether or not to include a list of export files that
+          belong to exports for the AOI.
+          Default value is True.
+        schema:
+          type: boolean
+          default: true
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid AOI sorting parameters:\
+          \ area, created_at, name, pk, user.\n"
+        schema:
+          type: string
+          default: pk
+      responses:
+        200:
+          description: An array of AOIs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AOIResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+      - AOI
+      summary: Delete AOI by PK
+      description: Delete one or more existing AOIs.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of AOI primary keys.
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful AOI deletion responds with an empty body.
+          content: {}
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    patch:
+      tags:
+      - AOI
+      summary: Edit AOI by PK
+      description: |
+        Update an AOIs name, notes, or geometry. In order to change an AOI's
+        geometry, it must contain 0 generated exports. While we can `GET` or `DELETE` multiple primary keys, the `PATCH` may only be applied to a single primary key.
+      parameters:
+      - name: pk
+        in: path
+        description: The primary key of an existing AOI.
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: The name for the AOI.
+                geom:
+                  type: string
+                  description: A WKT or GeoJSON geometry describing the AOI.
+                notes:
+                  type: string
+                  description: The notes for the AOI.
+                subscribe:
+                  type: boolean
+                  description: Whether or not to subscribe to the AOI.
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: The name for the AOI.
+                geom:
+                  type: string
+                  description: A WKT or GeoJSON geometry describing the AOI.
+                notes:
+                  type: string
+                  description: The notes for the AOI.
+                subscribe:
+                  type: boolean
+                  description: Whether or not to subscribe to the AOI.
+      responses:
+        200:
+          description: The updated AOI.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AOIResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /exports:
+    post:
+      tags:
+      - Export
+      summary: Generate export
+      description: |
+        Exports is new in API v3. It replaces the former `/aoi/{pk}/generate/pointcloud` endpoint. A user would typically begin by querying `/products` for available products that are coincident with the provided geometry `geom`.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - aoi
+              - products
+              properties:
+                aoi:
+                  type: integer
+                  description: The primary key of the AOI used to export from.
+                  format: int32
+                products:
+                  type: string
+                  description: |
+                    A comma-separated list of product primary keys to include in the export.
+                name:
+                  type: string
+                  description: An optional name for the export.
+                hsrs:
+                  type: integer
+                  description: Horizontal Spatial Reference System. Accepts an EPSG
+                    code. Defaults to the source data HSRS.
+                  format: int32
+                vsrs:
+                  type: integer
+                  description: Vertical Spatial Reference System. Pointcloud and Raster
+                    export option. Accepts an EPSG code. Valid supported values are
+                    4326, 5773, and 3855. Defaults to source data VSRS if present.
+                  format: int32
+                file_export_options:
+                  type: string
+                  description: "Pointcloud and Raster export option. Determine file\
+                    \ merging strategy. Both export types accept individual and collect.\
+                    \ \nDefault is individual.\n"
+                compressed:
+                  type: boolean
+                  description: |
+                    Pointcloud and Raster export option. Whether or not to export compressed data. Defaults to True.
+                send_email:
+                  type: boolean
+                  description: |
+                    Whether or not to notify user via email upon completion. Defaults to False.
+                file_export_format:
+                  type: string
+                  description: "Pointcloud export option. Determine the format of\
+                    \ the output file(s). Valid values are las12, \nlas14, nitf, pdf,\
+                    \ bpf3, and source. Defaults to las12.\n"
+                clipping:
+                  type: boolean
+                  description: |
+                    Pointcloud export option. Whether or not to clip selected products to the boundary of the AOI.
+                    If false, tiles that intersect the AOI are included in their entirety. Defaults to true.
+                generate_dem:
+                  type: boolean
+                  description: |
+                    Pointcloud export option. Whether or not to generate a DEM from the pointcloud. Defaults to False.
+                custom_filters:
+                  type: string
+                  description: |
+                    Pointcloud export option. Custom PDAL filters to use for pointcloud generation. A single filter block should be
+                    in json object format, multiple filters should be passed as an array of json objects. Any reader or writer blocks
+                    included will be ignored. See pdal.io/stages/filters.html for filter details. Defaults to None.
+                  format: json
+                cell_spacing:
+                  type: number
+                  description: "Pointcloud export option used together with generate_dem.\
+                    \ Ignored for \nraster types. Defaults to 1.0.\n"
+                  format: float
+                smrf_terrain:
+                  type: string
+                  description: |
+                    Pointcloud export option. Used to trigger a SMRF Bare Earth export. Accepts default, urban or suburban,
+                    mountainous, and foliated. Default is None. Cannot be used with
+                    pmf_terrain option.
+                be_extract:
+                  type: boolean
+                  description: |
+                    Pointcloud export option. Whether or not to extract ground returns. Defaults to False.
+                pmf_terrain:
+                  type: string
+                  description: |
+                    Pointcloud export option. Used to trigger a PMF Bare Earth export. Accepts urban, suburban,
+                    mountainous, and foliated. Default is none. Cannot be used with
+                    smrf_terrain option.
+                sri_hres:
+                  type: number
+                  description: |
+                    Deprecated Pointcloud export option. Used to trigger a Sarnoff Bare Earth export. Accepts the horizontal
+                    resolution. Default is none. Cannot be used with smrf_terrain or pmf_terrain options.
+                  format: float
+                decimation_radius:
+                  type: number
+                  description: |
+                    Pointcloud export option. The minimum distance between points.  If a neighboring point is
+                    found within this radius, it will be discarded.  Units in meters. Uses PDAL
+                    decimation filter. Default is none.
+                  format: float
+                capacity:
+                  type: integer
+                  nullable: true
+                  description: "Pointcloud export option. How many points to fit into\
+                    \ each tile. The number of points in each \ntile will not exceed\
+                    \ this value, and will sometimes be less than \nit. Uses PDAL\
+                    \ chipper filter. Cannot be used with length \noption. Default\
+                    \ is none.\n"
+                  format: int32
+                length:
+                  type: number
+                  description: |
+                    Pointcloud export option. The target length of generated tiles. Units in meters. Uses PDAL splitter filter. Cannot be used with capacity
+                    option. Default is none.
+                  format: float
+                file_format_options:
+                  type: string
+                  description: |
+                    Raster export option.  Determine the format of the output file(s). Valid values are GTiff, NITF, and source. Defaults to GTiff.
+                target_resolution:
+                  type: number
+                  description: |
+                    Raster export option.  Determine the raster cell size (in meters). Defaults to None which uses the source resolution size.
+                  format: float
+                vector_format:
+                  type: string
+                  description: "Vector export option. Accepts officially supported\
+                    \ vector formats. Valid values are ESRI Shapefile, GML, GPKG,\
+                    \ KMZ, GeoJSON, and SQLite. \nDefaults to ESRI Shapefile.\n"
+                derived_rasters:
+                  type: string
+                  description: |
+                    Raster Export Option - Elevation only. Generate Derived Rasters, eg alternative representations of the Elevation data. Accepts a number of different derived outputs
+                  enum:
+                  - hillshade
+                  - shaded_relief_terrain
+                  - shaded_relief_rgb
+                  - shaded_slope
+                  - slope
+                  - aspect
+                derived_pc_rasters:
+                  type: string
+                  description: |
+                    Pointcloud Export Option - Elevation only. Generate Pointcloud Derived Rasters, eg alternative representations of the Pointcloud data. Accepts a number of different derived outputs
+                  enum:
+                  - dtm_hillshade
+                  - dsm_hillshade
+                  - rii
+                  - shaded_relief_dtm
+                  - shaded_relief_dsm
+                  - slope
+                  - slope_shade
+                  - slope_dtm
+                  - slope_shade_dtm
+                  - aspect
+                  - aspect_dtm
+                  - orthophoto
+                modsim_export_type:
+                  type: string
+                  description: |
+                    Modsim export option. Valid values are cdb_to_geoint, tak, and 3d_runtime.
+                    Defaults to tak
+                  enum:
+                  - cdb_to_geoint
+                  - tak
+                  - 3d_runtime
+                tak_format:
+                  type: string
+                  description: |
+                    Modsim export option. Only applies if modsim_export_type is tak.
+                    Specifies which type of TAK format will be produced.
+                    Valid values are OBJ_ATAK and OBJ_VTAK. Defaults to OBJ_ATAK.
+                  enum:
+                  - OBJ_ATAK
+                  - OBJ_VTAK
+                runtime_engine:
+                  type: string
+                  description: "Modsim export option. Only applies if modsim_export_type\
+                    \ is 3d_runtime.\nSpecifies which type of 3D runtime format will\
+                    \ be produced.\nValid values are CDB, VBS3, OBJ_SIMBLOCKS, OBJ_NEARMAP,\
+                    \ OBJ_SOFPREP, OBJ_OWT, FBX_UNREAL, CESIUM_FG3D_NO_LOD, CESIUM_VRICON_LOD,\
+                    \ and I3S. \nDefaults to CDB.\n"
+                  enum:
+                  - CDB
+                  - VBS3
+                  - OBJ_SIMBLOCKS
+                  - OBJ_NEARMAP
+                  - OBJ_SOFPREP
+                  - OBJ_OWT
+                  - FBX_UNREAL
+                  - CESIUM_FG3D_NO_LOD
+                  - CESIUM_VRICON_LOD
+                  - I3S
+                geoint_imagery:
+                  type: string
+                  description: |
+                    Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+                    Specifies which format to export any CDB imagery content present.
+                    Valid values are tif, gpkg, img.
+                    If not specified, no imagery will be exported.
+                  enum:
+                  - tif
+                  - gpkg
+                  - img
+                geoint_elevation:
+                  type: string
+                  description: |
+                    Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+                    Specifies which format to export any CDB elevation content present.
+                    Valid values are tif, gpkg, dted.
+                    If not specified, no elevation data will be exported.
+                  enum:
+                  - tif
+                  - gpkg
+                  - dted
+                geoint_vectors:
+                  type: string
+                  description: |
+                    Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+                    Specifies which format to export any CDB vector content present.
+                    Valid values are shp, gpkg, kml, gdb.
+                    If not specified, no vector data will be exported.
+                  enum:
+                  - shp
+                  - gpkg
+                  - kml
+                  - gdb
+                geoint_models:
+                  type: string
+                  description: |
+                    Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
+                    Specifies which format to export any CDB model content present.
+                    Valid values are flt, dae, kmz, glb, fbx, obj.
+                    If not specified, no model data will be exported.
+                  enum:
+                  - flt
+                  - dae
+                  - kmz
+                  - glb
+                  - fbx
+                  - obj
+        required: true
+      responses:
+        200:
+          description: Started export object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportStartedResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /exports/{pk}:
+    get:
+      tags:
+      - Export
+      summary: Get export by PK
+      description: Get information for one or more exports.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of export primary keys.
+        required: true
+        schema:
+          type: integer
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Export sorting parameters:\
+          \ name, pk, started_at, user.\n"
+        schema:
+          type: string
+          default: pk
+      - name: file_geoms
+        in: query
+        description: |
+          Determines whether or not to include the geometry of each export file generated by this Export.
+          Geometries can be verbose, so keeping this set to False can greatly reduce the return size and
+          is recommended if the geometries are not needed.
+          Default value is False.
+        schema:
+          type: boolean
+          default: false
+      responses:
+        200:
+          description: Export objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: User does not have permission to access this object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+      - Export
+      summary: Delete export by PK
+      description: Delete one or more existing exports.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of export primary keys.
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful export deletion responds with an empty body.
+          content: {}
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: User does not have permission to access this object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    patch:
+      tags:
+      - Export
+      summary: Edit export by PK
+      description: Updates an exports name or notes. While we can `GET` or `DELETE`
+        multiple primary keys, the `PATCH` may only be applied to a single primary
+        key.
+      parameters:
+      - name: pk
+        in: path
+        description: The primary key of the export.
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: The name for the export.
+                notes:
+                  type: string
+                  description: The notes for the export.
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                name:
+                  type: string
+                  description: The name for the export.
+                notes:
+                  type: string
+                  description: The notes for the export.
+      responses:
+        200:
+          description: Export object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: User does not have permission to access this object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /exports/{pk}/index:
+    post:
+      tags:
+      - Export
+      summary: Generate Entwine index
+      description: Starts an Entwine indexing task for an export.
+      parameters:
+      - name: pk
+        in: path
+        description: The primary key of the export.
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Export objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntwineStartedResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: User does not have permission to access this object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /exports/filters:
+    get:
+      tags:
+      - Export
+      summary: Get PDAL filters available for use in exports.
+      description: Get PDAL filters available for use in exports.
+      responses:
+        200:
+          description: Filters list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FiltersResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        403:
+          description: User does not have permission to access this object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /holdings:
+    get:
+      tags:
+      - Holding
+      summary: Get data holdings
+      description: |
+        Provides a high level overview of GRiD's data holdings.
+      parameters:
+      - name: geom
+        in: query
+        description: A WKT or GeoJSON geometry used to filter Holdings results.
+        schema:
+          type: string
+      - name: geoms
+        in: query
+        description: |
+          Determines whether or not to include the full coverage geometry WKT with the return.
+          Product geometries can be complex, so setting this to False can greatly reduce the return size and
+          is recommended if the geometry is not needed.
+        schema:
+          type: boolean
+          default: true
+      - name: program
+        in: query
+        description: |
+          A comma-separated list of program names used to filter the results.
+        schema:
+          type: string
+      - name: access_tag
+        in: query
+        description: |
+          A comma-separated list of access permision names used to filter the results.
+        schema:
+          type: string
+      - name: datatype
+        in: query
+        description: |
+          A comma-separated list of datatypes used to filter the results.
+        schema:
+          type: string
+      responses:
+        200:
+          description: Holdings objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataHoldingResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /products:
+    get:
+      tags:
+      - Product
+      summary: Get products by geom
+      description: "API users will query the `products` endpoint to discover available\
+        \ products that are coincident with the given geometry `geom`. \nResults can\
+        \ be filtered by sensor or type.\n"
+      parameters:
+      - name: geom
+        in: query
+        description: A WKT or GeoJSON geometry used to discover the Product results
+          that intersect the given geometry.
+        required: true
+        schema:
+          type: string
+      - name: geoms
+        in: query
+        description: |
+          Determines whether or not to include full product geometries with the return.
+          Product geometries can be complex, so setting this to False can greatly reduce the return size and
+          is recommended if the entire geometry is not needed.
+        schema:
+          type: boolean
+          default: false
+      - name: sensor
+        in: query
+        description: A comma-separated list of sensor names used to filter the results.
+        schema:
+          type: string
+      - name: datatype
+        in: query
+        description: |
+          A comma-separated list of datatypes used to filter the results.
+        schema:
+          type: string
+      - name: program
+        in: query
+        description: |
+          A comma-separated list of program names used to filter the results.
+        schema:
+          type: string
+      - name: access_tag
+        in: query
+        description: |
+          A comma-separated list of access permission names used to filter the results.
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: |
+          A comma-separated list of product types to include in the product intersection check.
+          Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+          All types are included by default.
+        schema:
+          type: string
+      - name: files
+        in: query
+        description: |
+          Whether to include the file list or not. Default value is False
+        schema:
+          type: boolean
+          default: false
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Product sorting parameters:\
+          \ collected_at, name, pk.\n"
+        schema:
+          type: string
+          default: pk
+      responses:
+        200:
+          description: Product objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /products/{pk}:
+    get:
+      tags:
+      - Product
+      summary: Get product by PK
+      description: Get information for one or more products.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of product primary keys.
+        required: true
+        schema:
+          type: integer
+      - name: geoms
+        in: query
+        description: |
+          Determines whether or not to include the full product geometry with the return.
+          Product geometries can be complex, so setting this to False can greatly reduce the return size and
+          is recommended if the entire geometry is not needed.
+          Default value is True.
+        schema:
+          type: boolean
+          default: true
+      - name: files
+        in: query
+        description: |
+          Whether to include the file list or not. Default value is False
+        schema:
+          type: boolean
+          default: false
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Product sorting parameters:\
+          \ collected_at, name, pk.\n"
+        schema:
+          type: string
+          default: pk
+      responses:
+        200:
+          description: A product (pointcloud, raster, vector, or mesh) object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /geonames:
+    get:
+      tags:
+      - Geoname
+      summary: Lookup geoname by geom
+      description: |
+        Get suggested AOI name based on geographic coordinates of the geometry.
+      parameters:
+      - name: geom
+        in: query
+        description: A WKT or GeoJSON geometry describing the AOI.
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Geoname object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeonameResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /tasks:
+    get:
+      tags:
+      - Task
+      summary: Get all tasks
+      description: Get all of your tasks. Results can be filtered by state or name.
+      parameters:
+      - name: state
+        in: query
+        description: The state of the task (SUCCESS, RUNNING, QUEUED, CANCELED, or
+          FAILURE). Accepts a comma-separated list.
+        schema:
+          type: string
+      - name: name
+        in: query
+        description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export,
+          api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
+          Accepts a comma-separated list.
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Task sorting parameters:\
+          \ name, state, task_id, time_stamp.\n"
+        schema:
+          type: string
+          default: task_id
+      responses:
+        200:
+          description: Task objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /tasks/{task_id}:
+    get:
+      tags:
+      - Task
+      summary: Get task by task_id
+      description: Get information for one or more tasks.
+      parameters:
+      - name: task_id
+        in: path
+        description: A comma-separated list of task IDs.
+        required: true
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Task sorting parameters:\
+          \ name, state, task_id, time_stamp.\n"
+        schema:
+          type: string
+          default: task_id
+      responses:
+        200:
+          description: Task object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /hooks:
+    get:
+      tags:
+      - Hook
+      summary: Get all hooks
+      description: Get all of your hooks.
+      parameters:
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Hook sorting parameters:\
+          \ created_at, event, pk, target.\n"
+        schema:
+          type: string
+          default: pk
+      responses:
+        200:
+          description: Hook objects.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - Hook
+      summary: Create hook
+      description: |
+        Create a new hook. Hooks are new to v3 of the API and allow for users to subscribe to particular GRiD events and be notified when they occur.
+        Currently supported events are: newdata.loaded and export.complete. The newdata.loaded event is triggered any time new pointcloud, raster, vector, or mesh data
+        is ingested into GRiD and intersects one of your existing AOIs. The export.complete event is triggered any time one of your exports finishes, SUCCESS or FAILURE.
+        The scope of these notifications can be controlled by including an optional AOI parameter. Newdata and export notifications will be limited to the given AOI if supplied.
+        Hooks that fail to deliver will retry 5 times. Delivered hooks that receive a 410 or 500+ return response will be automatically deleted.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+              - event
+              - target
+              properties:
+                event:
+                  type: string
+                  description: The event being subscribed to (export.complete, newdata.loaded)
+                target:
+                  type: string
+                  description: The destination URL for payloads to be delivered to.
+                aoi:
+                  type: integer
+                  description: The pk of an AOI. Used to limit the scope of event
+                    notifications.
+                  format: int32
+        required: true
+      responses:
+        200:
+          description: A hook object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /hooks/{pk}:
+    get:
+      tags:
+      - Hook
+      summary: Get hook by PK
+      description: Get information for one or more hooks.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of hook primary keys.
+        required: true
+        schema:
+          type: integer
+      - name: sort
+        in: query
+        description: "Sort the result by a given field.  A \"-\" can be prepended\
+          \ to the field to indicate descending order. \nValid Hook sorting parameters:\
+          \ created_at, event, pk, target.\n"
+        schema:
+          type: string
+          default: pk
+      responses:
+        200:
+          description: A hook object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+      - Hook
+      summary: Delete hook
+      description: Delete one or more existing hooks.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of hook primary keys.
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful hook deletion responds with an empty body.
+          content: {}
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    patch:
+      tags:
+      - Hook
+      summary: Edit hook by PK
+      description: Updates an hooks event, target, or AOI. While we can `GET` or `DELETE`
+        multiple primary keys, the `PATCH` may only be applied to a single primary
+        key.
+      parameters:
+      - name: pk
+        in: path
+        description: The primary key of the hook.
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                event:
+                  type: string
+                  description: The event being subscribed to (export.complete, newdata.loaded)
+                target:
+                  type: string
+                  description: The destination URL for payloads to be delivered to.
+                aoi:
+                  type: integer
+                  description: The pk of an AOI. Used to limit the scope of event
+                    notifications.
+                  format: int32
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                event:
+                  type: string
+                  description: The event being subscribed to (export.complete, newdata.loaded)
+                target:
+                  type: string
+                  description: The destination URL for payloads to be delivered to.
+                aoi:
+                  type: integer
+                  description: The pk of an AOI. Used to limit the scope of event
+                    notifications.
+                  format: int32
+      responses:
+        200:
+          description: Hook object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HookResponse'
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /hooks/{pk}/test:
+    post:
+      tags:
+      - Hook
+      summary: Test a hook by PK
+      description: Tests a hook by sending event-specific test data to the hooks target
+        url.
+      parameters:
+      - name: pk
+        in: path
+        description: A comma-separated list of hook primary keys.
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Successful hook test responds with an empty body.
+          content: {}
+        400:
+          description: Unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        401:
+          description: Authorization information is missing or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        404:
+          description: Object with specified ID(s) does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    AOI:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the AOI.
+        created_at:
+          type: string
+          description: The date of AOI creation. ISO 8601 format as UTC.
+          format: date-time
+        user:
+          type: string
+          description: The email address of the user that created the object.
+        geom:
+          type: string
+          description: The WKT geometry of the object.
+        area:
+          type: number
+          description: The area of the geometry in sq_km.
+          format: float
+        notes:
+          type: string
+          description: User notes about the object.
+        pk:
+          type: integer
+          description: The primary key (ID) of the object.
+        exports:
+          type: array
+          description: A list of Export objects for this AOI.
+          items:
+            $ref: '#/components/schemas/Export'
+        pointcloud_intersects:
+          type: array
+          description: The pointcloud products intersecting AOI.
+          items:
+            $ref: '#/components/schemas/PointcloudProduct'
+        raster_intersects:
+          type: array
+          description: The raster products intersecting AOI.
+          items:
+            $ref: '#/components/schemas/RasterProduct'
+        vector_intersects:
+          type: array
+          description: The vector products intersecting AOI.
+          items:
+            $ref: '#/components/schemas/VectorProduct'
+        mesh_intersects:
+          type: array
+          description: The mesh products intersecting AOI.
+          items:
+            $ref: '#/components/schemas/MeshProduct'
+        new_pointcloud_data:
+          type: array
+          description: The list of pointcloud product PKs that have been loaded to
+            GRiD since your last inquiry for this AOI.
+          items:
+            $ref: '#/components/schemas/Pk'
+        new_raster_data:
+          type: array
+          description: The list of raster product PKs that have been loaded to GRiD
+            since your last inquiry for this AOI.
+          items:
+            $ref: '#/components/schemas/Pk'
+        new_vector_data:
+          type: array
+          description: The list of vector product PKs that have been loaded to GRiD
+            since your last inquiry for this AOI.
+          items:
+            $ref: '#/components/schemas/Pk'
+        subscribed:
+          type: boolean
+          description: Indicates the subscription status for the AOI.
+    AOIResponse:
+      type: object
+      properties:
+        aois:
+          type: array
+          description: A dictionary with an "aois" key containing an array of AOI
+            objects.
+          items:
+            $ref: '#/components/schemas/AOI'
+    AssociatedProductResponse:
+      type: object
+      properties:
+        pointclouds:
+          type: array
+          description: A list of associated pointcloud products.
+          items:
+            $ref: '#/components/schemas/PointcloudProduct'
+        rasters:
+          type: array
+          description: A list of associated raster products.
+          items:
+            $ref: '#/components/schemas/RasterProduct'
+        vectors:
+          type: array
+          description: A list of associated vector products.
+          items:
+            $ref: '#/components/schemas/VectorProduct'
+      description: Associated products are supporting products that should only be
+        exported along with their parent product.
+    DataHolding:
+      type: object
+      properties:
+        program:
+          type: string
+          description: The name of the program that the data falls under.
+        program_description:
+          type: string
+          description: Information about the program and the data contained.
+        datatype:
+          type: string
+          description: Indicates the type of data contained for these holdings.
+        area:
+          type: number
+          description: The total area of the holdings coverage in sq_km.
+          format: float
+        access_tag:
+          type: string
+          description: The name of the Access Tag permission required to access this
+            data.
+        latest_load:
+          type: string
+          description: Most recent date of data loaded. ISO 8601 format as UTC.
+          format: date-time
+        geom:
+          type: string
+          description: The WKT geometry of the coverage for these holdings. A WKT
+            will only be present if the user has the necessary permissions to interact
+            with this data.
+        coverage_download_urls:
+          type: array
+          description: A list of download urls containing the coverage shape of the
+            data. Only returned if the user has the required permissions to access
+            the data.
+          items:
+            $ref: '#/components/schemas/Url'
+        filesize:
+          type: integer
+          description: The total size on the filesystem in bytes.
+        file_count:
+          type: integer
+          description: The total number of files loaded on the filesystem.
+        point_count:
+          type: integer
+          description: Only applies to pointcloud datasets. The total number of points.
+        global_dataset:
+          type: boolean
+          description: Indicates whether or not the data coverage is global.
+    DataHoldingResponse:
+      type: object
+      properties:
+        holdings:
+          type: array
+          description: A dictionary with a "holdings" key containing an array of DataHolding
+            objects.
+          items:
+            $ref: '#/components/schemas/DataHolding'
+    EntwineStarted:
+      type: object
+      properties:
+        export_id:
+          type: integer
+          description: The primary key (ID) of the export object.
+        entwine_task_id:
+          type: string
+          description: The task_id of the Entwine indexing task.
+    EntwineStartedResponse:
+      type: object
+      properties:
+        exports:
+          type: array
+          description: A dictionary with an "exports" key containing an array of EntwineStarted
+            objects.
+          items:
+            $ref: '#/components/schemas/EntwineStarted'
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Description of the error from the given API request.
+    Export:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the Export.
+        datatype:
+          type: string
+          description: The datatype(s) of exportfiles contained in the export.
+        user:
+          type: string
+          description: The email address of the user that created the object.
+        hsrs:
+          type: integer
+          nullable: true
+          description: The horizontal spatial reference system EPSG code.
+        vsrs:
+          type: integer
+          nullable: true
+          description: The vertical spatial reference system EPSG code.
+        pk:
+          type: integer
+          description: The primary key (ID) of the object.
+        started_at:
+          type: string
+          description: Time of creation for the AOI. ISO 8601 format as UTC.
+          format: date-time
+        status:
+          type: string
+          description: The task status of the export generation (SUCCESS, RUNNING,
+            QUEUED, CANCELED, and FAILURE).
+        url:
+          type: string
+          description: The download URL of the Export object.
+        license_url:
+          type: string
+          description: The download URL of the license file for an Export object.
+        auxiliary_url:
+          type: string
+          description: The download URL of required auxiliary content for an Export
+            object.
+        zip_url:
+          type: string
+          description: The download URL of the dynamically generated zip for all Exportfiles
+            within an Export object.
+        rgb:
+          type: boolean
+          description: Whether or not RGB dimension is included in exported data.
+        export_type:
+          type: string
+          description: The base type of export (pointcloud, raster, vector).
+        intensity:
+          type: boolean
+          description: Whether or not Intensity dimension is included in exported
+            data.
+        dim_classification:
+          type: boolean
+          description: Whether or not Classification dimension is included in exported
+            data.
+        file_export_options:
+          type: string
+          description: The file export options used (individual, collect).
+        generate_dem:
+          type: boolean
+          description: Whether or not this was a generated DEM from pointcloud.
+        send_email:
+          type: boolean
+          description: Whether or not to send an email notification upon completion.
+        cell_spacing:
+          type: number
+          nullable: true
+          description: The cell spacing used in DEM generation, if applicable.
+          format: float
+        notes:
+          type: string
+          description: User notes about the object.
+        classification:
+          type: string
+          description: The geospatial classifications selected for the export.
+        pmf_terrain:
+          type: string
+          description: The PMF terrain option of the export.
+        smrf_terrain:
+          type: string
+          description: The SMRF terrain option of the export.
+        be_extract:
+          type: boolean
+          description: Whether or not to extract ground returns.
+        sri_hres:
+          type: number
+          nullable: true
+          description: The sri_hres value of the export. Deprecated option.
+          format: float
+        exportfiles:
+          type: object
+        tools:
+          type: array
+          description: A list of Tool objects for this Export.
+          items:
+            $ref: '#/components/schemas/Tool'
+        task_id:
+          type: string
+          description: The task_id of the Export processing task.
+        capacity:
+          type: number
+          nullable: true
+          description: The number of points used to generate each file.
+          format: float
+        length:
+          type: number
+          nullable: true
+          description: The length in meters used to generate each file.
+          format: float
+        file_format_options:
+          type: string
+          description: The format of the output raster file(s).
+        vector_format:
+          type: string
+          description: The format of the output vector file(s).
+        custom_filters:
+          type: string
+          nullable: true
+          description: Custom PDAL filters used for pointcloud generation.
+        entwine_task_id:
+          type: string
+          nullable: true
+          description: The task_id of the Entwine indexing task.
+        greyhound_url:
+          type: string
+          nullable: true
+          description: The url of an export used to stream the Greyhound resource.
+    ExportResponse:
+      type: object
+      properties:
+        exports:
+          type: array
+          description: A dictionary with an "exports" key containing an array of Export
+            objects.
+          items:
+            $ref: '#/components/schemas/Export'
+    Exportfile:
+      type: object
+      properties:
+        datatype:
+          type: string
+          description: The datatype of the exportfile.
+        name:
+          type: string
+          description: The name of the Exportfile.
+        pk:
+          type: string
+          description: The primary key (ID) of the object.
+        url:
+          type: string
+          description: The download URL of the Exportfile object.
+        filesize:
+          type: integer
+          description: The size of the product on the filesystem in bytes.
+        aoi_coverage:
+          type: number
+          description: The percent of the Exportfile area covered by the AOI.
+          format: float
+        geom:
+          type: string
+          description: The WKT geometry of this generated file. A WKT will only be
+            present if the user has specifically requested them.
+    ExportStarted:
+      type: object
+      properties:
+        export_id:
+          type: integer
+          description: The primary key (ID) of the export object.
+        task_id:
+          type: string
+          description: The task_id of the Export processing task.
+    ExportStartedResponse:
+      type: object
+      properties:
+        exports:
+          type: array
+          description: A dictionary with an "exports" key containing an array of ExportStarted
+            objects.
+          items:
+            $ref: '#/components/schemas/ExportStarted'
+    Filter:
+      type: string
+      description: PDAL filter used in exports.
+    FiltersResponse:
+      type: object
+      properties:
+        filters:
+          type: array
+          description: A list of available PDAL filters.
+          items:
+            $ref: '#/components/schemas/Filter'
+    Geoname:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the geolocation.
+        geom:
+          type: string
+          description: The WKT geometry of the object.
+    GeonameResponse:
+      type: object
+      properties:
+        geonames:
+          type: array
+          description: A dictionary with a "geonames" key containing an array of Geoname
+            objects.
+          items:
+            $ref: '#/components/schemas/Geoname'
+    Hook:
+      type: object
+      properties:
+        pk:
+          type: integer
+          description: The primary key (ID) of the object.
+        version:
+          type: string
+          description: The version of the API used to create the hook and used for
+            hook serialization.
+        user:
+          type: string
+          description: The email address of the user that created the object.
+        aoi:
+          type: integer
+          description: The pk of the AOI used to filter hook event notifications.
+        created_at:
+          type: string
+          description: The date the hook was created.
+          format: date-time
+        target:
+          type: string
+          description: The destination url callback data is sent to.
+        event:
+          type: string
+          description: The event to be notified for (export.complete, newdata.loaded)
+    HookResponse:
+      type: object
+      properties:
+        hooks:
+          type: array
+          description: A dictionary with an "hooks" key containing an array of Hook
+            objects.
+          items:
+            $ref: '#/components/schemas/Hook'
+    MeshProduct:
+      type: object
+      properties:
+        datatype:
+          type: string
+          description: The datatype (e.g., 3D Tile, Collada, I3S).
+        name:
+          type: string
+          description: The name of the Product.
+        pk:
+          type: string
+          description: The primary key (ID) of the object.
+        sensor:
+          type: string
+          description: The sensor used to make the collection.
+        collected_at:
+          type: string
+          description: The date of collection. ISO 8601 format as UTC.
+          format: date-time
+        classification:
+          type: string
+          description: The security classification.
+        filesize:
+          type: integer
+          description: The size of the product on the filesystem in bytes.
+        geom:
+          type: string
+          description: The WKT geometry of the object.
+        streaming_url:
+          type: string
+          description: The URL of the object used to stream the data.
+        program:
+          type: string
+          description: The name of the program that the product falls under.
+        access_tag:
+          type: string
+          description: The name of the access tag that this product is protected by.
+        file_paths:
+          type: array
+          description: A list of all the file paths of the tiles within this product
+            (clipped by geometry if applicable).
+          items:
+            $ref: '#/components/schemas/Path'
+    Path:
+      type: string
+      description: The location of the file on the filesystem.
+    Pk:
+      type: integer
+      description: The primary key of the object.
+    PointcloudProduct:
+      type: object
+      properties:
+        datatype:
+          type: string
+          description: The datatype (e.g., LAS1.2, LAS1.4).
+        name:
+          type: string
+          description: The name of the Product.
+        pk:
+          type: integer
+          description: The primary key (ID) of the object.
+        sensor:
+          type: string
+          description: The sensor used to make the collection.
+        collected_at:
+          type: string
+          description: The date of collection. ISO 8601 format.
+          format: date
+        classification:
+          type: string
+          description: The security classification.
+        area:
+          type: number
+          description: The area of the geometry in sq_km.
+          format: float
+        filesize:
+          type: integer
+          description: The size of the product on the filesystem in bytes.
+        point_count:
+          type: integer
+          description: The total number of points in the product.
+        density:
+          type: number
+          description: The average point density of the product in sq meters.
+          format: float
+        geom:
+          type: string
+          nullable: true
+          description: The WKT geometry of the object.
+        aoi_coverage:
+          type: number
+          description: The percent of the Product area covered by the AOI or passed
+            in geometry respectively.
+          format: float
+        parent_product_pks:
+          type: array
+          description: Having this field populated with parent product PK(s) indicates
+            this is an associated supporting product. Associated products should only
+            be exported with their parent product included.
+          items:
+            $ref: '#/components/schemas/Pk'
+        associated_products:
+          $ref: '#/components/schemas/AssociatedProductResponse'
+        program:
+          type: string
+          description: The name of the program that the product falls under.
+        access_tag:
+          type: string
+          description: The name of the access tag that this product is protected by.
+        file_paths:
+          type: array
+          description: A list of all the file paths of the tiles within this product
+            (clipped by geometry if applicable).
+          items:
+            $ref: '#/components/schemas/Path'
+        srs:
+          type: array
+          description: A list of all the spatial reference systems that apply to the
+            tiles within this product (clipped by geometry if applicable).
+          items:
+            $ref: '#/components/schemas/Srs'
+    ProductResponse:
+      type: object
+      properties:
+        pointclouds:
+          type: array
+          description: A list of pointcloud products.
+          items:
+            $ref: '#/components/schemas/PointcloudProduct'
+        rasters:
+          type: array
+          description: A list of raster products.
+          items:
+            $ref: '#/components/schemas/RasterProduct'
+        vectors:
+          type: array
+          description: A list of vector products.
+          items:
+            $ref: '#/components/schemas/VectorProduct'
+        meshes:
+          type: array
+          description: A list of mesh products.
+          items:
+            $ref: '#/components/schemas/MeshProduct'
+    RasterProduct:
+      type: object
+      properties:
+        datatype:
+          type: string
+          description: The datatype (e.g., DSM, DTM).
+        name:
+          type: string
+          description: The name of the Product.
+        pk:
+          type: integer
+          description: The primary key (ID) of the object.
+        sensor:
+          type: string
+          description: The sensor used to make the collection.
+        collected_at:
+          type: string
+          description: The date of collection. ISO 8601 format.
+          format: date
+        classification:
+          type: string
+          description: The security classification.
+        area:
+          type: number
+          description: The area of the geometry in sq_km.
+          format: float
+        filesize:
+          type: integer
+          description: The size of the product on the filesystem in bytes.
+        geom:
+          type: string
+          description: The WKT geometry of the object.
+        cell_size:
+          type: number
+          description: The average cell size of the product.
+          format: float
+        aoi_coverage:
+          type: number
+          description: The percent of the Product area covered by the AOI or passed
+            in geometry respectively.
+          format: float
+        parent_product_pks:
+          type: array
+          description: Having this field populated with parent product PK(s) indicates
+            this is an associated supporting product. Associated products should only
+            be exported with their parent product included.
+          items:
+            $ref: '#/components/schemas/Pk'
+        associated_products:
+          $ref: '#/components/schemas/AssociatedProductResponse'
+        program:
+          type: string
+          description: The name of the program that the product falls under.
+        access_tag:
+          type: string
+          description: The name of the access tag that this product is protected by.
+        file_paths:
+          type: array
+          description: A list of all the file paths of the tiles within this product
+            (clipped by geometry if applicable).
+          items:
+            $ref: '#/components/schemas/Path'
+        srs:
+          type: array
+          description: A list of all the spatial reference systems that apply to the
+            tiles within this product (clipped by geometry if applicable).
+          items:
+            $ref: '#/components/schemas/Srs'
+    Srs:
+      type: string
+      description: A spatial reference system (SRS) is a coordinate-based local, regional
+        or global system used to locate geographical entities that defines a specific
+        map projection, as well as transformations between different spatial reference
+        systems.
+    Task:
+      type: object
+      properties:
+        state:
+          type: string
+          description: The state of the task (SUCCESS, RUNNING, QUEUED, CANCELED,
+            and FAILURE).
+        time_stamp:
+          type: string
+          description: Date and time the task was started. ISO 8601 format as UTC.
+          format: date-time
+        name:
+          type: string
+          description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export,
+            api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
+        task_id:
+          type: string
+          description: The ID of the task.
+        object_id:
+          type: integer
+          description: The ID of the object the task is associated with.
+    TaskResponse:
+      type: object
+      properties:
+        tasks:
+          type: array
+          description: A dictionary with an "tasks" key containing an array of Task
+            objects.
+          items:
+            $ref: '#/components/schemas/Task'
+    Tool:
+      type: object
+      properties:
+        created_at:
+          type: string
+          description: The date of AOI creation. ISO 8601 format as UTC.
+          format: date-time
+        name:
+          type: string
+          description: The name of the Tool.
+        notes:
+          type: string
+          description: User notes about the object.
+        pk:
+          type: string
+          description: The primary key (ID) of the object.
+        status:
+          type: string
+          description: The task status of the tool generation (SUCCESS, RUNNING, QUEUED,
+            CANCELED, and FAILURE).
+        type:
+          type: string
+          description: The tool type (HLZ, LOS, FETE, SLOPE).
+        url:
+          type: string
+          description: The download URL of the Tool object.
+        task_id:
+          type: string
+          description: The task_id of the Tool processing task.
+    Url:
+      type: string
+      description: The download url of the object.
+    VectorProduct:
+      type: object
+      properties:
+        datatype:
+          type: string
+          description: The datatype (e.g., trees, buildings_2d).
+        name:
+          type: string
+          description: The name of the Product.
+        pk:
+          type: integer
+          description: The primary key (ID) of the object.
+        collected_at:
+          type: string
+          nullable: true
+          description: The date of collection. ISO 8601 format.
+          format: date
+        classification:
+          type: string
+          description: The security classification.
+        area:
+          type: number
+          description: The area of the geometry in sq_km.
+          format: float
+        filesize:
+          type: integer
+          description: The size of the product on the filesystem in bytes.
+        geom:
+          type: string
+          description: The WKT geometry of the object.
+        sensor:
+          type: string
+          description: The sensor used to make the collection.
+        aoi_coverage:
+          type: number
+          description: The percent of the Product area covered by the AOI or passed
+            in geometry respectively.
+          format: float
+        parent_product_pks:
+          type: array
+          description: Having this field populated with parent product PK(s) indicates
+            this is an associated supporting product. Associated products should only
+            be exported with their parent product included.
+          items:
+            $ref: '#/components/schemas/Pk'
+        associated_products:
+          $ref: '#/components/schemas/AssociatedProductResponse'
+        program:
+          type: string
+          description: The name of the program that the product falls under.
+        access_tag:
+          type: string
+          description: The name of the access tag that this product is protected by.
+        file_paths:
+          type: array
+          description: A list of all the file paths of the tiles within this product
+            (clipped by geometry if applicable).
+          items:
+            $ref: '#/components/schemas/Path'
+  responses:
+    DoesNotExistResponse:
+      description: Object with specified ID(s) does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ErrorResponse:
+      description: Unexpected error occurred.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ForbiddenResponse:
+      description: User does not have permission to access this object.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    UnauthenticatedResponse:
+      description: Authorization information is missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    OauthSecurity:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://grid.nga.mil/grid/api/authorize
+          tokenUrl: https://grid.nga.mil/grid/api/token
+          scopes:
+            api: grant api access
+
