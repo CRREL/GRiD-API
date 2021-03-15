@@ -43,3 +43,16 @@ need only specify the `baseUrl`, e.g., https://grid.nga.mil/grid/api/v3 for
 production GRiD, and `access_token` which is established through the GRiD UI
 for the corresponding GRiD instance. We could extend the Collection to work
 through the full OAuth 2.0 workflow, but leave this for future work.
+
+## OAS 3.0 schema validation
+
+Note that Postman will validate a collection against a linked OAS 3.0 API in
+the desktop version (support added with
+https://github.com/postmanlabs/postman-app-support/issues/6614). Issues in
+which the responses do not validate will be raised with individual requests.
+
+A separate ticket is open, with no ETA as of November 2020, to be able to write
+tests that validate against an OAS 3.0 schema
+(https://github.com/postmanlabs/postman-app-support/issues/8920). As such, it
+is not really possible to validate requests/responses as part of an automated
+CI/CD process.
