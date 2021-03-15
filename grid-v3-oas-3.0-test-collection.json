@@ -269,12 +269,12 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"// const jsonData = pm.response.json();",
+									"const jsonData = pm.response.json();",
 									"",
-									"// pm.test(\"Response is filters object with array of AOIs\", function() {",
-									"//     pm.expect(jsonData).to.be.an(\"object\");",
-									"//     pm.expect(jsonData.aois).to.be.an(\"array\");",
-									"// })"
+									"pm.test(\"Response is filters object with array of AOIs\", function() {",
+									"    pm.expect(jsonData).to.be.an(\"object\");",
+									"    pm.expect(jsonData.aois).to.be.an(\"array\");",
+									"})"
 								],
 								"type": "text/javascript"
 							}
@@ -782,12 +782,11 @@
 					]
 				},
 				{
-					"name": "Get AOI by PK",
+					"name": "Get AOI by PK without Intersections",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -802,8 +801,16 @@
 									"",
 									"pm.test(\"Number of aois is 1\", function() {",
 									"    pm.expect(jsonData.aois.length).to.equal(1);",
+									"})",
+									"",
+									"pm.test(\"Check no intersections\", function() {",
+									"    pm.expect(jsonData.aois[0].pointcloud_intersects).to.have.lengthOf(0);",
+									"    pm.expect(jsonData.aois[0].raster_intersects).to.have.lengthOf(0);",
+									"    pm.expect(jsonData.aois[0].vector_intersects).to.have.lengthOf(0);",
+									"    pm.expect(jsonData.aois[0].mesh_intersects).to.have.lengthOf(0);",
 									"})"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -1105,43 +1112,42 @@
 					]
 				},
 				{
-					"name": "Get AOI by PK",
+					"name": "Get AOI by PK with Pointcloud Intersections",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"/*",
-									"response has this structure:",
-									"{",
-									"    \"filters\": [",
-									"        \"filters.A\",",
-									"        \"filters.B\"",
-									"    ]",
-									"}",
-									"*/",
-									"",
 									"const jsonData = pm.response.json();",
 									"",
-									"pm.test(\"Response is filters object with array of AOIs and pointcloud intersects\", function() {",
+									"pm.test(\"Response is object with array of AOIs and pointcloud intersects\", function() {",
 									"    pm.expect(jsonData).to.be.an(\"object\");",
 									"    pm.expect(jsonData.aois).to.be.an(\"array\");",
 									"    pm.expect(jsonData.aois[0].pointcloud_intersects).to.be.an(\"array\");",
 									"})",
 									"",
 									"pm.test(\"Number of aois is 1\", function() {",
-									"    pm.expect(jsonData.aois.length).to.equal(1);",
+									"    pm.expect(jsonData.aois).to.have.lengthOf(1);",
 									"})",
 									"",
+									"// Preferred way is to test for an explicit length",
 									"pm.test(\"Number of poincloud intersects is 3\", function() {",
-									"    pm.expect(jsonData.aois[0].pointcloud_intersects.length).to.equal(3);",
+									"    pm.expect(jsonData.aois[0].pointcloud_intersects).to.have.lengthOf(3);",
+									"})",
+									"",
+									"// But given that holdings is somewhat dynamic, may be just as well to check that number of pointcloud intersects is simply greater than zero",
+									"pm.test(\"Check intersections\", function() {",
+									"    pm.expect(jsonData.aois[0].pointcloud_intersects).to.have.lengthOf.above(0);",
+									"    pm.expect(jsonData.aois[0].raster_intersects).to.have.lengthOf(0);",
+									"    pm.expect(jsonData.aois[0].vector_intersects).to.have.lengthOf(0);",
+									"    pm.expect(jsonData.aois[0].mesh_intersects).to.have.lengthOf(0);",
 									"})"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
