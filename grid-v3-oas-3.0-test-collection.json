@@ -6759,6 +6759,312 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "SLA",
+			"item": [
+				{
+					"name": "Authorize",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"sla_auth_code\", jsonData.code)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://grid.nga.mil/testgrid/api/authorize?response_type=code&client_id={{sla_client_id}}&redirect_uri={{sla_redirect_uri}}&scope=api",
+							"protocol": "https",
+							"host": [
+								"grid",
+								"nga",
+								"mil"
+							],
+							"path": [
+								"testgrid",
+								"api",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "{{sla_client_id}}"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{sla_redirect_uri}}"
+								},
+								{
+									"key": "scope",
+									"value": "api"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"sla_access_token\", jsonData.access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{sla_client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{sla_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{sla_redirect_uri}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "{{sla_auth_code}}",
+									"type": "text"
+								},
+								{
+									"key": "sla_identifier",
+									"value": "foo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://grid.nga.mil/testgrid/api/token",
+							"protocol": "https",
+							"host": [
+								"grid",
+								"nga",
+								"mil"
+							],
+							"path": [
+								"testgrid",
+								"api",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup geoname by geom Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{sla_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/geonames?geom=POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))&sla_identifier=foo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"geonames"
+							],
+							"query": [
+								{
+									"key": "geom",
+									"value": "POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))",
+									"description": "(Required) A WKT or GeoJSON geometry describing the AOI."
+								},
+								{
+									"key": "sla_identifier",
+									"value": "foo"
+								}
+							]
+						},
+						"description": "Get suggested AOI name based on geographic coordinates of the geometry.\n"
+					},
+					"response": [
+						{
+							"name": "Authorization information is missing or invalid.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/geonames?geom=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"geonames"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"error\": \"aliqua\"\n}"
+						},
+						{
+							"name": "Unexpected error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/geonames?geom=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"geonames"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"error\": \"aliqua\"\n}"
+						},
+						{
+							"name": "Geoname object.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/geonames?geom=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"geonames"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"geonames\": [\n  {\n   \"name\": \"labore irure incididunt laborum velit\",\n   \"geom\": \"commodo aliquip consectetur\"\n  },\n  {\n   \"name\": \"Duis\",\n   \"geom\": \"reprehenderit ulla\"\n  }\n ]\n}"
+						}
+					]
+				}
+			]
 		}
 	],
 	"auth": {
@@ -6794,8 +7100,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://grid.nga.mil/grid/api/v3",
-			"type": "any"
+			"value": "https://grid.nga.mil/grid/api/v3"
 		}
 	]
 }
