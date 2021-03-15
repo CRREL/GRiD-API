@@ -10,12 +10,11 @@
 			"name": "AOI Lifecycle",
 			"item": [
 				{
-					"name": "Get all AOIs",
+					"name": "Get AOIs by Geometry",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -27,7 +26,8 @@
 									"    pm.expect(jsonData).to.be.an(\"object\");",
 									"    pm.expect(jsonData.aois).to.be.an(\"array\");",
 									"})"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -359,6 +359,364 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"aois\": [\n        {\n            \"pk\": 51451,\n            \"name\": \"OMA_000\",\n            \"notes\": \"\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-01-08T04:25:58.604Z\",\n            \"subscribed\": false,\n            \"exports\": [\n                {\n                    \"pk\": 26486,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"NewName\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:14:42.569133+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"NewNote\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26486\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26486\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26486\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26486\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26486/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"8c926d1f-0fd7-4c70-b25a-26dfb8708774\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"5821aed4-9535-43b4-9d86-aa0499174bbb\"\n                },\n                {\n                    \"pk\": 26484,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2206\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:06:32.253751+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26484\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26484\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26484\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26484\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26484/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"4f5d1870-6150-4e19-8e9d-51c8e1420a26\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"012274c5-0de9-4b45-a9db-f43df1e94276\"\n                },\n                {\n                    \"pk\": 26483,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2205\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:05:46.264269+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26483\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26483\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26483\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26483\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26483/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"800deb6c-9652-437f-b31e-38d3fd6d3c4b\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"52a57a5b-caca-4be3-b0e7-0412ed4293a5\"\n                },\n                {\n                    \"pk\": 25000,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210113.2027\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"Source Format\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-13T20:27:10.269998+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/25000\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/25000\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/25000\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/25000\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": null,\n                    \"entwine_task_id\": null,\n                    \"custom_filters\": null,\n                    \"task_id\": \"da3898a9-f61d-4fc7-8377-4a5a0dd66150\"\n                },\n                {\n                    \"pk\": 24808,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210108.1523\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": 32614,\n                    \"started_at\": \"2021-01-08T15:23:07.913857+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24808\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24808\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24808\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24808\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24808/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6aeff33c-67fa-4baf-93b0-02c2a28abdaf\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"2aebe5f0-2499-46cd-bcd1-9b38f09c5794\"\n                },\n                {\n                    \"pk\": 24807,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"Original\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-08T15:17:12.311262+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24807\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24807\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24807\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24807\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24807/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"757f17e2-d5f9-4272-952f-d708b92fe57c\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"35bed061-8e7b-4fd8-a3b2-c9fbaf3448ba\"\n                },\n                {\n                    \"pk\": 24806,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"PSU NAD83 UTM 14N\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS1.2 (PSU 1.9.0)\",\n                    \"hsrs\": 26914,\n                    \"started_at\": \"2021-01-08T15:16:52.359479+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24806\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24806\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24806\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24806\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24806/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6c3eece6-f299-4528-99ac-209b5b81d4c1\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"ae5f3fad-fa99-4b13-a3f3-93d418bc0dad\"\n                }\n            ],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55803,\n            \"name\": \"Testing\",\n            \"notes\": \"Foo\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:06:00.630Z\",\n            \"subscribed\": false,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55805,\n            \"name\": \"Renamed\",\n            \"notes\": \"Bar\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:08:52.539Z\",\n            \"subscribed\": true,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all AOIs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// const jsonData = pm.response.json();",
+									"",
+									"// pm.test(\"Response is filters object with array of AOIs\", function() {",
+									"//     pm.expect(jsonData).to.be.an(\"object\");",
+									"//     pm.expect(jsonData.aois).to.be.an(\"array\");",
+									"// })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/aois",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"aois"
+							],
+							"query": [
+								{
+									"key": "geom",
+									"value": "POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))",
+									"description": "A WKT or GeoJSON geometry used to filter AOI results.",
+									"disabled": true
+								},
+								{
+									"key": "intersections",
+									"value": "true",
+									"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n",
+									"disabled": true
+								},
+								{
+									"key": "intersection_types",
+									"value": "pointcloud",
+									"description": "A comma-separated list of product types to include in the product intersection check.\nValid intersection type parameters: pointcloud, raster, vector, mesh, modsim.\nAll types are included by default.\n",
+									"disabled": true
+								},
+								{
+									"key": "intersection_geoms",
+									"value": "false",
+									"description": "Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.\nProduct geometries can be complex, so setting this to False can greatly reduce the return size and\nis recommended if the entire geometry is not needed.\nDefault value is False.\n",
+									"disabled": true
+								},
+								{
+									"key": "export_full",
+									"value": "false",
+									"description": "Determines whether or not to include a list of export files that\nbelong to exports for the AOI.\nDefault value is True.\n",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "pk",
+									"description": "Sort the result by a given field.  A &amp;amp;amp;amp;amp;quot;-&amp;amp;amp;amp;amp;quot; can be prepended to the field to indicate descending order. \nValid AOI sorting parameters: area, created_at, name, pk, user.\n",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get a list of the AOIs created by or shared with your user.\n"
+					},
+					"response": [
+						{
+							"name": "Unexpected error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/aois?geom=<string>&intersections=true&intersection_types=<string>&intersection_geoms=false&export_full=true&sort=pk",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aois"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										},
+										{
+											"key": "intersections",
+											"value": "true"
+										},
+										{
+											"key": "intersection_types",
+											"value": "<string>"
+										},
+										{
+											"key": "intersection_geoms",
+											"value": "false"
+										},
+										{
+											"key": "export_full",
+											"value": "true"
+										},
+										{
+											"key": "sort",
+											"value": "pk"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"error\": \"aliqua\"\n}"
+						},
+						{
+							"name": "Authorization information is missing or invalid.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/aois?geom=<string>&intersections=true&intersection_types=<string>&intersection_geoms=false&export_full=true&sort=pk",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aois"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										},
+										{
+											"key": "intersections",
+											"value": "true"
+										},
+										{
+											"key": "intersection_types",
+											"value": "<string>"
+										},
+										{
+											"key": "intersection_geoms",
+											"value": "false"
+										},
+										{
+											"key": "export_full",
+											"value": "true"
+										},
+										{
+											"key": "sort",
+											"value": "pk"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"error\": \"aliqua\"\n}"
+						},
+						{
+							"name": "Get all AOIs filtered by geometry",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/aois?geom=POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))&intersections=false&intersection_geoms=false&export_full=false&sort=pk",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aois"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))",
+											"description": "A WKT or GeoJSON geometry used to filter AOI results."
+										},
+										{
+											"key": "intersections",
+											"value": "false",
+											"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n"
+										},
+										{
+											"key": "intersection_types",
+											"value": "<string>",
+											"description": "A comma-separated list of product types to include in the product intersection check.\nValid intersection type parameters: pointcloud, raster, vector, mesh, modsim.\nAll types are included by default.\n",
+											"disabled": true
+										},
+										{
+											"key": "intersection_geoms",
+											"value": "false",
+											"description": "Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.\nProduct geometries can be complex, so setting this to False can greatly reduce the return size and\nis recommended if the entire geometry is not needed.\nDefault value is False.\n"
+										},
+										{
+											"key": "export_full",
+											"value": "false",
+											"description": "Determines whether or not to include a list of export files that\nbelong to exports for the AOI.\nDefault value is True.\n"
+										},
+										{
+											"key": "sort",
+											"value": "pk",
+											"description": "Sort the result by a given field.  A &amp;amp;amp;amp;amp;quot;-&amp;amp;amp;amp;amp;quot; can be prepended to the field to indicate descending order. \nValid AOI sorting parameters: area, created_at, name, pk, user.\n"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 04 Mar 2021 16:26:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "AWSALBTG=lHoN4oj9qjtBRxlGZzEXIsNRROclIwj8zxNgpaX9Lj0axToErrw9hBErABGQ1WibJAc9hJttuG91xngc3YJuKW7mugmMnsKX3EP82I+vDaHKd2ZDcHoDUQdMdMmwXZPd3fyHcOpilxT21fBJ/QifLWPHHYH0pAnds2AJG7SK8e6m; Expires=Thu, 11 Mar 2021 16:26:41 GMT; Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "AWSALBTGCORS=lHoN4oj9qjtBRxlGZzEXIsNRROclIwj8zxNgpaX9Lj0axToErrw9hBErABGQ1WibJAc9hJttuG91xngc3YJuKW7mugmMnsKX3EP82I+vDaHKd2ZDcHoDUQdMdMmwXZPd3fyHcOpilxT21fBJ/QifLWPHHYH0pAnds2AJG7SK8e6m; Expires=Thu, 11 Mar 2021 16:26:41 GMT; Path=/; SameSite=None; Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=5nzmaa78ih6fyql79182s8g70tjthag9; expires=Thu, 04 Mar 2021 17:26:42 GMT; HttpOnly; Max-Age=3600; Path=/testgrid; SameSite=Lax; Secure"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization,Cookie,Accept-Encoding"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"aois\": [\n        {\n            \"pk\": 51451,\n            \"name\": \"OMA_000\",\n            \"notes\": \"\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-01-08T04:25:58.604Z\",\n            \"subscribed\": false,\n            \"exports\": [\n                {\n                    \"pk\": 26486,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"NewName\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:14:42.569133+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"NewNote\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26486\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26486\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26486\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26486\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26486/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"8c926d1f-0fd7-4c70-b25a-26dfb8708774\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"5821aed4-9535-43b4-9d86-aa0499174bbb\"\n                },\n                {\n                    \"pk\": 26484,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2206\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:06:32.253751+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26484\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26484\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26484\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26484\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26484/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"4f5d1870-6150-4e19-8e9d-51c8e1420a26\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"012274c5-0de9-4b45-a9db-f43df1e94276\"\n                },\n                {\n                    \"pk\": 26483,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2205\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:05:46.264269+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26483\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26483\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26483\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26483\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26483/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"800deb6c-9652-437f-b31e-38d3fd6d3c4b\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"52a57a5b-caca-4be3-b0e7-0412ed4293a5\"\n                },\n                {\n                    \"pk\": 25000,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210113.2027\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"Source Format\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-13T20:27:10.269998+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/25000\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/25000\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/25000\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/25000\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": null,\n                    \"entwine_task_id\": null,\n                    \"custom_filters\": null,\n                    \"task_id\": \"da3898a9-f61d-4fc7-8377-4a5a0dd66150\"\n                },\n                {\n                    \"pk\": 24808,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210108.1523\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": 32614,\n                    \"started_at\": \"2021-01-08T15:23:07.913857+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24808\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24808\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24808\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24808\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24808/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6aeff33c-67fa-4baf-93b0-02c2a28abdaf\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"2aebe5f0-2499-46cd-bcd1-9b38f09c5794\"\n                },\n                {\n                    \"pk\": 24807,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"Original\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-08T15:17:12.311262+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24807\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24807\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24807\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24807\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24807/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"757f17e2-d5f9-4272-952f-d708b92fe57c\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"35bed061-8e7b-4fd8-a3b2-c9fbaf3448ba\"\n                },\n                {\n                    \"pk\": 24806,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"PSU NAD83 UTM 14N\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS1.2 (PSU 1.9.0)\",\n                    \"hsrs\": 26914,\n                    \"started_at\": \"2021-01-08T15:16:52.359479+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24806\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24806\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24806\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24806\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24806/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6c3eece6-f299-4528-99ac-209b5b81d4c1\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"ae5f3fad-fa99-4b13-a3f3-93d418bc0dad\"\n                }\n            ],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55803,\n            \"name\": \"Testing\",\n            \"notes\": \"Foo\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:06:00.630Z\",\n            \"subscribed\": false,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55805,\n            \"name\": \"Renamed\",\n            \"notes\": \"Bar\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:08:52.539Z\",\n            \"subscribed\": true,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "All of a users AOIs.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/aois?geom=<string>&intersections=true&intersection_types=<string>&intersection_geoms=false&export_full=true&sort=pk",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aois"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										},
+										{
+											"key": "intersections",
+											"value": "true"
+										},
+										{
+											"key": "intersection_types",
+											"value": "<string>"
+										},
+										{
+											"key": "intersection_geoms",
+											"value": "false"
+										},
+										{
+											"key": "export_full",
+											"value": "true"
+										},
+										{
+											"key": "sort",
+											"value": "pk"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"aois\": [\n  {\n   \"name\": \"aliqua quis ipsum deserunt\",\n   \"created_at\": \"1951-08-22T15:06:48.486Z\",\n   \"user\": \"Duis qui irure\",\n   \"geom\": \"amet dolore Duis\",\n   \"area\": -84243587.98184386,\n   \"notes\": \"ea elit\",\n   \"pk\": 97540431,\n   \"exports\": [\n    {\n     \"name\": \"voluptate in nostrud amet\",\n     \"datatype\": \"ipsum in quis reprehenderit tempor\",\n     \"user\": \"commodo dolor eu aute\",\n     \"hsrs\": -72290433,\n     \"vsrs\": -69995149,\n     \"pk\": -62289184,\n     \"started_at\": \"2018-01-30T23:03:52.096Z\",\n     \"status\": \"sit est veniam eu\",\n     \"url\": \"voluptate reprehenderit minim elit sint\",\n     \"license_url\": \"elit adipisicing non\",\n     \"auxiliary_url\": \"in dolore ullamco aute\",\n     \"zip_url\": \"voluptate esse mollit et\",\n     \"rgb\": false,\n     \"export_type\": \"nulla\",\n     \"intensity\": true,\n     \"dim_classification\": true,\n     \"file_export_options\": \"anim\",\n     \"generate_dem\": true,\n     \"send_email\": false,\n     \"cell_spacing\": -5960078.446979418,\n     \"notes\": \"deserunt pariatur\",\n     \"classification\": \"ipsum proident\",\n     \"pmf_terrain\": \"n\",\n     \"smrf_terrain\": \"officia ex sed commodo irure\",\n     \"be_extract\": true,\n     \"sri_hres\": -82225825.84314,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"dolore ad voluptate in\",\n     \"capacity\": 26753933.620862514,\n     \"length\": 96686765.75482053,\n     \"file_format_options\": \"anim ut elit esse\",\n     \"vector_format\": \"ex Lorem\",\n     \"custom_filters\": \"non\",\n     \"entwine_task_id\": \"ipsum Duis minim qui veniam\",\n     \"greyhound_url\": \"mollit fugiat laboris\"\n    },\n    {\n     \"name\": \"ad quis commodo irure\",\n     \"datatype\": \"elit consec\",\n     \"user\": \"magna ullamco reprehenderit\",\n     \"hsrs\": 76426310,\n     \"vsrs\": -26136801,\n     \"pk\": 90358322,\n     \"started_at\": \"2017-02-05T07:36:54.725Z\",\n     \"status\": \"officia reprehenderit ipsum ut\",\n     \"url\": \"c\",\n     \"license_url\": \"officia\",\n     \"auxiliary_url\": \"nostrud ut nulla pariatur quis\",\n     \"zip_url\": \"labore ea et\",\n     \"rgb\": true,\n     \"export_type\": \"sit et culpa eu\",\n     \"intensity\": true,\n     \"dim_classification\": false,\n     \"file_export_options\": \"non\",\n     \"generate_dem\": false,\n     \"send_email\": true,\n     \"cell_spacing\": 27771076.494966134,\n     \"notes\": \"in laboris sint\",\n     \"classification\": \"in sed aliquip\",\n     \"pmf_terrain\": \"incididunt Ut voluptate\",\n     \"smrf_terrain\": \"elit\",\n     \"be_extract\": false,\n     \"sri_hres\": 77539353.69299802,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"cupidatat\",\n     \"capacity\": 69837558.76382208,\n     \"length\": 81481956.85329255,\n     \"file_format_options\": \"aute non\",\n     \"vector_format\": \"et esse\",\n     \"custom_filters\": \"anim mollit Duis\",\n     \"entwine_task_id\": \"occaecat quis sit eu Exc\",\n     \"greyhound_url\": \"nisi ut\"\n    }\n   ],\n   \"pointcloud_intersects\": [\n    {\n     \"datatype\": \"est dolor nulla\",\n     \"name\": \"incididunt magna\",\n     \"pk\": -57175266,\n     \"sensor\": \"irure laboris in qui\",\n     \"collected_at\": \"1966-08-11\",\n     \"classification\": \"dolore Excepteur aute\",\n     \"area\": 67301200.60118249,\n     \"filesize\": 97417559,\n     \"point_count\": -71180646,\n     \"density\": 99985924.33838809,\n     \"geom\": \"ex mollit cillum do\",\n     \"aoi_coverage\": 58194011.44385269,\n     \"parent_product_pks\": [\n      69059883,\n      75898912\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"ut\",\n     \"access_tag\": \"consectetur nulla adipisicing\",\n     \"file_paths\": [\n      \"nostrud incididunt sint\",\n      \"officia anim\"\n     ],\n     \"srs\": [\n      \"voluptate\",\n      \"laborum ut in officia occaecat\"\n     ]\n    },\n    {\n     \"datatype\": \"in\",\n     \"name\": \"id cupidatat\",\n     \"pk\": -33007195,\n     \"sensor\": \"nulla qui pariatur\",\n     \"collected_at\": \"1999-03-08\",\n     \"classification\": \"dolore do laboris commodo\",\n     \"area\": 77338242.12283862,\n     \"filesize\": -55786067,\n     \"point_count\": 97245478,\n     \"density\": -62764952.73413274,\n     \"geom\": \"ea ex nulla\",\n     \"aoi_coverage\": -11210383.349637002,\n     \"parent_product_pks\": [\n      -78523584,\n      13728726\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"non velit fugiat adipisicing\",\n     \"access_tag\": \"est ipsum\",\n     \"file_paths\": [\n      \"ut dolor l\",\n      \"consectetur\"\n     ],\n     \"srs\": [\n      \"Lorem esse dolor\",\n      \"quis sint commodo\"\n     ]\n    }\n   ],\n   \"raster_intersects\": [\n    {\n     \"datatype\": \"minim ullamco\",\n     \"name\": \"dolore reprehenderit\",\n     \"pk\": -43880628,\n     \"sensor\": \"ipsum Excepteur veniam enim\",\n     \"collected_at\": \"1997-11-30\",\n     \"classification\": \"id Ut labore\",\n     \"area\": -84817649.22369419,\n     \"filesize\": 40919185,\n     \"geom\": \"voluptate veniam sunt\",\n     \"cell_size\": -68310001.1308122,\n     \"aoi_coverage\": -6872218.298322558,\n     \"parent_product_pks\": [\n      72727005,\n      -36215408\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"culpa nisi\",\n     \"access_tag\": \"et laboris ex consec\",\n     \"file_paths\": [\n      \"velit ipsum ut labore nisi\",\n      \"laborum proident cupidatat\"\n     ],\n     \"srs\": [\n      \"eiusmo\",\n      \"ullamco laboris Lorem\"\n     ]\n    },\n    {\n     \"datatype\": \"nostrud sint ullamco\",\n     \"name\": \"fugia\",\n     \"pk\": -89141683,\n     \"sensor\": \"aute v\",\n     \"collected_at\": \"1980-01-08\",\n     \"classification\": \"et qui\",\n     \"area\": -89790920.27724546,\n     \"filesize\": -97811341,\n     \"geom\": \"aliqua aute culpa velit Excepteur\",\n     \"cell_size\": 34332870.94811398,\n     \"aoi_coverage\": 43357317.972873986,\n     \"parent_product_pks\": [\n      13834135,\n      -14794959\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"ut anim cillum qui\",\n     \"access_tag\": \"magna aliquip in\",\n     \"file_paths\": [\n      \"Duis irure aliquip Excepteur\",\n      \"velit Duis\"\n     ],\n     \"srs\": [\n      \"est tempor\",\n      \"dolore voluptate qui\"\n     ]\n    }\n   ],\n   \"vector_intersects\": [\n    {\n     \"datatype\": \"cillum ea consectetur\",\n     \"name\": \"incididunt ut\",\n     \"pk\": -76971725,\n     \"collected_at\": \"1944-02-26\",\n     \"classification\": \"anim amet nisi ut\",\n     \"area\": -85399988.54116657,\n     \"filesize\": -73627197,\n     \"geom\": \"in cupidatat\",\n     \"sensor\": \"dolor consequat proident\",\n     \"aoi_coverage\": 66931653.451387465,\n     \"parent_product_pks\": [\n      -29199901,\n      96923530\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"ut irure fugiat\",\n     \"access_tag\": \"culpa veni\",\n     \"file_paths\": [\n      \"dolore ipsum exercitation non ani\",\n      \"Excepteur in ut\"\n     ]\n    },\n    {\n     \"datatype\": \"nulla consequat\",\n     \"name\": \"cillum sint pariatur\",\n     \"pk\": -15504412,\n     \"collected_at\": \"1984-10-15\",\n     \"classification\": \"cupidatat\",\n     \"area\": 6613532.237798795,\n     \"filesize\": -84840306,\n     \"geom\": \"aliqua tempor aliquip culpa\",\n     \"sensor\": \"mollit eu pariatur veniam sed\",\n     \"aoi_coverage\": 38184476.18143895,\n     \"parent_product_pks\": [\n      -45120115,\n      48748182\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"quis consectetur ex\",\n     \"access_tag\": \"cillum\",\n     \"file_paths\": [\n      \"est dolor qui\",\n      \"nisi Duis\"\n     ]\n    }\n   ],\n   \"mesh_intersects\": [\n    {\n     \"datatype\": \"aliqua deserunt\",\n     \"name\": \"eiusmod\",\n     \"pk\": 5916084,\n     \"sensor\": \"dolore ea\",\n     \"collected_at\": \"1974-02-08T00:47:17.764Z\",\n     \"classification\": \"sed ut consectetur consequat\",\n     \"filesize\": 47088031,\n     \"geom\": \"eiusmod tempor\",\n     \"streaming_url\": \"nisi do sit non eiusmod\",\n     \"program\": \"esse\",\n     \"access_tag\": \"et sit dolor\",\n     \"file_paths\": [\n      \"exercitation esse\",\n      \"eu incididunt adipisicing officia\"\n     ]\n    },\n    {\n     \"datatype\": \"Ut veniam minim\",\n     \"name\": \"qui Lorem ipsum aliqua cupidatat\",\n     \"pk\": -39500344,\n     \"sensor\": \"dolore minim Ut tempor\",\n     \"collected_at\": \"1945-05-04T11:02:00.570Z\",\n     \"classification\": \"veniam Lorem\",\n     \"filesize\": 6393612,\n     \"geom\": \"tempor aute non\",\n     \"streaming_url\": \"ad quis et sed\",\n     \"program\": \"n\",\n     \"access_tag\": \"sunt do esse eiusmod minim\",\n     \"file_paths\": [\n      \"non dolor exercitation Duis\",\n      \"labore\"\n     ]\n    }\n   ],\n   \"new_pointcloud_data\": [\n    84360145,\n    64085766\n   ],\n   \"new_raster_data\": [\n    -93491640,\n    30600668\n   ],\n   \"new_vector_data\": [\n    8204496,\n    31855731\n   ],\n   \"subscribed\": false\n  },\n  {\n   \"name\": \"ea dolore adipisicing \",\n   \"created_at\": \"2018-02-11T16:09:08.129Z\",\n   \"user\": \"dolore minim\",\n   \"geom\": \"in id fugiat ipsum\",\n   \"area\": 37746307.92777565,\n   \"notes\": \"ex\",\n   \"pk\": 1048673,\n   \"exports\": [\n    {\n     \"name\": \"cupidatat ut laboris\",\n     \"datatype\": \"pariatur do ut\",\n     \"user\": \"eiusmod adipisicing qui dolor in\",\n     \"hsrs\": -46745499,\n     \"vsrs\": -44278844,\n     \"pk\": 10239277,\n     \"started_at\": \"1992-06-25T21:41:35.233Z\",\n     \"status\": \"magna veniam\",\n     \"url\": \"ullamco ipsum aliqua Duis sit\",\n     \"license_url\": \"cupidatat magna ipsum\",\n     \"auxiliary_url\": \"exercitation\",\n     \"zip_url\": \"sed sit est\",\n     \"rgb\": false,\n     \"export_type\": \"enim nostrud dolore ut\",\n     \"intensity\": true,\n     \"dim_classification\": false,\n     \"file_export_options\": \"consectetur amet voluptate\",\n     \"generate_dem\": false,\n     \"send_email\": false,\n     \"cell_spacing\": -52571710.94134927,\n     \"notes\": \"incididunt ipsum des\",\n     \"classification\": \"eiusmod ut non\",\n     \"pmf_terrain\": \"id enim eu dolore dolor\",\n     \"smrf_terrain\": \"incididunt esse irure\",\n     \"be_extract\": true,\n     \"sri_hres\": 71336153.16947523,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"sed ullamco\",\n     \"capacity\": -57492078.269392885,\n     \"length\": 11788200.08398737,\n     \"file_format_options\": \"qui mollit consequat laborum\",\n     \"vector_format\": \"sit nisi cillum magna\",\n     \"custom_filters\": \"do Lorem fugiat consequat\",\n     \"entwine_task_id\": \"\",\n     \"greyhound_url\": \"ea quis\"\n    },\n    {\n     \"name\": \"ut qui reprehenderit\",\n     \"datatype\": \"nisi pariatur consectetur\",\n     \"user\": \"deserunt esse\",\n     \"hsrs\": 25558656,\n     \"vsrs\": 15254918,\n     \"pk\": -57422422,\n     \"started_at\": \"1950-07-01T15:11:58.109Z\",\n     \"status\": \"non mol\",\n     \"url\": \"culpa cillum ex\",\n     \"license_url\": \"irure proident\",\n     \"auxiliary_url\": \"eu nos\",\n     \"zip_url\": \"eu proident esse\",\n     \"rgb\": false,\n     \"export_type\": \"ea eiusmod\",\n     \"intensity\": true,\n     \"dim_classification\": false,\n     \"file_export_options\": \"id ani\",\n     \"generate_dem\": false,\n     \"send_email\": true,\n     \"cell_spacing\": 65130181.34559026,\n     \"notes\": \"magna\",\n     \"classification\": \"cillum labori\",\n     \"pmf_terrain\": \"velit reprehenderit sint qui incididunt\",\n     \"smrf_terrain\": \"id reprehenderit eu veniam\",\n     \"be_extract\": true,\n     \"sri_hres\": -72328068.02353519,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"nostrud aute ut\",\n     \"capacity\": -40814182.31771683,\n     \"length\": 19057525.253757074,\n     \"file_format_options\": \"ut adipisicing qui incididunt\",\n     \"vector_format\": \"ullamco exercitation aute anim nostrud\",\n     \"custom_filters\": \"culpa cillum\",\n     \"entwine_task_id\": \"nostrud cupidatat\",\n     \"greyhound_url\": \"deserunt sed Duis proident\"\n    }\n   ],\n   \"pointcloud_intersects\": [\n    {\n     \"datatype\": \"cupidatat proident\",\n     \"name\": \"ut\",\n     \"pk\": 2618477,\n     \"sensor\": \"voluptate Duis elit aute\",\n     \"collected_at\": \"1997-10-09\",\n     \"classification\": \"incididunt Ut non id nisi\",\n     \"area\": -67881427.30734906,\n     \"filesize\": -6619498,\n     \"point_count\": 40803530,\n     \"density\": -51169379.076545104,\n     \"geom\": \"ullamco elit\",\n     \"aoi_coverage\": -14331611.169140145,\n     \"parent_product_pks\": [\n      65024633,\n      34435180\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"in laboris est\",\n     \"access_tag\": \"nostrud pariatur velit\",\n     \"file_paths\": [\n      \"esse consectetur laborum\",\n      \"sunt enim par\"\n     ],\n     \"srs\": [\n      \"non\",\n      \"id sint\"\n     ]\n    },\n    {\n     \"datatype\": \"cillum min\",\n     \"name\": \"Duis nostrud cupidatat\",\n     \"pk\": -33057703,\n     \"sensor\": \"proident deserunt labore sint ex\",\n     \"collected_at\": \"2012-06-03\",\n     \"classification\": \"et non elit adipisicing\",\n     \"area\": -90114181.31168911,\n     \"filesize\": 20164498,\n     \"point_count\": 32911945,\n     \"density\": -26439383.44326675,\n     \"geom\": \"nisi consectetur \",\n     \"aoi_coverage\": -67891216.15498908,\n     \"parent_product_pks\": [\n      -68797338,\n      17499855\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"in enim ipsum nulla\",\n     \"access_tag\": \"sint ad qui culpa\",\n     \"file_paths\": [\n      \"cillum ut laborum\",\n      \"s\"\n     ],\n     \"srs\": [\n      \"exercitation\",\n      \"sunt in nulla\"\n     ]\n    }\n   ],\n   \"raster_intersects\": [\n    {\n     \"datatype\": \"sunt\",\n     \"name\": \"officia\",\n     \"pk\": -55904979,\n     \"sensor\": \"incididunt do anim fugiat\",\n     \"collected_at\": \"2012-08-19\",\n     \"classification\": \"ipsum Excepteur ad esse\",\n     \"area\": -20666818.240321577,\n     \"filesize\": -25397881,\n     \"geom\": \"consequat amet commodo\",\n     \"cell_size\": 26219907.90217139,\n     \"aoi_coverage\": 42419746.487032115,\n     \"parent_product_pks\": [\n      4353367,\n      82631067\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"consequat quis nulla\",\n     \"access_tag\": \"cupidatat ut sit\",\n     \"file_paths\": [\n      \"do Excepteur\",\n      \"dolor eu eiusmod\"\n     ],\n     \"srs\": [\n      \"Ut tempor est deserunt proident\",\n      \"ea tempor enim nulla\"\n     ]\n    },\n    {\n     \"datatype\": \"occaecat exercitation sunt fugiat magna\",\n     \"name\": \"in\",\n     \"pk\": -18068144,\n     \"sensor\": \"id cupidatat adipisicing ullamco eiusmod\",\n     \"collected_at\": \"1970-12-14\",\n     \"classification\": \"sit est nulla fugiat ullamco\",\n     \"area\": 81383593.73629424,\n     \"filesize\": 17466579,\n     \"geom\": \"non et Lorem sed r\",\n     \"cell_size\": 7003309.83632651,\n     \"aoi_coverage\": -44651505.817553215,\n     \"parent_product_pks\": [\n      -98059158,\n      -79068962\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"adipisicing sed qui et elit\",\n     \"access_tag\": \"irure ipsum\",\n     \"file_paths\": [\n      \"Ut veniam dolore\",\n      \"ut magna ullamco\"\n     ],\n     \"srs\": [\n      \"Duis nostrud deserunt\",\n      \"consectetur\"\n     ]\n    }\n   ],\n   \"vector_intersects\": [\n    {\n     \"datatype\": \"enim consequat \",\n     \"name\": \"sed irure nostrud eu\",\n     \"pk\": -52023737,\n     \"collected_at\": null,\n     \"classification\": \"irure id nostrud magna\",\n     \"area\": -53031731.10840858,\n     \"filesize\": 98665207,\n     \"geom\": \"Duis culpa quis\",\n     \"sensor\": \"ut tempor\",\n     \"aoi_coverage\": -18741242.514760926,\n     \"parent_product_pks\": [\n      10746782,\n      -49386923\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"velit ullamco\",\n     \"access_tag\": \"Lorem consectetur exercitation enim\",\n     \"file_paths\": [\n      \"exercitation\",\n      \"sunt ipsum aute an\"\n     ]\n    },\n    {\n     \"datatype\": \"et enim\",\n     \"name\": \"ipsum Lorem id adipisicing\",\n     \"pk\": 8559809,\n     \"collected_at\": null,\n     \"classification\": \"Ut nostrud culpa ea\",\n     \"area\": 44194078.13036615,\n     \"filesize\": -68441463,\n     \"geom\": \"sunt id occaecat\",\n     \"sensor\": \"adipisicing est pariatur\",\n     \"aoi_coverage\": 4678646.993742138,\n     \"parent_product_pks\": [\n      -21007991,\n      53804297\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"in dolor mollit\",\n     \"access_tag\": \"eu occaecat ad\",\n     \"file_paths\": [\n      \"anim nisi eiusmod magna\",\n      \"id voluptate Ut\"\n     ]\n    }\n   ],\n   \"mesh_intersects\": [\n    {\n     \"datatype\": \"Lorem irure \",\n     \"name\": \"Ut aliqua Excepteur cupidatat\",\n     \"pk\": -31600614,\n     \"sensor\": \"occaecat nostrud deserunt\",\n     \"collected_at\": \"1968-03-28T07:22:24.529Z\",\n     \"classification\": \"dolore\",\n     \"filesize\": 81083552,\n     \"geom\": \"deserunt sint nu\",\n     \"streaming_url\": \"tempor\",\n     \"program\": \"Excepteur velit aliqua\",\n     \"access_tag\": \"Ut ullamco do\",\n     \"file_paths\": [\n      \"in deserunt ex\",\n      \"ad commodo ipsum do\"\n     ]\n    },\n    {\n     \"datatype\": \"culpa\",\n     \"name\": \"in ipsum\",\n     \"pk\": -15000405,\n     \"sensor\": \"ipsum laborum\",\n     \"collected_at\": \"1956-11-11T23:12:56.462Z\",\n     \"classification\": \"Excepteur aliqua in quis\",\n     \"filesize\": -16089238,\n     \"geom\": \"aute exercitation voluptate\",\n     \"streaming_url\": \"cillum laboris Excepteur\",\n     \"program\": \"est laboris qui\",\n     \"access_tag\": \"de\",\n     \"file_paths\": [\n      \"laborum anim\",\n      \"voluptate labore\"\n     ]\n    }\n   ],\n   \"new_pointcloud_data\": [\n    11525945,\n    77981367\n   ],\n   \"new_raster_data\": [\n    -78452840,\n    -6668634\n   ],\n   \"new_vector_data\": [\n    45909191,\n    -99832368\n   ],\n   \"subscribed\": true\n  }\n ]\n}"
 						}
 					]
 				},
@@ -5807,17 +6165,24 @@
 			"name": "Issues",
 			"item": [
 				{
-					"name": "Issue #XYZ",
+					"name": "Issue #4246",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});"
-								]
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Response is filters object with array of AOIs\", function() {",
+									"    pm.expect(jsonData).to.be.an(\"object\");",
+									"    pm.expect(jsonData.aois).to.be.an(\"array\");",
+									"})"
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -5825,102 +6190,55 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/holdings?geom=POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))&geoms=true",
+							"raw": "{{baseUrl}}/aois",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"holdings"
+								"aois"
 							],
 							"query": [
 								{
 									"key": "geom",
 									"value": "POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))",
-									"description": "A WKT or GeoJSON geometry used to filter Holdings results."
+									"description": "A WKT or GeoJSON geometry used to filter AOI results.",
+									"disabled": true
 								},
 								{
-									"key": "geoms",
+									"key": "intersections",
 									"value": "true",
-									"description": "Determines whether or not to include the full coverage geometry WKT with the return.\nProduct geometries can be complex, so setting this to False can greatly reduce the return size and\nis recommended if the geometry is not needed.\n"
-								},
-								{
-									"key": "program",
-									"value": "US Cities",
-									"description": "A comma-separated list of program names used to filter the results.\n",
+									"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n",
 									"disabled": true
 								},
 								{
-									"key": "access_tag",
-									"value": "<string>",
-									"description": "A comma-separated list of access permision names used to filter the results.\n",
+									"key": "intersection_types",
+									"value": "pointcloud",
+									"description": "A comma-separated list of product types to include in the product intersection check.\nValid intersection type parameters: pointcloud, raster, vector, mesh, modsim.\nAll types are included by default.\n",
 									"disabled": true
 								},
 								{
-									"key": "datatype",
-									"value": "pointclouds",
-									"description": "A comma-separated list of datatypes used to filter the results.\n",
+									"key": "intersection_geoms",
+									"value": "false",
+									"description": "Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.\nProduct geometries can be complex, so setting this to False can greatly reduce the return size and\nis recommended if the entire geometry is not needed.\nDefault value is False.\n",
+									"disabled": true
+								},
+								{
+									"key": "export_full",
+									"value": "false",
+									"description": "Determines whether or not to include a list of export files that\nbelong to exports for the AOI.\nDefault value is True.\n",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "pk",
+									"description": "Sort the result by a given field.  A &amp;amp;amp;amp;amp;quot;-&amp;amp;amp;amp;amp;quot; can be prepended to the field to indicate descending order. \nValid AOI sorting parameters: area, created_at, name, pk, user.\n",
 									"disabled": true
 								}
 							]
 						},
-						"description": "/holdings endpoint fails with no program or access_tag filtering"
+						"description": "Get a list of the AOIs created by or shared with your user.\n"
 					},
 					"response": [
-						{
-							"name": "Holdings objects.",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: oauth2",
-										"key": "Authorization",
-										"value": "<token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/holdings?geom=<string>&geoms=true&program=<string>&access_tag=<string>&datatype=<string>",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"holdings"
-									],
-									"query": [
-										{
-											"key": "geom",
-											"value": "<string>"
-										},
-										{
-											"key": "geoms",
-											"value": "true"
-										},
-										{
-											"key": "program",
-											"value": "<string>"
-										},
-										{
-											"key": "access_tag",
-											"value": "<string>"
-										},
-										{
-											"key": "datatype",
-											"value": "<string>"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "Text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n \"holdings\": [\n  {\n   \"program\": \"voluptate ex Ut dolor in\",\n   \"program_description\": \"voluptat\",\n   \"datatype\": \"aliquip commodo in\",\n   \"area\": 34414969.71817002,\n   \"access_tag\": \"Ut eu\",\n   \"latest_load\": \"1973-03-04\",\n   \"geom\": \"sit\",\n   \"coverage_download_urls\": [\n    \"incididunt\",\n    \"cupidatat qui id voluptate\"\n   ],\n   \"filesize\": 4740697,\n   \"file_count\": -48227244,\n   \"point_count\": -76160429,\n   \"global_dataset\": false\n  },\n  {\n   \"program\": \"magna reprehenderit incididunt consequat esse\",\n   \"program_description\": \"eu commodo veniam exercitation\",\n   \"datatype\": \"aliqua amet dolor qui\",\n   \"area\": 28083967.64518912,\n   \"access_tag\": \"minim cupidatat\",\n   \"latest_load\": \"1974-12-25\",\n   \"geom\": \"sed labore\",\n   \"coverage_download_urls\": [\n    \"Duis anim Lorem amet\",\n    \"dolor non Duis\"\n   ],\n   \"filesize\": -90803207,\n   \"file_count\": 24615041,\n   \"point_count\": -9822086,\n   \"global_dataset\": true\n  }\n ]\n}"
-						},
 						{
 							"name": "Authorization information is missing or invalid.",
 							"originalRequest": {
@@ -5933,12 +6251,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/holdings?geom=<string>&geoms=true&program=<string>&access_tag=<string>&datatype=<string>",
+									"raw": "{{baseUrl}}/aois?geom=<string>&intersections=true&intersection_types=<string>&intersection_geoms=false&export_full=true&sort=pk",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"holdings"
+										"aois"
 									],
 									"query": [
 										{
@@ -5946,20 +6264,24 @@
 											"value": "<string>"
 										},
 										{
-											"key": "geoms",
+											"key": "intersections",
 											"value": "true"
 										},
 										{
-											"key": "program",
+											"key": "intersection_types",
 											"value": "<string>"
 										},
 										{
-											"key": "access_tag",
-											"value": "<string>"
+											"key": "intersection_geoms",
+											"value": "false"
 										},
 										{
-											"key": "datatype",
-											"value": "<string>"
+											"key": "export_full",
+											"value": "true"
+										},
+										{
+											"key": "sort",
+											"value": "pk"
 										}
 									]
 								}
@@ -5988,12 +6310,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseUrl}}/holdings?geom=<string>&geoms=true&program=<string>&access_tag=<string>&datatype=<string>",
+									"raw": "{{baseUrl}}/aois?geom=<string>&intersections=true&intersection_types=<string>&intersection_geoms=false&export_full=true&sort=pk",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
-										"holdings"
+										"aois"
 									],
 									"query": [
 										{
@@ -6001,20 +6323,24 @@
 											"value": "<string>"
 										},
 										{
-											"key": "geoms",
+											"key": "intersections",
 											"value": "true"
 										},
 										{
-											"key": "program",
+											"key": "intersection_types",
 											"value": "<string>"
 										},
 										{
-											"key": "access_tag",
-											"value": "<string>"
+											"key": "intersection_geoms",
+											"value": "false"
 										},
 										{
-											"key": "datatype",
-											"value": "<string>"
+											"key": "export_full",
+											"value": "true"
+										},
+										{
+											"key": "sort",
+											"value": "pk"
 										}
 									]
 								}
@@ -6030,6 +6356,169 @@
 							],
 							"cookie": [],
 							"body": "{\n \"error\": \"aliqua\"\n}"
+						},
+						{
+							"name": "All of a users AOIs.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/aois?geom=<string>&intersections=true&intersection_types=<string>&intersection_geoms=false&export_full=true&sort=pk",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aois"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										},
+										{
+											"key": "intersections",
+											"value": "true"
+										},
+										{
+											"key": "intersection_types",
+											"value": "<string>"
+										},
+										{
+											"key": "intersection_geoms",
+											"value": "false"
+										},
+										{
+											"key": "export_full",
+											"value": "true"
+										},
+										{
+											"key": "sort",
+											"value": "pk"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"aois\": [\n  {\n   \"name\": \"aliqua quis ipsum deserunt\",\n   \"created_at\": \"1951-08-22T15:06:48.486Z\",\n   \"user\": \"Duis qui irure\",\n   \"geom\": \"amet dolore Duis\",\n   \"area\": -84243587.98184386,\n   \"notes\": \"ea elit\",\n   \"pk\": 97540431,\n   \"exports\": [\n    {\n     \"name\": \"voluptate in nostrud amet\",\n     \"datatype\": \"ipsum in quis reprehenderit tempor\",\n     \"user\": \"commodo dolor eu aute\",\n     \"hsrs\": -72290433,\n     \"vsrs\": -69995149,\n     \"pk\": -62289184,\n     \"started_at\": \"2018-01-30T23:03:52.096Z\",\n     \"status\": \"sit est veniam eu\",\n     \"url\": \"voluptate reprehenderit minim elit sint\",\n     \"license_url\": \"elit adipisicing non\",\n     \"auxiliary_url\": \"in dolore ullamco aute\",\n     \"zip_url\": \"voluptate esse mollit et\",\n     \"rgb\": false,\n     \"export_type\": \"nulla\",\n     \"intensity\": true,\n     \"dim_classification\": true,\n     \"file_export_options\": \"anim\",\n     \"generate_dem\": true,\n     \"send_email\": false,\n     \"cell_spacing\": -5960078.446979418,\n     \"notes\": \"deserunt pariatur\",\n     \"classification\": \"ipsum proident\",\n     \"pmf_terrain\": \"n\",\n     \"smrf_terrain\": \"officia ex sed commodo irure\",\n     \"be_extract\": true,\n     \"sri_hres\": -82225825.84314,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"dolore ad voluptate in\",\n     \"capacity\": 26753933.620862514,\n     \"length\": 96686765.75482053,\n     \"file_format_options\": \"anim ut elit esse\",\n     \"vector_format\": \"ex Lorem\",\n     \"custom_filters\": \"non\",\n     \"entwine_task_id\": \"ipsum Duis minim qui veniam\",\n     \"greyhound_url\": \"mollit fugiat laboris\"\n    },\n    {\n     \"name\": \"ad quis commodo irure\",\n     \"datatype\": \"elit consec\",\n     \"user\": \"magna ullamco reprehenderit\",\n     \"hsrs\": 76426310,\n     \"vsrs\": -26136801,\n     \"pk\": 90358322,\n     \"started_at\": \"2017-02-05T07:36:54.725Z\",\n     \"status\": \"officia reprehenderit ipsum ut\",\n     \"url\": \"c\",\n     \"license_url\": \"officia\",\n     \"auxiliary_url\": \"nostrud ut nulla pariatur quis\",\n     \"zip_url\": \"labore ea et\",\n     \"rgb\": true,\n     \"export_type\": \"sit et culpa eu\",\n     \"intensity\": true,\n     \"dim_classification\": false,\n     \"file_export_options\": \"non\",\n     \"generate_dem\": false,\n     \"send_email\": true,\n     \"cell_spacing\": 27771076.494966134,\n     \"notes\": \"in laboris sint\",\n     \"classification\": \"in sed aliquip\",\n     \"pmf_terrain\": \"incididunt Ut voluptate\",\n     \"smrf_terrain\": \"elit\",\n     \"be_extract\": false,\n     \"sri_hres\": 77539353.69299802,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"cupidatat\",\n     \"capacity\": 69837558.76382208,\n     \"length\": 81481956.85329255,\n     \"file_format_options\": \"aute non\",\n     \"vector_format\": \"et esse\",\n     \"custom_filters\": \"anim mollit Duis\",\n     \"entwine_task_id\": \"occaecat quis sit eu Exc\",\n     \"greyhound_url\": \"nisi ut\"\n    }\n   ],\n   \"pointcloud_intersects\": [\n    {\n     \"datatype\": \"est dolor nulla\",\n     \"name\": \"incididunt magna\",\n     \"pk\": -57175266,\n     \"sensor\": \"irure laboris in qui\",\n     \"collected_at\": \"1966-08-11\",\n     \"classification\": \"dolore Excepteur aute\",\n     \"area\": 67301200.60118249,\n     \"filesize\": 97417559,\n     \"point_count\": -71180646,\n     \"density\": 99985924.33838809,\n     \"geom\": \"ex mollit cillum do\",\n     \"aoi_coverage\": 58194011.44385269,\n     \"parent_product_pks\": [\n      69059883,\n      75898912\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"ut\",\n     \"access_tag\": \"consectetur nulla adipisicing\",\n     \"file_paths\": [\n      \"nostrud incididunt sint\",\n      \"officia anim\"\n     ],\n     \"srs\": [\n      \"voluptate\",\n      \"laborum ut in officia occaecat\"\n     ]\n    },\n    {\n     \"datatype\": \"in\",\n     \"name\": \"id cupidatat\",\n     \"pk\": -33007195,\n     \"sensor\": \"nulla qui pariatur\",\n     \"collected_at\": \"1999-03-08\",\n     \"classification\": \"dolore do laboris commodo\",\n     \"area\": 77338242.12283862,\n     \"filesize\": -55786067,\n     \"point_count\": 97245478,\n     \"density\": -62764952.73413274,\n     \"geom\": \"ea ex nulla\",\n     \"aoi_coverage\": -11210383.349637002,\n     \"parent_product_pks\": [\n      -78523584,\n      13728726\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"non velit fugiat adipisicing\",\n     \"access_tag\": \"est ipsum\",\n     \"file_paths\": [\n      \"ut dolor l\",\n      \"consectetur\"\n     ],\n     \"srs\": [\n      \"Lorem esse dolor\",\n      \"quis sint commodo\"\n     ]\n    }\n   ],\n   \"raster_intersects\": [\n    {\n     \"datatype\": \"minim ullamco\",\n     \"name\": \"dolore reprehenderit\",\n     \"pk\": -43880628,\n     \"sensor\": \"ipsum Excepteur veniam enim\",\n     \"collected_at\": \"1997-11-30\",\n     \"classification\": \"id Ut labore\",\n     \"area\": -84817649.22369419,\n     \"filesize\": 40919185,\n     \"geom\": \"voluptate veniam sunt\",\n     \"cell_size\": -68310001.1308122,\n     \"aoi_coverage\": -6872218.298322558,\n     \"parent_product_pks\": [\n      72727005,\n      -36215408\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"culpa nisi\",\n     \"access_tag\": \"et laboris ex consec\",\n     \"file_paths\": [\n      \"velit ipsum ut labore nisi\",\n      \"laborum proident cupidatat\"\n     ],\n     \"srs\": [\n      \"eiusmo\",\n      \"ullamco laboris Lorem\"\n     ]\n    },\n    {\n     \"datatype\": \"nostrud sint ullamco\",\n     \"name\": \"fugia\",\n     \"pk\": -89141683,\n     \"sensor\": \"aute v\",\n     \"collected_at\": \"1980-01-08\",\n     \"classification\": \"et qui\",\n     \"area\": -89790920.27724546,\n     \"filesize\": -97811341,\n     \"geom\": \"aliqua aute culpa velit Excepteur\",\n     \"cell_size\": 34332870.94811398,\n     \"aoi_coverage\": 43357317.972873986,\n     \"parent_product_pks\": [\n      13834135,\n      -14794959\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"ut anim cillum qui\",\n     \"access_tag\": \"magna aliquip in\",\n     \"file_paths\": [\n      \"Duis irure aliquip Excepteur\",\n      \"velit Duis\"\n     ],\n     \"srs\": [\n      \"est tempor\",\n      \"dolore voluptate qui\"\n     ]\n    }\n   ],\n   \"vector_intersects\": [\n    {\n     \"datatype\": \"cillum ea consectetur\",\n     \"name\": \"incididunt ut\",\n     \"pk\": -76971725,\n     \"collected_at\": \"1944-02-26\",\n     \"classification\": \"anim amet nisi ut\",\n     \"area\": -85399988.54116657,\n     \"filesize\": -73627197,\n     \"geom\": \"in cupidatat\",\n     \"sensor\": \"dolor consequat proident\",\n     \"aoi_coverage\": 66931653.451387465,\n     \"parent_product_pks\": [\n      -29199901,\n      96923530\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"ut irure fugiat\",\n     \"access_tag\": \"culpa veni\",\n     \"file_paths\": [\n      \"dolore ipsum exercitation non ani\",\n      \"Excepteur in ut\"\n     ]\n    },\n    {\n     \"datatype\": \"nulla consequat\",\n     \"name\": \"cillum sint pariatur\",\n     \"pk\": -15504412,\n     \"collected_at\": \"1984-10-15\",\n     \"classification\": \"cupidatat\",\n     \"area\": 6613532.237798795,\n     \"filesize\": -84840306,\n     \"geom\": \"aliqua tempor aliquip culpa\",\n     \"sensor\": \"mollit eu pariatur veniam sed\",\n     \"aoi_coverage\": 38184476.18143895,\n     \"parent_product_pks\": [\n      -45120115,\n      48748182\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"quis consectetur ex\",\n     \"access_tag\": \"cillum\",\n     \"file_paths\": [\n      \"est dolor qui\",\n      \"nisi Duis\"\n     ]\n    }\n   ],\n   \"mesh_intersects\": [\n    {\n     \"datatype\": \"aliqua deserunt\",\n     \"name\": \"eiusmod\",\n     \"pk\": 5916084,\n     \"sensor\": \"dolore ea\",\n     \"collected_at\": \"1974-02-08T00:47:17.764Z\",\n     \"classification\": \"sed ut consectetur consequat\",\n     \"filesize\": 47088031,\n     \"geom\": \"eiusmod tempor\",\n     \"streaming_url\": \"nisi do sit non eiusmod\",\n     \"program\": \"esse\",\n     \"access_tag\": \"et sit dolor\",\n     \"file_paths\": [\n      \"exercitation esse\",\n      \"eu incididunt adipisicing officia\"\n     ]\n    },\n    {\n     \"datatype\": \"Ut veniam minim\",\n     \"name\": \"qui Lorem ipsum aliqua cupidatat\",\n     \"pk\": -39500344,\n     \"sensor\": \"dolore minim Ut tempor\",\n     \"collected_at\": \"1945-05-04T11:02:00.570Z\",\n     \"classification\": \"veniam Lorem\",\n     \"filesize\": 6393612,\n     \"geom\": \"tempor aute non\",\n     \"streaming_url\": \"ad quis et sed\",\n     \"program\": \"n\",\n     \"access_tag\": \"sunt do esse eiusmod minim\",\n     \"file_paths\": [\n      \"non dolor exercitation Duis\",\n      \"labore\"\n     ]\n    }\n   ],\n   \"new_pointcloud_data\": [\n    84360145,\n    64085766\n   ],\n   \"new_raster_data\": [\n    -93491640,\n    30600668\n   ],\n   \"new_vector_data\": [\n    8204496,\n    31855731\n   ],\n   \"subscribed\": false\n  },\n  {\n   \"name\": \"ea dolore adipisicing \",\n   \"created_at\": \"2018-02-11T16:09:08.129Z\",\n   \"user\": \"dolore minim\",\n   \"geom\": \"in id fugiat ipsum\",\n   \"area\": 37746307.92777565,\n   \"notes\": \"ex\",\n   \"pk\": 1048673,\n   \"exports\": [\n    {\n     \"name\": \"cupidatat ut laboris\",\n     \"datatype\": \"pariatur do ut\",\n     \"user\": \"eiusmod adipisicing qui dolor in\",\n     \"hsrs\": -46745499,\n     \"vsrs\": -44278844,\n     \"pk\": 10239277,\n     \"started_at\": \"1992-06-25T21:41:35.233Z\",\n     \"status\": \"magna veniam\",\n     \"url\": \"ullamco ipsum aliqua Duis sit\",\n     \"license_url\": \"cupidatat magna ipsum\",\n     \"auxiliary_url\": \"exercitation\",\n     \"zip_url\": \"sed sit est\",\n     \"rgb\": false,\n     \"export_type\": \"enim nostrud dolore ut\",\n     \"intensity\": true,\n     \"dim_classification\": false,\n     \"file_export_options\": \"consectetur amet voluptate\",\n     \"generate_dem\": false,\n     \"send_email\": false,\n     \"cell_spacing\": -52571710.94134927,\n     \"notes\": \"incididunt ipsum des\",\n     \"classification\": \"eiusmod ut non\",\n     \"pmf_terrain\": \"id enim eu dolore dolor\",\n     \"smrf_terrain\": \"incididunt esse irure\",\n     \"be_extract\": true,\n     \"sri_hres\": 71336153.16947523,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"sed ullamco\",\n     \"capacity\": -57492078.269392885,\n     \"length\": 11788200.08398737,\n     \"file_format_options\": \"qui mollit consequat laborum\",\n     \"vector_format\": \"sit nisi cillum magna\",\n     \"custom_filters\": \"do Lorem fugiat consequat\",\n     \"entwine_task_id\": \"\",\n     \"greyhound_url\": \"ea quis\"\n    },\n    {\n     \"name\": \"ut qui reprehenderit\",\n     \"datatype\": \"nisi pariatur consectetur\",\n     \"user\": \"deserunt esse\",\n     \"hsrs\": 25558656,\n     \"vsrs\": 15254918,\n     \"pk\": -57422422,\n     \"started_at\": \"1950-07-01T15:11:58.109Z\",\n     \"status\": \"non mol\",\n     \"url\": \"culpa cillum ex\",\n     \"license_url\": \"irure proident\",\n     \"auxiliary_url\": \"eu nos\",\n     \"zip_url\": \"eu proident esse\",\n     \"rgb\": false,\n     \"export_type\": \"ea eiusmod\",\n     \"intensity\": true,\n     \"dim_classification\": false,\n     \"file_export_options\": \"id ani\",\n     \"generate_dem\": false,\n     \"send_email\": true,\n     \"cell_spacing\": 65130181.34559026,\n     \"notes\": \"magna\",\n     \"classification\": \"cillum labori\",\n     \"pmf_terrain\": \"velit reprehenderit sint qui incididunt\",\n     \"smrf_terrain\": \"id reprehenderit eu veniam\",\n     \"be_extract\": true,\n     \"sri_hres\": -72328068.02353519,\n     \"exportfiles\": {},\n     \"tools\": [\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      },\n      {\n       \"created_at\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"notes\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"pk\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"status\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"url\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       \"task_id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      }\n     ],\n     \"task_id\": \"nostrud aute ut\",\n     \"capacity\": -40814182.31771683,\n     \"length\": 19057525.253757074,\n     \"file_format_options\": \"ut adipisicing qui incididunt\",\n     \"vector_format\": \"ullamco exercitation aute anim nostrud\",\n     \"custom_filters\": \"culpa cillum\",\n     \"entwine_task_id\": \"nostrud cupidatat\",\n     \"greyhound_url\": \"deserunt sed Duis proident\"\n    }\n   ],\n   \"pointcloud_intersects\": [\n    {\n     \"datatype\": \"cupidatat proident\",\n     \"name\": \"ut\",\n     \"pk\": 2618477,\n     \"sensor\": \"voluptate Duis elit aute\",\n     \"collected_at\": \"1997-10-09\",\n     \"classification\": \"incididunt Ut non id nisi\",\n     \"area\": -67881427.30734906,\n     \"filesize\": -6619498,\n     \"point_count\": 40803530,\n     \"density\": -51169379.076545104,\n     \"geom\": \"ullamco elit\",\n     \"aoi_coverage\": -14331611.169140145,\n     \"parent_product_pks\": [\n      65024633,\n      34435180\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"in laboris est\",\n     \"access_tag\": \"nostrud pariatur velit\",\n     \"file_paths\": [\n      \"esse consectetur laborum\",\n      \"sunt enim par\"\n     ],\n     \"srs\": [\n      \"non\",\n      \"id sint\"\n     ]\n    },\n    {\n     \"datatype\": \"cillum min\",\n     \"name\": \"Duis nostrud cupidatat\",\n     \"pk\": -33057703,\n     \"sensor\": \"proident deserunt labore sint ex\",\n     \"collected_at\": \"2012-06-03\",\n     \"classification\": \"et non elit adipisicing\",\n     \"area\": -90114181.31168911,\n     \"filesize\": 20164498,\n     \"point_count\": 32911945,\n     \"density\": -26439383.44326675,\n     \"geom\": \"nisi consectetur \",\n     \"aoi_coverage\": -67891216.15498908,\n     \"parent_product_pks\": [\n      -68797338,\n      17499855\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"in enim ipsum nulla\",\n     \"access_tag\": \"sint ad qui culpa\",\n     \"file_paths\": [\n      \"cillum ut laborum\",\n      \"s\"\n     ],\n     \"srs\": [\n      \"exercitation\",\n      \"sunt in nulla\"\n     ]\n    }\n   ],\n   \"raster_intersects\": [\n    {\n     \"datatype\": \"sunt\",\n     \"name\": \"officia\",\n     \"pk\": -55904979,\n     \"sensor\": \"incididunt do anim fugiat\",\n     \"collected_at\": \"2012-08-19\",\n     \"classification\": \"ipsum Excepteur ad esse\",\n     \"area\": -20666818.240321577,\n     \"filesize\": -25397881,\n     \"geom\": \"consequat amet commodo\",\n     \"cell_size\": 26219907.90217139,\n     \"aoi_coverage\": 42419746.487032115,\n     \"parent_product_pks\": [\n      4353367,\n      82631067\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"consequat quis nulla\",\n     \"access_tag\": \"cupidatat ut sit\",\n     \"file_paths\": [\n      \"do Excepteur\",\n      \"dolor eu eiusmod\"\n     ],\n     \"srs\": [\n      \"Ut tempor est deserunt proident\",\n      \"ea tempor enim nulla\"\n     ]\n    },\n    {\n     \"datatype\": \"occaecat exercitation sunt fugiat magna\",\n     \"name\": \"in\",\n     \"pk\": -18068144,\n     \"sensor\": \"id cupidatat adipisicing ullamco eiusmod\",\n     \"collected_at\": \"1970-12-14\",\n     \"classification\": \"sit est nulla fugiat ullamco\",\n     \"area\": 81383593.73629424,\n     \"filesize\": 17466579,\n     \"geom\": \"non et Lorem sed r\",\n     \"cell_size\": 7003309.83632651,\n     \"aoi_coverage\": -44651505.817553215,\n     \"parent_product_pks\": [\n      -98059158,\n      -79068962\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"adipisicing sed qui et elit\",\n     \"access_tag\": \"irure ipsum\",\n     \"file_paths\": [\n      \"Ut veniam dolore\",\n      \"ut magna ullamco\"\n     ],\n     \"srs\": [\n      \"Duis nostrud deserunt\",\n      \"consectetur\"\n     ]\n    }\n   ],\n   \"vector_intersects\": [\n    {\n     \"datatype\": \"enim consequat \",\n     \"name\": \"sed irure nostrud eu\",\n     \"pk\": -52023737,\n     \"collected_at\": null,\n     \"classification\": \"irure id nostrud magna\",\n     \"area\": -53031731.10840858,\n     \"filesize\": 98665207,\n     \"geom\": \"Duis culpa quis\",\n     \"sensor\": \"ut tempor\",\n     \"aoi_coverage\": -18741242.514760926,\n     \"parent_product_pks\": [\n      10746782,\n      -49386923\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"velit ullamco\",\n     \"access_tag\": \"Lorem consectetur exercitation enim\",\n     \"file_paths\": [\n      \"exercitation\",\n      \"sunt ipsum aute an\"\n     ]\n    },\n    {\n     \"datatype\": \"et enim\",\n     \"name\": \"ipsum Lorem id adipisicing\",\n     \"pk\": 8559809,\n     \"collected_at\": null,\n     \"classification\": \"Ut nostrud culpa ea\",\n     \"area\": 44194078.13036615,\n     \"filesize\": -68441463,\n     \"geom\": \"sunt id occaecat\",\n     \"sensor\": \"adipisicing est pariatur\",\n     \"aoi_coverage\": 4678646.993742138,\n     \"parent_product_pks\": [\n      -21007991,\n      53804297\n     ],\n     \"associated_products\": {\n      \"pointclouds\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"rasters\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ],\n      \"vectors\": [\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       },\n       {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n       }\n      ]\n     },\n     \"program\": \"in dolor mollit\",\n     \"access_tag\": \"eu occaecat ad\",\n     \"file_paths\": [\n      \"anim nisi eiusmod magna\",\n      \"id voluptate Ut\"\n     ]\n    }\n   ],\n   \"mesh_intersects\": [\n    {\n     \"datatype\": \"Lorem irure \",\n     \"name\": \"Ut aliqua Excepteur cupidatat\",\n     \"pk\": -31600614,\n     \"sensor\": \"occaecat nostrud deserunt\",\n     \"collected_at\": \"1968-03-28T07:22:24.529Z\",\n     \"classification\": \"dolore\",\n     \"filesize\": 81083552,\n     \"geom\": \"deserunt sint nu\",\n     \"streaming_url\": \"tempor\",\n     \"program\": \"Excepteur velit aliqua\",\n     \"access_tag\": \"Ut ullamco do\",\n     \"file_paths\": [\n      \"in deserunt ex\",\n      \"ad commodo ipsum do\"\n     ]\n    },\n    {\n     \"datatype\": \"culpa\",\n     \"name\": \"in ipsum\",\n     \"pk\": -15000405,\n     \"sensor\": \"ipsum laborum\",\n     \"collected_at\": \"1956-11-11T23:12:56.462Z\",\n     \"classification\": \"Excepteur aliqua in quis\",\n     \"filesize\": -16089238,\n     \"geom\": \"aute exercitation voluptate\",\n     \"streaming_url\": \"cillum laboris Excepteur\",\n     \"program\": \"est laboris qui\",\n     \"access_tag\": \"de\",\n     \"file_paths\": [\n      \"laborum anim\",\n      \"voluptate labore\"\n     ]\n    }\n   ],\n   \"new_pointcloud_data\": [\n    11525945,\n    77981367\n   ],\n   \"new_raster_data\": [\n    -78452840,\n    -6668634\n   ],\n   \"new_vector_data\": [\n    45909191,\n    -99832368\n   ],\n   \"subscribed\": true\n  }\n ]\n}"
+						},
+						{
+							"name": "Get all AOIs filtered by geometry",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/aois?geom=POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))&intersections=false&intersection_geoms=false&export_full=false&sort=pk",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"aois"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))",
+											"description": "A WKT or GeoJSON geometry used to filter AOI results."
+										},
+										{
+											"key": "intersections",
+											"value": "false",
+											"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n"
+										},
+										{
+											"key": "intersection_types",
+											"value": "<string>",
+											"description": "A comma-separated list of product types to include in the product intersection check.\nValid intersection type parameters: pointcloud, raster, vector, mesh, modsim.\nAll types are included by default.\n",
+											"disabled": true
+										},
+										{
+											"key": "intersection_geoms",
+											"value": "false",
+											"description": "Determines whether or not to include the entire geometry of each product that intersects with the AOI geometry.\nProduct geometries can be complex, so setting this to False can greatly reduce the return size and\nis recommended if the entire geometry is not needed.\nDefault value is False.\n"
+										},
+										{
+											"key": "export_full",
+											"value": "false",
+											"description": "Determines whether or not to include a list of export files that\nbelong to exports for the AOI.\nDefault value is True.\n"
+										},
+										{
+											"key": "sort",
+											"value": "pk",
+											"description": "Sort the result by a given field.  A &amp;amp;amp;amp;amp;quot;-&amp;amp;amp;amp;amp;quot; can be prepended to the field to indicate descending order. \nValid AOI sorting parameters: area, created_at, name, pk, user.\n"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 04 Mar 2021 16:26:41 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "AWSALBTG=lHoN4oj9qjtBRxlGZzEXIsNRROclIwj8zxNgpaX9Lj0axToErrw9hBErABGQ1WibJAc9hJttuG91xngc3YJuKW7mugmMnsKX3EP82I+vDaHKd2ZDcHoDUQdMdMmwXZPd3fyHcOpilxT21fBJ/QifLWPHHYH0pAnds2AJG7SK8e6m; Expires=Thu, 11 Mar 2021 16:26:41 GMT; Path=/"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "AWSALBTGCORS=lHoN4oj9qjtBRxlGZzEXIsNRROclIwj8zxNgpaX9Lj0axToErrw9hBErABGQ1WibJAc9hJttuG91xngc3YJuKW7mugmMnsKX3EP82I+vDaHKd2ZDcHoDUQdMdMmwXZPd3fyHcOpilxT21fBJ/QifLWPHHYH0pAnds2AJG7SK8e6m; Expires=Thu, 11 Mar 2021 16:26:41 GMT; Path=/; SameSite=None; Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=5nzmaa78ih6fyql79182s8g70tjthag9; expires=Thu, 04 Mar 2021 17:26:42 GMT; HttpOnly; Max-Age=3600; Path=/testgrid; SameSite=Lax; Secure"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization,Cookie,Accept-Encoding"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"aois\": [\n        {\n            \"pk\": 51451,\n            \"name\": \"OMA_000\",\n            \"notes\": \"\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-01-08T04:25:58.604Z\",\n            \"subscribed\": false,\n            \"exports\": [\n                {\n                    \"pk\": 26486,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"NewName\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:14:42.569133+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"NewNote\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26486\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26486\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26486\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26486\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26486/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"8c926d1f-0fd7-4c70-b25a-26dfb8708774\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"5821aed4-9535-43b4-9d86-aa0499174bbb\"\n                },\n                {\n                    \"pk\": 26484,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2206\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:06:32.253751+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26484\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26484\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26484\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26484\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26484/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"4f5d1870-6150-4e19-8e9d-51c8e1420a26\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"012274c5-0de9-4b45-a9db-f43df1e94276\"\n                },\n                {\n                    \"pk\": 26483,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2205\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:05:46.264269+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26483\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26483\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26483\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26483\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26483/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"800deb6c-9652-437f-b31e-38d3fd6d3c4b\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"52a57a5b-caca-4be3-b0e7-0412ed4293a5\"\n                },\n                {\n                    \"pk\": 25000,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210113.2027\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"Source Format\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-13T20:27:10.269998+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/25000\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/25000\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/25000\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/25000\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": null,\n                    \"entwine_task_id\": null,\n                    \"custom_filters\": null,\n                    \"task_id\": \"da3898a9-f61d-4fc7-8377-4a5a0dd66150\"\n                },\n                {\n                    \"pk\": 24808,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210108.1523\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": 32614,\n                    \"started_at\": \"2021-01-08T15:23:07.913857+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24808\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24808\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24808\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24808\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24808/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6aeff33c-67fa-4baf-93b0-02c2a28abdaf\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"2aebe5f0-2499-46cd-bcd1-9b38f09c5794\"\n                },\n                {\n                    \"pk\": 24807,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"Original\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-08T15:17:12.311262+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24807\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24807\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24807\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24807\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24807/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"757f17e2-d5f9-4272-952f-d708b92fe57c\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"35bed061-8e7b-4fd8-a3b2-c9fbaf3448ba\"\n                },\n                {\n                    \"pk\": 24806,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"PSU NAD83 UTM 14N\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS1.2 (PSU 1.9.0)\",\n                    \"hsrs\": 26914,\n                    \"started_at\": \"2021-01-08T15:16:52.359479+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24806\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24806\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24806\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24806\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24806/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6c3eece6-f299-4528-99ac-209b5b81d4c1\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"ae5f3fad-fa99-4b13-a3f3-93d418bc0dad\"\n                }\n            ],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55803,\n            \"name\": \"Testing\",\n            \"notes\": \"Foo\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:06:00.630Z\",\n            \"subscribed\": false,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55805,\n            \"name\": \"Renamed\",\n            \"notes\": \"Bar\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:08:52.539Z\",\n            \"subscribed\": true,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        }\n    ]\n}"
 						}
 					]
 				}
