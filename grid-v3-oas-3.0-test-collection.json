@@ -284,7 +284,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/aois",
+							"raw": "{{baseUrl}}/aois?intersections=false",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -300,9 +300,8 @@
 								},
 								{
 									"key": "intersections",
-									"value": "true",
-									"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n",
-									"disabled": true
+									"value": "false",
+									"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n"
 								},
 								{
 									"key": "intersection_types",
@@ -792,6 +791,10 @@
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});",
+									"",
 									"const jsonData = pm.response.json();",
 									"",
 									"pm.test(\"Response is filters object with array of AOIs\", function() {",
@@ -1135,8 +1138,8 @@
 									"})",
 									"",
 									"// Preferred way is to test for an explicit length",
-									"pm.test(\"Number of poincloud intersects is 3\", function() {",
-									"    pm.expect(jsonData.aois[0].pointcloud_intersects).to.have.lengthOf(3);",
+									"pm.test(\"Number of poincloud intersects is 4\", function() {",
+									"    pm.expect(jsonData.aois[0].pointcloud_intersects).to.have.lengthOf(4);",
 									"})",
 									"",
 									"// But given that holdings is somewhat dynamic, may be just as well to check that number of pointcloud intersects is simply greater than zero",
@@ -2020,17 +2023,21 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});",
 									"",
 									"const jsonData = pm.response.json();",
 									"",
 									"pm.environment.set(\"task_id\", jsonData.exports[0].task_id)",
 									"pm.environment.set(\"export_pk\", jsonData.exports[0].export_id)"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2399,11 +2406,11 @@
 									"pm.test(\"Check types\", function() {",
 									"    pm.expect(jsonData.exports[0].export_type).to.equal(\"pointcloud\");",
 									"    pm.expect(jsonData.exports[0].datatype).to.equal(\"LAS 1.2\");",
-									"    pm.expect(jsonData.exports[0].status).to.be.oneOf([\"SUCCESS\",\"QUEUED\",\"FAILURE\",\"RUNNING\",\"CANCELED\"]);",
+									"    pm.expect(jsonData.exports[0].status).to.be.oneOf([\"SUCCESS\",\"COMPLETE\",\"QUEUED\",\"FAILURE\",\"RUNNING\",\"CANCELED\"]);",
 									"})",
 									"",
 									"pm.test(\"Number of exportfiles\", function() {",
-									"    if (jsonData.exports[0].status==\"SUCCESS\") {",
+									"    if (jsonData.exports[0].status==\"SUCCESS\" || \"COMPLETE\") {",
 									"        pm.expect(jsonData.exports[0].exportfiles.length).to.equal(1);",
 									"    } else {",
 									"        pm.expect(jsonData.exports[0].exportfiles.length).to.equal(0);",
@@ -3039,13 +3046,17 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"// Unsure of best way to test this. It is failing because index already exists. Maybe we could check for that message, but would also be nice to check that we can start one too.",
 									"pm.test(\"Status code is 400\", function () {",
 									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
 									"});"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -3438,7 +3449,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -3461,10 +3471,11 @@
 									"    pm.expect(jsonData.filters).to.be.an(\"array\");",
 									"})",
 									"",
-									"pm.test(\"Number of filters is 53\", function() {",
-									"    pm.expect(jsonData.filters.length).to.equal(53);",
+									"pm.test(\"Number of filters is 52\", function() {",
+									"    pm.expect(jsonData.filters.length).to.equal(52);",
 									"})"
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -6442,7 +6453,7 @@
 								},
 								{
 									"key": "intersections",
-									"value": "true",
+									"value": "false",
 									"description": "Determines whether or not to include a list of products that intersect with the AOI geometry. This can\nbe time-consuming so setting this to False is recommended if product intersections aren&amp;amp;amp;amp;amp;#39;t needed.\nDefault value is True.\n",
 									"disabled": true
 								},
@@ -6757,6 +6768,43 @@
 							"body": "{\n    \"aois\": [\n        {\n            \"pk\": 51451,\n            \"name\": \"OMA_000\",\n            \"notes\": \"\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-01-08T04:25:58.604Z\",\n            \"subscribed\": false,\n            \"exports\": [\n                {\n                    \"pk\": 26486,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"NewName\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:14:42.569133+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"NewNote\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26486\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26486\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26486\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26486\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26486/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"8c926d1f-0fd7-4c70-b25a-26dfb8708774\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"5821aed4-9535-43b4-9d86-aa0499174bbb\"\n                },\n                {\n                    \"pk\": 26484,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2206\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:06:32.253751+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26484\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26484\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26484\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26484\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26484/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"4f5d1870-6150-4e19-8e9d-51c8e1420a26\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"012274c5-0de9-4b45-a9db-f43df1e94276\"\n                },\n                {\n                    \"pk\": 26483,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210303.2205\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-03-03T22:05:46.264269+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/26483\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/26483\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/26483\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/26483\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_26483/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"800deb6c-9652-437f-b31e-38d3fd6d3c4b\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"52a57a5b-caca-4be3-b0e7-0412ed4293a5\"\n                },\n                {\n                    \"pk\": 25000,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210113.2027\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"Source Format\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-13T20:27:10.269998+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/25000\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/25000\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/25000\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/25000\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": true,\n                    \"dim_classification\": true,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": null,\n                    \"entwine_task_id\": null,\n                    \"custom_filters\": null,\n                    \"task_id\": \"da3898a9-f61d-4fc7-8377-4a5a0dd66150\"\n                },\n                {\n                    \"pk\": 24808,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"OMA_000_PC_20210108.1523\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": 32614,\n                    \"started_at\": \"2021-01-08T15:23:07.913857+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24808\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24808\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24808\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24808\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24808/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6aeff33c-67fa-4baf-93b0-02c2a28abdaf\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"2aebe5f0-2499-46cd-bcd1-9b38f09c5794\"\n                },\n                {\n                    \"pk\": 24807,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"Original\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS 1.2\",\n                    \"hsrs\": null,\n                    \"started_at\": \"2021-01-08T15:17:12.311262+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24807\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24807\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24807\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24807\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24807/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"757f17e2-d5f9-4272-952f-d708b92fe57c\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"35bed061-8e7b-4fd8-a3b2-c9fbaf3448ba\"\n                },\n                {\n                    \"pk\": 24806,\n                    \"user\": \"brad.chambers@grovercsllc.com\",\n                    \"name\": \"PSU NAD83 UTM 14N\",\n                    \"export_type\": \"pointcloud\",\n                    \"datatype\": \"LAS1.2 (PSU 1.9.0)\",\n                    \"hsrs\": 26914,\n                    \"started_at\": \"2021-01-08T15:16:52.359479+00:00\",\n                    \"status\": \"SUCCESS\",\n                    \"notes\": \"\",\n                    \"exportfiles\": true,\n                    \"tools\": [],\n                    \"send_email\": false,\n                    \"url\": \"https://grid.nga.mil/testgrid/api/export/download/24806\",\n                    \"license_url\": \"https://grid.nga.mil/testgrid/api/export/license/24806\",\n                    \"auxiliary_url\": \"https://grid.nga.mil/testgrid/api/export/auxiliary/24806\",\n                    \"zip_url\": \"https://grid.nga.mil/testgrid/api/export/zip/24806\",\n                    \"vsrs\": null,\n                    \"rgb\": false,\n                    \"intensity\": false,\n                    \"dim_classification\": false,\n                    \"file_export_options\": \"individual\",\n                    \"generate_dem\": false,\n                    \"be_extract\": false,\n                    \"classification\": \"\",\n                    \"pmf_terrain\": \"\",\n                    \"sri_hres\": null,\n                    \"smrf_terrain\": \"\",\n                    \"decimation_radius\": null,\n                    \"capacity\": null,\n                    \"length\": null,\n                    \"cell_spacing\": null,\n                    \"greyhound_url\": \"https://grid.nga.mil/testgrid/greyhound/resource/18488_51451_24806/info?access_token=<access_token>\",\n                    \"entwine_task_id\": \"6c3eece6-f299-4528-99ac-209b5b81d4c1\",\n                    \"custom_filters\": null,\n                    \"task_id\": \"ae5f3fad-fa99-4b13-a3f3-93d418bc0dad\"\n                }\n            ],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55803,\n            \"name\": \"Testing\",\n            \"notes\": \"Foo\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:06:00.630Z\",\n            \"subscribed\": false,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        },\n        {\n            \"pk\": 55805,\n            \"name\": \"Renamed\",\n            \"notes\": \"Bar\",\n            \"user\": \"brad.chambers@grovercsllc.com\",\n            \"created_at\": \"2021-03-03T21:08:52.539Z\",\n            \"subscribed\": true,\n            \"exports\": [],\n            \"area\": 0.26,\n            \"new_pointcloud_data\": [],\n            \"new_raster_data\": [],\n            \"new_vector_data\": [],\n            \"pointcloud_intersects\": [],\n            \"raster_intersects\": [],\n            \"vector_intersects\": [],\n            \"mesh_intersects\": [],\n            \"geom\": \"POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))\"\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Issue #4295",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://grid.nga.mil/testgrid/api/junk/aois/768",
+							"protocol": "https",
+							"host": [
+								"grid",
+								"nga",
+								"mil"
+							],
+							"path": [
+								"testgrid",
+								"api",
+								"junk",
+								"aois",
+								"768"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -7063,6 +7111,1319 @@
 							"body": "{\n \"geonames\": [\n  {\n   \"name\": \"labore irure incididunt laborum velit\",\n   \"geom\": \"commodo aliquip consectetur\"\n  },\n  {\n   \"name\": \"Duis\",\n   \"geom\": \"reprehenderit ulla\"\n  }\n ]\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Non-SLA",
+			"item": [
+				{
+					"name": "Authorize",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"non_sla_auth_code\", jsonData.code)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://grid.nga.mil/testgrid/api/authorize?response_type=code&client_id={{non_sla_client_id}}&redirect_uri={{non_sla_redirect_uri}}&scope=api",
+							"protocol": "https",
+							"host": [
+								"grid",
+								"nga",
+								"mil"
+							],
+							"path": [
+								"testgrid",
+								"api",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "client_id",
+									"value": "{{non_sla_client_id}}"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{non_sla_redirect_uri}}"
+								},
+								{
+									"key": "scope",
+									"value": "api"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"// pm.environment.set(\"non_sla_access_token\", jsonData.access_token)",
+									"",
+									"pm.expect(jsonData.error).to.be.equal(\"invalid_grant\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{non_sla_client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{non_sla_client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{non_sla_redirect_uri}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "{{non_sla_auth_code}}",
+									"type": "text"
+								},
+								{
+									"key": "sla_identifier",
+									"value": "foo",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://grid.nga.mil/testgrid/api/token",
+							"protocol": "https",
+							"host": [
+								"grid",
+								"nga",
+								"mil"
+							],
+							"path": [
+								"testgrid",
+								"api",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup geoname by geom Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.expect(jsonData.error).to.be.equal(\"Unauthorized request.\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{non_sla_access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/geonames?geom=POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))&sla_identifier=foo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"geonames"
+							],
+							"query": [
+								{
+									"key": "geom",
+									"value": "POLYGON ((-95.9575846435733 41.322005719477, -95.9514755596134 41.3218439307435, -95.9512483554209 41.3264580267785, -95.9573693834915 41.3266291533066, -95.9575846435733 41.322005719477))",
+									"description": "(Required) A WKT or GeoJSON geometry describing the AOI."
+								},
+								{
+									"key": "sla_identifier",
+									"value": "foo"
+								}
+							]
+						},
+						"description": "Get suggested AOI name based on geographic coordinates of the geometry.\n"
+					},
+					"response": [
+						{
+							"name": "Authorization information is missing or invalid.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/geonames?geom=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"geonames"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"error\": \"aliqua\"\n}"
+						},
+						{
+							"name": "Geoname object.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/geonames?geom=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"geonames"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"geonames\": [\n  {\n   \"name\": \"labore irure incididunt laborum velit\",\n   \"geom\": \"commodo aliquip consectetur\"\n  },\n  {\n   \"name\": \"Duis\",\n   \"geom\": \"reprehenderit ulla\"\n  }\n ]\n}"
+						},
+						{
+							"name": "Unexpected error occurred.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: oauth2",
+										"key": "Authorization",
+										"value": "<token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/geonames?geom=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"geonames"
+									],
+									"query": [
+										{
+											"key": "geom",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"error\": \"aliqua\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "OGC",
+			"item": [
+				{
+					"name": "FG3D",
+					"item": [
+						{
+							"name": "WMS Get Capabilities Authenticated",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://grid.nga.mil/testgrid/api/fg3dservices/wcs?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetCapabilities",
+									"protocol": "https",
+									"host": [
+										"grid",
+										"nga",
+										"mil"
+									],
+									"path": [
+										"testgrid",
+										"api",
+										"fg3dservices",
+										"wcs"
+									],
+									"query": [
+										{
+											"key": "SERVICE",
+											"value": "WMS"
+										},
+										{
+											"key": "VERSION",
+											"value": "1.1.1"
+										},
+										{
+											"key": "REQUEST",
+											"value": "GetCapabilities"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "WMS Get Capabilities No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {",
+											"    pm.response.to.have.status(401);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://grid.nga.mil/testgrid/api/fg3dservices/wcs?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetCapabilities",
+									"protocol": "https",
+									"host": [
+										"grid",
+										"nga",
+										"mil"
+									],
+									"path": [
+										"testgrid",
+										"api",
+										"fg3dservices",
+										"wcs"
+									],
+									"query": [
+										{
+											"key": "SERVICE",
+											"value": "WMS"
+										},
+										{
+											"key": "VERSION",
+											"value": "1.1.1"
+										},
+										{
+											"key": "REQUEST",
+											"value": "GetCapabilities"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GRiD",
+					"item": [
+						{
+							"name": "v1.0.0",
+							"item": [
+								{
+									"name": "WCS Get Capabilities v1.0.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&version=1.0.0&request=getcapabilities",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "version",
+													"value": "1.0.0"
+												},
+												{
+													"key": "request",
+													"value": "getcapabilities"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WCS Get Coverage v1.0.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&request=getCoverage&version=1.0.0&coverage=buckeye_eo_orthorectified_layer&format=image/jpeg&crs=urn:ogc:def:crs:EPSG:4326&bbox=69.342922,36.9071678,70.988701,37.5809202&width=1024&height=1024",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "request",
+													"value": "getCoverage"
+												},
+												{
+													"key": "version",
+													"value": "1.0.0"
+												},
+												{
+													"key": "coverage",
+													"value": "buckeye_eo_orthorectified_layer"
+												},
+												{
+													"key": "format",
+													"value": "image/jpeg"
+												},
+												{
+													"key": "crs",
+													"value": "urn:ogc:def:crs:EPSG:4326"
+												},
+												{
+													"key": "bbox",
+													"value": "69.342922,36.9071678,70.988701,37.5809202"
+												},
+												{
+													"key": "width",
+													"value": "1024"
+												},
+												{
+													"key": "height",
+													"value": "1024"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WFS Get Feature v1.0.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wfs&version=1.0.0&request=getfeature&typename=ms:gridws_pointcloud&bbox=62,33,62.1,33.1",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wfs"
+												},
+												{
+													"key": "version",
+													"value": "1.0.0"
+												},
+												{
+													"key": "request",
+													"value": "getfeature"
+												},
+												{
+													"key": "typename",
+													"value": "ms:gridws_pointcloud"
+												},
+												{
+													"key": "bbox",
+													"value": "62,33,62.1,33.1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "v1.1.0",
+							"item": [
+								{
+									"name": "WCS Get Capabilities v1.1.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&version=1.1.0&request=getcapabilities",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "version",
+													"value": "1.1.0"
+												},
+												{
+													"key": "request",
+													"value": "getcapabilities"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WCS Get Coverage v1.1.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&request=getCoverage&version=1.1.0&coverage=buckeye_eo_orthorectified_layer&format=image/jpeg&crs=urn:ogc:def:crs:EPSG:4326&bbox=69.342922,36.9071678,70.988701,37.5809202&width=1024&height=1024",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "request",
+													"value": "getCoverage"
+												},
+												{
+													"key": "version",
+													"value": "1.1.0"
+												},
+												{
+													"key": "coverage",
+													"value": "buckeye_eo_orthorectified_layer"
+												},
+												{
+													"key": "format",
+													"value": "image/jpeg"
+												},
+												{
+													"key": "crs",
+													"value": "urn:ogc:def:crs:EPSG:4326"
+												},
+												{
+													"key": "bbox",
+													"value": "69.342922,36.9071678,70.988701,37.5809202"
+												},
+												{
+													"key": "width",
+													"value": "1024"
+												},
+												{
+													"key": "height",
+													"value": "1024"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WFS Get Feature v1.1.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wfs&version=1.1.0&request=getfeature&typename=ms:gridws_pointcloud&bbox=62,33,62.1,33.1",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wfs"
+												},
+												{
+													"key": "version",
+													"value": "1.1.0"
+												},
+												{
+													"key": "request",
+													"value": "getfeature"
+												},
+												{
+													"key": "typename",
+													"value": "ms:gridws_pointcloud"
+												},
+												{
+													"key": "bbox",
+													"value": "62,33,62.1,33.1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "v1.1.1",
+							"item": [
+								{
+									"name": "WCS Get Capabilities v1.1.1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&version=1.1.1&request=getcapabilities",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "version",
+													"value": "1.1.1"
+												},
+												{
+													"key": "request",
+													"value": "getcapabilities"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WCS Get Coverage v1.1.1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&request=getCoverage&version=1.1.1&coverage=buckeye_eo_orthorectified_layer&format=image/jpeg&crs=urn:ogc:def:crs:EPSG:4326&bbox=69.342922,36.9071678,70.988701,37.5809202&width=1024&height=1024",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "request",
+													"value": "getCoverage"
+												},
+												{
+													"key": "version",
+													"value": "1.1.1"
+												},
+												{
+													"key": "coverage",
+													"value": "buckeye_eo_orthorectified_layer"
+												},
+												{
+													"key": "format",
+													"value": "image/jpeg"
+												},
+												{
+													"key": "crs",
+													"value": "urn:ogc:def:crs:EPSG:4326"
+												},
+												{
+													"key": "bbox",
+													"value": "69.342922,36.9071678,70.988701,37.5809202"
+												},
+												{
+													"key": "width",
+													"value": "1024"
+												},
+												{
+													"key": "height",
+													"value": "1024"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WFS Get Feature v1.1.1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wfs&version=1.1.1&request=getfeature&typename=ms:gridws_pointcloud&bbox=62,33,62.1,33.1",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wfs"
+												},
+												{
+													"key": "version",
+													"value": "1.1.1"
+												},
+												{
+													"key": "request",
+													"value": "getfeature"
+												},
+												{
+													"key": "typename",
+													"value": "ms:gridws_pointcloud"
+												},
+												{
+													"key": "bbox",
+													"value": "62,33,62.1,33.1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "v2.0.0",
+							"item": [
+								{
+									"name": "WCS Get Capabilities v2.0.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&version=2.0.0&request=getcapabilities",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "request",
+													"value": "getcapabilities"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WCS Get Coverage v2.0.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wcs&request=getCoverage&version=2.0.0&coverage=buckeye_eo_orthorectified_layer&format=image/jpeg&crs=urn:ogc:def:crs:EPSG:4326&bbox=69.342922,36.9071678,70.988701,37.5809202&width=1024&height=1024",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wcs"
+												},
+												{
+													"key": "request",
+													"value": "getCoverage"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "coverage",
+													"value": "buckeye_eo_orthorectified_layer"
+												},
+												{
+													"key": "format",
+													"value": "image/jpeg"
+												},
+												{
+													"key": "crs",
+													"value": "urn:ogc:def:crs:EPSG:4326"
+												},
+												{
+													"key": "bbox",
+													"value": "69.342922,36.9071678,70.988701,37.5809202"
+												},
+												{
+													"key": "width",
+													"value": "1024"
+												},
+												{
+													"key": "height",
+													"value": "1024"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "WFS Get Feature v2.0.0",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://grid.nga.mil/grid/api/ogcservices?service=wfs&version=2.0.0&request=getfeature&typename=ms:gridws_pointcloud&bbox=62,33,62.1,33.1",
+											"protocol": "https",
+											"host": [
+												"grid",
+												"nga",
+												"mil"
+											],
+											"path": [
+												"grid",
+												"api",
+												"ogcservices"
+											],
+											"query": [
+												{
+													"key": "service",
+													"value": "wfs"
+												},
+												{
+													"key": "version",
+													"value": "2.0.0"
+												},
+												{
+													"key": "request",
+													"value": "getfeature"
+												},
+												{
+													"key": "typename",
+													"value": "ms:gridws_pointcloud"
+												},
+												{
+													"key": "bbox",
+													"value": "62,33,62.1,33.1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Analytics",
+			"item": [
+				{
+					"name": "User analytics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"task_id\", jsonData.exports[0].task_id)",
+									"pm.environment.set(\"export_pk\", jsonData.exports[0].export_id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"aoi\": 58669,\n    \"products\": \"85071\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user_analytics",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user_analytics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User login analytics",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});",
+									"",
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.environment.set(\"task_id\", jsonData.exports[0].task_id)",
+									"pm.environment.set(\"export_pk\", jsonData.exports[0].export_id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"aoi\": 58669,\n    \"products\": \"85071\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user_login_analytics",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user_login_analytics"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
