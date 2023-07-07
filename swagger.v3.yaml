@@ -6,7 +6,7 @@ swagger: '2.0'
 info:
   title: GRiD API v3
   description: |
-    This is the API v3 specification for the Geospatial Repository and 
+    This is the API v3 specification for the Geospatial Repository and
     Data Management System (aka GRiD). Here you can see API examples and
     interact with all of the API endpoints visually in your browser. If you would
     like to see the API in action, use the
@@ -43,19 +43,21 @@ produces:
   - application/json
 tags:
   - name: AOI
-    description: AOI resources.
+    description: AOI resources
   - name: Export
-    description: Export resources.
+    description: Export resources
   - name: Product
-    description: Product resources.
+    description: Product resources
   - name: Geoname
-    description: Lookup geoname.
+    description: Lookup geoname
   - name: Task
-    description: Task resources.
+    description: Task resources
   - name: Hook
-    description: Hook resources.
+    description: Hook resources
   - name: Holding
-    description: Data Holding resources.
+    description: Data Holding resources
+  - name: STAC
+    description: STAC API access
 
 ################################################################################
 # Paths
@@ -71,7 +73,7 @@ paths:
       parameters:
         - name: geom
           in: query
-          description: A WKT geometry used to filter AOI results.
+          description: A WKT or GeoJSON geometry used to filter AOI results.
           required: false
           type: string
         - name: intersections
@@ -79,15 +81,15 @@ paths:
           description: |
             Determines whether or not to include a list of products that intersect with the AOI geometry. This can
             be time-consuming so setting this to False is recommended if product intersections aren't needed.
-            Default value is True.
+            Default value is False.
           required: false
-          default: true
+          default: false
           type: boolean
         - name: intersection_types
           in: query
           description: |
             A comma-separated list of product types to include in the product intersection check.
-            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh.
             All types are included by default.
           required: false
           type: string
@@ -106,14 +108,14 @@ paths:
           description: |
             Determines whether or not to include a list of export files that
             belong to exports for the AOI.
-            Default value is True.
+            Default value is False.
           required: false
-          default: true
-          type: boolean            
+          default: false
+          type: boolean
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid AOI sorting parameters: area, created_at, name, pk, user.
           default: pk
           required: false
@@ -143,7 +145,7 @@ paths:
           type: string
         - name: geom
           in: formData
-          description: A WKT geometry describing the AOI. Supports POLYGON and MULTIPOLYGON natively, POINT and LINESTRING with a buffer parameter.
+          description: A WKT or GeoJSON geometry describing the AOI. For WKT, supports POLYGON and MULTIPOLYGON natively, POINT and LINESTRING with a buffer parameter.
           required: true
           type: string
         - name: buffer
@@ -176,7 +178,7 @@ paths:
           in: formData
           description: |
             A comma-separated list of product types to include in the product intersection check.
-            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh.
             All types are included by default.
           required: false
           type: string
@@ -225,7 +227,7 @@ paths:
           in: query
           description: |
             A comma-separated list of product types to include in the product intersection check.
-            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh.
             All types are included by default.
           required: false
           type: string
@@ -247,11 +249,11 @@ paths:
             Default value is True.
           required: false
           default: true
-          type: boolean      
+          type: boolean
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid AOI sorting parameters: area, created_at, name, pk, user.
           default: pk
           required: false
@@ -287,7 +289,7 @@ paths:
           type: string
         - name: geom
           in: formData
-          description: A WKT geometry describing the AOI.
+          description: A WKT or GeoJSON geometry describing the AOI.
           required: false
           type: string
         - name: notes
@@ -370,7 +372,7 @@ paths:
         - name: file_export_options
           in: formData
           description: |
-            Pointcloud and Raster export option. Determine file merging strategy. Both export types accept individual and collect. 
+            Pointcloud and Raster export option. Determine file merging strategy. Both export types accept individual and collect.
             Default is individual.
           required: false
           type: string
@@ -389,7 +391,7 @@ paths:
         - name: file_export_format
           in: formData
           description: |
-            Pointcloud export option. Determine the format of the output file(s). Valid values are las12, 
+            Pointcloud export option. Determine the format of the output file(s). Valid values are las12,
             las14, nitf, pdf, bpf3, and source. Defaults to las12.
           required: false
           type: string
@@ -418,7 +420,7 @@ paths:
         - name: cell_spacing
           in: formData
           description: |
-            Pointcloud export option used together with generate_dem. Ignored for 
+            Pointcloud export option used together with generate_dem. Ignored for
             raster types. Defaults to 1.0.
           required: false
           type: number
@@ -431,6 +433,12 @@ paths:
             pmf_terrain option.
           required: false
           type: string
+        - name: be_extract
+          in: formData
+          description: |
+            Pointcloud export option. Whether or not to extract ground returns. Defaults to False.
+          required: false
+          type: boolean
         - name: pmf_terrain
           in: formData
           description: |
@@ -458,9 +466,9 @@ paths:
         - name: capacity
           in: formData
           description: |
-            Pointcloud export option. How many points to fit into each tile. The number of points in each 
-            tile will not exceed this value, and will sometimes be less than 
-            it. Uses PDAL chipper filter. Cannot be used with length 
+            Pointcloud export option. How many points to fit into each tile. The number of points in each
+            tile will not exceed this value, and will sometimes be less than
+            it. Uses PDAL chipper filter. Cannot be used with length
             option. Default is none.
           required: false
           type: integer
@@ -488,7 +496,7 @@ paths:
         - name: vector_format
           in: formData
           description: |
-            Vector export option. Accepts officially supported vector formats. Valid values are ESRI Shapefile, GML, GPKG, KMZ, GeoJSON, and SQLite. 
+            Vector export option. Accepts officially supported vector formats. Valid values are ESRI Shapefile, GML, GPKG, KMZ, GeoJSON, and SQLite.
             Defaults to ESRI Shapefile.
           required: false
           type: string
@@ -506,74 +514,14 @@ paths:
           description: |
             Raster Export Option - Elevation only. Generate Derived Rasters, eg alternative representations of the Elevation data. Accepts a number of different derived outputs
           type: string
-          enum: [Hillshade, Shaded Relief, Shaded Slope, Slope, Aspect]
-        - name: modsim_export_type
+          enum: [hillshade, shaded_relief_terrain, shaded_relief_rgb, shaded_slope, slope, aspect]
+        - name: derived_pc_rasters
           in: formData
-          description: |
-            Modsim export option. Valid values are cdb_to_geoint, tak, and 3d_runtime.
-            Defaults to tak
           required: false
-          type: string
-          enum: [cdb_to_geoint, tak, 3d_runtime]
-        - name: tak_format
-          in: formData
           description: |
-            Modsim export option. Only applies if modsim_export_type is tak.
-            Specifies which type of TAK format will be produced.
-            Valid values are OBJ_ATAK and OBJ_VTAK. Defaults to OBJ_ATAK.
-          required: false
+            Pointcloud Export Option - Elevation only. Generate Pointcloud Derived Rasters, eg alternative representations of the Pointcloud data. Accepts a number of different derived outputs
           type: string
-          enum: [OBJ_ATAK, OBJ_VTAK]
-        - name: runtime_engine
-          in: formData
-          description: |
-            Modsim export option. Only applies if modsim_export_type is 3d_runtime.
-            Specifies which type of 3D runtime format will be produced.
-            Valid values are CDB, VBS3, OBJ_SIMBLOCKS, OBJ_NEARMAP, OBJ_SOFPREP, OBJ_OWT, FBX_UNREAL, CESIUM_FG3D_NO_LOD, CESIUM_VRICON_LOD, and I3S. 
-            Defaults to CDB.
-          required: false
-          type: string
-          enum: [CDB, VBS3, OBJ_SIMBLOCKS, OBJ_NEARMAP, OBJ_SOFPREP, OBJ_OWT, FBX_UNREAL, CESIUM_FG3D_NO_LOD, CESIUM_VRICON_LOD, I3S]
-        - name: geoint_imagery
-          in: formData
-          description: |
-            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
-            Specifies which format to export any CDB imagery content present.
-            Valid values are tif, gpkg, img.
-            If not specified, no imagery will be exported.
-          required: false
-          type: string
-          enum: [tif, gpkg, img]
-        - name: geoint_elevation
-          in: formData
-          description: |
-            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
-            Specifies which format to export any CDB elevation content present.
-            Valid values are tif, gpkg, dted.
-            If not specified, no elevation data will be exported.
-          required: false
-          type: string
-          enum: [tif, gpkg, dted]
-        - name: geoint_vectors
-          in: formData
-          description: |
-            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
-            Specifies which format to export any CDB vector content present.
-            Valid values are shp, gpkg, kml, gdb.
-            If not specified, no vector data will be exported.
-          required: false
-          type: string
-          enum: [shp, gpkg, kml, gdb]
-        - name: geoint_models
-          in: formData
-          description: |
-            Modsim export option. Only applies if modsim_export_type is cdb_to_geoint.
-            Specifies which format to export any CDB model content present.
-            Valid values are flt, dae, kmz, glb, fbx, obj.
-            If not specified, no model data will be exported.
-          required: false
-          type: string
-          enum: [flt, dae, kmz, glb, fbx, obj]
+          enum: [dtm_hillshade, dsm_hillshade, rii, shaded_relief_dtm, shaded_relief_dsm, slope, slope_shade, slope_dtm, slope_shade_dtm, aspect, aspect_dtm, orthophoto]
       responses:
         200:
           description: Started export object.
@@ -596,7 +544,7 @@ paths:
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Export sorting parameters: name, pk, started_at, user.
           default: pk
           required: false
@@ -676,33 +624,25 @@ paths:
           $ref: '#/responses/ErrorResponse'
         403:
           $ref: '#/responses/ForbiddenResponse'
-  /exports/{pk}/index:
-    post:
+  /exports/filters:
+    get:
       tags:
         - Export
-      summary: Generate Entwine index
-      description: Starts an Entwine indexing task for an export.
-      consumes: 
-        - text/plain; charset=utf-8
-      parameters:
-        - name: pk
-          in: path
-          description: The primary key of the export.
-          required: true
-          type: integer
+      summary: Get PDAL filters available for use in exports.
+      description: Get PDAL filters available for use in exports.
       responses:
         200:
-          description: Export objects.
+          description: Filters list.
           schema:
-            $ref: '#/definitions/EntwineStartedResponse'
+            $ref: '#/definitions/FiltersResponse'
         400:
           $ref: '#/responses/ErrorResponse'
-        403:
-          $ref: '#/responses/ForbiddenResponse'
         401:
           $ref: '#/responses/UnauthenticatedResponse'
         404:
           $ref: '#/responses/DoesNotExistResponse'
+        403:
+          $ref: '#/responses/ForbiddenResponse'
   /holdings:
     get:
       tags:
@@ -713,7 +653,7 @@ paths:
       parameters:
         - name: geom
           in: query
-          description: A WKT geometry used to filter Holdings results.
+          description: A WKT or GeoJSON geometry used to filter Holdings results.
           required: false
           type: string
         - name: geoms
@@ -758,12 +698,12 @@ paths:
         - Product
       summary: Get products by geom
       description: |
-        API users will query the `products` endpoint to discover available products that are coincident with the given geometry `geom`. 
+        API users will query the `products` endpoint to discover available products that are coincident with the given geometry `geom`.
         Results can be filtered by sensor or type.
       parameters:
         - name: geom
           in: query
-          description: A WKT geometry used to discover the Product results that intersect the given geometry.
+          description: A WKT or GeoJSON geometry used to discover the Product results that intersect the given geometry.
           required: true
           type: string
         - name: geoms
@@ -802,14 +742,28 @@ paths:
           in: query
           description: |
             A comma-separated list of product types to include in the product intersection check.
-            Valid intersection type parameters: pointcloud, raster, vector, mesh, modsim.
+            Valid intersection type parameters: pointcloud, raster, vector, mesh.
             All types are included by default.
           required: false
           type: string
+        - name: error_model
+          in: query
+          description: |
+            A comma-separated list of error model names to include in the product intersection check, such as GPM.
+            If left blank, products with any error model or no error model will be included.
+          required: false
+          type: string
+        - name: files
+          in: query
+          description: |
+            Whether to include the file list or not. Default value is False
+          required: false
+          default: false
+          type: boolean
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Product sorting parameters: collected_at, name, pk.
           default: pk
           required: false
@@ -845,10 +799,17 @@ paths:
           required: false
           default: true
           type: boolean
+        - name: files
+          in: query
+          description: |
+            Whether to include the file list or not. Default value is False
+          required: false
+          default: false
+          type: boolean
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Product sorting parameters: collected_at, name, pk.
           default: pk
           required: false
@@ -874,7 +835,7 @@ paths:
       parameters:
         - name: geom
           in: query
-          description: A WKT geometry describing the AOI.
+          description: A WKT or GeoJSON geometry describing the AOI.
           required: true
           type: string
       responses:
@@ -900,13 +861,13 @@ paths:
           type: string
         - name: name
           in: query
-          description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf). Accepts a comma-separated list.
+          description: The name of the task (export.tasks.generate_export, api.tasks.deliver_hook). Accepts a comma-separated list.
           required: false
           type: string
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Task sorting parameters: name, state, task_id, time_stamp.
           default: task_id
           required: false
@@ -935,7 +896,7 @@ paths:
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Task sorting parameters: name, state, task_id, time_stamp.
           default: task_id
           required: false
@@ -961,7 +922,7 @@ paths:
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Hook sorting parameters: created_at, event, pk, target.
           default: pk
           required: false
@@ -1027,7 +988,7 @@ paths:
         - name: sort
           in: query
           description: |
-            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order. 
+            Sort the result by a given field.  A "-" can be prepended to the field to indicate descending order.
             Valid Hook sorting parameters: created_at, event, pk, target.
           default: pk
           required: false
@@ -1106,7 +1067,7 @@ paths:
         - Hook
       summary: Test a hook by PK
       description: Tests a hook by sending event-specific test data to the hooks target url.
-      consumes: 
+      consumes:
         - text/plain; charset=utf-8
       parameters:
         - name: pk
@@ -1123,6 +1084,105 @@ paths:
           $ref: '#/responses/UnauthenticatedResponse'
         404:
           $ref: '#/responses/DoesNotExistResponse'
+  /stac/{pk}:
+    post:
+      tags:
+        - STAC
+      summary: Retrieve STAC ItemCollection for this Product.
+      parameters:
+        - in: path
+          name: pk
+          description: ID of Raster or Pointcloud Product
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          $ref: '#/definitions/StacItemCollectionResponse'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  description: Page number for ItemCollection. Page 0 may have items 0-5, page 1, 6-10.
+                  type: integer
+    get:
+      tags:
+        - STAC
+      summary: Retrieve STAC ItemCollection for this Product.
+      parameters:
+        - in: path
+          name: pk
+          description: ID of a Raster or Pointcloud Product
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          $ref: '#/definitions/StacItemCollectionResponse'
+  /stac/{pk}/search/:
+    post:
+      tags:
+        - STAC
+      summary: Retrieve STAC ItemCollection for this Product.
+      parameters:
+        - in: path
+          name: pk
+          description: ID of Product
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: A JSON object of STAC Item Search parameters.
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  description: Maximum number of items to return.
+                  type: integer
+                page:
+                  description: Page number for ItemCollection. Page 0 may have items 0-5, page 1, 6-10.
+                  type: integer
+                  default: 0
+                ids:
+                  description: Array of IDs corresponding to Rasters or Pointclouds in the product.
+                  type: array
+                  items:
+                    type: integer
+                intersects:
+                  $ref: '#/components/schemas/GeoJsonPoly'
+                bbox:
+                  description: Describes if an Aoi subscription exists.
+                  type: array
+                  items:
+                    type: number
+                    format: float
+                  minItems: 4
+                  maxItems: 6
+      responses:
+        '200':
+          $ref: '#definitions/StacItemCollectionResponse'
+    get:
+      tags:
+        - STAC
+      summary: Retrieve STAC ItemCollection for this Product.
+      parameters:
+        - in: path
+          name: id
+          description: ID of Product
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          $ref: '#/definitions/StacItemCollectionResponse'
+
 responses:
   DoesNotExistResponse:
     description: Object with specified ID(s) does not exist.
@@ -1197,11 +1257,26 @@ definitions:
         items:
           $ref: '#/definitions/Pk'
         description: The list of pointcloud product PKs that have been loaded to GRiD since your last inquiry for this AOI.
-      new_raster_data:
+      new_raster_elevation_data:
         type: array
         items:
           $ref: '#/definitions/Pk'
-        description: The list of raster product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+        description: The list of raster elevation product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+      new_raster_imagery_data:
+        type: array
+        items:
+          $ref: '#/definitions/Pk'
+        description: The list of raster imagery product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+      new_raster_thematic_data:
+        type: array
+        items:
+          $ref: '#/definitions/Pk'
+        description: The list of raster thematioc product PKs that have been loaded to GRiD since your last inquiry for this AOI.
+      new_mesh_data:
+        type: array
+        items:
+          $ref: '#/definitions/Pk'
+        description: The list of mesh product PKs that have been loaded to GRiD since your last inquiry for this AOI.
       new_vector_data:
         type: array
         items:
@@ -1288,23 +1363,6 @@ definitions:
         items:
           $ref: '#/definitions/DataHolding'
         description: A dictionary with a "holdings" key containing an array of DataHolding objects.
-  EntwineStarted:
-    type: object
-    properties:
-      export_id:
-        type: string
-        description: The primary key (ID) of the export object.
-      entwine_task_id:
-        type: string
-        description: The task_id of the Entwine indexing task.
-  EntwineStartedResponse:
-    type: object
-    properties:
-      exports:
-        type: array
-        items:
-          $ref: '#/definitions/EntwineStarted'
-        description: A dictionary with an "exports" key containing an array of EntwineStarted objects.
   ErrorResponse:
     type: object
     properties:
@@ -1342,6 +1400,18 @@ definitions:
       url:
         type: string
         description: The download URL of the Export object.
+      license_url:
+        type: string
+        description: The download URL of the license file for an Export object.
+      auxiliary_url:
+        type: string
+        description: The download URL of required auxiliary content for an Export object.
+      zip_url:
+        type: string
+        description: The download URL of the dynamically generated zip for all Exportfiles within an Export object.
+      complete_zip_url:
+        type: string
+        description: The download URL of the dynamically generated zip for all Exportfiles within an Export object, as well as any additional linked files, such as error model data.
       rgb:
         type: boolean
         description: Whether or not RGB dimension is included in exported data.
@@ -1379,23 +1449,21 @@ definitions:
       smrf_terrain:
         type: string
         description: The SMRF terrain option of the export.
+      be_extract:
+        type: boolean
+        description: Whether or not to extract ground returns.
       sri_hres:
         type: number
         format: float
         description: The sri_hres value of the export. Deprecated option.
       exportfiles:
-        oneOf: 
+        oneOf:
           - type: array
             description: A list of Exportfile objects for this Export.
             items:
               $ref: '#/definitions/Exportfile'
           - type: boolean
             description: boolean indicating presence of Exportfile
-      tools:
-        type: array
-        description: A list of Tool objects for this Export.
-        items:
-          $ref: '#/definitions/Tool'
       task_id:
         type: string
         description: The task_id of the Export processing task.
@@ -1416,12 +1484,6 @@ definitions:
       custom_filters:
         type: string
         description: Custom PDAL filters used for pointcloud generation.
-      entwine_task_id:
-        type: string
-        description: The task_id of the Entwine indexing task.
-      greyhound_url:
-        type: string
-        description: The url of an export used to stream the Greyhound resource.
   ExportResponse:
     type: object
     properties:
@@ -1472,6 +1534,17 @@ definitions:
         items:
           $ref: '#/definitions/ExportStarted'
         description: A dictionary with an "exports" key containing an array of ExportStarted objects.
+  Filter:
+    type: string
+    description: PDAL filter used in exports.
+  FiltersResponse:
+    type: object
+    properties:
+      filters:
+        type: array
+        items:
+          $ref: '#/definitions/Filter'
+        description: A list of available PDAL filters.
   Geoname:
     type: object
     properties:
@@ -1553,6 +1626,12 @@ definitions:
       streaming_url:
         type: string
         description: The URL of the object used to stream the data.
+      cesium_viewer:
+        type: string
+        description: The URL of GRiD's web viewer for this mesh product, if product is 3DTiles, else will be null.
+      i3s_viewer:
+        type: string
+        description: The URL of GRiD's web viewer for this mesh product, if product is I3S, else will be null.
       program:
         type: string
         description: The name of the program that the product falls under.
@@ -1666,6 +1745,9 @@ definitions:
       datatype:
         type: string
         description: The datatype (e.g., DSM, DTM).
+      datacategory:
+        type: string
+        description: The category of the raster product (Imagery, Elevation Models, etc).
       name:
         type: string
         description: The name of the Product.
@@ -1739,7 +1821,7 @@ definitions:
         description: Date and time the task was started. ISO 8601 format as UTC.
       name:
         type: string
-        description: The name of the task (export.tasks.generate_export, export.tasks.entwine_export, api.tasks.deliver_hook, tda.tasks.generate_tda, export.tasks.colorize_export_pdf).
+        description: The name of the task (export.tasks.generate_export, api.tasks.deliver_hook).
       task_id:
         type: string
         description: The ID of the task.
@@ -1753,34 +1835,6 @@ definitions:
         items:
           $ref: '#/definitions/Task'
         description: A dictionary with an "tasks" key containing an array of Task objects.
-  Tool:
-    type: object
-    properties:
-      created_at:
-        type: string
-        format: date-time
-        description: The date of AOI creation. ISO 8601 format as UTC.
-      name:
-        type: string
-        description: The name of the Tool.
-      notes:
-        type: string
-        description: User notes about the object.
-      pk:
-        type: string
-        description: The primary key (ID) of the object.
-      status:
-        type: string
-        description: The task status of the tool generation (SUCCESS, RUNNING, QUEUED, CANCELED, and FAILURE).
-      type:
-        type: string
-        description: The tool type (HLZ, LOS, FETE, SLOPE).
-      url:
-        type: string
-        description: The download URL of the Tool object.
-      task_id:
-        type: string
-        description: The task_id of the Tool processing task.
   Url:
     type: string
     description: The download url of the object.
@@ -1839,3 +1893,29 @@ definitions:
         description: A list of all the file paths of the tiles within this product (clipped by geometry if applicable).
         items:
           $ref: '#/definitions/Path'
+  StacItemCollection:
+    description: Spatio Temporal Access Catalog (STAC) Item Collection definition
+    type: object
+    properties:
+      type:
+        type: string
+        enum: ['FeatureCollection']
+        description: FeatureCollection
+      features:
+        type: array
+        items:
+          $ref: "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json"
+      links:
+        type: array
+        items:
+          $ref: "https://schemas.stacspec.org/v1.0.0/item-spec/json-schema/item.json#/definitions/link"
+      numberMatched:
+        type: integer
+      numberReturned:
+        type: integer
+  StacItemCollectionResponse:
+    description: STAC Feature Collection
+    content:
+      application/json:
+        schema:
+          $ref: '#/definitions/StacItemCollection'
